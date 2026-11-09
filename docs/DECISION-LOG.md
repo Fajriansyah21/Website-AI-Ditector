@@ -43,6 +43,7 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 | D-030 | 2026-11-09 | Skema | Menambahkan JSON Schema v1.0 untuk record dokumen dan kalimat | Membuat kontrak data yang dapat divalidasi otomatis; skema masih perlu diuji dengan validator dan data contoh | Draf, belum tervalidasi |
 | D-031 | 2026-11-09 | Database | Menambahkan rancangan logis tabel dokumen, anotasi kalimat, provenance span, versi edit, audit sumber, generator run, prompt, dan event anotasi | Memisahkan data teks, metadata, riwayat, dan informasi identitas; belum memilih engine atau membuat migration | Draf |
 | D-032 | 2026-11-09 | JSON | Menambahkan contoh record sintetis untuk memperjelas format ekspor | Membantu menguji kontrak data tanpa memakai teks partisipan; perlu diuji dengan validator JSON Schema | Draf |
+| D-033 | 2026-11-09 | Development | Google Stitch digunakan untuk desain UI/UX dan Google Antigravity untuk implementasi, debugging, dan verifikasi website | Memisahkan sumber desain dari lingkungan implementasi; mockup tidak dianggap fitur selesai sebelum diuji | Toolchain dipilih; workflow perlu diuji pada fitur pertama |
 
 ## Keputusan yang belum final
 
@@ -62,6 +63,8 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 14. Detail retensi dan keamanan data.
 15. Format dan ketentuan iklan yang diizinkan.
 16. Detail metadata DOCX yang akan dibersihkan.
+17. Frontend framework, backend stack, database engine, dan deployment target.
+18. Acceptance criteria serta test matrix UI setelah screen pertama dirancang.
 
 ## Urutan kerja
 
@@ -80,6 +83,7 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 - [Annotation Guidelines v1.0](ANNOTATION-GUIDELINES-v1.md)
 - [Prompt Bank v1.0](PROMPT-BANK-v1.md)
 - [Logical Database Schema v1.0](DATABASE-SCHEMA-v1.md)
+- [Development Workflow: Stitch + Antigravity](DEVELOPMENT-WORKFLOW.md)
 - [Human Writing Consent Form](../templates/human-writing-consent-form.md)
 - [Editing History Template](../templates/editing-history.template.json)
 - [Dataset JSON Schema](../schemas/dataset-records-v1.schema.json)
@@ -87,4 +91,4 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 
 ## Catatan status
 
-Blueprint, prompt bank, consent form, editing history, database schema, dan JSON Schema adalah artefak rancangan. Pembuatan file tidak berarti sumber publik telah disetujui, partisipan telah direkrut, data telah dikumpulkan, skema telah lolos validator, atau model telah dilatih.
+Blueprint, prompt bank, consent form, editing history, database schema, JSON Schema, dan development workflow adalah artefak rancangan. Pembuatan file tidak berarti sumber publik telah disetujui, partisipan telah direkrut, data telah dikumpulkan, skema telah lolos validator, fitur website telah diimplementasikan, atau model telah dilatih.
