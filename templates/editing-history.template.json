@@ -1,0 +1,38 @@
+{
+  "template_version": "1.0",
+  "document_id": "doc_<stable-id>",
+  "group_id": "grp_<stable-id>",
+  "pair_id": null,
+  "versions": [
+    {
+      "version_id": "ver_001",
+      "parent_version_id": null,
+      "created_at_utc": "YYYY-MM-DDThh:mm:ssZ",
+      "actor_type": "AI",
+      "action": "GENERATE",
+      "description": "Raw generation; no edits applied",
+      "reason": null,
+      "tool_name": "provider name",
+      "provider": "provider name",
+      "model_id_exact": "exact model identifier",
+      "model_version_or_snapshot": null,
+      "prompt_id": "PB-EDU-01-v1",
+      "prompt_sha256": "sha256-of-exact-rendered-prompt",
+      "generation_parameters": {},
+      "response_id": null,
+      "text_sha256": "sha256-of-exact-version-text",
+      "diff_reference": null,
+      "provenance_evidence": [
+        {
+          "evidence_type": "generation_log",
+          "reference": "restricted reference or artifact id",
+          "review_status": "PENDING_REVIEW"
+        }
+      ],
+      "reviewer_note": null
+    }
+  ],
+  "consent_or_license_review_id": "review_<stable-id>",
+  "history_completeness": "COMPLETE",
+  "history_notes": null
+}
