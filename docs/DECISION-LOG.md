@@ -41,6 +41,8 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 | D-028 | 2026-11-09 | Generator | Provider OpenAI, Google Gemini, dan DeepSeek menjadi shortlist awal; model ID persis belum dibekukan | Mengurangi ketergantungan pada satu provider, sambil mengakui model dan alias dapat berubah | Kandidat, belum final |
 | D-029 | 2026-11-09 | Pilot | Pilot harus memvalidasi provenance, consent, anotasi, deduplikasi, offset, dan split sebelum skala 5.000–10.000 | Jumlah data tidak dapat menggantikan kualitas label dan integritas evaluasi | Ditetapkan sebagai gate |
 | D-030 | 2026-11-09 | Skema | Menambahkan JSON Schema v1.0 untuk record dokumen dan kalimat | Membuat kontrak data yang dapat divalidasi otomatis; skema masih perlu diuji dengan validator dan data contoh | Draf, belum tervalidasi |
+| D-031 | 2026-11-09 | Database | Menambahkan rancangan logis tabel dokumen, anotasi kalimat, provenance span, versi edit, audit sumber, generator run, prompt, dan event anotasi | Memisahkan data teks, metadata, riwayat, dan informasi identitas; belum memilih engine atau membuat migration | Draf |
+| D-032 | 2026-11-09 | JSON | Menambahkan contoh record sintetis untuk memperjelas format ekspor | Membantu menguji kontrak data tanpa memakai teks partisipan; perlu diuji dengan validator JSON Schema | Draf |
 
 ## Keputusan yang belum final
 
@@ -77,10 +79,12 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 - [Data Collection Blueprint v1.0](DATA-COLLECTION-BLUEPRINT-v1.md)
 - [Annotation Guidelines v1.0](ANNOTATION-GUIDELINES-v1.md)
 - [Prompt Bank v1.0](PROMPT-BANK-v1.md)
+- [Logical Database Schema v1.0](DATABASE-SCHEMA-v1.md)
 - [Human Writing Consent Form](../templates/human-writing-consent-form.md)
 - [Editing History Template](../templates/editing-history.template.json)
 - [Dataset JSON Schema](../schemas/dataset-records-v1.schema.json)
+- [Synthetic Example JSON Record](../schemas/example-document-record-v1.json)
 
 ## Catatan status
 
-Blueprint, prompt bank, consent form, editing history, dan JSON Schema adalah artefak rancangan. Pembuatan file tidak berarti sumber publik telah disetujui, partisipan telah direkrut, data telah dikumpulkan, skema telah lolos validator, atau model telah dilatih.
+Blueprint, prompt bank, consent form, editing history, database schema, dan JSON Schema adalah artefak rancangan. Pembuatan file tidak berarti sumber publik telah disetujui, partisipan telah direkrut, data telah dikumpulkan, skema telah lolos validator, atau model telah dilatih.
