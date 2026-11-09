@@ -84,6 +84,9 @@ Jalur riset menentukan apakah data dan model memiliki dasar yang layak untuk dig
    - Laporkan in-distribution dan challenge/held-out evaluation secara terpisah.
    - Pilih model berdasarkan trade-off kualitas, generalisasi, dan biaya runtime, bukan akurasi saja.
 
+
+
+Rancangan layar dan alur interaksi awal tersedia di [Wireframes & Flows v1](WIREFRAMES-AND-FLOWS-v1.md). Dokumen tersebut bersifat konseptual; nilai placeholder dan monetisasi tetap tunduk pada spesifikasi serta Decision Log. Penyusunannya tidak mengubah prioritas aktif, yaitu uji prosedur sintetis dataset.
 ## 4. Product and system workflow
 
 Jalur produk dapat berjalan paralel dengan riset pada bagian yang tidak bergantung pada hasil final model.
