@@ -92,3 +92,5 @@ Dokumen ini mencatat keputusan yang telah dibuat, statusnya, dan hal yang masih 
 ## Catatan status
 
 Blueprint, prompt bank, consent form, editing history, database schema, JSON Schema, dan development workflow adalah artefak rancangan. Pembuatan file tidak berarti sumber publik telah disetujui, partisipan telah direkrut, data telah dikumpulkan, skema telah lolos validator, fitur website telah diimplementasikan, atau model telah dilatih.
+
+| D-034 | 2026-11-09 | Project workflow | Menambahkan workflow induk dari fondasi proyek hingga maintenance, dengan jalur riset, produk, dan release yang saling terhubung serta exit criteria per gate | Menjaga urutan riset tetap jelas, memungkinkan pekerjaan paralel yang aman, dan membedakan rancangan dari hasil yang benar-benar diverifikasi | Workflow terdokumentasi; prioritas aktif tetap uji prosedur sintetis dataset |
