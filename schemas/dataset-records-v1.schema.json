@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Fajriansyah21/Website-AI-Ditector/blob/main/schemas/dataset-records-v1.schema.json",
+  "title": "TextLab Dataset Record v1",
+  "description": "Document-level record with sentence annotations. Offsets are zero-based, half-open Unicode code-point indices into the exact raw_text string.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "document_id",
+    "group_id",
+    "raw_text",
+    "language",
+    "genre",
+    "document_label",
+    "source",
+    "provenance",
+    "review_status",
+    "sentences"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "document_id": { "type": "string", "minLength": 1 },
+    "group_id": { "type": "string", "minLength": 1 },
+    "pair_id": { "type": ["string", "null"] },
+    "raw_text": { "type": "string", "minLength": 1 },
+    "normalized_match_text": { "type": ["string", "null"], "description": "Derived representation for duplicate matching only; never replaces raw_text." },
+    "raw_text_sha256": { "type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$" },
+    "language": { "const": "id" },
+    "genre": {
+      "enum": ["academic_education", "informative_article", "opinion_argument", "narrative_personal_or_fiction", "instructional_technical", "casual_conversation", "other"]
+    },
+    "document_label": { "enum": ["HUMAN", "AI", "MIXED", "UNCERTAIN"] },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type", "source_reference", "usage_review_status"],
+      "properties": {
+        "source_type": { "enum": ["controlled_human", "controlled_ai", "controlled_mixed", "public_dataset", "other"] },
+        "source_reference": { "type": ["string", "null"] },
+        "dataset_name": { "type": ["string", "null"] },
+        "dataset_version": { "type": ["string", "null"] },
+        "downloaded_at_utc": { "type": ["string", "null"], "format": "date-time" },
+        "source_url": { "type": ["string", "null"], "format": "uri" },
+        "license_name": { "type": ["string", "null"] },
+        "license_url": { "type": ["string", "null"], "format": "uri" },
+        "usage_review_status": { "enum": ["APPROVED", "CONDITIONAL", "PENDING_REVIEW", "REJECTED"] },
+        "usage_review_id": { "type": ["string", "null"] }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["history_completeness", "evidence_refs"],
+      "properties": {
+        "writer_id_pseudo": { "type": ["string", "null"] },
+        "generator_family": { "type": ["string", "null"] },
+        "generator_provider": { "type": ["string", "null"] },
+        "model_id_exact": { "type": ["string", "null"] },
+        "model_version_or_snapshot": { "type": ["string", "null"] },
+        "prompt_id": { "type": ["string", "null"] },
+        "prompt_sha256": { "type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$" },
+        "generated_at_utc": { "type": ["string", "null"], "format": "date-time" },
+        "consent_id_pseudo": { "type": ["string", "null"] },
+        "history_completeness": { "enum": ["COMPLETE", "PARTIAL", "UNKNOWN"] },
+        "evidence_refs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "editing_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version_id", "parent_version_id", "actor_type", "action", "text_sha256"],
+        "properties": {
+          "version_id": { "type": "string" },
+          "parent_version_id": { "type": ["string", "null"] },
+          "created_at_utc": { "type": ["string", "null"], "format": "date-time" },
+          "actor_type": { "enum": ["HUMAN", "AI", "UNKNOWN"] },
+          "action": { "enum": ["GENERATE", "EDIT", "COPYEDIT", "REWRITE", "ACCEPT", "REJECT"] },
+          "description": { "type": ["string", "null"] },
+          "reason": { "type": ["string", "null"] },
+          "tool_name": { "type": ["string", "null"] },
+          "provider": { "type": ["string", "null"] },
+          "model_id_exact": { "type": ["string", "null"] },
+          "model_version_or_snapshot": { "type": ["string", "null"] },
+          "prompt_id": { "type": ["string", "null"] },
+          "prompt_sha256": { "type": ["string", "null"], "pattern": "^[a-fA-F0-9]{64}$" },
+          "generation_parameters": { "type": "object" },
+          "response_id": { "type": ["string", "null"] },
+          "text_sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+          "diff_reference": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "topic_id": { "type": ["string", "null"] },
+    "prompt_id": { "type": ["string", "null"] },
+    "split": { "enum": ["train", "validation", "test_in_distribution", "test_challenge", "unassigned"] },
+    "review_status": { "enum": ["APPROVED", "PENDING_REVIEW", "REJECTED", "NEEDS_ADJUDICATION"] },
+    "quality_flags": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "sentences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["sentence_id", "sentence_index", "start_char", "end_char", "text", "label", "annotation_status"],
+        "properties": {
+          "sentence_id": { "type": "string" },
+          "sentence_index": { "type": "integer", "minimum": 0 },
+          "start_char": { "type": "integer", "minimum": 0 },
+          "end_char": { "type": "integer", "minimum": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "label": { "enum": ["HUMAN", "AI", "MIXED", "UNCERTAIN"] },
+          "annotation_status": { "enum": ["UNANNOTATED", "ANNOTATED", "DOUBLE_ANNOTATED", "ADJUDICATED"] },
+          "annotator_count": { "type": "integer", "minimum": 0 },
+          "confidence": { "enum": ["HIGH", "MEDIUM", "LOW", "NOT_ASSESSED"] },
+          "evidence_refs": { "type": "array", "items": { "type": "string" } },
+          "rationale": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}
