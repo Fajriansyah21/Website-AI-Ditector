@@ -23,6 +23,7 @@ TextLab dirancang sebagai website dengan tiga kemampuan utama:
 - [Skema database logis v1.0](docs/DATABASE-SCHEMA-v1.md)
 - [Rancangan produk dan arsitektur sistem](docs/PRODUCT-AND-SYSTEM-DESIGN.md)
 - [Alur kerja pengembangan: Stitch + Antigravity](docs/DEVELOPMENT-WORKFLOW.md)
+- [Workflow keseluruhan proyek TextLab](docs/PROJECT-WORKFLOW.md)
 - [Log keputusan dan hal yang belum diputuskan](docs/DECISION-LOG.md)
 - [Skema JSON dataset v1.0](schemas/dataset-records-v1.schema.json)
 - [Contoh record JSON sintetis](schemas/example-document-record-v1.json)
