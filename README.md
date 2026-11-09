@@ -20,9 +20,11 @@ TextLab dirancang sebagai website dengan tiga kemampuan utama:
 - [Data Collection Blueprint v1.0](docs/DATA-COLLECTION-BLUEPRINT-v1.md)
 - [Pedoman anotasi v1.0](docs/ANNOTATION-GUIDELINES-v1.md)
 - [Bank topik dan prompt v1.0](docs/PROMPT-BANK-v1.md)
+- [Skema database logis v1.0](docs/DATABASE-SCHEMA-v1.md)
 - [Rancangan produk dan arsitektur sistem](docs/PRODUCT-AND-SYSTEM-DESIGN.md)
 - [Log keputusan dan hal yang belum diputuskan](docs/DECISION-LOG.md)
 - [Skema JSON dataset v1.0](schemas/dataset-records-v1.schema.json)
+- [Contoh record JSON sintetis](schemas/example-document-record-v1.json)
 - [Draf formulir persetujuan penulis manusia](templates/human-writing-consent-form.md)
 - [Template editing history](templates/editing-history.template.json)
 
@@ -49,7 +51,7 @@ TextLab dirancang sebagai website dengan tiga kemampuan utama:
 | Kandidat dataset publik | Skrining awal; belum otomatis disetujui |
 | Generator AI | Provider shortlist; model ID final belum dibekukan |
 | Formulir persetujuan dan editing history | Draf |
-| Skema JSON dataset | v1.0 draf, perlu diuji dengan validator dan data contoh |
+| Skema database dan JSON | v1.0 draf; perlu pengujian validator dan contoh data |
 | Pilot dataset 200–500 dokumen | Belum dimulai |
 | Konfigurasi training final | Belum ditentukan |
 | Implementasi aplikasi | Belum dimulai |
