@@ -369,3 +369,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu mempertahankan versi profil terakhir yang berhasil dibentuk, memisahkan versi tersebut dari kumpulan sampel yang sedang dievaluasi, dan menonaktifkan pemilihan hanya setelah hasil evaluasi yang berhasil menyatakan sampel tidak memadai.
 - **Belum diputuskan:** strategi penyimpanan/versi profil, jumlah/batas percobaan ulang, jeda retry, dan notifikasi kegagalan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas penggunaan profil gaya selama evaluasi ulang pada 2026-11-12.
+
+
+## DEC-028: Aktivasi versi profil gaya baru setelah pembangunan berhasil
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika evaluasi ulang berhasil dan menyatakan kumpulan sampel memadai, sistem membangun versi profil gaya baru secara terpisah dari versi aktif. Versi profil baru hanya diaktifkan setelah proses pembangunan berhasil. Selama pembangunan berlangsung, versi aktif sebelumnya tetap digunakan. Jika pembangunan versi baru gagal, versi aktif sebelumnya tetap digunakan dan sistem mencatat kegagalan pembaruan.
+- **Alasan:** Pengguna tidak boleh kehilangan profil yang masih berfungsi hanya karena proses pembentukan ulang mengalami gangguan. Pemisahan proses pembangunan dan aktivasi mencegah profil setengah jadi atau gagal menggantikan versi yang sedang digunakan.
+- **Alternatif yang dipertimbangkan:** Mengganti versi aktif sebelum pembangunan selesai; menonaktifkan profil selama pembangunan versi baru.
+- **Dampak:** Sistem perlu memisahkan artefak versi profil yang sedang dibangun dari versi aktif, memvalidasi keberhasilan pembangunan sebelum aktivasi, dan melakukan pergantian versi secara atomik. Kegagalan pembangunan harus dibedakan dari hasil evaluasi sampel yang tidak memadai.
+- **Klarifikasi hubungan dengan DEC-027:** Jika evaluasi berhasil menyatakan sampel tidak memadai, profil tetap tidak dapat dipilih sesuai DEC-025 dan DEC-027. Jika evaluasi menyatakan sampel memadai tetapi pembangunan versi baru gagal, versi aktif sebelumnya tetap dapat digunakan.
+- **Belum diputuskan:** format artefak versi, mekanisme teknis aktivasi atomik, retensi versi lama, dan kebijakan pembersihan versi yang gagal dibangun.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
