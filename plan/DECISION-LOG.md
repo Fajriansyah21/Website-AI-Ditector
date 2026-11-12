@@ -543,3 +543,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu memisahkan metadata riwayat evaluasi dari artefak hasil analisis. Artefak hasil antara yang tidak berlaku tidak boleh menjadi input proses berikutnya.
 - **Belum diputuskan:** Masa retensi metadata, detail metadata wajib, akses pengguna terhadap riwayat percobaan, serta kebijakan penghapusan dan audit.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-042: Retensi dan akses metadata evaluasi yang dihentikan atau usang
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Metadata evaluasi yang dihentikan atau menjadi usang hanya disimpan untuk kebutuhan audit internal dan tidak ditampilkan sebagai riwayat kepada pengguna. Metadata dihapus otomatis setelah 30 hari, kecuali masih diperlukan untuk investigasi insiden atau kewajiban keamanan. Ketentuan ini tidak mengizinkan penyimpanan hasil analisis antara yang sudah tidak berlaku.
+- **Alasan:** Riwayat teknis yang tidak membantu tindakan pengguna tidak perlu memenuhi halaman pengelolaan profil. Retensi terbatas mendukung audit secukupnya sekaligus membatasi penyimpanan data.
+- **Alternatif yang dipertimbangkan:** Menampilkan riwayat evaluasi usang kepada pengguna; menyimpan metadata tanpa batas waktu; menghapus metadata segera setelah evaluasi berhenti.
+- **Dampak:** Sistem perlu membatasi akses metadata untuk kebutuhan internal, menerapkan penghapusan otomatis 30 hari, dan menyediakan pengecualian retensi untuk investigasi insiden atau kewajiban keamanan yang sah.
+- **Belum diputuskan:** Otorisasi internal yang dapat mengakses metadata, mekanisme legal/security hold, proses pelepasan hold, serta pencatatan akses audit.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
