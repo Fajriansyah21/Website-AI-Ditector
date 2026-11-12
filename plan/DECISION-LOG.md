@@ -447,3 +447,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Pembatasan ini berlaku per profil, bukan per akun. Permintaan pemulihan yang telah selesai atau gagal tidak lagi dianggap aktif. Aturan ini tidak menetapkan bahwa permintaan pembaruan profil juga dibatasi dengan mekanisme yang sama.
 - **Belum diputuskan:** detail status permintaan, kebijakan retry teknis, dan bagaimana permintaan pembaruan berinteraksi dengan pemulihan yang sedang dieksekusi.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-034: Pemulihan profil mendahului pembaruan profil yang tertahan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika permintaan pemulihan versi profil mulai dieksekusi, proses pembaruan atau pembentukan ulang profil ditahan sampai pemulihan selesai. Jika pemulihan berhasil, pembaruan yang tertahan wajib menggunakan kumpulan sampel terbaru dan menjalani evaluasi ulang. Hasil evaluasi lama tidak boleh digunakan untuk membangun atau mengaktifkan versi baru setelah pemulihan.
+- **Alasan:** Hasil evaluasi yang dibuat sebelum atau selama perubahan versi dapat menjadi tidak relevan setelah pemulihan. Menggunakan kumpulan sampel terbaru dan evaluasi baru mencegah versi profil yang dibangun dari kondisi usang menimpa hasil pemulihan.
+- **Alternatif yang dipertimbangkan:** Membiarkan pembaruan berjalan bersamaan dengan pemulihan; melanjutkan pembaruan menggunakan hasil evaluasi yang sudah tersedia.
+- **Dampak:** Sistem perlu menahan proses pembaruan selama pemulihan berlangsung, lalu mengevaluasi ulang kumpulan sampel terbaru jika pemulihan berhasil sebelum membangun atau mengaktifkan versi baru.
+- **Belum diputuskan:** Penanganan pembaruan yang tertahan apabila pemulihan gagal, serta aturan antrean dan notifikasi untuk proses yang ditahan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
