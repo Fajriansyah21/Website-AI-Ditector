@@ -651,3 +651,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu menghitung maksimal tiga retry otomatis dengan interval lima menit, menetapkan status `Delivery Failed` setelah kegagalan final, menyediakan detail kegagalan bagi Super Admin, dan memastikan pengiriman ulang manual tidak mengubah status izin.
 - **Belum diputuskan:** Apakah tiga percobaan dihitung sebagai percobaan ulang setelah pengiriman awal atau total percobaan termasuk pengiriman awal, serta apakah retry berjalan per kanal atau per notifikasi gabungan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-051: Jumlah percobaan dan retry independen per kanal notifikasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setiap kanal notifikasi (in-app dan email) menjalankan satu percobaan pengiriman awal dan maksimal tiga percobaan ulang otomatis jika kanal tersebut gagal, sehingga maksimal empat percobaan total per kanal. Jeda antarpercobaan ulang adalah lima menit pada kanal yang sama. Retry berjalan secara independen per kanal: kanal yang berhasil tidak dikirim ulang, sedangkan hanya kanal yang gagal yang melanjutkan retry. Jika seluruh percobaan pada suatu kanal gagal, status pengiriman kanal tersebut menjadi `Delivery Failed`. Pengiriman ulang manual oleh Super Admin tetap hanya mengirim notifikasi dan tidak mengubah status akses.
+- **Alasan:** Menghitung retry setelah percobaan awal menghilangkan ambiguitas jumlah percobaan. Pemisahan retry per kanal mencegah pengiriman duplikat melalui kanal yang sudah berhasil dan membuat kegagalan dapat ditangani secara terpisah.
+- **Alternatif yang dipertimbangkan:** Tiga percobaan total termasuk pengiriman awal; retry gabungan yang mengirim ulang kedua kanal meskipun salah satunya sudah berhasil.
+- **Dampak:** Sistem perlu melacak status, jumlah percobaan, dan jadwal retry secara terpisah untuk setiap kanal. Status keberhasilan satu kanal tidak boleh memicu pengiriman ulang pada kanal tersebut hanya karena kanal lain gagal. Proses retry tetap terpisah dari kedaluwarsa atau pencabutan akses.
+- **Belum diputuskan:** Detail teknis backoff selain interval tetap lima menit, klasifikasi error sementara/permanen, dan perilaku manual resend jika hanya satu kanal yang gagal.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
