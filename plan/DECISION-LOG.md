@@ -555,3 +555,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu membatasi akses metadata untuk kebutuhan internal, menerapkan penghapusan otomatis 30 hari, dan menyediakan pengecualian retensi untuk investigasi insiden atau kewajiban keamanan yang sah.
 - **Belum diputuskan:** Otorisasi internal yang dapat mengakses metadata, mekanisme legal/security hold, proses pelepasan hold, serta pencatatan akses audit.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-043: RBAC dan audit akses metadata evaluasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Akses metadata audit evaluasi dibatasi berdasarkan peran. Super Admin dapat mengakses metadata sesuai kebutuhan audit. Admin hanya dapat mengaksesnya secara terbatas untuk kebutuhan operasional atau investigasi yang ditugaskan. Moderator tidak memiliki akses. Setiap akses wajib mencatat identitas petugas, alasan, waktu, dan tindakan. Izin mengakses metadata audit harus terpisah dari izin mengakses teks asli pengguna.
+- **Alasan:** Metadata audit tetap merupakan informasi internal yang perlu dilindungi. Pemisahan izin mencegah akses metadata otomatis memberikan hak untuk membaca konten pengguna.
+- **Alternatif yang dipertimbangkan:** Memberikan akses kepada semua peran admin; menggunakan satu izin gabungan untuk metadata dan teks pengguna.
+- **Dampak:** Sistem memerlukan kontrol akses berbasis peran dan izin terpisah, pencatatan setiap akses, serta pembatasan akses Admin berdasarkan penugasan operasional atau investigasi.
+- **Belum diputuskan:** Matriks izin rinci, mekanisme penugasan dan persetujuan investigasi, cakupan metadata yang dapat dilihat tiap peran, serta retensi log akses.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
