@@ -15,6 +15,8 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 
 ## 2. Kebutuhan produk yang telah disepakati
 
+- AI Humanizer hanya dapat digunakan oleh pengguna yang sudah login/terdaftar. Guest hanya memiliki akses ke AI Text Detector.
+
 - Target utama pengguna adalah mahasiswa dan pelajar; cakupan tulisan akademik dan umum.
 - Humanizer memiliki prioritas setara dengan Detector dan dapat digunakan mandiri.
 - Teks dari Detector hanya dikirim ke Humanizer setelah tindakan pengguna.
@@ -60,6 +62,8 @@ TXT, DOCX, dan PDF diterima sebagai sumber teks maupun sampel gaya. Sistem menge
 Dokumen sumber tidak boleh ditimpa. Hasil ekspor dapat berupa TXT, DOCX, atau PDF, tetapi tidak dijanjikan identik dengan tata letak dokumen sumber.
 
 ## 6. Alur pengguna konseptual
+
+Prasyarat: pengguna harus login sebelum dapat memulai Humanizer atau mengelola profil gaya. Jika Guest mencoba membuka alur Humanizer, sistem meminta login/registrasi sebelum teks diproses.
 
 1. Pengguna memasukkan teks atau mengunggah dokumen.
 2. Sistem mengekstrak dan menampilkan/menjelaskan masalah ekstraksi jika ada.
