@@ -975,3 +975,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Memperlakukan tombol X sebagai persetujuan navigasi; tidak menyediakan tombol X.
 - **Dampak:** Tombol X tidak boleh meneruskan navigasi atau menghapus hasil yang belum disimpan. Perilakunya harus konsisten dengan tombol **Tetap di halaman** dan DEC-075.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-078: Tombol Escape membatalkan dialog konfirmasi navigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika dialog konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan sedang terbuka, menekan tombol **Escape** menutup dialog dan membatalkan navigasi. Perilakunya sama dengan tombol **X** dan pilihan **Tetap di halaman**. Hasil serta seluruh kondisi halaman tetap dipertahankan.
+- **Alasan:** Mendukung pola interaksi keyboard yang umum dan aksesibilitas tanpa menjadikan Escape sebagai persetujuan atas tindakan yang berisiko menghilangkan hasil.
+- **Alternatif yang dipertimbangkan:** Menonaktifkan Escape sehingga pengguna harus memilih tombol pada dialog.
+- **Dampak:** Dialog perlu menangani input Escape secara konsisten. Escape tidak boleh meneruskan navigasi atau menghapus hasil yang belum disimpan.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
