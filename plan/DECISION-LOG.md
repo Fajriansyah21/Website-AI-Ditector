@@ -421,3 +421,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Batas 5 berlaku untuk versi historis yang belum kedaluwarsa per profil. Versi aktif tidak dihitung sebagai versi historis. Versi yang telah melewati masa retensi dapat dibersihkan dan setelah slot benar-benar tersedia, pergantian yang tertunda dapat dilanjutkan.
 - **Belum diputuskan:** apakah pengguna dapat membatalkan permintaan pergantian yang tertunda, bagaimana notifikasi dan retry dilakukan, serta prioritas jika pembaruan dan pemulihan tertunda bersamaan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-032: Prioritas dan pembatalan permintaan pergantian versi tertunda
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika permintaan pemulihan versi historis dan pembaruan profil sama-sama tertunda karena kapasitas maksimal lima versi historis belum tersedia, permintaan pemulihan mendapat prioritas lebih tinggi. Permintaan pembaruan profil menunggu sampai permintaan pemulihan berprioritas lebih tinggi ditangani dan kapasitas tersedia. Pengguna dapat membatalkan permintaan pergantian versi selama permintaan tersebut masih berstatus tertunda dan belum mulai dieksekusi.
+- **Alasan:** Pemulihan merupakan tindakan eksplisit pengguna untuk mengembalikan profil ke versi yang diinginkan, sehingga perlu didahulukan daripada pembaruan otomatis/lanjutan. Hak pembatalan mencegah sistem menjalankan perubahan yang sudah tidak diinginkan pengguna.
+- **Alternatif yang dipertimbangkan:** Mendahulukan pembaruan; menggunakan urutan kedatangan tanpa prioritas; tidak menyediakan pembatalan permintaan tertunda.
+- **Dampak:** Sistem perlu membedakan jenis permintaan pergantian versi, status tertunda dan mulai dieksekusi, menerapkan prioritas pemulihan atas pembaruan, serta menyediakan tindakan pembatalan sebelum eksekusi dimulai.
+- **Klarifikasi:** Prioritas ini berlaku ketika kedua jenis permintaan tertunda karena batas kapasitas historis. Pembatalan hanya dijamin selama permintaan belum mulai dieksekusi; perilaku pembatalan setelah eksekusi dimulai tidak ditetapkan oleh keputusan ini.
+- **Belum diputuskan:** apakah beberapa permintaan pemulihan diurutkan berdasarkan waktu kedatangan atau aturan lain, apakah satu profil boleh memiliki lebih dari satu permintaan tertunda untuk jenis yang sama, dan detail notifikasi/status antrean.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
