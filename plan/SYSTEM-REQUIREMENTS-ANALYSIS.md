@@ -150,7 +150,7 @@ Gaya bawaan seperti akademik, formal, profesional, santai, informatif, dan kreat
 |---|---|---|
 | FR-ACC-01 | Guest dapat menggunakan fitur dengan batasan. | Disepakati |
 | FR-ACC-02 | Guest hanya dapat menggunakan AI Text Detector; AI Humanizer mensyaratkan pengguna login/terdaftar. | Disepakati |
-| FR-ACC-03 | Pengguna terdaftar memperoleh akses/kuota lebih besar daripada Guest untuk fitur yang tersedia bagi keduanya. | Disepakati; besaran belum ditentukan |
+| FR-ACC-03 | Perbedaan kuota Guest dan pengguna terdaftar mengacu pada jumlah kredit/reward yang tersedia, bukan batas maksimal karakter input. | Disepakati; besaran kredit/reward belum ditentukan, batas karakter per status pengguna belum diputuskan |
 | FR-ACC-04 | Registrasi dan login mendukung email/password serta Google Sign-In. | Disepakati |
 | FR-ACC-05 | Mendukung verifikasi email dan reset password. | Disepakati |
 | FR-ACC-06 | Menangani akun email/password dan Google dengan alamat sama secara aman. | Disepakati sebagai kebutuhan |
