@@ -295,9 +295,21 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 
 - **Tanggal:** 2026-11-12
 - **Status:** Accepted
-- **Keputusan:** Jika sampel tulisan untuk profil gaya personal belum cukup beragam atau belum konsisten, sistem mempertahankan sampel yang telah diberikan dan meminta pengguna menambahkan tulisan. Sampel tambahan digabungkan dengan sampel sebelumnya untuk penilaian ulang; pengguna tidak perlu mengirim ulang seluruh sampel.
+- **Keputusan:** Setiap sampel tulisan untuk profil gaya personal disimpan dan ditampilkan sebagai entri terpisah. Jika kumpulan sampel belum cukup beragam atau belum konsisten, sistem mempertahankan seluruh entri yang sudah diberikan dan meminta pengguna menambahkan sampel baru sebagai entri terpisah. Sistem menilai seluruh entri sebagai satu kumpulan untuk membentuk atau memperbarui profil gaya; pengguna tidak perlu mengirim ulang sampel sebelumnya.
 - **Alasan:** Pengguna tidak kehilangan materi yang sudah diberikan dan dapat meningkatkan kualitas sampel secara bertahap.
 - **Alternatif yang dipertimbangkan:** Menolak sampel dan meminta seluruh sampel dikirim ulang; membentuk profil sementara meskipun kualitas sampel belum memadai.
-- **Dampak:** Alur pembuatan profil perlu mendukung penambahan sampel secara bertahap, penyimpanan sementara selama proses pembentukan, penggabungan sampel, dan penilaian ulang atas keseluruhan materi.
-- **Belum diputuskan:** indikator teknis keragaman dan konsistensi, apakah sampel tambahan diberikan sebagai satu input atau beberapa input terpisah, serta aturan penghapusan sampel sumber setelah profil terbentuk.
+- **Dampak:** Alur pembuatan profil perlu mendukung daftar entri sampel, penambahan sampel secara bertahap, pengelolaan tiap entri, dan penilaian kumpulan sampel secara keseluruhan. Data tiap sampel perlu tetap dapat ditelusuri sebagai entri terpisah.
+- **Belum diputuskan:** indikator teknis keragaman dan konsistensi, batas jumlah entri sampel, metadata tiap entri, apakah pengguna dapat mengedit atau menghapus satu entri, serta aturan penghapusan sampel sumber setelah profil terbentuk.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas kecukupan sampel profil gaya Humanizer pada 2026-11-12.
+
+
+## DEC-022: Sampel profil gaya dikelola sebagai entri terpisah
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Pengguna memberikan sampel tulisan secara terpisah sebagai entri-entri individual. Sistem menampilkan dan mengelola setiap sampel sebagai entri tersendiri, tetapi mengevaluasi seluruh entri sebagai satu kumpulan ketika menilai kecukupan dan membentuk atau memperbarui profil gaya personal.
+- **Alasan:** Entri terpisah memungkinkan sistem dan pengguna menelusuri perbedaan antarcontoh tulisan serta menilai konsistensi gaya tanpa kehilangan asal masing-masing sampel.
+- **Alternatif yang dipertimbangkan:** Menggunakan satu kolom input gabungan yang menambahkan seluruh tulisan ke satu teks panjang.
+- **Dampak:** Antarmuka dan model data perlu mendukung kumpulan sampel dengan identitas per entri. Proses profiling perlu menganalisis kumpulan, bukan memperlakukan setiap sampel sebagai profil mandiri.
+- **Belum diputuskan:** batas jumlah sampel, metadata per sampel, kemampuan mengedit/menghapus entri, format tampilan, dan aturan retensi sampel sumber.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas pengumpulan sampel profil gaya Humanizer pada 2026-11-12.
