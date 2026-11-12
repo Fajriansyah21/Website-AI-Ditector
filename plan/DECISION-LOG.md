@@ -603,3 +603,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem harus mencatat waktu persetujuan dan menetapkan waktu kedaluwarsa berdasarkan waktu tersebut. Waktu penggunaan pertama tidak mengubah atau mengatur ulang masa berlaku.
 - **Belum diputuskan:** Detail zona waktu untuk tampilan, presisi timestamp, dan penanganan perbedaan jam antar layanan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-047: Notifikasi siklus hidup persetujuan akses investigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Saat akses investigasi metadata audit disetujui, Admin menerima notifikasi status aktif, cakupan izin, dan waktu kedaluwarsa. Admin menerima pengingat satu jam sebelum kedaluwarsa. Saat akses kedaluwarsa, sistem mencabut akses otomatis dan memberi tahu Admin. Jika akses dicabut lebih awal, Admin segera diberi tahu beserta alasan pencabutan. Super Admin menerima catatan bahwa akses telah kedaluwarsa atau dicabut. Notifikasi tidak memperpanjang masa akses.
+- **Alasan:** Pihak yang diberi akses harus mengetahui batas dan cakupan izinnya, sementara pencabutan dan kedaluwarsa perlu transparan serta dapat diaudit. Notifikasi tidak boleh mengubah batas keamanan yang sudah ditetapkan.
+- **Alternatif yang dipertimbangkan:** Hanya memberi notifikasi saat persetujuan; mengandalkan Admin memeriksa waktu kedaluwarsa sendiri; memperpanjang akses setelah pengingat.
+- **Dampak:** Sistem memerlukan notifikasi persetujuan, pengingat satu jam sebelum kedaluwarsa, notifikasi kedaluwarsa dan pencabutan, serta catatan untuk Super Admin. Pengiriman notifikasi tidak mengubah status atau masa berlaku izin.
+- **Belum diputuskan:** Kanal notifikasi, perilaku jika pengingat satu jam tidak dapat dikirim, serta detail isi catatan Super Admin.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
