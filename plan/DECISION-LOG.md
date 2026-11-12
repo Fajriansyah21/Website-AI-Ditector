@@ -931,3 +931,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Hanya meminta konfirmasi saat refresh; meminta konfirmasi kedua sebelum hasil benar-benar dihapus.
 - **Dampak:** UI perlu menjaga status hasil belum tersimpan dan meminta konfirmasi pada navigasi yang dapat dikendalikan aplikasi. Untuk navigasi browser eksternal, penutupan tab, atau refresh, implementasi harus mengikuti batasan API/perilaku browser; situs tidak selalu dapat menampilkan dialog khusus atau mengendalikan seluruh jalur navigasi. Tidak boleh menjanjikan dialog khusus pada tindakan yang tidak didukung browser. Tidak ada penyimpanan sementara atau pemulihan hasil yang ditambahkan.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-074: Dialog konfirmasi saat navigasi internal meninggalkan hasil Humanizer belum tersimpan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika pengguna mencoba berpindah melalui navigasi internal dari halaman hasil Humanizer sementara hasil belum disimpan, sistem menampilkan dialog konfirmasi modal di tengah layar. Dialog menyediakan dua tindakan: **Tetap di halaman** dan **Lanjutkan**. Memilih Tetap di halaman membatalkan navigasi dan mempertahankan hasil. Memilih Lanjutkan meneruskan navigasi dan menghilangkan hasil yang belum disimpan sesuai DEC-071. Dialog hanya ditampilkan ketika hasil benar-benar belum disimpan; hasil yang sudah tersimpan tidak memerlukan konfirmasi.
+- **Alasan:** Kehilangan hasil yang belum disimpan merupakan konsekuensi penting. Dialog modal lebih mudah terlihat dan memberikan pilihan tindakan yang jelas dibanding notifikasi kecil atau panel bawah.
+- **Alternatif yang dipertimbangkan:** Notifikasi kecil di bagian atas halaman; panel konfirmasi di bagian bawah layar.
+- **Dampak:** Komponen navigasi internal perlu memeriksa status penyimpanan hasil sebelum berpindah halaman. Dialog harus menjelaskan konsekuensi kehilangan hasil dan menyediakan tindakan untuk tetap berada di halaman atau melanjutkan. Keputusan ini menetapkan pola untuk navigasi internal; keterbatasan browser untuk navigasi eksternal, refresh, dan penutupan tab tetap mengikuti DEC-073.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
