@@ -997,3 +997,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Mengizinkan klik backdrop menutup dialog dan membatalkan navigasi.
 - **Dampak:** Modal harus mengabaikan klik backdrop sebagai tindakan penutupan. Aturan ini tidak mengubah perilaku tombol X, Escape, Tetap di halaman, atau Lanjutkan.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-080: Focus trap pada modal konfirmasi navigasi Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika modal konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan terbuka, fokus keyboard harus tetap berada di dalam modal. Tombol Tab dan Shift+Tab hanya berpindah di antara elemen interaktif modal; ketika mencapai elemen terakhir atau pertama, fokus berpindah melingkar ke elemen pertama atau terakhir. Elemen di belakang modal tidak boleh menerima fokus melalui navigasi keyboard selama modal aktif.
+- **Alasan:** Mencegah interaksi keyboard yang tidak sengaja dengan halaman di belakang modal dan menjaga alur aksesibilitas yang konsisten.
+- **Alternatif yang dipertimbangkan:** Mengizinkan fokus keyboard berpindah ke elemen di belakang modal.
+- **Dampak:** Implementasi modal perlu menerapkan focus trap, mengelola urutan fokus, serta memastikan fokus awal dan pemulihan fokus setelah modal ditutup ditangani secara konsisten pada desain/implementasi aksesibilitas.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
