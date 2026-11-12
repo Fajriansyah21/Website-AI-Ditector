@@ -1030,3 +1030,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Selalu mengembalikan fokus ke area editor; mengembalikan fokus ke elemen yang sebelumnya aktif sebelum modal dibuka.
 - **Dampak:** Komponen modal perlu menyimpan referensi elemen pemicu dan mengembalikan fokus ke elemen tersebut ketika dialog ditutup karena pembatalan. Perilaku saat elemen pemicu tidak tersedia perlu ditangani secara aksesibel.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-083: Dukungan screen reader pada modal konfirmasi navigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Modal konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan harus mendukung screen reader. Ketika modal dibuka, teknologi bantu harus dapat mengenali modal sebagai dialog serta mengumumkan judul dan isi pesan peringatannya agar pengguna memahami konteks dan konsekuensi navigasi.
+- **Alasan:** Pengguna screen reader perlu memperoleh informasi yang sama mengenai dialog dan risiko kehilangan hasil sebelum mengambil keputusan.
+- **Alternatif yang dipertimbangkan:** Tidak menyediakan pengumuman khusus untuk screen reader.
+- **Dampak:** Implementasi perlu menggunakan semantik dialog yang sesuai, menghubungkan judul dan deskripsi modal secara programatis, serta memastikan pengumuman tidak terduplikasi atau terpotong oleh pengelolaan fokus. Detail atribut dan pengujian kompatibilitas ditentukan pada desain teknis dan pengujian aksesibilitas.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
