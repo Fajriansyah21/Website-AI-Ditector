@@ -942,3 +942,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Notifikasi kecil di bagian atas halaman; panel konfirmasi di bagian bawah layar.
 - **Dampak:** Komponen navigasi internal perlu memeriksa status penyimpanan hasil sebelum berpindah halaman. Dialog harus menjelaskan konsekuensi kehilangan hasil dan menyediakan tindakan untuk tetap berada di halaman atau melanjutkan. Keputusan ini menetapkan pola untuk navigasi internal; keterbatasan browser untuk navigasi eksternal, refresh, dan penutupan tab tetap mengikuti DEC-073.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-075: Mempertahankan seluruh kondisi halaman saat navigasi dibatalkan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna memilih **Tetap di halaman** pada dialog konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan, sistem membatalkan navigasi dan mempertahankan kondisi halaman tanpa perubahan. Ini mencakup posisi scroll, teks, hasil pemrosesan, serta seluruh kondisi editor yang sedang aktif.
+- **Alasan:** Membatalkan navigasi harus benar-benar mengembalikan pengguna ke keadaan sebelum tindakan navigasi dimulai. Mengubah posisi atau isi halaman setelah pembatalan dapat mengganggu pekerjaan pengguna.
+- **Alternatif yang dipertimbangkan:** Mengembalikan halaman ke posisi paling atas; menampilkan notifikasi pembatalan navigasi.
+- **Dampak:** Pembatalan navigasi internal tidak boleh mereset state halaman, memuat ulang hasil, mengubah teks, atau menggeser posisi scroll. State yang relevan harus tetap utuh.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
