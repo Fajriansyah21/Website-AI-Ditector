@@ -893,7 +893,8 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Mewajibkan pengguna menjalankan Humanizer kembali setelah kapasitas dibebaskan.
 - **Dampak:** Tampilan hasil perlu mempertahankan akses ke hasil yang belum tersimpan agar pengguna dapat mengulangi tindakan simpan setelah kapasitas tersedia. Mekanisme ini tidak berarti hasil disimpan otomatis ke riwayat.
 - **Klarifikasi melalui DEC-071:** Hasil yang belum tersimpan hanya tersedia selama tampilan hasil pada sesi aktif masih terbuka. Jika halaman atau browser ditutup, hasil hilang dan pengguna harus memproses ulang. Hasil tersebut tidak disimpan sementara di server atau browser untuk pemulihan setelah sesi berakhir.
-- **Belum diputuskan:** Definisi teknis batas sesi aktif dan perilaku refresh halaman.
+- **Klarifikasi melalui DEC-072:** Jika pengguna mencoba me-refresh halaman saat hasil belum tersimpan, sistem meminta konfirmasi. Jika dibatalkan, halaman dan hasil dipertahankan; jika dikonfirmasi, refresh dilanjutkan dan hasil hilang.
+- **Belum diputuskan:** Definisi teknis batas sesi aktif dan detail penanganan navigasi browser.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
 
 
@@ -906,4 +907,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Menyimpan hasil sementara di browser, menyimpan sementara di server selama 24 jam, atau menyimpan sementara di server selama tujuh hari.
 - **Dampak:** Antarmuka perlu menjelaskan bahwa hasil yang belum tersimpan tidak akan tersedia setelah halaman/browser ditutup. Pengguna perlu diberi kesempatan untuk menyalin, mengunduh, atau membebaskan kapasitas dan menyimpan hasil sebelum meninggalkan halaman.
 - **Belum diputuskan:** Definisi teknis batas sesi aktif dan perilaku refresh halaman.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-072: Konfirmasi sebelum refresh saat hasil Humanizer belum tersimpan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna mencoba me-refresh halaman ketika terdapat hasil Humanizer yang belum tersimpan, sistem menampilkan dialog konfirmasi sebelum refresh dilanjutkan. Jika pengguna membatalkan, halaman dan hasil tetap dipertahankan. Jika pengguna mengonfirmasi, refresh dilanjutkan dan hasil yang belum tersimpan hilang sesuai DEC-071.
+- **Alasan:** Refresh dapat terjadi tanpa sengaja dan menghilangkan hasil yang belum disimpan. Konfirmasi memberi kesempatan kepada pengguna untuk membatalkan tindakan tersebut.
+- **Alternatif yang dipertimbangkan:** Memperlakukan refresh seperti penutupan halaman tanpa konfirmasi atau mempertahankan hasil setelah refresh.
+- **Dampak:** Antarmuka perlu mendeteksi kondisi hasil yang belum tersimpan dan meminta konfirmasi sebelum refresh. Mekanisme konfirmasi tidak boleh menyimpan hasil sementara.
+- **Belum diputuskan:** Teks dialog dan detail penanganan navigasi browser ditentukan pada desain UI/teknis.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
