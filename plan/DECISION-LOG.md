@@ -459,3 +459,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu menahan proses pembaruan selama pemulihan berlangsung, lalu mengevaluasi ulang kumpulan sampel terbaru jika pemulihan berhasil sebelum membangun atau mengaktifkan versi baru.
 - **Belum diputuskan:** Penanganan pembaruan yang tertahan apabila pemulihan gagal, serta aturan antrean dan notifikasi untuk proses yang ditahan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-035: Pembaruan profil dilanjutkan setelah pemulihan berhasil maupun gagal
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika terdapat pembaruan profil yang tertahan saat pemulihan versi sedang dieksekusi, pembaruan dilanjutkan setelah pemulihan selesai, baik pemulihan berhasil maupun gagal. Pembaruan wajib memakai kumpulan sampel terbaru dan menjalani evaluasi ulang. Hasil evaluasi lama tidak boleh digunakan untuk membangun atau mengaktifkan versi baru. Jika pemulihan gagal, versi aktif tidak berubah dan kegagalan pemulihan tidak menghalangi pembaruan profil.
+- **Alasan:** Kegagalan pemulihan tidak seharusnya memblokir proses pembaruan profil yang terpisah. Evaluasi ulang memastikan pembaruan didasarkan pada kondisi sampel terbaru, bukan hasil yang mungkin sudah kedaluwarsa.
+- **Alternatif yang dipertimbangkan:** Membatalkan pembaruan tertahan ketika pemulihan gagal; melanjutkan pembaruan menggunakan hasil evaluasi yang sudah tersedia.
+- **Dampak:** Setelah operasi pemulihan berakhir, sistem perlu melanjutkan pembaruan tertahan dan mengevaluasi ulang seluruh kumpulan sampel terbaru. Status versi aktif tetap mengikuti hasil operasi pemulihan, bukan hasil pembaruan yang belum selesai.
+- **Belum diputuskan:** Detail antrean, notifikasi, dan kebijakan pembatalan pembaruan tertahan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
