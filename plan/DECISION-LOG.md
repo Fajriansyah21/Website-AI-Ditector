@@ -687,3 +687,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** UI unggah Humanizer harus membatasi satu dokumen per proses. Pengguna tetap dapat menambahkan teks manual ke editor setelah ekstraksi. Jika ingin memproses dokumen lain, pengguna harus memulai proses terpisah.
 - **Belum diputuskan:** Apakah pengguna dapat mengganti dokumen yang sudah diunggah sebelum pemrosesan, serta bagaimana teks manual dipertahankan atau dibuang ketika dokumen diganti.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-054: Konfirmasi sebelum mengganti dokumen Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna ingin mengganti dokumen yang sudah diunggah sebelum pemrosesan Humanizer, sistem wajib meminta konfirmasi terlebih dahulu. Jika pengguna membatalkan, teks hasil ekstraksi dan seluruh tambahan atau editan manual yang ada di editor tetap dipertahankan. Jika pengguna mengonfirmasi, seluruh konten editor dari dokumen sebelumnya, termasuk tambahan dan editan manual, dihapus dan diganti dengan hasil ekstraksi dokumen baru. Dokumen sumber lama maupun baru tidak boleh diubah atau ditimpa.
+- **Alasan:** Konfirmasi mencegah kehilangan konten yang sudah diedit atau ditambahkan pengguna secara tidak sengaja, sekaligus memberi perilaku penggantian yang tegas.
+- **Alternatif yang dipertimbangkan:** Mengganti dokumen langsung tanpa konfirmasi.
+- **Dampak:** UI perlu menyediakan langkah konfirmasi sebelum mengganti dokumen. Sistem harus mempertahankan state editor jika pengguna membatalkan dan mengganti seluruh konten editor jika pengguna mengonfirmasi.
+- **Belum diputuskan:** Detail tampilan dialog konfirmasi, apakah nama dokumen lama dan baru ditampilkan, serta penanganan jika ekstraksi dokumen pengganti gagal setelah konfirmasi.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
