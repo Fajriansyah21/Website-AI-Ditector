@@ -723,3 +723,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Fitur ekspor Humanizer perlu menghasilkan TXT, DOCX, atau PDF sesuai format dokumen unggahan. Hasil tetap ditampilkan di website dan dapat disalin. Struktur kompleks dan kesamaan tata letak tidak boleh dijanjikan identik.
 - **Belum diputuskan:** Format unduhan default ketika pengguna hanya mengetik atau menempelkan teks tanpa mengunggah dokumen.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-057: Pilihan format unduhan untuk input teks manual Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna memulai proses Humanizer hanya dengan mengetik atau menempelkan teks tanpa mengunggah dokumen, pengguna dapat memilih format unduhan hasil berupa TXT, DOCX, atau PDF. Hasil tetap ditampilkan di website dan dapat disalin.
+- **Alasan:** Input teks manual tidak memiliki format dokumen sumber yang dapat dijadikan acuan. Memberikan pilihan format unduhan membuat keluaran lebih fleksibel tanpa memaksakan satu format default.
+- **Alternatif yang dipertimbangkan:** Hanya menyediakan TXT atau menetapkan DOCX sebagai format default dengan pilihan TXT dan PDF.
+- **Dampak:** Antarmuka hasil Humanizer untuk input manual perlu menyediakan pemilih format unduhan TXT, DOCX, dan PDF. Generator keluaran dan validasi teknis ditentukan pada tahap desain teknis.
+- **Belum diputuskan:** Apakah pilihan format diingat sebagai preferensi pengguna untuk proses berikutnya.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
