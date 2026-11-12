@@ -795,3 +795,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Saat kapasitas tidak mencukupi, sistem perlu menampilkan informasi kapasitas dan menyediakan alur pemilihan entri lama untuk dihapus. Penghapusan tetap mengikuti keputusan DEC-060, yaitu setelah konfirmasi dan permanen dari riwayat aplikasi.
 - **Belum diputuskan:** Apakah pengguna dapat memilih beberapa entri sekaligus, cara menampilkan ukuran setiap entri, dan perilaku jika kapasitas masih tidak cukup setelah penghapusan yang dipilih.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-063: Peringatan saat kapasitas riwayat Humanizer mencapai 90%
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Sistem memberi peringatan kepada pengguna ketika penggunaan kapasitas penyimpanan riwayat Humanizer mencapai 90% dari kuota akun.
+- **Alasan:** Peringatan sebelum kapasitas penuh memberi kesempatan kepada pengguna untuk meninjau dan mengelola entri riwayat tanpa menunggu sampai penyimpanan hasil baru terhenti.
+- **Alternatif yang dipertimbangkan:** Memberi peringatan pada 80% atau 95%, atau hanya memberi tahu ketika kapasitas benar-benar penuh.
+- **Dampak:** Sistem perlu memantau penggunaan kapasitas per akun dan memicu peringatan pada ambang 90%.
+- **Belum diputuskan:** Kanal dan frekuensi notifikasi, perilaku peringatan setelah kapasitas turun lalu kembali mencapai 90%, serta apakah indikator kapasitas ditampilkan terus-menerus pada dashboard.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
