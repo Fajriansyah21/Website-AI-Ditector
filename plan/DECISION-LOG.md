@@ -781,7 +781,8 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Ukuran setiap entri dapat berbeda jauh. Batas jumlah entri saja tidak cukup untuk mengendalikan konsumsi penyimpanan.
 - **Alternatif yang dipertimbangkan:** Tidak membatasi jumlah entri, batas tetap 50 entri, atau batas tetap 100 entri per akun.
 - **Dampak:** Sistem perlu menghitung total ukuran data riwayat Humanizer per akun dan menerapkan kuota penyimpanan. Nilai kuota dan perilaku saat kuota tercapai belum ditentukan dan harus dirancang sebelum implementasi.
-- **Belum diputuskan:** Besaran kuota, satuan dan metode penghitungan ukuran, apakah metadata ikut dihitung, perilaku simpan saat kuota penuh, serta mekanisme pemberitahuan dan pembebasan kapasitas.
+- **Klarifikasi melalui DEC-069:** Saat kuota penuh, hasil pemrosesan tetap dapat dilihat, disalin, dan diunduh, tetapi tidak dapat disimpan ke riwayat sampai kapasitas dibebaskan.
+- **Belum diputuskan:** Besaran kuota, satuan dan metode penghitungan ukuran, apakah metadata ikut dihitung, serta detail alur penyimpanan ulang setelah kapasitas dibebaskan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
 
 
@@ -867,4 +868,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Banner hanya dapat ditutup sekali secara permanen, banner hilang otomatis setelah beberapa detik, atau banner tidak dapat ditutup sampai kapasitas turun di bawah 90%.
 - **Dampak:** Halaman riwayat Humanizer perlu mendukung tindakan menutup banner dan memeriksa kembali kondisi kapasitas saat halaman dibuka.
 - **Belum diputuskan:** Apakah penutupan hanya berlaku selama halaman terbuka atau sesi aktif, serta detail perilaku jika kapasitas turun di bawah 90% ketika halaman masih terbuka.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-069: Hasil Humanizer tetap dapat diakses ketika kuota riwayat penuh
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna memilih menyimpan hasil Humanizer ketika kapasitas riwayat akun penuh, sistem tetap menampilkan hasil pemrosesan dan menyediakan fungsi salin serta unduh. Hasil tersebut tidak disimpan ke riwayat sampai pengguna menghapus entri lama dan kapasitas kembali mencukupi. Kuota penuh tidak boleh menghalangi akses terhadap hasil pemrosesan yang telah selesai.
+- **Alasan:** Kapasitas penyimpanan riwayat merupakan batas fitur penyimpanan, bukan alasan untuk menahan atau menghilangkan hasil pemrosesan yang sudah selesai.
+- **Alternatif yang dipertimbangkan:** Mengarahkan pengguna menghapus riwayat sebelum hasil ditampilkan atau menyimpan hasil sementara sampai kapasitas dibebaskan.
+- **Dampak:** Proses penyimpanan riwayat harus dipisahkan dari penyajian hasil. Sistem perlu memberi tahu bahwa penyimpanan gagal karena kuota penuh, sementara fungsi lihat, salin, dan unduh tetap tersedia.
+- **Belum diputuskan:** Apakah setelah kapasitas dibebaskan pengguna dapat mencoba menyimpan hasil yang sama dari tampilan hasil yang masih terbuka, atau harus menjalankan proses Humanizer kembali.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
