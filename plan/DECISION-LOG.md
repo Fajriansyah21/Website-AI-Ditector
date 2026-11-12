@@ -519,3 +519,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu menghitung pengulangan evaluasi otomatis, menghentikan retry saat batas tercapai, mempertahankan sampel terbaru, dan menyediakan tindakan manual untuk memulai ulang evaluasi.
 - **Belum diputuskan:** Nilai batas pengulangan, detail status tertunda, notifikasi kepada pengguna, dan apakah restart manual memulai ulang seluruh siklus evaluasi atau dapat melanjutkan dari tahap tertentu.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-040: Restart manual mengulang evaluasi profil dari awal
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika pengguna memulai ulang evaluasi profil secara manual setelah batas pengulangan otomatis tercapai, sistem memulai seluruh proses evaluasi dari awal menggunakan snapshot terbaru kumpulan sampel. Hasil antara dari evaluasi sebelumnya tidak boleh digunakan kembali sebagai dasar untuk melanjutkan proses baru.
+- **Alasan:** Memulai dari awal menjaga konsistensi evaluasi terhadap satu snapshot terbaru dan menghindari ketergantungan pada hasil antara yang mungkin sudah tidak relevan. Keputusan ini mengutamakan integritas data meskipun berpotensi menambah biaya dan durasi pemrosesan.
+- **Alternatif yang dipertimbangkan:** Melanjutkan dari tahap terakhir yang berhasil dengan menggunakan kembali hasil antara.
+- **Dampak:** Restart manual harus membuat proses evaluasi baru yang lengkap dan terikat pada snapshot terbaru. Hasil antara dari percobaan sebelumnya tidak boleh dipakai sebagai hasil validasi untuk proses baru.
+- **Belum diputuskan:** Detail teknis pembersihan atau retensi artefak evaluasi lama, serta apakah pengguna perlu melihat riwayat percobaan evaluasi.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
