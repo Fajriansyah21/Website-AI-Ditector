@@ -892,5 +892,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Kegagalan penyimpanan akibat kuota adalah kegagalan pada tahap persistensi riwayat, bukan kegagalan pemrosesan. Memproses ulang teks akan membuang waktu dan berpotensi menghasilkan revisi berbeda untuk input yang sama.
 - **Alternatif yang dipertimbangkan:** Mewajibkan pengguna menjalankan Humanizer kembali setelah kapasitas dibebaskan.
 - **Dampak:** Tampilan hasil perlu mempertahankan akses ke hasil yang belum tersimpan agar pengguna dapat mengulangi tindakan simpan setelah kapasitas tersedia. Mekanisme ini tidak berarti hasil disimpan otomatis ke riwayat.
-- **Belum diputuskan:** Masa ketersediaan tampilan hasil dan perilaku setelah sesi berakhir atau halaman ditutup/dimuat ulang.
+- **Klarifikasi melalui DEC-071:** Hasil yang belum tersimpan hanya tersedia selama tampilan hasil pada sesi aktif masih terbuka. Jika halaman atau browser ditutup, hasil hilang dan pengguna harus memproses ulang. Hasil tersebut tidak disimpan sementara di server atau browser untuk pemulihan setelah sesi berakhir.
+- **Belum diputuskan:** Definisi teknis batas sesi aktif dan perilaku refresh halaman.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-071: Hasil Humanizer yang belum tersimpan hilang setelah halaman ditutup
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Hasil Humanizer yang belum berhasil disimpan karena kuota riwayat penuh hanya tersedia selama tampilan hasil pada sesi aktif masih terbuka. Jika pengguna menutup halaman atau browser, hasil yang belum tersimpan hilang dan tidak dapat dipulihkan melalui aplikasi. Pengguna harus menjalankan pemrosesan Humanizer kembali untuk memperoleh hasil tersebut. Sistem tidak menyimpan hasil tersebut secara sementara di server atau browser untuk pemulihan setelah sesi berakhir.
+- **Alasan:** Menghindari penyimpanan sementara konten pengguna di server atau browser tanpa kebutuhan retensi yang telah ditetapkan. Pengguna tetap dapat menyalin atau mengunduh hasil sebelum menutup halaman.
+- **Alternatif yang dipertimbangkan:** Menyimpan hasil sementara di browser, menyimpan sementara di server selama 24 jam, atau menyimpan sementara di server selama tujuh hari.
+- **Dampak:** Antarmuka perlu menjelaskan bahwa hasil yang belum tersimpan tidak akan tersedia setelah halaman/browser ditutup. Pengguna perlu diberi kesempatan untuk menyalin, mengunduh, atau membebaskan kapasitas dan menyimpan hasil sebelum meninggalkan halaman.
+- **Belum diputuskan:** Definisi teknis batas sesi aktif dan perilaku refresh halaman.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
