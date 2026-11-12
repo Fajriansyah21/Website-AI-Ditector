@@ -231,3 +231,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Batas karakter merupakan batas input/pemrosesan dan tidak sama dengan kuota kredit. Perbedaan kuota Guest dan pengguna terdaftar tetap mengacu pada jumlah kredit/reward, bukan otomatis pada batas karakter.
 - **Dampak:** Validasi panjang input harus diterapkan sebelum pemrosesan dan batasnya perlu konsisten dengan batas token internal, kemampuan model, strategi chunking, serta biaya layanan.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
+
+
+## DEC-016: Batas karakter Detector sama untuk Guest dan pengguna terdaftar
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Batas maksimal karakter input AI Text Detector berlaku sama untuk Guest dan pengguna terdaftar.
+- **Klarifikasi:** Perbedaan Guest dan pengguna terdaftar terkait jumlah kredit/reward dan akses fitur, bukan batas maksimal karakter input Detector.
+- **Dampak:** Validasi panjang input Detector tidak perlu bercabang berdasarkan status autentikasi. Sistem kredit tetap menghitung hak penggunaan dan saldo sesuai jenis akun.
+- **Belum diputuskan:** angka maksimal karakter serta perilaku antarmuka ketika batas terlampaui.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
