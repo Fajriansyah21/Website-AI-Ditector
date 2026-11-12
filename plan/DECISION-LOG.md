@@ -408,3 +408,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Versi yang sedang aktif tidak memiliki tenggat retensi historis. Ketika versi tersebut dinonaktifkan oleh pergantian yang berhasil, masa retensi 30 hari dimulai untuk versi itu. Pemulihan tidak mengubah kumpulan sampel sumber.
 - **Belum diputuskan:** batas jumlah versi historis yang dapat dipulihkan, detail audit pergantian/pemulihan, dan kebijakan pembersihan fisik artefak yang kedaluwarsa.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-031: Batas lima versi historis dan penundaan saat kapasitas penuh
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setiap profil gaya dapat memiliki maksimal 5 versi historis yang belum kedaluwarsa. Versi historis yang masih berada dalam masa retensi 30 hari tidak boleh dihapus otomatis hanya untuk menyediakan slot bagi versi baru. Jika seluruh slot historis terisi, aktivasi versi profil baru atau pemulihan versi historis ditunda sampai tersedia slot. Selama penundaan, versi profil yang sedang aktif tetap digunakan.
+- **Alasan:** Batas jumlah versi mengendalikan pertumbuhan penyimpanan, sedangkan perlindungan masa retensi menjaga janji pemulihan kepada pengguna. Menunda pergantian lebih aman daripada menghapus versi yang masih dijanjikan dapat dipulihkan.
+- **Alternatif yang dipertimbangkan:** Menghapus versi historis tertua sebelum masa retensi berakhir; membolehkan jumlah versi historis tumbuh tanpa batas; menolak pembaruan/pemulihan secara permanen ketika kapasitas penuh.
+- **Dampak:** Sistem perlu menghitung slot historis yang masih terpakai, memeriksa kapasitas sebelum pergantian versi, menunda aktivasi/pemulihan ketika tidak tersedia slot, dan mencoba kembali setelah slot tersedia. Versi aktif tidak boleh berubah selama menunggu.
+- **Klarifikasi:** Batas 5 berlaku untuk versi historis yang belum kedaluwarsa per profil. Versi aktif tidak dihitung sebagai versi historis. Versi yang telah melewati masa retensi dapat dibersihkan dan setelah slot benar-benar tersedia, pergantian yang tertunda dapat dilanjutkan.
+- **Belum diputuskan:** apakah pengguna dapat membatalkan permintaan pergantian yang tertunda, bagaimana notifikasi dan retry dilakukan, serta prioritas jika pembaruan dan pemulihan tertunda bersamaan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
