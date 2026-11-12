@@ -495,3 +495,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu mengambil snapshot kumpulan sampel terbaru setelah pemulihan selesai dan sebelum evaluasi ulang dimulai. Semua perubahan sampel selama penahanan harus tercermin dalam snapshot tersebut.
 - **Belum diputuskan:** Perilaku jika sampel kembali berubah ketika evaluasi ulang atau pembentukan versi baru sedang berlangsung; mekanisme snapshot/versioning kumpulan sampel dan penanganan konkurensinya perlu dirancang.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-038: Evaluasi profil menggunakan snapshot sampel yang konsisten
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Evaluasi sampel gaya berjalan terhadap snapshot kumpulan sampel yang tidak berubah selama satu proses evaluasi. Jika pengguna menambah, mengedit, atau menghapus sampel ketika evaluasi berlangsung, hasil evaluasi dari snapshot lama tidak boleh digunakan untuk membangun atau mengaktifkan versi profil. Sistem harus mengambil snapshot terbaru dan mengevaluasinya kembali sebelum melanjutkan pembentukan versi profil.
+- **Alasan:** Hasil evaluasi harus merepresentasikan satu keadaan kumpulan sampel yang konsisten. Perubahan sampel di tengah evaluasi membuat hasil snapshot lama tidak lagi mewakili sumber data terkini.
+- **Alternatif yang dipertimbangkan:** Mengizinkan hasil evaluasi lama tetap dipakai; mengunci seluruh perubahan sampel selama evaluasi.
+- **Dampak:** Sistem memerlukan identitas versi atau snapshot kumpulan sampel, pemeriksaan apakah snapshot masih terbaru sebelum hasil evaluasi dipakai, dan mekanisme untuk mengabaikan hasil evaluasi yang sudah usang.
+- **Belum diputuskan:** Detail implementasi snapshot, pembatalan atau penghentian evaluasi usang, retry, serta penanganan perubahan sampel yang terjadi berulang kali selama evaluasi ulang.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
