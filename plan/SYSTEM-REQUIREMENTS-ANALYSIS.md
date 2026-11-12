@@ -40,8 +40,10 @@ MVP mencakup dua modul dengan prioritas setara:
 2. **AI Humanizer:** menyunting teks agar lebih alami, jelas, dan sesuai gaya yang dipilih tanpa sengaja mengubah makna, fakta, atau maksud.
 
 Kedua modul:
-- Dapat digunakan secara mandiri.
-- Dapat saling terhubung.
+- Kedua modul dapat digunakan secara mandiri, tetapi hak aksesnya berbeda berdasarkan status pengguna.
+- Guest hanya dapat menggunakan AI Text Detector.
+- AI Humanizer hanya dapat digunakan oleh pengguna yang sudah login/terdaftar.
+- Pengguna terdaftar dapat menggunakan kedua modul dan menghubungkan hasil Detector ke Humanizer.
 - Tidak menjalankan Humanizer secara otomatis setelah Detector.
 - Memerlukan tindakan/konfirmasi pengguna sebelum teks hasil Detector dikirim ke Humanizer.
 
@@ -58,8 +60,8 @@ Kedua modul:
 
 | Aktor | Kebutuhan/peran |
 |---|---|
-| Guest | Mencoba Detector dan Humanizer dengan batasan kredit/fitur; dapat memperoleh reward iklan terbatas |
-| Pengguna terdaftar | Menggunakan fitur, mengelola kredit, riwayat opsional, dan profil gaya |
+| Guest | Menggunakan AI Text Detector saja dengan batasan; dapat memperoleh reward iklan terbatas untuk akses Detector |
+| Pengguna terdaftar | Menggunakan AI Text Detector dan AI Humanizer, mengelola kredit, riwayat opsional, dan profil gaya |
 | Super Admin | Mengelola seluruh konfigurasi dan operasional dengan hak tertinggi |
 | Admin | Menangani operasional sesuai izin yang diberikan |
 | Moderator | Menangani laporan/moderasi sesuai izin yang diberikan |
@@ -147,15 +149,17 @@ Gaya bawaan seperti akademik, formal, profesional, santai, informatif, dan kreat
 | ID | Kebutuhan | Status/catatan |
 |---|---|---|
 | FR-ACC-01 | Guest dapat menggunakan fitur dengan batasan. | Disepakati |
-| FR-ACC-02 | Pengguna terdaftar memperoleh akses/kuota lebih besar daripada Guest. | Disepakati; besaran belum ditentukan |
-| FR-ACC-03 | Registrasi dan login mendukung email/password serta Google Sign-In. | Disepakati |
-| FR-ACC-04 | Mendukung verifikasi email dan reset password. | Disepakati |
-| FR-ACC-05 | Menangani akun email/password dan Google dengan alamat sama secara aman. | Disepakati sebagai kebutuhan |
-| FR-ACC-06 | Menyediakan dashboard pengguna untuk profil, kredit, riwayat, profil gaya, dan pengaturan akun. | Disepakati |
-| FR-ACC-07 | Riwayat tidak disimpan otomatis. Pengguna login memilih apakah akan menyimpan riwayat. | Disepakati |
-| FR-ACC-08 | Guest tidak memiliki riwayat permanen. | Disepakati |
-| FR-ACC-09 | Pengguna dapat menghapus riwayat yang disimpan. | Disepakati |
-| FR-ACC-10 | Profil gaya disimpan secara terpisah dari sampel dokumen sumber. | Disepakati sebagai prinsip pemisahan data |
+| FR-ACC-02 | Guest hanya dapat menggunakan AI Text Detector; AI Humanizer mensyaratkan pengguna login/terdaftar. | Disepakati |
+| FR-ACC-03 | Pengguna terdaftar memperoleh akses/kuota lebih besar daripada Guest untuk fitur yang tersedia bagi keduanya. | Disepakati; besaran belum ditentukan |
+| FR-ACC-04 | Registrasi dan login mendukung email/password serta Google Sign-In. | Disepakati |
+| FR-ACC-05 | Mendukung verifikasi email dan reset password. | Disepakati |
+| FR-ACC-06 | Menangani akun email/password dan Google dengan alamat sama secara aman. | Disepakati sebagai kebutuhan |
+| FR-ACC-07 | Menyediakan dashboard pengguna untuk profil, kredit, riwayat, profil gaya, dan pengaturan akun. | Disepakati |
+| FR-ACC-08 | Riwayat tidak disimpan otomatis. Pengguna login memilih apakah akan menyimpan riwayat. | Disepakati |
+| FR-ACC-09 | Guest tidak memiliki riwayat permanen. | Disepakati |
+| FR-ACC-10 | Pengguna dapat menghapus riwayat yang disimpan. | Disepakati |
+| FR-ACC-11 | Profil gaya disimpan secara terpisah dari sampel dokumen sumber. | Disepakati sebagai prinsip pemisahan data |
+| FR-ACC-12 | Akses ke AI Humanizer dan pengelolaan profil gaya memerlukan autentikasi pengguna. | Disepakati |
 
 ### 4.6 Kredit, iklan, dan pembayaran
 
@@ -165,8 +169,8 @@ Lexora menggunakan kredit internal sebagai unit konsumsi layanan. Kredit bukan t
 |---|---|---|
 | FR-CRED-01 | Kredit dapat diperoleh melalui pembelian, reward iklan, dan bonus harian. | Disepakati |
 | FR-CRED-02 | Bonus harian sebesar 20 kredit hanya diberikan kepada pengguna login pada pukul 03.00. | Disepakati; zona waktu dan definisi periode belum dikonfirmasi |
-| FR-CRED-03 | Guest dapat memperoleh reward iklan dengan batas lebih rendah daripada pengguna login. | Disepakati; angka batas belum ditentukan |
-| FR-CRED-04 | Pengguna login juga dapat memperoleh reward iklan. | Disepakati |
+| FR-CRED-03 | Guest dapat memperoleh reward iklan dengan batas lebih rendah daripada pengguna login, dan reward Guest hanya dapat digunakan untuk AI Text Detector. | Disepakati; angka batas belum ditentukan |
+| FR-CRED-04 | Pengguna login juga dapat memperoleh reward iklan untuk penggunaan fitur yang tersedia pada akun. | Disepakati |
 | FR-CRED-05 | Guest tidak memperoleh bonus harian. Saldo guest bersifat sementara dan tidak dapat ditransfer. | Disepakati |
 | FR-CRED-06 | Biaya penggunaan terdiri dari biaya dasar per fitur dan biaya variabel yang mempertimbangkan konsumsi token/estimasi biaya. | Disepakati sebagai model; rumus belum ditentukan |
 | FR-CRED-07 | Detector dan Humanizer memiliki tarif masing-masing. | Disepakati |
@@ -294,17 +298,19 @@ Target uptime/SLA belum ditentukan. MVP harus memiliki deteksi gangguan, pencata
 
 ## 6. Aturan bisnis utama
 
-1. Detector dan Humanizer memiliki prioritas setara dan dapat digunakan mandiri.
-2. Humanizer hanya berjalan setelah tindakan pengguna.
-3. Skor Detector bukan bukti pasti kepengarangan.
-4. Kredit internal berbeda dari token model.
-5. Tidak ada pemrosesan jika saldo tidak mencukupi.
-6. Kredit pembelian tidak kedaluwarsa; bonus dan reward berlaku 7 hari.
-7. Kredit promosi dengan kedaluwarsa terdekat digunakan terlebih dahulu.
-8. Kredit dikembalikan hanya berdasarkan kondisi kegagalan/pembatalan yang diverifikasi.
-9. Riwayat dan profil gaya disimpan berdasarkan pilihan pengguna.
-10. Isi teks hanya dapat diakses Admin melalui laporan yang relevan dan persetujuan pengguna.
-11. DOCX Metadata Cleaner dan referral tidak termasuk MVP.
+1. Detector dan Humanizer memiliki prioritas setara dalam cakupan MVP.
+2. Guest hanya dapat menggunakan Detector; Humanizer mensyaratkan login.
+3. Pengguna terdaftar dapat menggunakan kedua modul secara mandiri.
+4. Humanizer hanya berjalan setelah tindakan pengguna.
+5. Skor Detector bukan bukti pasti kepengarangan.
+6. Kredit internal berbeda dari token model.
+7. Tidak ada pemrosesan jika saldo tidak mencukupi.
+8. Kredit pembelian tidak kedaluwarsa; bonus dan reward berlaku 7 hari.
+9. Kredit promosi dengan kedaluwarsa terdekat digunakan terlebih dahulu.
+10. Kredit dikembalikan hanya berdasarkan kondisi kegagalan/pembatalan yang diverifikasi.
+11. Riwayat dan profil gaya disimpan berdasarkan pilihan pengguna.
+12. Isi teks hanya dapat diakses Admin melalui laporan yang relevan dan persetujuan pengguna.
+13. DOCX Metadata Cleaner dan referral tidak termasuk MVP.
 
 ## 7. Risiko utama
 
