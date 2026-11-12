@@ -382,3 +382,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi hubungan dengan DEC-027:** Jika evaluasi berhasil menyatakan sampel tidak memadai, profil tetap tidak dapat dipilih sesuai DEC-025 dan DEC-027. Jika evaluasi menyatakan sampel memadai tetapi pembangunan versi baru gagal, versi aktif sebelumnya tetap dapat digunakan.
 - **Belum diputuskan:** format artefak versi, mekanisme teknis aktivasi atomik, retensi versi lama, dan kebijakan pembersihan versi yang gagal dibangun.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-029: Retensi dan pemulihan versi profil gaya sebelumnya
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setelah versi profil gaya baru berhasil diaktifkan, versi sebelumnya disimpan selama 30 hari. Pengguna dapat memulihkan versi sebelumnya selama masa retensi tersebut. Pemulihan mengaktifkan kembali artefak profil versi lama tanpa mengembalikan atau mengubah kumpulan sampel sumber saat ini. Versi lama yang telah melewati masa retensi dapat dihapus secara otomatis.
+- **Alasan:** Masa retensi memberi pengguna kesempatan untuk menilai hasil pembaruan dan memulihkan profil yang sebelumnya lebih sesuai, sekaligus membatasi penyimpanan versi historis tanpa batas.
+- **Alternatif yang dipertimbangkan:** Menghapus versi lama segera setelah aktivasi; menyimpan seluruh versi tanpa batas waktu; menyimpan versi lama tanpa menyediakan pemulihan mandiri.
+- **Dampak:** Sistem perlu mencatat waktu aktivasi dan batas akhir retensi setiap versi, menyediakan tindakan pemulihan untuk versi yang masih berada dalam masa retensi, serta menghapus versi historis setelah masa retensi berakhir. Pemulihan versi tidak boleh memundurkan kumpulan sampel sumber.
+- **Klarifikasi:** Retensi 30 hari dihitung setelah versi baru berhasil diaktifkan. Versi aktif tidak kedaluwarsa hanya karena batas retensi versi sebelumnya. Kebijakan ini mengatur artefak versi profil, bukan retensi sampel tulisan mentah.
+- **Belum diputuskan:** apakah versi yang dipulihkan mendapat masa retensi baru atau apakah versi yang sebelumnya aktif menjadi versi historis dengan masa retensi baru; detail teknis penjadwalan penghapusan dan audit pemulihan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
