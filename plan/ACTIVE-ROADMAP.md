@@ -12,7 +12,7 @@ DOCX Metadata Cleaner ditunda ke fase setelah MVP. Arsitektur produk tetap modul
 
 ## Status analisis kebutuhan sistem
 
-Dokumen plan/SYSTEM-REQUIREMENTS-ANALYSIS.md telah dibuat berdasarkan sesi elisitasi kebutuhan pemilik proyek tanggal 2026-11-12.
+Dokumen SYSTEM-REQUIREMENTS-ANALYSIS.md telah dibuat berdasarkan sesi elisitasi kebutuhan pemilik proyek tanggal 2026-11-12.
 
 **Status: Draft terdokumentasi, menunggu review pemilik proyek dan validasi teknis.**
 
@@ -82,7 +82,7 @@ Tahap ini hanya dapat ditandai **Verified** jika:
 
 ## Langkah berikutnya
 
-1. Minta pemilik proyek meninjau plan/SYSTEM-REQUIREMENTS-ANALYSIS.md.
+1. Minta pemilik proyek meninjau SYSTEM-REQUIREMENTS-ANALYSIS.md.
 2. Catat koreksi atau keputusan tambahan tanpa menghapus keputusan sebelumnya.
 3. Setelah review kebutuhan, susun user flow Detector dan Humanizer.
 4. Pertahankan jalur uji prosedur sintetis dataset sesuai urutan dan gerbang yang sudah ditetapkan.
