@@ -23,7 +23,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Bahasa yang didukung adalah Bahasa Indonesia dan Bahasa Inggris.
 - Teks campuran dapat diproses dengan upaya mempertahankan kedua bahasa dan peringatan keterbatasan.
 - Input dapat berupa teks atau file TXT, DOCX, PDF.
-- Dalam satu proses, pengguna dapat mengunggah dokumen, meninjau dan mengedit teks hasil ekstraksi, serta menambahkan teks manual melalui editor sebelum pemrosesan. Seluruh konten editor menjadi satu input Humanizer; dokumen sumber tidak diubah atau ditimpa.
+- Dalam satu proses, pengguna dapat mengunggah maksimal satu dokumen TXT, DOCX, atau PDF, meninjau dan mengedit teks hasil ekstraksi, serta menambahkan teks manual melalui editor sebelum pemrosesan. Seluruh konten editor menjadi satu input Humanizer. Beberapa dokumen unggahan tidak dapat digabungkan dalam satu proses; dokumen sumber tidak diubah atau ditimpa.
 - Batas yang terlihat menggunakan karakter; batas token juga diterapkan internal. Angka belum ditentukan.
 - Teks panjang dapat diproses secara bertahap dengan mekanisme penjagaan konteks.
 - Pengguna memilih gaya bawaan atau profil gaya personal. Kontrol intensitas perubahan tidak termasuk kebutuhan MVP yang dipilih.
@@ -76,8 +76,8 @@ Dokumen sumber tidak boleh ditimpa. Hasil ekspor dapat berupa TXT, DOCX, atau PD
 
 Prasyarat: pengguna harus login sebelum dapat memulai Humanizer atau mengelola profil gaya. Jika Guest mencoba membuka alur Humanizer, sistem meminta login/registrasi sebelum teks diproses.
 
-1. Pengguna dapat mengetik/menempelkan teks langsung, atau mengunggah dokumen.
-2. Jika dokumen diunggah, sistem mengekstrak teks dan menempatkannya di editor. Pengguna dapat meninjau, mengedit teks hasil ekstraksi, dan menambahkan teks manual. Seluruh konten editor menjadi satu input untuk proses tersebut.
+1. Pengguna dapat mengetik/menempelkan teks langsung, atau mengunggah maksimal satu dokumen.
+2. Jika satu dokumen diunggah, sistem mengekstrak teks dan menempatkannya di editor. Pengguna dapat meninjau, mengedit teks hasil ekstraksi, dan menambahkan teks manual. Beberapa dokumen unggahan tidak dapat digabungkan dalam satu proses. Seluruh konten editor menjadi satu input untuk proses tersebut.
 3. Sistem menampilkan atau menjelaskan masalah ekstraksi jika ada.
 4. Pengguna memilih gaya bawaan atau profil gaya personal.
 5. Sistem memvalidasi kecukupan input dan kapasitas.
