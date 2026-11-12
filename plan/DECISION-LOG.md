@@ -675,3 +675,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Humanizer memerlukan editor yang dapat memuat teks hasil ekstraksi, menerima perubahan dan tambahan manual, serta mengirimkan keseluruhan konten sebagai satu input. Sistem harus menjaga dokumen sumber tetap utuh.
 - **Belum diputuskan:** Perilaku editor secara rinci, penanganan struktur paragraf/daftar/tabel setelah pengeditan, penanda asal teks, dan format ekspor untuk konten gabungan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-053: Batas satu dokumen unggahan per proses Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Dalam satu proses Humanizer, pengguna hanya dapat mengunggah maksimal satu dokumen TXT, DOCX, atau PDF. Setelah ekstraksi, pengguna tetap dapat meninjau dan mengedit teks di editor serta menambahkan teks secara manual. Beberapa dokumen unggahan tidak dapat digabungkan dalam satu proses. Keputusan ini membatasi jumlah dokumen unggahan, bukan jumlah bagian teks yang dapat diedit atau ditambahkan secara manual di editor.
+- **Alasan:** Membatasi satu dokumen per proses menjaga alur input lebih sederhana dan mengurangi kompleksitas penggabungan, urutan konten, serta penanganan struktur dari beberapa dokumen.
+- **Alternatif yang dipertimbangkan:** Mengizinkan beberapa dokumen diunggah dan digabungkan ke editor dalam satu proses.
+- **Dampak:** UI unggah Humanizer harus membatasi satu dokumen per proses. Pengguna tetap dapat menambahkan teks manual ke editor setelah ekstraksi. Jika ingin memproses dokumen lain, pengguna harus memulai proses terpisah.
+- **Belum diputuskan:** Apakah pengguna dapat mengganti dokumen yang sudah diunggah sebelum pemrosesan, serta bagaimana teks manual dipertahankan atau dibuang ketika dokumen diganti.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
