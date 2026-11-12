@@ -879,5 +879,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Kapasitas penyimpanan riwayat merupakan batas fitur penyimpanan, bukan alasan untuk menahan atau menghilangkan hasil pemrosesan yang sudah selesai.
 - **Alternatif yang dipertimbangkan:** Mengarahkan pengguna menghapus riwayat sebelum hasil ditampilkan atau menyimpan hasil sementara sampai kapasitas dibebaskan.
 - **Dampak:** Proses penyimpanan riwayat harus dipisahkan dari penyajian hasil. Sistem perlu memberi tahu bahwa penyimpanan gagal karena kuota penuh, sementara fungsi lihat, salin, dan unduh tetap tersedia.
-- **Belum diputuskan:** Apakah setelah kapasitas dibebaskan pengguna dapat mencoba menyimpan hasil yang sama dari tampilan hasil yang masih terbuka, atau harus menjalankan proses Humanizer kembali.
+- **Klarifikasi melalui DEC-070:** Setelah kapasitas dibebaskan, pengguna dapat mencoba menyimpan kembali hasil yang sama dari tampilan hasil yang masih tersedia tanpa menjalankan pemrosesan Humanizer ulang.
+- **Belum diputuskan:** Masa ketersediaan tampilan hasil dan perilaku setelah sesi berakhir.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-070: Percobaan ulang penyimpanan hasil Humanizer tanpa pemrosesan ulang
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika hasil Humanizer gagal disimpan karena kuota riwayat penuh, hasil tetap tersedia pada tampilan hasil. Setelah pengguna menghapus entri lama sehingga kapasitas mencukupi, pengguna dapat mencoba menyimpan kembali hasil yang sama tanpa menjalankan pemrosesan Humanizer ulang.
+- **Alasan:** Kegagalan penyimpanan akibat kuota adalah kegagalan pada tahap persistensi riwayat, bukan kegagalan pemrosesan. Memproses ulang teks akan membuang waktu dan berpotensi menghasilkan revisi berbeda untuk input yang sama.
+- **Alternatif yang dipertimbangkan:** Mewajibkan pengguna menjalankan Humanizer kembali setelah kapasitas dibebaskan.
+- **Dampak:** Tampilan hasil perlu mempertahankan akses ke hasil yang belum tersimpan agar pengguna dapat mengulangi tindakan simpan setelah kapasitas tersedia. Mekanisme ini tidak berarti hasil disimpan otomatis ke riwayat.
+- **Belum diputuskan:** Masa ketersediaan tampilan hasil dan perilaku setelah sesi berakhir atau halaman ditutup/dimuat ulang.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
