@@ -157,3 +157,22 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:**
 - **Dampak:**
 - **Sumber/bukti:**
+
+
+## DEC-011: Hak akses Guest dan AI Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:**
+  - Guest hanya boleh menggunakan AI Text Detector.
+  - AI Humanizer hanya tersedia bagi pengguna yang sudah login/terdaftar.
+  - Pengguna terdaftar dapat menggunakan AI Text Detector dan AI Humanizer.
+  - Reward/kredit Guest hanya relevan untuk penggunaan AI Text Detector; Guest tidak memperoleh akses Humanizer hanya karena memiliki saldo kredit.
+- **Alasan:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-01.
+- **Dampak:**
+  - Hak akses fitur harus diperiksa di backend, bukan hanya menyembunyikan tombol Humanizer di antarmuka Guest.
+  - Alur Guest ke Humanizer harus mengarahkan pengguna untuk login/registrasi sebelum dapat memproses teks.
+  - Profil gaya personal dan pengelolaannya hanya tersedia untuk pengguna terautentikasi.
+  - Perhitungan kuota/kredit perlu mempertimbangkan entitlement fitur, bukan saldo saja.
+- **Bukan bagian dari keputusan ini:** apakah Guest boleh melihat landing page/preview Humanizer, cara membawa teks Detector ke Humanizer setelah login, serta apakah kredit Guest dapat dikonversi atau dipindahkan saat registrasi.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek dalam sesi User Flow 2026-11-12.
