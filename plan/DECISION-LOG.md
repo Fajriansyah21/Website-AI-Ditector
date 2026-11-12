@@ -579,3 +579,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem memerlukan alur permintaan dan persetujuan, pengaitan ke tiket investigasi, pembatasan cakupan akses, dan mekanisme izin sementara.
 - **Belum diputuskan:** Masa berlaku persetujuan, mekanisme pencabutan lebih awal, definisi cakupan metadata, dan apakah akses dapat diperpanjang.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-045: Masa berlaku persetujuan akses investigasi maksimal 24 jam
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Persetujuan akses metadata audit untuk Admin berlaku maksimal 24 jam, tidak diperpanjang otomatis, dan dapat dicabut oleh Super Admin kapan saja. Setelah kedaluwarsa atau dicabut, Admin harus mengajukan permintaan baru jika akses masih diperlukan. Akses tetap terbatas pada cakupan investigasi yang disetujui.
+- **Alasan:** Masa berlaku singkat mengurangi risiko izin sensitif terlupakan dan tetap terbuka setelah kebutuhan investigasi berakhir.
+- **Alternatif yang dipertimbangkan:** Persetujuan tanpa batas waktu; perpanjangan otomatis; masa berlaku lebih panjang.
+- **Dampak:** Sistem harus menerapkan kedaluwarsa otomatis paling lambat 24 jam sejak persetujuan, tidak memperpanjang izin secara otomatis, menyediakan pencabutan oleh Super Admin, dan mengharuskan permintaan baru setelah akses berakhir.
+- **Belum diputuskan:** Apakah masa berlaku dihitung sejak waktu persetujuan atau sejak akses pertama digunakan, serta detail notifikasi sebelum kedaluwarsa.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
