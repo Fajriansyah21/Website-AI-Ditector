@@ -21,7 +21,8 @@ Detector tidak boleh diposisikan sebagai alat pembuktian mutlak. Hasil model ada
 - Bahasa yang didukung adalah Bahasa Indonesia dan Bahasa Inggris.
 - Teks campuran Indonesia-Inggris dapat dianalisis dengan peringatan keterbatasan.
 - Input didukung melalui teks dan unggahan TXT, DOCX, PDF.
-- Batas yang ditampilkan kepada pengguna menggunakan karakter, sedangkan sistem juga membatasi token. Angka belum ditentukan.
+- AI Text Detector memiliki batas maksimal jumlah karakter input. Angka batas belum ditentukan.
+- Batas yang ditampilkan kepada pengguna menggunakan karakter, sedangkan sistem juga membatasi token internal.
 - Batas input Detector dapat berbeda dari Humanizer.
 - Pemrosesan pendek/panjang bersifat adaptif; teks panjang dapat dipecah dengan chunking.
 - Output mencakup ringkasan keseluruhan, analisis per kalimat, dan penjelasan.
