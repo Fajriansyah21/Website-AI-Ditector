@@ -33,6 +33,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Penghitungan panjang sampel mencakup seluruh karakter yang dimasukkan, termasuk spasi dan baris baru. Angka minimum belum ditentukan.
 - Profil gaya dapat disimpan secara opsional, digunakan kembali, diperbarui, dan dihapus.
 - Pengguna dapat mengedit atau menghapus setiap entri sampel secara individual tanpa mengganggu entri lainnya.
+- Setiap kali sampel pada profil yang sudah terbentuk diedit atau dihapus, sistem mengevaluasi ulang seluruh kumpulan sampel yang tersisa. Jika tidak lagi memadai, sistem memberi peringatan dan meminta sampel tambahan sebelum profil digunakan atau diperbarui kembali.
 - Pengguna dapat memiliki satu profil utama dan beberapa profil tambahan.
 - Hasil menampilkan teks asli, hasil revisi, dan bagian yang berubah.
 - Pengguna dapat menyalin seluruh atau sebagian hasil dan mengunduh TXT, DOCX, atau PDF.
@@ -56,6 +57,8 @@ Profil gaya merupakan data terpisah dari dokumen sampel sumber. Pengguna dapat:
 - Menggunakan kembali, memperbarui, dan menghapus profil.
 
 Daftar gaya bawaan, jumlah profil maksimum, bentuk representasi profil, dan mekanisme profiling belum diputuskan.
+
+Setelah profil terbentuk, setiap perubahan atau penghapusan entri sampel memicu evaluasi ulang terhadap seluruh kumpulan sampel yang tersisa. Jika kumpulan tidak lagi memadai, pengguna diberi peringatan dan diminta menambahkan sampel. Kriteria kecukupan, status profil selama evaluasi, serta strategi versi atau pemulihan profil sebelumnya masih perlu dirancang.
 
 Retensi sampel mentah setelah profiling juga belum diputuskan secara teknis. Jangan menganggap penyimpanan profil berarti penyimpanan dokumen sumber. Default minimisasi data perlu dipertahankan dan kebijakan retensi harus dinyatakan secara eksplisit.
 
