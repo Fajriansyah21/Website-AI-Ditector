@@ -920,3 +920,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Antarmuka perlu mendeteksi kondisi hasil yang belum tersimpan dan meminta konfirmasi sebelum refresh. Mekanisme konfirmasi tidak boleh menyimpan hasil sementara.
 - **Belum diputuskan:** Teks dialog dan detail penanganan navigasi browser ditentukan pada desain UI/teknis.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-073: Konfirmasi untuk seluruh navigasi yang meninggalkan hasil Humanizer belum tersimpan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Seluruh tindakan navigasi yang meninggalkan halaman hasil Humanizer ketika terdapat hasil yang belum disimpan harus meminta konfirmasi sebelum navigasi dilanjutkan. Cakupannya meliputi navigasi internal, tombol Back, refresh, dan navigasi/penutupan halaman lain sejauh dapat ditangani oleh mekanisme browser. Jika pengguna membatalkan, halaman dan hasil tetap dipertahankan. Jika pengguna mengonfirmasi, navigasi dilanjutkan dan hasil yang belum disimpan hilang sesuai DEC-071. Tidak ada peringatan kedua setelah konfirmasi pertama; konfirmasi pertama dianggap cukup.
+- **Alasan:** Hasil yang belum disimpan berisiko hilang ketika pengguna meninggalkan halaman secara tidak sengaja. Satu konfirmasi memberikan perlindungan tanpa menambah langkah konfirmasi berulang.
+- **Alternatif yang dipertimbangkan:** Hanya meminta konfirmasi saat refresh; meminta konfirmasi kedua sebelum hasil benar-benar dihapus.
+- **Dampak:** UI perlu menjaga status hasil belum tersimpan dan meminta konfirmasi pada navigasi yang dapat dikendalikan aplikasi. Untuk navigasi browser eksternal, penutupan tab, atau refresh, implementasi harus mengikuti batasan API/perilaku browser; situs tidak selalu dapat menampilkan dialog khusus atau mengendalikan seluruh jalur navigasi. Tidak boleh menjanjikan dialog khusus pada tindakan yang tidak didukung browser. Tidak ada penyimpanan sementara atau pemulihan hasil yang ditambahkan.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
