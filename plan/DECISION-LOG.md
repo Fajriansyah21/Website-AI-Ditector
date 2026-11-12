@@ -639,3 +639,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu mencatat kegagalan dua kanal, menampilkan indikator kepada Super Admin, dan memisahkan retry notifikasi dari proses kedaluwarsa/pencabutan izin.
 - **Belum diputuskan:** Jumlah dan interval retry, kriteria kegagalan permanen, serta format indikator dan audit event.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-050: Batas retry dan pengiriman ulang notifikasi akses investigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Sistem melakukan maksimal tiga percobaan pengiriman ulang otomatis dengan jeda lima menit antarpercobaan. Jika seluruh percobaan gagal, status pengiriman menjadi `Delivery Failed`. Super Admin dapat melihat detail kegagalan dan memicu pengiriman ulang secara manual. Pengiriman ulang manual hanya mengirim notifikasi dan tidak mengubah status akses.
+- **Alasan:** Retry terbatas mencegah pengiriman tanpa akhir, sedangkan pengiriman ulang manual memberi jalur pemulihan yang terkendali. Pemisahan status notifikasi dan status akses menjaga agar tindakan pengiriman pesan tidak mengubah kontrol keamanan.
+- **Alternatif yang dipertimbangkan:** Retry tanpa batas; tidak menyediakan pengiriman ulang manual; menggabungkan status notifikasi dengan status akses.
+- **Dampak:** Sistem perlu menghitung maksimal tiga retry otomatis dengan interval lima menit, menetapkan status `Delivery Failed` setelah kegagalan final, menyediakan detail kegagalan bagi Super Admin, dan memastikan pengiriman ulang manual tidak mengubah status izin.
+- **Belum diputuskan:** Apakah tiga percobaan dihitung sebagai percobaan ulang setelah pengiriman awal atau total percobaan termasuk pengiriman awal, serta apakah retry berjalan per kanal atau per notifikasi gabungan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
