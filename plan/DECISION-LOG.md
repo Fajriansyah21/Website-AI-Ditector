@@ -567,3 +567,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem memerlukan kontrol akses berbasis peran dan izin terpisah, pencatatan setiap akses, serta pembatasan akses Admin berdasarkan penugasan operasional atau investigasi.
 - **Belum diputuskan:** Matriks izin rinci, mekanisme penugasan dan persetujuan investigasi, cakupan metadata yang dapat dilihat tiap peran, serta retensi log akses.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-044: Persetujuan sementara untuk akses investigasi metadata oleh Admin
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Admin yang belum memiliki penugasan investigasi wajib mengajukan permintaan akses metadata audit dengan alasan dan nomor tiket investigasi. Super Admin menyetujui atau menolak permintaan tersebut. Persetujuan bersifat sementara dan hanya berlaku untuk cakupan investigasi yang disetujui.
+- **Alasan:** Kebutuhan operasional yang diklaim sendiri tidak cukup untuk memperluas akses. Persetujuan eksplisit, alasan, tiket, dan cakupan terbatas menyediakan kontrol serta jejak akuntabilitas.
+- **Alternatif yang dipertimbangkan:** Memberikan akses berdasarkan permintaan Admin tanpa persetujuan; memberikan akses permanen kepada Admin.
+- **Dampak:** Sistem memerlukan alur permintaan dan persetujuan, pengaitan ke tiket investigasi, pembatasan cakupan akses, dan mekanisme izin sementara.
+- **Belum diputuskan:** Masa berlaku persetujuan, mekanisme pencabutan lebih awal, definisi cakupan metadata, dan apakah akses dapat diperpanjang.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
