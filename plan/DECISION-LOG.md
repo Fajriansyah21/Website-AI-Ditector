@@ -395,3 +395,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Retensi 30 hari dihitung setelah versi baru berhasil diaktifkan. Versi aktif tidak kedaluwarsa hanya karena batas retensi versi sebelumnya. Kebijakan ini mengatur artefak versi profil, bukan retensi sampel tulisan mentah.
 - **Belum diputuskan:** apakah versi yang dipulihkan mendapat masa retensi baru atau apakah versi yang sebelumnya aktif menjadi versi historis dengan masa retensi baru; detail teknis penjadwalan penghapusan dan audit pemulihan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-030: Retensi versi sebelumnya setelah pemulihan profil
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setiap pergantian versi profil yang berhasil, termasuk pemulihan versi historis, menjadikan versi yang sebelumnya aktif sebagai versi historis dan menyimpannya selama 30 hari sejak pergantian berhasil. Masa retensi dihitung secara individual untuk setiap versi yang dinonaktifkan. Pergantian atau pemulihan satu versi tidak memperpanjang masa retensi versi historis lainnya.
+- **Alasan:** Pemulihan versi harus menjadi pergantian versi yang dapat dibalik, bukan tindakan yang menghilangkan versi yang sebelumnya aktif. Pengguna tetap memiliki kesempatan untuk kembali ke versi sebelum pemulihan tanpa menyimpan seluruh versi tanpa batas.
+- **Alternatif yang dipertimbangkan:** Menghapus versi yang sebelumnya aktif ketika pemulihan dilakukan; memperpanjang masa retensi semua versi historis setiap kali terjadi pergantian.
+- **Dampak:** Sistem perlu mencatat waktu aktivasi dan waktu penonaktifan setiap versi, menghitung masa retensi 30 hari per versi yang dinonaktifkan, serta memastikan proses pemulihan tidak mengubah tenggat retensi versi historis lainnya.
+- **Klarifikasi:** Versi yang sedang aktif tidak memiliki tenggat retensi historis. Ketika versi tersebut dinonaktifkan oleh pergantian yang berhasil, masa retensi 30 hari dimulai untuk versi itu. Pemulihan tidak mengubah kumpulan sampel sumber.
+- **Belum diputuskan:** batas jumlah versi historis yang dapat dipulihkan, detail audit pergantian/pemulihan, dan kebijakan pembersihan fisik artefak yang kedaluwarsa.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
