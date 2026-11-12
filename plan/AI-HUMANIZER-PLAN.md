@@ -42,7 +42,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Setiap kali sampel pada profil yang sudah terbentuk diedit atau dihapus, sistem mengevaluasi ulang seluruh kumpulan sampel yang tersisa. Jika tidak lagi memadai, sistem memberi peringatan dan meminta sampel tambahan sebelum profil digunakan atau diperbarui kembali.
 - Pengguna dapat memiliki satu profil utama dan beberapa profil tambahan.
 - Hasil menampilkan teks asli, hasil revisi, dan bagian yang berubah.
-- Pengguna dapat melihat hasil di website, menyalin seluruh atau sebagian hasil, dan mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen sumber (TXT, DOCX, atau PDF). Kesamaan tata letak dan struktur dengan dokumen sumber tidak dijamin secara identik. Jika input hanya berupa teks manual tanpa dokumen unggahan, pengguna dapat memilih format unduhan TXT, DOCX, atau PDF.
+- Pengguna dapat melihat hasil di website, menyalin seluruh atau sebagian hasil, dan mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen sumber (TXT, DOCX, atau PDF). Kesamaan tata letak dan struktur dengan dokumen sumber tidak dijamin secara identik. Jika input hanya berupa teks manual tanpa dokumen unggahan, pengguna dapat memilih format unduhan TXT, DOCX, atau PDF. Hasil tidak disimpan otomatis ke riwayat akun; pengguna harus memilih secara eksplisit jika ingin menyimpannya.
 
 ## 3. Prinsip kualitas
 
@@ -89,6 +89,7 @@ Prasyarat: pengguna harus login sebelum dapat memulai Humanizer atau mengelola p
 7. Sistem menampilkan teks yang dikirim untuk diproses, hasil revisi, dan penyorotan perubahan.
 8. Pengguna meninjau hasil, menyalin seluruh atau sebagian teks, atau mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen tersebut (TXT, DOCX, atau PDF). Tata letak dan struktur kompleks tidak dijamin identik dengan dokumen sumber.
    Jika input berasal dari teks manual tanpa dokumen unggahan, pengguna memilih format unduhan TXT, DOCX, atau PDF.
+   Hasil tidak masuk ke riwayat akun secara otomatis. Pengguna dapat memilih secara eksplisit untuk menyimpan hasil tertentu.
 
 ## 7. Risiko dan pengujian
 
