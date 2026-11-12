@@ -783,3 +783,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu menghitung total ukuran data riwayat Humanizer per akun dan menerapkan kuota penyimpanan. Nilai kuota dan perilaku saat kuota tercapai belum ditentukan dan harus dirancang sebelum implementasi.
 - **Belum diputuskan:** Besaran kuota, satuan dan metode penghitungan ukuran, apakah metadata ikut dihitung, perilaku simpan saat kuota penuh, serta mekanisme pemberitahuan dan pembebasan kapasitas.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-062: Pengguna memilih entri yang dihapus saat kapasitas riwayat penuh
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika kapasitas penyimpanan riwayat Humanizer penuh, sistem tidak menghapus entri lama secara otomatis. Pengguna dapat memilih sendiri entri riwayat lama yang ingin dihapus untuk menyediakan kapasitas sebelum menyimpan hasil baru.
+- **Alasan:** Penghapusan otomatis dapat menghilangkan hasil yang masih dibutuhkan pengguna. Pemilihan manual mempertahankan kendali pengguna atas konten yang disimpan.
+- **Alternatif yang dipertimbangkan:** Menolak penyimpanan hasil baru sampai pengguna menghapus entri lama tanpa alur pemilihan yang diarahkan, atau menghapus otomatis entri paling lama.
+- **Dampak:** Saat kapasitas tidak mencukupi, sistem perlu menampilkan informasi kapasitas dan menyediakan alur pemilihan entri lama untuk dihapus. Penghapusan tetap mengikuti keputusan DEC-060, yaitu setelah konfirmasi dan permanen dari riwayat aplikasi.
+- **Belum diputuskan:** Apakah pengguna dapat memilih beberapa entri sekaligus, cara menampilkan ukuran setiap entri, dan perilaku jika kapasitas masih tidak cukup setelah penghapusan yang dipilih.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
