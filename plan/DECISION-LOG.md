@@ -483,3 +483,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu memperlakukan kumpulan sampel sebagai sumber data terbaru ketika pembaruan dilanjutkan. Evaluasi dan pembentukan versi baru harus menggunakan snapshot kumpulan sampel setelah perubahan, bukan snapshot lama.
 - **Belum diputuskan:** Perilaku jika pengguna menambah atau mengedit sampel selama pembaruan tertahan, serta bagaimana perubahan sampel yang berulang dikelompokkan untuk evaluasi.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-037: Perubahan sampel diperbolehkan selama pembaruan profil tertahan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Pengguna tetap dapat menambah dan mengedit sampel gaya ketika pembaruan profil tertahan oleh proses pemulihan. Setelah pemulihan selesai, pembaruan dilanjutkan dengan mengambil kondisi terbaru seluruh sampel, termasuk penambahan, pengeditan, dan penghapusan yang terjadi selama penahanan. Sistem menjalankan evaluasi ulang atas kumpulan terbaru tersebut untuk proses pembaruan yang dilanjutkan, bukan evaluasi terpisah untuk setiap perubahan selama penahanan.
+- **Alasan:** Pengguna perlu tetap memiliki kendali atas sampel gaya tanpa membuat sistem menjalankan evaluasi berulang yang tidak perlu. Mengambil kondisi terbaru setelah pemulihan menjaga konsistensi sumber data pembaruan.
+- **Alternatif yang dipertimbangkan:** Membekukan perubahan sampel selama pemulihan; menjalankan evaluasi setiap kali sampel berubah.
+- **Dampak:** Sistem perlu mengambil snapshot kumpulan sampel terbaru setelah pemulihan selesai dan sebelum evaluasi ulang dimulai. Semua perubahan sampel selama penahanan harus tercermin dalam snapshot tersebut.
+- **Belum diputuskan:** Perilaku jika sampel kembali berubah ketika evaluasi ulang atau pembentukan versi baru sedang berlangsung; mekanisme snapshot/versioning kumpulan sampel dan penanganan konkurensinya perlu dirancang.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
