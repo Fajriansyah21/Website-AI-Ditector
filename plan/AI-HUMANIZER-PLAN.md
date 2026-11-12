@@ -42,7 +42,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Setiap kali sampel pada profil yang sudah terbentuk diedit atau dihapus, sistem mengevaluasi ulang seluruh kumpulan sampel yang tersisa. Jika tidak lagi memadai, sistem memberi peringatan dan meminta sampel tambahan sebelum profil digunakan atau diperbarui kembali.
 - Pengguna dapat memiliki satu profil utama dan beberapa profil tambahan.
 - Hasil menampilkan teks asli, hasil revisi, dan bagian yang berubah.
-- Pengguna dapat menyalin seluruh atau sebagian hasil dan mengunduh TXT, DOCX, atau PDF.
+- Pengguna dapat melihat hasil di website, menyalin seluruh atau sebagian hasil, dan mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen sumber (TXT, DOCX, atau PDF). Kesamaan tata letak dan struktur dengan dokumen sumber tidak dijamin secara identik.
 
 ## 3. Prinsip kualitas
 
@@ -87,7 +87,7 @@ Prasyarat: pengguna harus login sebelum dapat memulai Humanizer atau mengelola p
 5. Sistem memvalidasi kecukupan input dan kapasitas.
 6. Sistem memproses teks, langsung atau melalui antrean.
 7. Sistem menampilkan teks yang dikirim untuk diproses, hasil revisi, dan penyorotan perubahan.
-8. Pengguna meninjau, menyalin, mengunduh, atau menyimpan hasil secara opsional.
+8. Pengguna meninjau hasil, menyalin seluruh atau sebagian teks, atau mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen tersebut (TXT, DOCX, atau PDF). Tata letak dan struktur kompleks tidak dijamin identik dengan dokumen sumber.
 
 ## 7. Risiko dan pengujian
 
