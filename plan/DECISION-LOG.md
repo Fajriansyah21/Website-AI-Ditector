@@ -699,3 +699,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** UI perlu menyediakan langkah konfirmasi sebelum mengganti dokumen. Sistem harus mempertahankan state editor jika pengguna membatalkan dan mengganti seluruh konten editor jika pengguna mengonfirmasi.
 - **Belum diputuskan:** Detail tampilan dialog konfirmasi, apakah nama dokumen lama dan baru ditampilkan, serta penanganan jika ekstraksi dokumen pengganti gagal setelah konfirmasi.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-055: Pengeditan bebas pada editor Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Sebelum menjalankan pemrosesan Humanizer, pengguna dapat mengedit teks di editor secara bebas, termasuk mengubah, menambah, dan menghapus bagian mana pun dari teks hasil ekstraksi dokumen maupun teks yang ditambahkan secara manual. Seluruh isi editor pada saat pemrosesan dimulai menjadi satu input yang diproses oleh Humanizer.
+- **Alasan:** Pengguna perlu memiliki kendali penuh atas materi yang akan diproses, tanpa pembatasan yang membedakan teks hasil ekstraksi dan teks manual.
+- **Alternatif yang dipertimbangkan:** Membatasi perubahan teks hasil ekstraksi dan hanya mengizinkan penambahan teks manual atau perubahan melalui tindakan khusus.
+- **Dampak:** Editor harus mendukung penyuntingan teks secara penuh. Sistem memproses isi editor terkini, bukan mengambil ulang isi dokumen sumber. Dokumen sumber tetap tidak diubah.
+- **Belum diputuskan:** Batas karakter, validasi konten, dan perilaku editor ketika format dokumen memiliki struktur seperti tabel atau daftar.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
