@@ -325,3 +325,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Antarmuka dan backend perlu menyediakan operasi edit dan hapus per entri serta menjaga identitas dan keterkaitan setiap sampel dengan profil gaya pemiliknya.
 - **Belum diputuskan:** apakah perubahan atau penghapusan sampel otomatis memicu evaluasi ulang profil yang sudah terbentuk, bagaimana versi profil dikelola, dan apakah penghapusan sampel sumber mengikuti kebijakan retensi tertentu.
 - **Sumber:** Persetujuan eksplisit pemilik proyek atas pengeditan dan penghapusan sampel secara individual pada 2026-11-12.
+
+## DEC-024: Evaluasi ulang profil gaya setelah perubahan sampel
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setiap kali pengguna mengedit atau menghapus satu entri sampel pada profil gaya yang sudah terbentuk, sistem mengevaluasi ulang seluruh kumpulan sampel yang tersisa. Jika kumpulan sampel tidak lagi memadai, sistem memberi peringatan dan meminta pengguna menambahkan sampel sebelum profil digunakan atau diperbarui kembali.
+- **Alasan:** Profil gaya harus tetap merepresentasikan sampel yang benar-benar tersedia. Profil tidak boleh terus dianggap valid tanpa pemeriksaan setelah sumber pembentuknya berubah.
+- **Alternatif yang dipertimbangkan:** Mempertahankan profil lama tanpa evaluasi ulang; menghapus profil secara otomatis ketika sampel berubah.
+- **Dampak:** Alur edit/hapus sampel perlu memicu evaluasi kumpulan sampel. Sistem perlu dapat menyatakan apakah profil masih memadai dan memberi arahan penambahan sampel ketika tidak memadai.
+- **Belum diputuskan:** kriteria teknis kecukupan, apakah profil lama tetap dapat digunakan selama evaluasi atau ketika sampel tidak lagi memadai, strategi versi/pemulihan profil sebelumnya, serta perilaku jika evaluasi gagal.
+- **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas pengelolaan sampel profil gaya Humanizer pada 2026-11-12.
