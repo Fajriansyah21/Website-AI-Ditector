@@ -735,3 +735,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Antarmuka hasil Humanizer untuk input manual perlu menyediakan pemilih format unduhan TXT, DOCX, dan PDF. Generator keluaran dan validasi teknis ditentukan pada tahap desain teknis.
 - **Belum diputuskan:** Apakah pilihan format diingat sebagai preferensi pengguna untuk proses berikutnya.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-058: Penyimpanan hasil Humanizer berdasarkan pilihan pengguna
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Hasil pemrosesan Humanizer tidak disimpan otomatis ke riwayat akun. Pengguna memilih secara eksplisit apakah hasil tertentu ingin disimpan.
+- **Alasan:** Teks yang diproses dapat berisi materi akademik atau informasi pribadi. Penyimpanan berdasarkan pilihan pengguna mengurangi penyimpanan konten yang tidak diperlukan dan memberi kendali kepada pengguna.
+- **Alternatif yang dipertimbangkan:** Menyimpan semua hasil secara otomatis atau menyimpan otomatis dengan opsi menonaktifkan fitur melalui pengaturan.
+- **Dampak:** Alur hasil Humanizer perlu menyediakan tindakan eksplisit untuk menyimpan hasil. Sistem tidak boleh memasukkan konten hasil ke riwayat akun tanpa tindakan tersebut.
+- **Belum diputuskan:** Detail tindakan simpan, apakah pilihan menyimpan berlaku per hasil atau dapat dijadikan preferensi, serta retensi dan penghapusan hasil tersimpan. Aturan riwayat umum akun tetap perlu diselaraskan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
