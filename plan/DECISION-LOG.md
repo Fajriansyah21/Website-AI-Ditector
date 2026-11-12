@@ -1063,3 +1063,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Screen reader hanya mengumumkan judul, sementara isi pesan harus dibaca melalui navigasi screen reader.
 - **Dampak:** Implementasi perlu mengatur semantik dan hubungan aksesibel judul/deskripsi alert dialog sehingga judul dan pesan diumumkan saat dialog dibuka. Pengumuman harus dikoordinasikan dengan fokus awal pada tombol **Tetap di halaman** sesuai DEC-081 agar tidak terjadi pengumuman ganda, terpotong, atau saling bertabrakan. Perilaku perlu diuji dengan kombinasi screen reader dan browser yang ditetapkan pada desain teknis.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-086: Pengumuman ulang isi alert dialog hanya atas navigasi manual pengguna
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Judul dan seluruh pesan peringatan pada modal konfirmasi navigasi Humanizer diumumkan secara otomatis satu kali ketika modal dibuka. Sistem tidak mengumumkan ulang pesan secara otomatis setiap kali fokus berpindah ke bagian isi modal. Pengguna screen reader tetap dapat membaca ulang isi pesan melalui navigasi screen reader secara manual.
+- **Alasan:** Menghindari pengumuman berulang yang mengganggu, sekaligus mempertahankan kendali pengguna untuk meninjau ulang pesan sesuai kebutuhan.
+- **Alternatif yang dipertimbangkan:** Mengumumkan ulang pesan secara otomatis setiap kali fokus berpindah ke bagian isi modal.
+- **Dampak:** Implementasi harus membatasi pengumuman otomatis pada saat pembukaan modal dan tidak memasang perilaku pengumuman ulang yang terpicu oleh perpindahan fokus. Isi pesan tetap tersedia bagi navigasi screen reader. Pengujian aksesibilitas perlu memastikan pengumuman awal tidak terjadi dua kali.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
