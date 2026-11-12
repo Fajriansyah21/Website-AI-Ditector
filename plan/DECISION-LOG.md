@@ -289,3 +289,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Persyaratan batas minimum dan pesan validasi dipindahkan dari AI Text Detector ke sampel profil gaya AI Humanizer. Penghitungan karakter sampel harus konsisten antara antarmuka dan backend.
 - **Belum diputuskan:** angka minimum sampel, perlakuan karakter khusus/Unicode, dan apakah kecukupan profil juga mempertimbangkan faktor selain jumlah karakter seperti keragaman dan konsistensi tulisan.
 - **Sumber:** Klarifikasi eksplisit pemilik proyek saat membahas validasi panjang input dan sampel gaya pada 2026-11-12.
+
+
+## DEC-021: Mempertahankan sampel gaya saat meminta tambahan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika sampel tulisan untuk profil gaya personal belum cukup beragam atau belum konsisten, sistem mempertahankan sampel yang telah diberikan dan meminta pengguna menambahkan tulisan. Sampel tambahan digabungkan dengan sampel sebelumnya untuk penilaian ulang; pengguna tidak perlu mengirim ulang seluruh sampel.
+- **Alasan:** Pengguna tidak kehilangan materi yang sudah diberikan dan dapat meningkatkan kualitas sampel secara bertahap.
+- **Alternatif yang dipertimbangkan:** Menolak sampel dan meminta seluruh sampel dikirim ulang; membentuk profil sementara meskipun kualitas sampel belum memadai.
+- **Dampak:** Alur pembuatan profil perlu mendukung penambahan sampel secara bertahap, penyimpanan sementara selama proses pembentukan, penggabungan sampel, dan penilaian ulang atas keseluruhan materi.
+- **Belum diputuskan:** indikator teknis keragaman dan konsistensi, apakah sampel tambahan diberikan sebagai satu input atau beberapa input terpisah, serta aturan penghapusan sampel sumber setelah profil terbentuk.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas kecukupan sampel profil gaya Humanizer pada 2026-11-12.
