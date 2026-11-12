@@ -254,3 +254,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Antarmuka Detector perlu menyediakan area input teks dan opsi unggah file. Kedua jalur harus melewati validasi karakter, ekstraksi/validasi file bila relevan, dan pemeriksaan sebelum pemrosesan.
 - **Batasan:** Persetujuan metode input ini tidak menetapkan batas ukuran file, batas karakter numerik, dukungan OCR final, atau jaminan pelestarian seluruh tata letak dokumen.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
+
+
+## DEC-018: Batas minimal karakter input AI Text Detector
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** AI Text Detector harus menerapkan batas minimal jumlah karakter. Input yang berada di bawah batas minimal tidak diproses dan pengguna diminta menambahkan teks.
+- **Belum diputuskan:** angka minimal karakter, cara menghitung karakter (termasuk spasi, baris baru, dan karakter khusus), serta perilaku UX final.
+- **Klarifikasi:** Batas minimal ini merupakan validasi kualitas input dan berlaku terpisah dari kuota kredit. Belum ada keputusan untuk membedakan batas minimal berdasarkan status Guest atau pengguna terdaftar.
+- **Dampak:** Validasi panjang teks harus memeriksa batas minimum dan maksimum sebelum mengurangi kredit atau mengirim permintaan ke layanan AI. Ambang minimum perlu ditentukan melalui evaluasi model dan pengujian kualitas deteksi, bukan angka arbitrer.
+- **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
