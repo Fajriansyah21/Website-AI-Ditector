@@ -434,3 +434,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Prioritas ini berlaku ketika kedua jenis permintaan tertunda karena batas kapasitas historis. Pembatalan hanya dijamin selama permintaan belum mulai dieksekusi; perilaku pembatalan setelah eksekusi dimulai tidak ditetapkan oleh keputusan ini.
 - **Belum diputuskan:** apakah beberapa permintaan pemulihan diurutkan berdasarkan waktu kedatangan atau aturan lain, apakah satu profil boleh memiliki lebih dari satu permintaan tertunda untuk jenis yang sama, dan detail notifikasi/status antrean.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-033: Satu permintaan pemulihan aktif per profil gaya
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setiap profil gaya hanya boleh memiliki satu permintaan pemulihan versi yang aktif pada satu waktu. Permintaan aktif mencakup permintaan yang masih tertunda maupun yang sedang dieksekusi. Permintaan pemulihan tambahan untuk profil yang sama ditolak sementara dan pengguna diminta menyelesaikan atau membatalkan permintaan sebelumnya. Jika permintaan sebelumnya masih tertunda, pengguna dapat membatalkannya sebelum mengajukan pemulihan ke versi lain. Jika pemulihan gagal, versi aktif tidak berubah dan pengguna dapat mengajukan percobaan baru setelah permintaan gagal diselesaikan.
+- **Alasan:** Beberapa permintaan pemulihan yang tumpang tindih dapat saling bertentangan mengenai versi mana yang harus menjadi versi aktif. Membatasi satu permintaan aktif per profil menghindari kompetisi perubahan dan membuat hasil operasi dapat diprediksi.
+- **Alternatif yang dipertimbangkan:** Mengizinkan beberapa permintaan pemulihan dalam antrean; mengganti permintaan sebelumnya secara otomatis dengan permintaan terbaru.
+- **Dampak:** Sistem perlu menjamin keunikan permintaan pemulihan aktif per profil, menolak permintaan tambahan saat ada operasi tertunda/berjalan, menyediakan pembatalan untuk permintaan tertunda, serta menjaga versi aktif jika pemulihan gagal.
+- **Klarifikasi:** Pembatasan ini berlaku per profil, bukan per akun. Permintaan pemulihan yang telah selesai atau gagal tidak lagi dianggap aktif. Aturan ini tidak menetapkan bahwa permintaan pembaruan profil juga dibatasi dengan mekanisme yang sama.
+- **Belum diputuskan:** detail status permintaan, kebijakan retry teknis, dan bagaimana permintaan pembaruan berinteraksi dengan pemulihan yang sedang dieksekusi.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
