@@ -1,70 +1,65 @@
-# Website AI Detector (TextLab)
+# Lexora
 
-Repository ini menyimpan dokumentasi keputusan produk, riset teknis, spesifikasi dataset, dan rancangan sistem TextLab. Dokumentasi dibuat sebelum implementasi agar keputusan dan alasan teknisnya tidak hilang ketika proyek mulai dikembangkan.
+**Lexora** adalah nama produk untuk platform analisis dan pengolahan teks berbahasa Indonesia. Nama historis/internal proyek adalah TextLab.
 
-> **Status proyek:** tahap analisis dan perancangan. Belum ada implementasi kode aplikasi, pengumpulan pilot aktual, atau training model final.
+Repositori ini menjadi sumber kebenaran untuk instruksi agent, keputusan, rencana kerja, spesifikasi, eksperimen, dan bukti implementasi.
 
-## Ruang lingkup produk
+> **Status saat audit 2026-11-12:** tahap persiapan workflow dan riset. Prioritas aktif adalah uji prosedur sintetis dataset. Belum ada bukti pilot dataset nyata, training model final, atau implementasi aplikasi pada snapshot branch ini.
 
-TextLab dirancang sebagai website dengan tiga kemampuan utama:
+## Fokus produk
 
-1. **AI Text Detector** — menganalisis teks berbahasa Indonesia dan memberikan indikasi asal-usul teks pada tingkat kalimat serta ringkasan dokumen.
-2. **AI Humanizer** — membantu mengubah gaya penulisan berdasarkan profil suara pengguna atau gaya dari pustaka.
-3. **DOCX Metadata Cleaner** — membersihkan metadata dokumen DOCX pada tahap awal.
+Ruang lingkup yang direncanakan:
+1. **AI Text Detector**: indikasi karakteristik asal-usul teks pada tingkat kalimat dan ringkasan dokumen.
+2. **AI Humanizer**: bantuan penyesuaian gaya penulisan.
+3. **DOCX Metadata Cleaner**: pembersihan metadata dokumen DOCX pada tahap awal.
 
-## Dokumen utama
+Hasil detector adalah estimasi model, bukan bukti pasti kepengarangan.
 
-- [Rekap rancangan proyek](docs/PROJECT-RECAP.md)
-- [Riset dan rancangan model detector](docs/DETECTOR-MODEL-RESEARCH.md)
-- [Spesifikasi dataset dan protokol benchmark v1.0](docs/DATASET-SPECIFICATION-BENCHMARK-v1.md)
-- [Data Collection Blueprint v1.0](docs/DATA-COLLECTION-BLUEPRINT-v1.md)
-- [Pedoman anotasi v1.0](docs/ANNOTATION-GUIDELINES-v1.md)
-- [Bank topik dan prompt v1.0](docs/PROMPT-BANK-v1.md)
-- [Skema database logis v1.0](docs/DATABASE-SCHEMA-v1.md)
-- [Rancangan produk dan arsitektur sistem](docs/PRODUCT-AND-SYSTEM-DESIGN.md)
-- [Alur kerja pengembangan: Stitch + Antigravity](docs/DEVELOPMENT-WORKFLOW.md)
-- [Wireframes dan flowcharts TextLab](docs/WIREFRAMES-AND-FLOWS-v1.md)
-- [Workflow keseluruhan proyek TextLab](docs/PROJECT-WORKFLOW.md)
-- [Log keputusan dan hal yang belum diputuskan](docs/DECISION-LOG.md)
-- [Skema JSON dataset v1.0](schemas/dataset-records-v1.schema.json)
-- [Contoh record JSON sintetis](schemas/example-document-record-v1.json)
-- [Draf formulir persetujuan penulis manusia](templates/human-writing-consent-form.md)
-- [Template editing history](templates/editing-history.template.json)
+## Prioritas aktif
+
+**Uji prosedur sintetis dataset**, dengan urutan:
+1. JSON Schema.
+2. Sentence offset.
+3. Editing history dan version lineage.
+4. Deduplikasi exact dan near-duplicate.
+5. Group-based split untuk mencegah data leakage.
+
+Pilot dataset nyata dan training belum dimulai. Lihat [Active Roadmap](plan/ACTIVE-ROADMAP.md).
+
+## Instruksi dan workflow
+
+- [AGENTS.md](AGENTS.md): aturan kerja permanen untuk agent.
+- [Operating Workflow](plan/OPERATING-WORKFLOW.md): siklus task dari orientasi sampai verifikasi.
+- [Active Roadmap](plan/ACTIVE-ROADMAP.md): prioritas dan gerbang kelulusan.
+- [Observation Log](plan/OBSERVATION-LOG.md): pembelajaran workflow yang dapat ditindaklanjuti.
+- [Tooling and Skills](docs/TOOLING-AND-SKILLS.md): strategi adopsi skill dan tool.
+
+## Antigravity workspace skills
+
+- [Task Observer](.agents/skills/task-observer/SKILL.md)
+- [Synthetic Dataset Test](.agents/skills/synthetic-dataset-test/SKILL.md)
+
+Skill Antigravity menggunakan struktur `.agents/skills/<skill-name>/SKILL.md`. Pastikan skill terbaca dari menu Customizations setelah workspace disinkronkan.
+
+## Toolchain
+
+| Tool | Peran | Status |
+|---|---|---|
+| GitHub | Source of truth dan version history | Aktif |
+| Google Stitch | UI/UX design dan handoff | Dipilih, belum menjadi prioritas aktif |
+| Google Antigravity | Implementasi, debugging, dan verifikasi | Dipilih; workspace rules/skills disiapkan |
+
+## Catatan audit repositori
+
+Pada pemeriksaan branch `main` tanggal 2026-11-12, file yang tersedia sebelum pembaruan workflow hanya `README.md`, `.skill/contohSkill.md`, dan `plan/contohPlan.md`. Beberapa dokumen riset yang pernah dirujuk dalam percakapan sebelumnya tidak ditemukan pada tree branch tersebut. Karena itu, dokumen tersebut tidak dicantumkan sebagai sumber aktif dan harus dipulihkan atau dibuat ulang berdasarkan keputusan yang dapat diverifikasi sebelum pengujian yang bergantung padanya dimulai.
 
 ## Prinsip proyek
 
-- Analisis dan validasi dilakukan sebelum implementasi.
-- Setiap data training harus memiliki asal-usul dan dasar penggunaan yang jelas.
-- Dataset publik tidak otomatis menjadi data berlabel HUMAN; provenance dan izin penggunaan harus diperiksa.
-- Hasil detector adalah estimasi model, bukan bukti pasti kepengarangan atau kecurangan.
-- False positive terhadap tulisan manusia harus diperlakukan sebagai risiko utama.
-- Pemrosesan data pengguna dilakukan secara sementara dan dengan penyimpanan seminimal mungkin.
-- Perubahan keputusan harus dicatat, bukan diam-diam mengganti rancangan sebelumnya.
-- Status rancangan, hasil eksperimen, dan implementasi harus dibedakan.
-
-## Status tahapan
-
-| Tahap | Status |
-|---|---|
-| Definisi produk awal | Dirancang |
-| Audit konsep Humanize Kit | Ditinjau |
-| Pemilihan kandidat model detector | Kandidat, belum final |
-| Dataset Specification & Benchmark Protocol | v1.0 dirancang |
-| Data Collection Blueprint | v1.0 ditulis; menunggu tinjauan dan validasi pilot |
-| Kandidat dataset publik | Skrining awal; belum otomatis disetujui |
-| Generator AI | Provider shortlist; model ID final belum dibekukan |
-| Formulir persetujuan dan editing history | Draf |
-| Skema database dan JSON | v1.0 draf; perlu pengujian validator dan contoh data |
-| Pilot dataset 200–500 dokumen | Belum dimulai |
-| Konfigurasi training final | Belum ditentukan |
-| Implementasi aplikasi | Belum dimulai |
-
-Lihat [Decision Log](docs/DECISION-LOG.md) untuk keputusan yang telah ditetapkan dan pertanyaan terbuka.
-
-## Identitas nama produk
-
-Nama website yang dipilih adalah **Lexora**. Nama ini menjadi identitas publik produk, sedangkan **TextLab** tetap digunakan sebagai nama internal proyek dan dokumentasi riset selama masa transisi.
-
-Pemilihan nama Lexora merupakan keputusan branding, bukan perubahan ruang lingkup atau prioritas riset. Fokus pekerjaan tetap pada uji prosedur sintetis dataset sebelum pengumpulan pilot dan pelatihan model.
-
-Ketersediaan domain, akun media sosial, serta potensi konflik merek dagang belum diverifikasi. Karena itu, pemilihan nama sudah ditetapkan pada tingkat proyek, tetapi pemeriksaan legal dan ketersediaan identitas digital masih menjadi pekerjaan terpisah.
+- Riset dan validasi mendahului implementasi.
+- Setiap data training harus memiliki provenance dan dasar penggunaan yang jelas.
+- Dataset publik tidak otomatis berlabel HUMAN atau otomatis boleh digunakan.
+- Dokumen terkait, pasangan, versi, dan turunannya harus dikelompokkan sebelum split.
+- False positive terhadap tulisan manusia merupakan risiko utama.
+- Status rancangan, implementasi, dan hasil pengujian harus dibedakan.
+- Perubahan keputusan dicatat beserta alasan, dampak, dan tanggalnya.
+- Jangan commit secrets, credentials, atau data pribadi.
