@@ -60,3 +60,11 @@ TextLab dirancang sebagai website dengan tiga kemampuan utama:
 | Implementasi aplikasi | Belum dimulai |
 
 Lihat [Decision Log](docs/DECISION-LOG.md) untuk keputusan yang telah ditetapkan dan pertanyaan terbuka.
+
+## Identitas nama produk
+
+Nama website yang dipilih adalah **Lexora**. Nama ini menjadi identitas publik produk, sedangkan **TextLab** tetap digunakan sebagai nama internal proyek dan dokumentasi riset selama masa transisi.
+
+Pemilihan nama Lexora merupakan keputusan branding, bukan perubahan ruang lingkup atau prioritas riset. Fokus pekerjaan tetap pada uji prosedur sintetis dataset sebelum pengumpulan pilot dan pelatihan model.
+
+Ketersediaan domain, akun media sosial, serta potensi konflik merek dagang belum diverifikasi. Karena itu, pemilihan nama sudah ditetapkan pada tingkat proyek, tetapi pemeriksaan legal dan ketersediaan identitas digital masih menjadi pekerjaan terpisah.
