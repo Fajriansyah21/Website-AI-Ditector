@@ -336,3 +336,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Alur edit/hapus sampel perlu memicu evaluasi kumpulan sampel. Sistem perlu dapat menyatakan apakah profil masih memadai dan memberi arahan penambahan sampel ketika tidak memadai.
 - **Belum diputuskan:** kriteria teknis kecukupan, apakah profil lama tetap dapat digunakan selama evaluasi atau ketika sampel tidak lagi memadai, strategi versi/pemulihan profil sebelumnya, serta perilaku jika evaluasi gagal.
 - **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas pengelolaan sampel profil gaya Humanizer pada 2026-11-12.
+
+## DEC-025: Profil tidak memadai tetap terlihat tetapi tidak dapat dipilih
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika evaluasi ulang menunjukkan kumpulan sampel profil gaya tidak lagi memadai, profil tetap ditampilkan dalam daftar pengelolaan agar pengguna dapat melihat dan memperbaikinya. Namun, profil tidak dapat dipilih untuk pemrosesan AI Humanizer sampai pengguna menambahkan sampel dan profil kembali memenuhi kriteria kecukupan.
+- **Alasan:** Pengguna tetap memiliki visibilitas dan kendali atas profilnya, sementara sistem mencegah penggunaan profil yang sudah diketahui tidak cukup merepresentasikan gaya penulis.
+- **Alternatif yang dipertimbangkan:** Membolehkan pemilihan profil dengan peringatan; menyembunyikan profil sepenuhnya sampai pulih.
+- **Dampak:** Status profil perlu dibedakan antara terlihat/dapat dikelola dan tersedia/tidak tersedia untuk pemrosesan. Antarmuka pemilihan Humanizer harus mengecualikan profil yang tidak memadai, sedangkan pengelola profil tetap menampilkannya beserta arahan perbaikan.
+- **Belum diputuskan:** kriteria teknis kecukupan, label/status UI final, dan strategi versi/pemulihan profil sebelumnya.
+- **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas status profil gaya yang tidak lagi memadai pada 2026-11-12.
