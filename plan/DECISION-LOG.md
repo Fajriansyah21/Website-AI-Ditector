@@ -964,3 +964,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Memberikan jeda dua detik; menampilkan indikator proses sebelum navigasi.
 - **Dampak:** Setelah pilihan Lanjutkan diterima, aplikasi meneruskan navigasi sesuai tindakan yang diminta dan hasil yang belum disimpan hilang sesuai DEC-071. Implementasi tetap harus menangani transisi navigasi secara normal tanpa menambahkan waktu tunggu buatan.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-077: Tombol tutup modal membatalkan navigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna menekan tombol **X** pada dialog konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan, sistem menutup dialog dan memperlakukan tindakan tersebut sama seperti memilih **Tetap di halaman**. Navigasi dibatalkan dan seluruh kondisi halaman tetap dipertahankan.
+- **Alasan:** Tombol tutup dialog secara konvensional membatalkan dialog, bukan menyetujui tindakan yang berisiko menghilangkan hasil.
+- **Alternatif yang dipertimbangkan:** Memperlakukan tombol X sebagai persetujuan navigasi; tidak menyediakan tombol X.
+- **Dampak:** Tombol X tidak boleh meneruskan navigasi atau menghapus hasil yang belum disimpan. Perilakunya harus konsisten dengan tombol **Tetap di halaman** dan DEC-075.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
