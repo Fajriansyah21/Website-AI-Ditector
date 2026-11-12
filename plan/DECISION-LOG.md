@@ -953,3 +953,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Mengembalikan halaman ke posisi paling atas; menampilkan notifikasi pembatalan navigasi.
 - **Dampak:** Pembatalan navigasi internal tidak boleh mereset state halaman, memuat ulang hasil, mengubah teks, atau menggeser posisi scroll. State yang relevan harus tetap utuh.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-076: Navigasi langsung setelah konfirmasi meninggalkan hasil Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika pengguna memilih **Lanjutkan** pada dialog konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan, sistem langsung meneruskan navigasi. Tidak ada jeda tambahan atau konfirmasi kedua.
+- **Alasan:** Pengguna telah memberikan persetujuan secara eksplisit melalui dialog pertama. Jeda tambahan tidak memberi perlindungan berarti dan hanya memperlambat navigasi.
+- **Alternatif yang dipertimbangkan:** Memberikan jeda dua detik; menampilkan indikator proses sebelum navigasi.
+- **Dampak:** Setelah pilihan Lanjutkan diterima, aplikasi meneruskan navigasi sesuai tindakan yang diminta dan hasil yang belum disimpan hilang sesuai DEC-071. Implementasi tetap harus menangani transisi navigasi secara normal tanpa menambahkan waktu tunggu buatan.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
