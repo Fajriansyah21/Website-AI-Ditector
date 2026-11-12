@@ -615,3 +615,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem memerlukan notifikasi persetujuan, pengingat satu jam sebelum kedaluwarsa, notifikasi kedaluwarsa dan pencabutan, serta catatan untuk Super Admin. Pengiriman notifikasi tidak mengubah status atau masa berlaku izin.
 - **Belum diputuskan:** Kanal notifikasi, perilaku jika pengingat satu jam tidak dapat dikirim, serta detail isi catatan Super Admin.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-048: Kanal notifikasi dan ketahanan pencabutan akses investigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Notifikasi siklus hidup persetujuan akses investigasi dikirim melalui notifikasi dalam aplikasi dan email. Jika pengiriman melalui salah satu kanal gagal, sistem tetap mencoba kanal lainnya. Kegagalan pengiriman notifikasi tidak boleh menghambat atau menunda pencabutan akses otomatis. Notifikasi tidak memperpanjang masa akses.
+- **Alasan:** Dua kanal meningkatkan kemungkinan Admin menerima informasi penting. Namun, pengiriman pesan merupakan fungsi pemberitahuan dan tidak boleh menjadi prasyarat bagi kontrol keamanan pencabutan akses.
+- **Alternatif yang dipertimbangkan:** Mengandalkan satu kanal; menunda pencabutan sampai notifikasi berhasil dikirim.
+- **Dampak:** Sistem memerlukan dua kanal notifikasi, penanganan kegagalan kanal secara independen, dan pemisahan proses notifikasi dari proses kedaluwarsa/pencabutan izin.
+- **Belum diputuskan:** Kebijakan retry tiap kanal, batas percobaan, penanganan email tidak valid, dan status delivery yang ditampilkan kepada Super Admin.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
