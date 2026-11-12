@@ -856,3 +856,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Halaman riwayat Humanizer perlu menyediakan area banner untuk peringatan ambang kapasitas. Kanal tetap notifikasi dalam aplikasi sesuai DEC-066.
 - **Belum diputuskan:** Teks, gaya visual, dan perilaku banner setelah ditampilkan ditentukan pada desain UI.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-068: Banner peringatan dapat ditutup dan muncul kembali saat halaman dibuka
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menutup banner peringatan kapasitas riwayat Humanizer secara manual. Jika penggunaan kapasitas akun masih mencapai atau melebihi 90%, banner ditampilkan kembali ketika pengguna membuka kembali halaman riwayat Humanizer.
+- **Alasan:** Pengguna dapat menghilangkan banner dari tampilan saat ini tanpa membuat peringatan hilang secara permanen ketika kondisi kapasitas masih kritis.
+- **Alternatif yang dipertimbangkan:** Banner hanya dapat ditutup sekali secara permanen, banner hilang otomatis setelah beberapa detik, atau banner tidak dapat ditutup sampai kapasitas turun di bawah 90%.
+- **Dampak:** Halaman riwayat Humanizer perlu mendukung tindakan menutup banner dan memeriksa kembali kondisi kapasitas saat halaman dibuka.
+- **Belum diputuskan:** Apakah penutupan hanya berlaku selama halaman terbuka atau sesi aktif, serta detail perilaku jika kapasitas turun di bawah 90% ketika halaman masih terbuka.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
