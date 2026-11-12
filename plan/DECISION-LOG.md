@@ -1008,3 +1008,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Mengizinkan fokus keyboard berpindah ke elemen di belakang modal.
 - **Dampak:** Implementasi modal perlu menerapkan focus trap, mengelola urutan fokus, serta memastikan fokus awal dan pemulihan fokus setelah modal ditutup ditangani secara konsisten pada desain/implementasi aksesibilitas.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-081: Fokus awal pada tombol Tetap di halaman
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika modal konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan dibuka, fokus keyboard awal diarahkan ke tombol **Tetap di halaman**, bukan tombol **Lanjutkan** atau area teks modal.
+- **Alasan:** Memprioritaskan tindakan yang mempertahankan hasil dan mengurangi risiko pengguna mengonfirmasi kehilangan hasil secara tidak sengaja melalui aktivasi keyboard.
+- **Alternatif yang dipertimbangkan:** Memberikan fokus awal ke tombol Lanjutkan; memberikan fokus awal ke judul atau area teks modal.
+- **Dampak:** Modal harus mengatur fokus awal ke tombol Tetap di halaman ketika dibuka, tetap menerapkan focus trap sesuai DEC-080, dan mengembalikan fokus ke elemen pemicu setelah modal ditutup jika elemen tersebut masih tersedia.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
