@@ -507,3 +507,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem memerlukan identitas versi atau snapshot kumpulan sampel, pemeriksaan apakah snapshot masih terbaru sebelum hasil evaluasi dipakai, dan mekanisme untuk mengabaikan hasil evaluasi yang sudah usang.
 - **Belum diputuskan:** Detail implementasi snapshot, pembatalan atau penghentian evaluasi usang, retry, serta penanganan perubahan sampel yang terjadi berulang kali selama evaluasi ulang.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-039: Batasi pengulangan evaluasi otomatis akibat perubahan sampel berulang
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Sistem membatasi pengulangan evaluasi otomatis ketika perubahan sampel berulang membuat snapshot evaluasi menjadi usang. Jika batas pengulangan otomatis tercapai, sistem menghentikan percobaan otomatis, mempertahankan seluruh perubahan sampel pengguna, dan menandai pembaruan profil sebagai tertunda karena perubahan berulang. Pengguna harus memulai ulang evaluasi secara manual. Nilai batas ditetapkan pada tahap desain teknis berdasarkan estimasi biaya dan durasi evaluasi, bukan ditebak pada tahap kebutuhan.
+- **Alasan:** Pengulangan tanpa batas dapat memboroskan biaya dan sumber daya, terutama jika pengguna terus mengubah sampel. Namun, menghentikan evaluasi tidak boleh menghilangkan perubahan yang telah dibuat pengguna.
+- **Alternatif yang dipertimbangkan:** Mengulang evaluasi tanpa batas; membekukan perubahan sampel; menetapkan angka batas tanpa data biaya dan durasi.
+- **Dampak:** Sistem perlu menghitung pengulangan evaluasi otomatis, menghentikan retry saat batas tercapai, mempertahankan sampel terbaru, dan menyediakan tindakan manual untuk memulai ulang evaluasi.
+- **Belum diputuskan:** Nilai batas pengulangan, detail status tertunda, notifikasi kepada pengguna, dan apakah restart manual memulai ulang seluruh siklus evaluasi atau dapat melanjutkan dari tahap tertentu.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
