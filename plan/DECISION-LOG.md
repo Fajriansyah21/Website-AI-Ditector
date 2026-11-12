@@ -194,5 +194,19 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Sistem harus menjalankan analisis baru setelah autentikasi, bukan memakai ulang hasil Guest.
   - Biaya/kredit analisis ulang mengikuti akun terdaftar dan harus ditampilkan sebelum pemrosesan.
   - Draft sementara harus dipisahkan dari fitur riwayat dan tidak boleh otomatis disimpan sebagai riwayat.
-- **Belum diputuskan:** mekanisme penyimpanan sementara, durasi kedaluwarsa draft, perilaku jika autentikasi dibatalkan, dan apakah draft dapat dipulihkan setelah tab/browser ditutup.
+  - Jika Guest membatalkan autentikasi dan kembali ke Detector, teks tetap tersedia selama sesi browser yang sama masih aktif.
+  - Draft tidak dijanjikan dapat dipulihkan setelah sesi browser berakhir.
+- **Belum diputuskan:** mekanisme teknis penyimpanan sementara, definisi batas sesi browser, serta perilaku saat halaman di-refresh atau tab ditutup tetapi sesi browser lain masih aktif.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-01 pada 2026-11-12.
+
+
+## DEC-013: Mempertahankan draft Guest ketika autentikasi dibatalkan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika Guest memulai autentikasi dari AI Text Detector lalu membatalkannya, teks input tetap tersedia ketika pengguna kembali ke Detector selama sesi browser yang sama masih aktif. Draft tidak dijanjikan dapat dipulihkan setelah sesi browser berakhir.
+- **Alasan:** Pemilik proyek memilih opsi 2 agar perpindahan ke halaman autentikasi tidak menyebabkan teks hilang, tanpa memperluas MVP menjadi penyimpanan draft lintas sesi.
+- **Alternatif yang dipertimbangkan:** Menghapus teks saat autentikasi dibatalkan; menyimpan draft sampai waktu kedaluwarsa dan memulihkannya lintas pemuatan halaman/sesi.
+- **Dampak:** Alur autentikasi perlu mempertahankan draft dalam konteks sesi browser yang sama. Draft tetap bersifat sementara dan bukan riwayat pengguna.
+- **Belum diputuskan:** mekanisme teknis penyimpanan, definisi batas sesi browser, perilaku saat halaman di-refresh, dan kondisi ketika tab ditutup tetapi browser tetap berjalan.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-01 pada 2026-11-12.
