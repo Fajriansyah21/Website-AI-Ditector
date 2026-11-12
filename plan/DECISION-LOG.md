@@ -176,3 +176,23 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Perhitungan kuota/kredit perlu mempertimbangkan entitlement fitur, bukan saldo saja.
 - **Bukan bagian dari keputusan ini:** apakah Guest boleh melihat landing page/preview Humanizer, cara membawa teks Detector ke Humanizer setelah login, serta apakah kredit Guest dapat dikonversi atau dipindahkan saat registrasi.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek dalam sesi User Flow 2026-11-12.
+
+
+## DEC-012: Membawa teks input Guest setelah autentikasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:**
+  - Jika Guest memulai pendaftaran/login dari alur AI Text Detector, teks input yang sedang dikerjakan dibawa ke sesi setelah autentikasi berhasil.
+  - Hasil analisis yang diperoleh saat masih Guest tidak dibawa sebagai hasil final.
+  - Setelah autentikasi, pengguna menjalankan analisis ulang sebagai permintaan baru dengan akun terdaftar dan aturan kredit akun tersebut.
+  - Pemindahan teks input sementara tidak berarti teks otomatis masuk ke riwayat permanen.
+- **Alasan:** Pemilik proyek memilih opsi 2 agar pengguna tidak perlu memasukkan ulang teks setelah membuat akun, tanpa menganggap hasil analisis Guest sebagai hasil akun terdaftar.
+- **Alternatif yang dipertimbangkan:** Tidak membawa teks input; membawa teks input sekaligus hasil analisis.
+- **Dampak:**
+  - Alur autentikasi perlu mempertahankan draft input Detector selama perpindahan halaman/proses login.
+  - Sistem harus menjalankan analisis baru setelah autentikasi, bukan memakai ulang hasil Guest.
+  - Biaya/kredit analisis ulang mengikuti akun terdaftar dan harus ditampilkan sebelum pemrosesan.
+  - Draft sementara harus dipisahkan dari fitur riwayat dan tidak boleh otomatis disimpan sebagai riwayat.
+- **Belum diputuskan:** mekanisme penyimpanan sementara, durasi kedaluwarsa draft, perilaku jika autentikasi dibatalkan, dan apakah draft dapat dipulihkan setelah tab/browser ditutup.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-01 pada 2026-11-12.
