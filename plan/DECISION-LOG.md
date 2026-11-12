@@ -311,5 +311,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Entri terpisah memungkinkan sistem dan pengguna menelusuri perbedaan antarcontoh tulisan serta menilai konsistensi gaya tanpa kehilangan asal masing-masing sampel.
 - **Alternatif yang dipertimbangkan:** Menggunakan satu kolom input gabungan yang menambahkan seluruh tulisan ke satu teks panjang.
 - **Dampak:** Antarmuka dan model data perlu mendukung kumpulan sampel dengan identitas per entri. Proses profiling perlu menganalisis kumpulan, bukan memperlakukan setiap sampel sebagai profil mandiri.
-- **Belum diputuskan:** batas jumlah sampel, metadata per sampel, kemampuan mengedit/menghapus entri, format tampilan, dan aturan retensi sampel sumber.
+- **Belum diputuskan:** batas jumlah sampel, metadata per sampel, format tampilan, dan aturan retensi sampel sumber.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas pengumpulan sampel profil gaya Humanizer pada 2026-11-12.
+
+
+## DEC-023: Pengelolaan sampel profil gaya secara individual
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat mengedit atau menghapus setiap entri sampel profil gaya secara individual. Perubahan pada satu entri tidak mengharuskan pengguna menghapus atau mengirim ulang entri sampel lainnya.
+- **Alasan:** Pengguna perlu dapat memperbaiki atau menghapus sampel yang tidak relevan, tidak konsisten, atau bukan tulisannya sendiri tanpa kehilangan kumpulan sampel lainnya.
+- **Alternatif yang dipertimbangkan:** Mengunci sampel setelah ditambahkan atau hanya menyediakan penghapusan/penggantian seluruh kumpulan sampel.
+- **Dampak:** Antarmuka dan backend perlu menyediakan operasi edit dan hapus per entri serta menjaga identitas dan keterkaitan setiap sampel dengan profil gaya pemiliknya.
+- **Belum diputuskan:** apakah perubahan atau penghapusan sampel otomatis memicu evaluasi ulang profil yang sudah terbentuk, bagaimana versi profil dikelola, dan apakah penghapusan sampel sumber mengikuti kebijakan retensi tertentu.
+- **Sumber:** Persetujuan eksplisit pemilik proyek atas pengeditan dan penghapusan sampel secara individual pada 2026-11-12.
