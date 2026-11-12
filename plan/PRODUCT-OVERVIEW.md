@@ -36,11 +36,12 @@ Kedua modul dapat digunakan secara mandiri atau dihubungkan melalui tindakan pen
 
 ## 4. Arah pengalaman pengguna
 
-- Guest dan pengguna login dapat mengakses layanan dengan batasan berbeda.
+- Guest hanya dapat menggunakan AI Text Detector. AI Humanizer mensyaratkan login/registrasi.
+- Pengguna login dapat menggunakan kedua modul dengan batasan kredit/fitur sesuai akun.
 - Pengguna login menggunakan email/password atau Google Sign-In.
 - Dashboard mencakup profil, kredit, riwayat opsional, profil gaya, dan pengaturan.
 - Detector menyediakan ringkasan, analisis per kalimat, penjelasan, dan kategori ketidakpastian.
-- Humanizer menyediakan gaya bawaan dan profil gaya personal, perbandingan teks asli/revisi, serta penyorotan perubahan.
+- Humanizer hanya tersedia bagi pengguna login, menyediakan gaya bawaan dan profil gaya personal, perbandingan teks asli/revisi, serta penyorotan perubahan.
 - Riwayat tidak disimpan otomatis. Teks yang tidak dipilih untuk disimpan dihapus setelah pemrosesan sesuai batas retensi yang kelak diverifikasi.
 - Sistem kredit mencakup pembelian, reward iklan, dan bonus harian.
 
