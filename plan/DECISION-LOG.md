@@ -210,3 +210,13 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Alur autentikasi perlu mempertahankan draft dalam konteks sesi browser yang sama. Draft tetap bersifat sementara dan bukan riwayat pengguna.
 - **Belum diputuskan:** mekanisme teknis penyimpanan, definisi batas sesi browser, perilaku saat halaman di-refresh, dan kondisi ketika tab ditutup tetapi browser tetap berjalan.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-01 pada 2026-11-12.
+
+
+## DEC-014: Klarifikasi makna kuota Guest dan pengguna terdaftar
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Perbedaan kuota yang dimaksud antara Guest dan pengguna terdaftar adalah jumlah kredit/reward yang tersedia, bukan perbedaan batas maksimal karakter input.
+- **Klarifikasi ruang lingkup:** Batas karakter input Guest dan pengguna terdaftar belum diputuskan apakah sama atau berbeda. Tidak boleh menyimpulkan adanya batas karakter yang lebih rendah untuk Guest dari keputusan kuota kredit ini.
+- **Dampak:** Persyaratan akun dan kredit harus menjelaskan perbedaan saldo/insentif kredit secara terpisah dari validasi panjang input Detector. Batas karakter perlu ditentukan berdasarkan kebutuhan produk, kemampuan model, biaya, dan pengujian, bukan status akun secara otomatis.
+- **Sumber:** Koreksi eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
