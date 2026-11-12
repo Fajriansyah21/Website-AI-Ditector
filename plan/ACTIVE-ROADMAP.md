@@ -2,11 +2,32 @@
 
 Terakhir diperbarui: 2026-11-12
 
-## Fokus aktif
+## Cakupan produk MVP
 
-**Uji prosedur sintetis dataset.** Pemilihan nama Lexora, Google Stitch, dan Google Antigravity tidak mengubah urutan riset ini.
+Keputusan **DEC-001** menetapkan dua modul untuk MVP pertama:
+1. AI Text Detector.
+2. AI Humanizer.
 
-### Task aktif
+DOCX Metadata Cleaner ditunda ke fase setelah MVP. Ketiga modul tetap dipertimbangkan dalam arsitektur modular jangka panjang. Keputusan ini belum menetapkan urutan implementasi Detector dan Humanizer.
+
+## Tahap perencanaan sistem MVP
+
+Sebelum implementasi fitur, rencanakan dan dokumentasikan:
+1. Analisis sistem: tujuan, aktor, kebutuhan fungsional/nonfungsional, batasan, dan risiko.
+2. Modular architecture: batas modul, tanggung jawab, dependensi, dan kontrak komunikasi.
+3. User flow untuk Detector dan Humanizer.
+4. System flowchart termasuk validasi, jalur sukses, dan jalur gagal.
+5. Data flow, kebutuhan penyimpanan, privasi, dan retensi.
+6. Evaluasi opsi teknologi berdasarkan kebutuhan yang sudah disahkan.
+7. Spesifikasi MVP dan acceptance criteria.
+
+Semua butir di atas merupakan pekerjaan perencanaan yang belum ditandai selesai.
+
+## Fokus riset aktif: uji prosedur sintetis dataset
+
+Fokus riset dataset yang sudah direncanakan tetap berjalan sebagai jalur kerja tersendiri. Pemilihan cakupan MVP tidak menghapus kebutuhan untuk menguji prosedur dataset sebelum pilot nyata dan training detector.
+
+### Task pengujian
 
 | Urutan | Pengujian | Bukti yang harus dihasilkan | Status |
 |---:|---|---|---|
@@ -18,10 +39,9 @@ Terakhir diperbarui: 2026-11-12
 
 Belum ada bukti pengujian prosedur sintetis yang dijalankan pada repositori saat roadmap ini dibuat.
 
-## Gerbang kelulusan
+## Gerbang kelulusan pengujian sintetis
 
 Tahap ini hanya dapat ditandai **Verified** jika:
-
 - Fixture valid diterima dan fixture invalid ditolak sesuai alasan yang diharapkan.
 - Offset setiap kalimat menunjuk tepat ke substring sumber, dengan konvensi indeks yang konsisten.
 - Editing history membentuk lineage yang dapat ditelusuri dan menolak referensi versi yang rusak.
@@ -30,16 +50,17 @@ Tahap ini hanya dapat ditandai **Verified** jika:
 - Pengujian dapat diulang dengan command terdokumentasi dan menghasilkan output yang dapat diperiksa.
 - Kegagalan dan keterbatasan dicatat, bukan disembunyikan.
 
-## Bukan prioritas aktif
+## Bukan prioritas implementasi saat ini
 
-- Membuat UI website di Stitch.
-- Implementasi frontend/backend di Antigravity.
-- Memilih framework, database, atau deployment.
-- Mengumpulkan pilot dataset nyata.
-- Training model.
+- Implementasi DOCX Metadata Cleaner dalam MVP.
+- Membuat UI website di Stitch sebelum analisis dan spesifikasi cukup jelas.
+- Implementasi frontend/backend di Antigravity sebelum acceptance criteria tersedia.
+- Memilih framework, database, atau deployment tanpa analisis kebutuhan.
+- Mengumpulkan pilot dataset nyata sebelum prosedur dan sumber data siap.
+- Training model sebelum gerbang dataset dipenuhi.
 
 Aktivitas tersebut dapat direncanakan kemudian, tetapi tidak boleh menggantikan task aktif tanpa keputusan eksplisit.
 
 ## Langkah berikutnya
 
-Mulai dari pemeriksaan struktur repo dan spesifikasi JSON yang benar-benar tersedia. Jika spesifikasi belum ada di branch aktif, pulihkan atau tulis ulang berdasarkan keputusan yang sudah disahkan sebelum membuat test harness. Jangan menebak schema dari contoh parsial.
+Mulai analisis sistem MVP untuk Detector dan Humanizer. Secara paralel, pertahankan jalur uji prosedur sintetis dataset. Periksa spesifikasi JSON yang benar-benar tersedia; jika belum ada di branch aktif, susun atau pulihkan berdasarkan keputusan yang disahkan sebelum membuat test harness. Jangan menebak schema dari contoh parsial.
