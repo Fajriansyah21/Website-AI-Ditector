@@ -124,7 +124,6 @@ Dukungan format file tidak berarti tata letak, gambar, header/footer, catatan ka
 | FR-DET-09 | AI Text Detector menerapkan batas maksimal jumlah karakter pada input teks yang berlaku sama bagi Guest dan pengguna terdaftar. Sistem menolak atau meminta pengguna menyesuaikan input yang melewati batas. | Disepakati; angka batas dan perilaku UX final belum ditentukan |
 | FR-DET-10 | Pengguna dapat memasukkan teks Detector secara langsung melalui area teks dengan mengetik atau menempelkan teks. | Disepakati |
 | FR-DET-11 | Pengguna dapat mengunggah file TXT, DOCX, atau PDF sebagai sumber teks Detector. | Disepakati; ketentuan ekstraksi dan batas file mengikuti FR-FILE |
-| FR-DET-12 | AI Text Detector menerapkan batas minimal jumlah karakter. Input di bawah batas minimal tidak diproses. Pesan validasi menampilkan jumlah karakter minimum yang harus dipenuhi dan jumlah karakter yang saat ini dimasukkan agar pengguna mengetahui kekurangan inputnya. | Disepakati; angka batas dan aturan penghitungan karakter belum ditentukan |
 
 Label HUMAN/AI/MIXED/UNCERTAIN pada antarmuka adalah kebutuhan produk. Definisi operasional label, ambang batas, confidence, kalibrasi, dan pelabelan per kalimat tetap memerlukan rancangan metodologis dan bukti eksperimen.
 
@@ -136,6 +135,7 @@ Label HUMAN/AI/MIXED/UNCERTAIN pada antarmuka adalah kebutuhan produk. Definisi 
 | FR-HUM-02 | Pengguna dapat memberikan sampel tulisan sendiri untuk membentuk profil gaya personal. | Disepakati |
 | FR-HUM-03 | Sampel gaya dapat ditempel langsung atau diunggah sebagai TXT, DOCX, atau PDF. | Disepakati |
 | FR-HUM-04 | Sistem menilai kecukupan sampel secara adaptif dan meminta sampel tambahan jika belum memadai. | Disepakati; kriteria penilaian perlu dirancang |
+| FR-HUM-14 | Sampel tulisan untuk membentuk profil gaya personal harus memenuhi batas minimal karakter. Jika belum memenuhi, sistem tidak menggunakannya untuk membentuk profil dan menampilkan jumlah minimum yang diwajibkan serta jumlah karakter sampel saat ini. Penghitungan mencakup seluruh karakter, termasuk spasi dan baris baru. | Disepakati; angka minimum dan perlakuan karakter khusus belum ditentukan |
 | FR-HUM-05 | Pengguna dapat memilih untuk menyimpan profil gaya, menggunakan kembali, memperbarui, atau menghapusnya. | Disepakati |
 | FR-HUM-06 | Akun dapat memiliki satu profil utama dan beberapa profil tambahan. | Disepakati; batas jumlah belum ditentukan |
 | FR-HUM-07 | Profil gaya bersifat privat dan hanya dapat dikelola pemilik akun. | Disepakati |
