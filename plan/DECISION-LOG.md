@@ -663,3 +663,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu melacak status, jumlah percobaan, dan jadwal retry secara terpisah untuk setiap kanal. Status keberhasilan satu kanal tidak boleh memicu pengiriman ulang pada kanal tersebut hanya karena kanal lain gagal. Proses retry tetap terpisah dari kedaluwarsa atau pencabutan akses.
 - **Belum diputuskan:** Detail teknis backoff selain interval tetap lima menit, klasifikasi error sementara/permanen, dan perilaku manual resend jika hanya satu kanal yang gagal.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-052: Penggabungan dokumen unggahan dan teks manual dalam satu input Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Dalam satu proses Humanizer, pengguna dapat mengunggah dokumen TXT, DOCX, atau PDF, kemudian meninjau dan mengedit teks hasil ekstraksi serta menambahkan teks secara manual melalui editor sebelum pemrosesan. Seluruh konten yang telah disusun di editor diperlakukan sebagai satu input Humanizer. Dokumen sumber tidak boleh diubah atau ditimpa.
+- **Alasan:** Pengguna dapat memperbaiki hasil ekstraksi, menambahkan bagian yang tertinggal, atau menggabungkan beberapa bagian tulisan tanpa harus memisahkan pekerjaan menjadi beberapa proses.
+- **Alternatif yang dipertimbangkan:** Membatasi satu proses pada satu sumber input, sehingga pengguna harus memilih antara teks manual atau dokumen unggahan.
+- **Dampak:** Humanizer memerlukan editor yang dapat memuat teks hasil ekstraksi, menerima perubahan dan tambahan manual, serta mengirimkan keseluruhan konten sebagai satu input. Sistem harus menjaga dokumen sumber tetap utuh.
+- **Belum diputuskan:** Perilaku editor secara rinci, penanganan struktur paragraf/daftar/tabel setelah pengeditan, penanda asal teks, dan format ekspor untuk konten gabungan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
