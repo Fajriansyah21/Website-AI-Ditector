@@ -531,3 +531,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Restart manual harus membuat proses evaluasi baru yang lengkap dan terikat pada snapshot terbaru. Hasil antara dari percobaan sebelumnya tidak boleh dipakai sebagai hasil validasi untuk proses baru.
 - **Belum diputuskan:** Detail teknis pembersihan atau retensi artefak evaluasi lama, serta apakah pengguna perlu melihat riwayat percobaan evaluasi.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-041: Simpan metadata audit, bukan hasil antara evaluasi yang tidak berlaku
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Untuk evaluasi yang dihentikan atau menjadi usang, sistem hanya menyimpan metadata riwayat evaluasi yang diperlukan untuk audit, seperti waktu, status, alasan penghentian, dan identitas versi snapshot. Hasil analisis antara yang tidak berlaku tidak disimpan sebagai hasil yang dapat digunakan kembali dan tidak boleh dipakai dalam evaluasi atau pembentukan profil berikutnya.
+- **Alasan:** Metadata audit memberi jejak proses tanpa mempertahankan hasil antara yang sudah tidak relevan dan berisiko digunakan kembali secara keliru.
+- **Alternatif yang dipertimbangkan:** Menyimpan seluruh hasil evaluasi antara; menghapus seluruh jejak evaluasi tanpa menyisakan metadata.
+- **Dampak:** Sistem perlu memisahkan metadata riwayat evaluasi dari artefak hasil analisis. Artefak hasil antara yang tidak berlaku tidak boleh menjadi input proses berikutnya.
+- **Belum diputuskan:** Masa retensi metadata, detail metadata wajib, akses pengguna terhadap riwayat percobaan, serta kebijakan penghapusan dan audit.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
