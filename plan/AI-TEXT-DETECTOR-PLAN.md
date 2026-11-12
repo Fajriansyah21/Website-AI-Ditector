@@ -1,9 +1,11 @@
 # AI Text Detector Plan
 
-Status: **Draft rancangan produk dan riset**  
+Status: **Draft rancangan produk dan riset; kebutuhan produk awal telah dielisitasi**  
 Modul: AI Text Detector  
-Bahasa fokus: Bahasa Indonesia  
+Bahasa: Bahasa Indonesia dan Bahasa Inggris; code-switching dengan peringatan keterbatasan  
 Terakhir ditinjau: 2026-11-12
+
+Rincian kebutuhan produk yang disepakati berada di [System Requirements Analysis](SYSTEM-REQUIREMENTS-ANALYSIS.md), khususnya bagian AI Text Detector. Dokumen ini mempertahankan fokus riset dan metodologi model.
 
 ## 1. Tujuan
 
@@ -11,32 +13,38 @@ Membantu pengguna memperoleh indikasi apakah suatu teks memiliki karakteristik t
 
 Detector tidak boleh diposisikan sebagai alat pembuktian mutlak. Hasil model adalah estimasi berdasarkan data dan distribusi yang dipelajari. Tulisan manusia dapat salah ditandai sebagai AI dan teks AI dapat tidak terdeteksi.
 
-## 2. Cakupan yang pernah direncanakan
+## 2. Kebutuhan produk yang telah disepakati
 
-- Mendukung analisis teks Bahasa Indonesia.
-- Mempertimbangkan teks pendek dan panjang.
-- Menampilkan ringkasan hasil dokumen.
-- Menyediakan indikasi atau highlight pada tingkat kalimat.
-- Memperhatikan false positive terhadap tulisan manusia.
-- Mempertimbangkan penggunaan model yang dapat dijalankan dengan kebutuhan komputasi relatif ringan/CPU-first.
+- Target utama pengguna adalah mahasiswa dan pelajar, untuk kebutuhan akademik maupun umum.
+- Detector dan Humanizer memiliki prioritas setara dan dapat digunakan mandiri.
+- Hasil Detector dapat dikirim ke Humanizer hanya setelah tindakan pengguna.
+- Bahasa yang didukung adalah Bahasa Indonesia dan Bahasa Inggris.
+- Teks campuran Indonesia-Inggris dapat dianalisis dengan peringatan keterbatasan.
+- Input didukung melalui teks dan unggahan TXT, DOCX, PDF.
+- Batas yang ditampilkan kepada pengguna menggunakan karakter, sedangkan sistem juga membatasi token. Angka belum ditentukan.
+- Batas input Detector dapat berbeda dari Humanizer.
+- Pemrosesan pendek/panjang bersifat adaptif; teks panjang dapat dipecah dengan chunking.
+- Output mencakup ringkasan keseluruhan, analisis per kalimat, dan penjelasan.
+- Kategori produk: HUMAN, AI, MIXED, UNCERTAIN.
+- Hasil dapat ditampilkan di website dan diunduh sebagai TXT, DOCX, atau PDF.
+- Pengguna dapat menyalin seluruh atau sebagian hasil.
 
-Catatan: detail panjang minimum/maksimum, format input, UI hasil, dan target performa belum disahkan.
+## 3. Kategori label produk dan metodologi
 
-## 3. Kategori label riset
-
-| Label | Makna rancangan |
+| Label produk | Makna umum |
 |---|---|
-| HUMAN | Teks yang ditulis manusia dengan provenance yang memadai |
-| AI | Teks yang dihasilkan AI dengan provenance yang memadai |
-| MIXED | Teks yang menggabungkan kontribusi manusia dan AI |
-| UNCERTAIN | Kasus yang tidak cukup jelas untuk label utama; dikelola terpisah dan tidak menjadi kelas training utama |
+| HUMAN | Karakteristik teks lebih konsisten dengan tulisan manusia |
+| AI | Karakteristik teks lebih konsisten dengan teks yang dihasilkan AI |
+| MIXED | Teks menunjukkan indikasi kontribusi manusia dan AI |
+| UNCERTAIN | Bukti tidak cukup untuk kesimpulan yang dapat diandalkan |
 
-Label dokumen tidak otomatis boleh diwariskan ke setiap kalimat. Anotasi tingkat kalimat memerlukan bukti dan aturan tersendiri.
+Kategori produk tersebut belum menggantikan definisi operasional label dataset. Label dokumen tidak otomatis boleh diwariskan ke setiap kalimat. Anotasi tingkat kalimat memerlukan bukti dan aturan tersendiri.
+
+UNCERTAIN adalah kategori hasil produk. Penanganannya dalam training/evaluasi tetap mengikuti keputusan metodologis terpisah dan belum menjadi kelas training utama.
 
 ## 4. Rencana pendekatan eksperimen
 
-Urutan eksperimen yang pernah dibahas sebagai kandidat:
-
+Urutan eksperimen kandidat:
 1. Majority-class baseline.
 2. TF-IDF dengan Logistic Regression dan/atau SVM.
 3. IndoBERT-Lite sebagai kandidat backbone.
@@ -47,14 +55,14 @@ Urutan eksperimen yang pernah dibahas sebagai kandidat:
 Nama model di atas adalah kandidat pretrained backbone, bukan detector siap pakai dan bukan keputusan final pemilihan model.
 
 Kandidat yang pernah disebut:
-- `indobenchmark/indobert-lite-base-p2`
-- `indobenchmark/indobert-base-p2`
+- indobenchmark/indobert-lite-base-p2
+- indobenchmark/indobert-base-p2
 - XLM-RoBERTa-base
 - mDeBERTa-v3-base
 
 Pemilihan akhir harus didasarkan pada evaluasi data, lisensi, biaya komputasi, latensi, dan performa pada domain target.
 
-## 5. Metrik evaluasi yang pernah direncanakan
+## 5. Metrik evaluasi yang direncanakan
 
 - Macro F1.
 - Precision dan recall per kelas.
@@ -66,41 +74,34 @@ Pemilihan akhir harus didasarkan pada evaluasi data, lisensi, biaya komputasi, l
 
 Threshold harus ditentukan menggunakan validation set. Test set tidak boleh digunakan untuk memilih threshold atau tuning model.
 
-## 6. Risiko metodologis
+## 6. Risiko metodologis dan batas klaim
 
 - Dataset publik tidak otomatis berlabel HUMAN.
-- Gaya penulisan, topik, panjang teks, dan sumber dapat menjadi shortcut bagi model.
+- Gaya penulisan, topik, panjang teks, bahasa, dan sumber dapat menjadi shortcut bagi model.
 - Teks turunan, parafrasa, pasangan prompt-output, dan versi suntingan dapat menyebabkan data leakage.
-- Generator AI yang hanya berasal dari sedikit provider dapat membuat evaluasi tidak mewakili penggunaan nyata.
+- Generator AI dari sedikit provider dapat membuat evaluasi tidak mewakili penggunaan nyata.
 - False positive terhadap tulisan manusia dapat merugikan pengguna.
 - Skor probabilitas tidak boleh dipresentasikan sebagai persentase kepastian kepengarangan tanpa kalibrasi dan penjelasan yang benar.
+- Penjelasan hasil tidak boleh mengarang alasan yang tidak didukung analisis.
 
-## 7. Output produk yang perlu dirancang
-
-Masih perlu diputuskan melalui analisis sistem dan UI/UX:
-- Ringkasan dokumen.
-- Hasil per kategori dan penjelasan confidence.
-- Highlight tingkat kalimat.
-- Penanganan teks terlalu pendek atau input tidak valid.
-- Pesan untuk kasus di luar distribusi atau confidence rendah.
-- Batasan dan penjelasan interpretasi hasil.
-
-## 8. Belum diputuskan
+## 7. Hal yang belum diputuskan
 
 - Model final dan konfigurasi training.
+- Definisi operasional kelas dan panduan anotasi.
+- Mekanisme confidence, threshold, dan kalibrasi.
 - Skema inference dan API.
-- Panjang input dan strategi chunking.
-- Format output final.
+- Batas input karakter/token dan strategi chunking rinci.
+- Format laporan final dan desain UI.
 - Target akurasi/performa yang realistis.
 - Strategi monitoring drift dan evaluasi ulang.
 - Apakah model berjalan pada server sendiri atau layanan eksternal.
 
-## 9. Gerbang sebelum implementasi model
+## 8. Gerbang sebelum implementasi model
 
 Jangan mulai training serius sebelum:
 1. Struktur data dan schema ditetapkan.
 2. Uji prosedur sintetis lulus.
 3. Sumber data, provenance, dan lisensi diaudit.
-4. Pilot 200–500 dokumen dikumpulkan dan dievaluasi kualitasnya.
+4. Pilot 200-500 dokumen dikumpulkan dan dievaluasi kualitasnya.
 5. Aturan anotasi dan split berbasis grup ditetapkan.
 6. Baseline dan protokol evaluasi dapat diulang.
