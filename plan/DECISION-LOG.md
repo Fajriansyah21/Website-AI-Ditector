@@ -259,7 +259,7 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 ## DEC-018: Batas minimal karakter input AI Text Detector
 
 - **Tanggal:** 2026-11-12
-- **Status:** Accepted
+- **Status:** Superseded
 - **Keputusan:** AI Text Detector harus menerapkan batas minimal jumlah karakter. Input yang berada di bawah batas minimal tidak diproses dan pengguna diminta menambahkan teks.
 - **Belum diputuskan:** angka minimal karakter, cara menghitung karakter (termasuk spasi, baris baru, dan karakter khusus), serta perilaku UX final.
 - **Klarifikasi:** Batas minimal ini merupakan validasi kualitas input dan berlaku terpisah dari kuota kredit. Belum ada keputusan untuk membedakan batas minimal berdasarkan status Guest atau pengguna terdaftar.
@@ -270,10 +270,22 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 ## DEC-019: Informasi validasi untuk input di bawah batas minimal Detector
 
 - **Tanggal:** 2026-11-12
-- **Status:** Accepted
+- **Status:** Superseded
 - **Keputusan:** Jika input AI Text Detector berada di bawah batas minimal karakter, sistem menolak pemrosesan dan menampilkan dua informasi: jumlah karakter minimum yang harus dipenuhi serta jumlah karakter yang saat ini dimasukkan.
 - **Alasan:** Pengguna perlu mengetahui secara konkret berapa banyak teks yang perlu ditambahkan, bukan hanya menerima pesan bahwa input terlalu pendek.
 - **Alternatif yang dipertimbangkan:** Menampilkan pesan penolakan tanpa menyebutkan jumlah minimum dan jumlah karakter saat ini.
 - **Dampak:** Pesan validasi harus mengambil ambang minimum yang dikonfigurasi dan jumlah karakter hasil penghitungan input. Validasi tetap dilakukan sebelum pemrosesan dan pemotongan kredit.
 - **Belum diputuskan:** angka batas minimal dan aturan penghitungan karakter, termasuk perlakuan spasi, baris baru, dan karakter khusus.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-02 pada 2026-11-12.
+
+
+## DEC-020: Batas minimum untuk sampel profil gaya Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Batas minimum karakter tidak berlaku untuk input AI Text Detector. Batas minimum ini hanya berlaku untuk contoh/sampel tulisan yang diberikan pengguna untuk membentuk profil gaya personal pada AI Humanizer. Sampel yang belum memenuhi batas tidak digunakan untuk membentuk profil; sistem meminta tambahan dan menampilkan jumlah karakter minimum yang diwajibkan serta jumlah karakter sampel saat ini.
+- **Aturan penghitungan:** Seluruh karakter yang dimasukkan dihitung, termasuk spasi dan baris baru.
+- **Alasan:** Kecukupan panjang dibutuhkan untuk menilai dan membentuk representasi gaya penulisan personal. Detector tidak memerlukan batas minimum karakter yang ditetapkan sebagai aturan produk pada tahap ini.
+- **Dampak:** Persyaratan batas minimum dan pesan validasi dipindahkan dari AI Text Detector ke sampel profil gaya AI Humanizer. Penghitungan karakter sampel harus konsisten antara antarmuka dan backend.
+- **Belum diputuskan:** angka minimum sampel, perlakuan karakter khusus/Unicode, dan apakah kecukupan profil juga mempertimbangkan faktor selain jumlah karakter seperti keragaman dan konsistensi tulisan.
+- **Sumber:** Klarifikasi eksplisit pemilik proyek saat membahas validasi panjang input dan sampel gaya pada 2026-11-12.
