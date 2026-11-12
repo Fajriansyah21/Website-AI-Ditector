@@ -265,3 +265,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Klarifikasi:** Batas minimal ini merupakan validasi kualitas input dan berlaku terpisah dari kuota kredit. Belum ada keputusan untuk membedakan batas minimal berdasarkan status Guest atau pengguna terdaftar.
 - **Dampak:** Validasi panjang teks harus memeriksa batas minimum dan maksimum sebelum mengurangi kredit atau mengirim permintaan ke layanan AI. Ambang minimum perlu ditentukan melalui evaluasi model dan pengujian kualitas deteksi, bukan angka arbitrer.
 - **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
+
+
+## DEC-019: Informasi validasi untuk input di bawah batas minimal Detector
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika input AI Text Detector berada di bawah batas minimal karakter, sistem menolak pemrosesan dan menampilkan dua informasi: jumlah karakter minimum yang harus dipenuhi serta jumlah karakter yang saat ini dimasukkan.
+- **Alasan:** Pengguna perlu mengetahui secara konkret berapa banyak teks yang perlu ditambahkan, bukan hanya menerima pesan bahwa input terlalu pendek.
+- **Alternatif yang dipertimbangkan:** Menampilkan pesan penolakan tanpa menyebutkan jumlah minimum dan jumlah karakter saat ini.
+- **Dampak:** Pesan validasi harus mengambil ambang minimum yang dikonfigurasi dan jumlah karakter hasil penghitungan input. Validasi tetap dilakukan sebelum pemrosesan dan pemotongan kredit.
+- **Belum diputuskan:** angka batas minimal dan aturan penghitungan karakter, termasuk perlakuan spasi, baris baru, dan karakter khusus.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat menyusun User Flow UF-02 pada 2026-11-12.
