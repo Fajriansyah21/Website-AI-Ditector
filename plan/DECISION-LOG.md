@@ -747,3 +747,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Alur hasil Humanizer perlu menyediakan tindakan eksplisit untuk menyimpan hasil. Sistem tidak boleh memasukkan konten hasil ke riwayat akun tanpa tindakan tersebut.
 - **Belum diputuskan:** Detail tindakan simpan, apakah pilihan menyimpan berlaku per hasil atau dapat dijadikan preferensi, serta retensi dan penghapusan hasil tersimpan. Aturan riwayat umum akun tetap perlu diselaraskan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-059: Isi riwayat Humanizer menyimpan teks asli dan hasil revisi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Hasil Humanizer tidak disimpan otomatis. Jika pengguna secara eksplisit memilih menyimpan hasil tertentu, sistem menyimpan teks asli yang diproses dan hasil revisinya secara lengkap sebagai satu entri riwayat. Jika pengguna tidak memilih menyimpan, kedua teks tersebut tidak dimasukkan ke riwayat akun.
+- **Alasan:** Menyimpan kedua versi memungkinkan pengguna membandingkan dan menelusuri perubahan yang dibuat Humanizer pada pekerjaan yang dipilih untuk disimpan.
+- **Alternatif yang dipertimbangkan:** Menyimpan hanya hasil revisi atau hanya metadata proses.
+- **Dampak:** Skema riwayat Humanizer perlu menyimpan dua konten teks yang saling terkait dalam satu entri. Persetujuan eksplisit tetap menjadi prasyarat penyimpanan.
+- **Belum diputuskan:** Retensi, penghapusan, keamanan penyimpanan, batas ukuran riwayat, serta apakah metadata proses tambahan ikut disimpan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
