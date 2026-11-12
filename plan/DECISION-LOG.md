@@ -356,5 +356,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Kegagalan infrastruktur atau proses evaluasi tidak memberikan bukti tentang kualitas maupun kecukupan sampel. Menganggapnya sebagai ketidakcukupan akan menghasilkan status profil yang keliru dan merugikan pengguna.
 - **Alternatif yang dipertimbangkan:** Memperlakukan setiap kegagalan evaluasi sebagai profil tidak memadai; membiarkan status profil berubah tanpa membedakan hasil evaluasi dan kegagalan teknis.
 - **Dampak:** Sistem perlu membedakan hasil evaluasi kecukupan dari status kegagalan teknis, menyediakan percobaan ulang, dan tidak menerapkan status tidak memadai hanya karena evaluasi gagal.
-- **Belum diputuskan:** jumlah/batas percobaan ulang, jeda retry, notifikasi kegagalan, dan apakah profil sebelumnya tetap dapat digunakan selama evaluasi ulang belum selesai.
+- **Belum diputuskan:** jumlah/batas percobaan ulang, jeda retry, dan notifikasi kegagalan. Penggunaan profil sebelumnya selama evaluasi ditetapkan terpisah pada DEC-027.
 - **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas penanganan kegagalan evaluasi profil gaya Humanizer pada 2026-11-12.
+
+## DEC-027: Mempertahankan penggunaan versi profil sebelumnya selama evaluasi ulang
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Selama evaluasi ulang belum menghasilkan keputusan yang menyatakan kumpulan sampel tidak memadai, versi profil gaya yang sebelumnya berhasil dibentuk tetap dapat digunakan untuk pemrosesan AI Humanizer. Ketentuan ini juga berlaku ketika evaluasi ulang gagal secara teknis. Jika evaluasi berhasil dan menyatakan sampel tidak memadai, profil tidak lagi dapat dipilih untuk pemrosesan sampai sampel tambahan membuatnya memenuhi kriteria kembali.
+- **Alasan:** Perubahan sampel tidak serta-merta membuktikan bahwa profil lama tidak layak, sedangkan kegagalan teknis sama sekali bukan bukti ketidakcukupan. Penggunaan versi sebelumnya menjaga kontinuitas layanan tanpa mengabaikan hasil evaluasi yang valid.
+- **Alternatif yang dipertimbangkan:** Menonaktifkan profil setiap kali sampel berubah; mengizinkan penggunaan profil tanpa batas meskipun evaluasi valid menyatakan sampel tidak memadai.
+- **Dampak:** Sistem perlu mempertahankan versi profil terakhir yang berhasil dibentuk, memisahkan versi tersebut dari kumpulan sampel yang sedang dievaluasi, dan menonaktifkan pemilihan hanya setelah hasil evaluasi yang berhasil menyatakan sampel tidak memadai.
+- **Belum diputuskan:** strategi penyimpanan/versi profil, jumlah/batas percobaan ulang, jeda retry, dan notifikasi kegagalan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas penggunaan profil gaya selama evaluasi ulang pada 2026-11-12.
