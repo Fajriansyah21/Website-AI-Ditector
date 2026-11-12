@@ -8,24 +8,44 @@ Keputusan **DEC-001** menetapkan dua modul untuk MVP pertama:
 1. AI Text Detector.
 2. AI Humanizer.
 
-DOCX Metadata Cleaner ditunda ke fase setelah MVP. Ketiga modul tetap dipertimbangkan dalam arsitektur modular jangka panjang. Keputusan ini belum menetapkan urutan implementasi Detector dan Humanizer.
+DOCX Metadata Cleaner ditunda ke fase setelah MVP. Arsitektur produk tetap modular, tetapi infrastruktur untuk modul yang ditunda tidak perlu dibangun sekarang. Sistem referral dan fitur perbandingan dua teks mandiri juga tidak masuk MVP berdasarkan DEC-010.
+
+## Status analisis kebutuhan sistem
+
+Dokumen plan/SYSTEM-REQUIREMENTS-ANALYSIS.md telah dibuat berdasarkan sesi elisitasi kebutuhan pemilik proyek tanggal 2026-11-12.
+
+**Status: Draft terdokumentasi, menunggu review pemilik proyek dan validasi teknis.**
+
+Dokumen tersebut mencatat kebutuhan untuk:
+- Target utama mahasiswa dan pelajar, dengan penggunaan akademik dan umum.
+- Detector dan Humanizer dengan prioritas setara, dapat digunakan mandiri atau terhubung dengan persetujuan pengguna.
+- Bahasa Indonesia dan Inggris, serta dukungan terbatas untuk teks campuran.
+- Input TXT, DOCX, PDF dan keluaran TXT, DOCX, PDF.
+- Kategori Detector HUMAN, AI, MIXED, UNCERTAIN dan batas klaim hasil.
+- Humanizer dengan gaya bawaan dan profil gaya personal.
+- Guest/login, dashboard, riwayat opsional, dan kebijakan retensi.
+- Sistem kredit, reward iklan, pembelian, dan refund.
+- Admin Panel, RBAC, audit, dukungan tiket, notifikasi, antrean, dan pemulihan.
+
+Dokumen ini belum mengesahkan pilihan framework, database, provider AI, payment gateway, produk iklan, deployment, target uptime, angka batas input, harga, atau rumus kredit final.
 
 ## Tahap perencanaan sistem MVP
 
-Sebelum implementasi fitur, rencanakan dan dokumentasikan:
-1. Analisis sistem: tujuan, aktor, kebutuhan fungsional/nonfungsional, batasan, dan risiko.
-2. Modular architecture: batas modul, tanggung jawab, dependensi, dan kontrak komunikasi.
-3. User flow untuk Detector dan Humanizer.
-4. System flowchart termasuk validasi, jalur sukses, dan jalur gagal.
-5. Data flow, kebutuhan penyimpanan, privasi, dan retensi.
-6. Evaluasi opsi teknologi berdasarkan kebutuhan yang sudah disahkan.
-7. Spesifikasi MVP dan acceptance criteria.
+| Urutan | Pekerjaan | Status | Kriteria keluaran |
+|---:|---|---|---|
+| 1 | Analisis kebutuhan sistem | Draft documented; review pending | SRS ditinjau, konflik/ketidakjelasan ditutup, requirement diberi acceptance criteria |
+| 2 | User flow Detector dan Humanizer | Planned | Alur normal, validasi, persetujuan handoff, pembatalan, dan kegagalan |
+| 3 | Modular architecture | Planned | Batas modul, tanggung jawab, dependensi, dan kontrak komunikasi |
+| 4 | System flowchart | Planned | Diagram jalur sukses, gagal, retry, refund, dan antrean |
+| 5 | Data flow dan data lifecycle | Planned | Klasifikasi data, alur penyimpanan, consent, retensi, penghapusan |
+| 6 | Evaluasi opsi teknologi | Planned | Perbandingan trade-off framework, backend, database, AI, payment, storage, queue, dan deployment |
+| 7 | Spesifikasi MVP dan acceptance criteria | Planned | Spesifikasi yang dapat diuji dan menjadi dasar implementasi |
 
-Semua butir di atas merupakan pekerjaan perencanaan yang belum ditandai selesai.
+Jangan mulai implementasi aplikasi hanya karena SRS telah dibuat. Kebutuhan perlu ditinjau dan diterjemahkan menjadi alur, desain, serta kriteria penerimaan yang dapat diverifikasi.
 
 ## Fokus riset aktif: uji prosedur sintetis dataset
 
-Fokus riset dataset yang sudah direncanakan tetap berjalan sebagai jalur kerja tersendiri. Pemilihan cakupan MVP tidak menghapus kebutuhan untuk menguji prosedur dataset sebelum pilot nyata dan training detector.
+Jalur riset dataset tetap berjalan terpisah dari analisis sistem produk. Pengembangan requirement produk tidak membatalkan gerbang metodologi dataset sebelum pilot nyata dan training detector.
 
 ### Task pengujian
 
@@ -53,14 +73,16 @@ Tahap ini hanya dapat ditandai **Verified** jika:
 ## Bukan prioritas implementasi saat ini
 
 - Implementasi DOCX Metadata Cleaner dalam MVP.
-- Membuat UI website di Stitch sebelum analisis dan spesifikasi cukup jelas.
+- Implementasi referral atau fitur pembanding teks mandiri.
+- Membuat UI website di Stitch sebelum user flow dan spesifikasi cukup jelas.
 - Implementasi frontend/backend di Antigravity sebelum acceptance criteria tersedia.
-- Memilih framework, database, atau deployment tanpa analisis kebutuhan.
+- Memilih framework, database, provider AI, payment gateway, produk iklan, atau deployment tanpa analisis kebutuhan dan validasi sumber.
 - Mengumpulkan pilot dataset nyata sebelum prosedur dan sumber data siap.
 - Training model sebelum gerbang dataset dipenuhi.
 
-Aktivitas tersebut dapat direncanakan kemudian, tetapi tidak boleh menggantikan task aktif tanpa keputusan eksplisit.
-
 ## Langkah berikutnya
 
-Mulai analisis sistem MVP untuk Detector dan Humanizer. Secara paralel, pertahankan jalur uji prosedur sintetis dataset. Periksa spesifikasi JSON yang benar-benar tersedia; jika belum ada di branch aktif, susun atau pulihkan berdasarkan keputusan yang disahkan sebelum membuat test harness. Jangan menebak schema dari contoh parsial.
+1. Minta pemilik proyek meninjau plan/SYSTEM-REQUIREMENTS-ANALYSIS.md.
+2. Catat koreksi atau keputusan tambahan tanpa menghapus keputusan sebelumnya.
+3. Setelah review kebutuhan, susun user flow Detector dan Humanizer.
+4. Pertahankan jalur uji prosedur sintetis dataset sesuai urutan dan gerbang yang sudah ditetapkan.
