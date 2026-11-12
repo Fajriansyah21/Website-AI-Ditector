@@ -1041,3 +1041,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Tidak menyediakan pengumuman khusus untuk screen reader.
 - **Dampak:** Implementasi perlu menggunakan semantik dialog yang sesuai, menghubungkan judul dan deskripsi modal secara programatis, serta memastikan pengumuman tidak terduplikasi atau terpotong oleh pengelolaan fokus. Detail atribut dan pengujian kompatibilitas ditentukan pada desain teknis dan pengujian aksesibilitas.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-084: Modal konfirmasi navigasi menggunakan alert dialog
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Modal konfirmasi navigasi internal ketika hasil Humanizer belum disimpan harus menggunakan semantik *alert dialog*, bukan dialog biasa. Screen reader harus mengumumkan dialog sebagai peringatan karena tindakan melanjutkan navigasi dapat menyebabkan hasil yang belum disimpan hilang.
+- **Alasan:** Konsekuensi tindakan perlu disampaikan secara jelas sebelum pengguna memilih untuk tetap berada di halaman atau melanjutkan navigasi.
+- **Alternatif yang dipertimbangkan:** Menggunakan dialog biasa tanpa tingkat urgensi khusus.
+- **Dampak:** Implementasi harus menerapkan semantik alert dialog dan tetap mengikuti keputusan aksesibilitas sebelumnya, termasuk pengelolaan fokus. Kompatibilitas dan perilaku pengumuman perlu diuji dengan screen reader; hindari pengumuman berulang atau berlebihan.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
