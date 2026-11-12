@@ -121,6 +121,7 @@ Dukungan format file tidak berarti tata letak, gambar, header/footer, catatan ka
 | FR-DET-06 | Tidak menyatakan hasil sebagai bukti pasti bahwa seseorang menggunakan AI. | Prinsip wajib |
 | FR-DET-07 | Skor atau persentase tidak boleh dipresentasikan sebagai probabilitas terkalibrasi kecuali kalibrasi benar-benar diuji dan dibuktikan. | Prinsip wajib |
 | FR-DET-08 | Setelah analisis, pengguna boleh memilih untuk mengirim teks ke Humanizer. Tidak ada pemrosesan otomatis. | Disepakati |
+| FR-DET-09 | AI Text Detector menerapkan batas maksimal jumlah karakter pada input teks. Sistem menolak atau meminta pengguna menyesuaikan input yang melewati batas. | Disepakati; angka batas dan perilaku UX final belum ditentukan |
 
 Label HUMAN/AI/MIXED/UNCERTAIN pada antarmuka adalah kebutuhan produk. Definisi operasional label, ambang batas, confidence, kalibrasi, dan pelabelan per kalimat tetap memerlukan rancangan metodologis dan bukti eksperimen.
 
