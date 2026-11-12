@@ -1019,3 +1019,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Memberikan fokus awal ke tombol Lanjutkan; memberikan fokus awal ke judul atau area teks modal.
 - **Dampak:** Modal harus mengatur fokus awal ke tombol Tetap di halaman ketika dibuka, tetap menerapkan focus trap sesuai DEC-080, dan mengembalikan fokus ke elemen pemicu setelah modal ditutup jika elemen tersebut masih tersedia.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-082: Mengembalikan fokus ke elemen pemicu setelah modal ditutup
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setelah modal konfirmasi navigasi internal dari halaman hasil Humanizer ditutup tanpa melanjutkan navigasi, fokus keyboard dikembalikan ke elemen yang sebelumnya memicu modal, misalnya tombol Dashboard. Jika elemen pemicu tidak lagi tersedia, mekanisme fallback fokus yang aksesibel ditentukan pada desain teknis.
+- **Alasan:** Mengembalikan fokus ke elemen pemicu mempertahankan konteks navigasi keyboard dan membuat pengguna memahami posisi interaksi setelah dialog ditutup.
+- **Alternatif yang dipertimbangkan:** Selalu mengembalikan fokus ke area editor; mengembalikan fokus ke elemen yang sebelumnya aktif sebelum modal dibuka.
+- **Dampak:** Komponen modal perlu menyimpan referensi elemen pemicu dan mengembalikan fokus ke elemen tersebut ketika dialog ditutup karena pembatalan. Perilaku saat elemen pemicu tidak tersedia perlu ditangani secara aksesibel.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
