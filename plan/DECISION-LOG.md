@@ -471,3 +471,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Setelah operasi pemulihan berakhir, sistem perlu melanjutkan pembaruan tertahan dan mengevaluasi ulang seluruh kumpulan sampel terbaru. Status versi aktif tetap mengikuti hasil operasi pemulihan, bukan hasil pembaruan yang belum selesai.
 - **Belum diputuskan:** Detail antrean, notifikasi, dan kebijakan pembatalan pembaruan tertahan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-036: Penghapusan sampel tetap diizinkan selama pembaruan profil tertahan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Pengguna tetap dapat menghapus sampel gaya ketika pembaruan profil tertahan oleh proses pemulihan versi. Setelah pemulihan selesai dan pembaruan dilanjutkan, sistem wajib menggunakan kumpulan sampel yang tersisa setelah penghapusan dan mengevaluasi ulang seluruh kumpulan tersebut. Sampel yang telah dihapus tidak boleh digunakan untuk membangun versi profil baru.
+- **Alasan:** Pengguna harus tetap dapat mengelola sumber data profilnya. Menggunakan kumpulan sampel terkini memastikan penghapusan dihormati dan sampel yang sudah tidak diinginkan tidak masuk ke versi profil berikutnya.
+- **Alternatif yang dipertimbangkan:** Membekukan seluruh perubahan sampel sampai pemulihan selesai; membatalkan pembaruan tertahan jika ada sampel dihapus.
+- **Dampak:** Sistem perlu memperlakukan kumpulan sampel sebagai sumber data terbaru ketika pembaruan dilanjutkan. Evaluasi dan pembentukan versi baru harus menggunakan snapshot kumpulan sampel setelah perubahan, bukan snapshot lama.
+- **Belum diputuskan:** Perilaku jika pengguna menambah atau mengedit sampel selama pembaruan tertahan, serta bagaimana perubahan sampel yang berulang dikelompokkan untuk evaluasi.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
