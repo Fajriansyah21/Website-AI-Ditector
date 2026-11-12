@@ -334,7 +334,7 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Profil gaya harus tetap merepresentasikan sampel yang benar-benar tersedia. Profil tidak boleh terus dianggap valid tanpa pemeriksaan setelah sumber pembentuknya berubah.
 - **Alternatif yang dipertimbangkan:** Mempertahankan profil lama tanpa evaluasi ulang; menghapus profil secara otomatis ketika sampel berubah.
 - **Dampak:** Alur edit/hapus sampel perlu memicu evaluasi kumpulan sampel. Sistem perlu dapat menyatakan apakah profil masih memadai dan memberi arahan penambahan sampel ketika tidak memadai.
-- **Belum diputuskan:** kriteria teknis kecukupan, apakah profil lama tetap dapat digunakan selama evaluasi atau ketika sampel tidak lagi memadai, strategi versi/pemulihan profil sebelumnya, serta perilaku jika evaluasi gagal.
+- **Belum diputuskan:** kriteria teknis kecukupan, apakah profil lama tetap dapat digunakan selama evaluasi atau ketika sampel tidak lagi memadai, serta strategi versi/pemulihan profil sebelumnya. Penanganan evaluasi gagal karena gangguan teknis ditetapkan terpisah pada DEC-026.
 - **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas pengelolaan sampel profil gaya Humanizer pada 2026-11-12.
 
 ## DEC-025: Profil tidak memadai tetap terlihat tetapi tidak dapat dipilih
@@ -347,3 +347,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Status profil perlu dibedakan antara terlihat/dapat dikelola dan tersedia/tidak tersedia untuk pemrosesan. Antarmuka pemilihan Humanizer harus mengecualikan profil yang tidak memadai, sedangkan pengelola profil tetap menampilkannya beserta arahan perbaikan.
 - **Belum diputuskan:** kriteria teknis kecukupan, label/status UI final, dan strategi versi/pemulihan profil sebelumnya.
 - **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas status profil gaya yang tidak lagi memadai pada 2026-11-12.
+
+## DEC-026: Memisahkan kegagalan evaluasi teknis dari ketidakcukupan sampel
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika evaluasi ulang profil gaya gagal akibat gangguan teknis, sistem menandai evaluasi sebagai gagal dan meminta pengguna mencoba kembali. Kegagalan teknis tidak boleh dianggap sebagai bukti bahwa kumpulan sampel tidak memadai dan tidak otomatis mengubah profil menjadi tidak valid.
+- **Alasan:** Kegagalan infrastruktur atau proses evaluasi tidak memberikan bukti tentang kualitas maupun kecukupan sampel. Menganggapnya sebagai ketidakcukupan akan menghasilkan status profil yang keliru dan merugikan pengguna.
+- **Alternatif yang dipertimbangkan:** Memperlakukan setiap kegagalan evaluasi sebagai profil tidak memadai; membiarkan status profil berubah tanpa membedakan hasil evaluasi dan kegagalan teknis.
+- **Dampak:** Sistem perlu membedakan hasil evaluasi kecukupan dari status kegagalan teknis, menyediakan percobaan ulang, dan tidak menerapkan status tidak memadai hanya karena evaluasi gagal.
+- **Belum diputuskan:** jumlah/batas percobaan ulang, jeda retry, notifikasi kegagalan, dan apakah profil sebelumnya tetap dapat digunakan selama evaluasi ulang belum selesai.
+- **Sumber:** Persetujuan eksplisit pemilik proyek saat membahas penanganan kegagalan evaluasi profil gaya Humanizer pada 2026-11-12.
