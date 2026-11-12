@@ -627,3 +627,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem memerlukan dua kanal notifikasi, penanganan kegagalan kanal secara independen, dan pemisahan proses notifikasi dari proses kedaluwarsa/pencabutan izin.
 - **Belum diputuskan:** Kebijakan retry tiap kanal, batas percobaan, penanganan email tidak valid, dan status delivery yang ditampilkan kepada Super Admin.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-049: Penanganan kegagalan seluruh kanal notifikasi akses investigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Jika notifikasi dalam aplikasi dan email sama-sama gagal, status kedaluwarsa atau pencabutan akses tetap berlaku. Kegagalan kedua kanal dicatat dalam audit log dan ditampilkan kepada Super Admin sebagai indikator kegagalan notifikasi. Sistem dapat melakukan retry terbatas, tetapi kegagalan pengiriman maupun retry tidak boleh mengaktifkan kembali izin atau menunda pencabutan.
+- **Alasan:** Pencabutan akses adalah kontrol keamanan yang harus independen dari keberhasilan pengiriman pesan. Kegagalan notifikasi perlu terlihat dan dapat diaudit tanpa mengubah status izin.
+- **Alternatif yang dipertimbangkan:** Menunda pencabutan sampai notifikasi berhasil; mengaktifkan kembali akses sementara; mengabaikan kegagalan pengiriman.
+- **Dampak:** Sistem perlu mencatat kegagalan dua kanal, menampilkan indikator kepada Super Admin, dan memisahkan retry notifikasi dari proses kedaluwarsa/pencabutan izin.
+- **Belum diputuskan:** Jumlah dan interval retry, kriteria kegagalan permanen, serta format indikator dan audit event.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
