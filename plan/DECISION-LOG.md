@@ -242,3 +242,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Validasi panjang input Detector tidak perlu bercabang berdasarkan status autentikasi. Sistem kredit tetap menghitung hak penggunaan dan saldo sesuai jenis akun.
 - **Belum diputuskan:** angka maksimal karakter serta perilaku antarmuka ketika batas terlampaui.
 - **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
+
+
+## DEC-017: Metode input AI Text Detector
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** AI Text Detector menyediakan dua metode input:
+  1. Pengguna mengetik atau menempelkan teks langsung ke area input.
+  2. Pengguna mengunggah dokumen berformat TXT, DOCX, atau PDF untuk diekstrak sebelum dianalisis.
+- **Dampak:** Antarmuka Detector perlu menyediakan area input teks dan opsi unggah file. Kedua jalur harus melewati validasi karakter, ekstraksi/validasi file bila relevan, dan pemeriksaan sebelum pemrosesan.
+- **Batasan:** Persetujuan metode input ini tidak menetapkan batas ukuran file, batas karakter numerik, dukungan OCR final, atau jaminan pelestarian seluruh tata letak dokumen.
+- **Sumber:** Konfirmasi eksplisit pemilik proyek saat membahas UF-02 pada 2026-11-12.
