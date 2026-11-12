@@ -844,3 +844,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu menyediakan pemicu dan tampilan notifikasi dalam aplikasi untuk peringatan kapasitas. Keputusan ini merupakan ketentuan khusus untuk peringatan kapasitas riwayat Humanizer dan tidak mengubah kanal notifikasi untuk peristiwa lain.
 - **Belum diputuskan:** Detail teknis penyimpanan status ambang dan tampilan notifikasi.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-067: Banner peringatan kapasitas riwayat Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika penggunaan kapasitas riwayat Humanizer mencapai 90% dari kuota akun, sistem menampilkan peringatan dalam bentuk banner pada bagian atas halaman riwayat Humanizer. Banner tidak menghalangi interaksi pengguna dengan halaman.
+- **Alasan:** Banner memberi penekanan yang cukup tanpa memaksa pengguna menutup dialog atau menghentikan aktivitasnya.
+- **Alternatif yang dipertimbangkan:** Toast sementara, modal/pop-up yang harus ditutup, atau kombinasi banner dan toast.
+- **Dampak:** Halaman riwayat Humanizer perlu menyediakan area banner untuk peringatan ambang kapasitas. Kanal tetap notifikasi dalam aplikasi sesuai DEC-066.
+- **Belum diputuskan:** Teks, gaya visual, dan perilaku banner setelah ditampilkan ditentukan pada desain UI.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
