@@ -591,3 +591,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem harus menerapkan kedaluwarsa otomatis paling lambat 24 jam sejak persetujuan, tidak memperpanjang izin secara otomatis, menyediakan pencabutan oleh Super Admin, dan mengharuskan permintaan baru setelah akses berakhir.
 - **Belum diputuskan:** Apakah masa berlaku dihitung sejak waktu persetujuan atau sejak akses pertama digunakan, serta detail notifikasi sebelum kedaluwarsa.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-046: Awal masa berlaku akses investigasi Admin
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Masa berlaku maksimal 24 jam untuk persetujuan akses metadata audit dihitung sejak waktu Super Admin menyetujui permintaan, bukan sejak Admin pertama kali menggunakan akses.
+- **Alasan:** Perhitungan sejak persetujuan mencegah izin disimpan tanpa digunakan lalu dimanfaatkan pada waktu yang tidak terduga.
+- **Alternatif yang dipertimbangkan:** Memulai hitungan sejak akses pertama digunakan.
+- **Dampak:** Sistem harus mencatat waktu persetujuan dan menetapkan waktu kedaluwarsa berdasarkan waktu tersebut. Waktu penggunaan pertama tidak mengubah atau mengatur ulang masa berlaku.
+- **Belum diputuskan:** Detail zona waktu untuk tampilan, presisi timestamp, dan penanganan perbedaan jam antar layanan.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
