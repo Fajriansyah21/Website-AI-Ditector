@@ -807,3 +807,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Sistem perlu memantau penggunaan kapasitas per akun dan memicu peringatan pada ambang 90%.
 - **Belum diputuskan:** Kanal dan frekuensi notifikasi, perilaku peringatan setelah kapasitas turun lalu kembali mencapai 90%, serta apakah indikator kapasitas ditampilkan terus-menerus pada dashboard.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-064: Indikator kapasitas pada halaman riwayat Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Sistem menampilkan indikator penggunaan kapasitas penyimpanan pada halaman riwayat Humanizer. Indikator tidak ditampilkan pada dashboard utama dan memperlihatkan pemakaian terhadap kuota akun.
+- **Alasan:** Informasi kapasitas paling relevan saat pengguna mengelola entri riwayat, sehingga tidak perlu menambah kepadatan dashboard utama.
+- **Alternatif yang dipertimbangkan:** Hanya menampilkan peringatan saat ambang tercapai atau menempatkan indikator pada dashboard utama.
+- **Dampak:** Halaman riwayat Humanizer perlu menampilkan pemakaian dan kuota. Peringatan ambang 90% dari DEC-063 tetap berlaku.
+- **Belum diputuskan:** Format visual, satuan ukuran, dan detail tampilan indikator ditentukan pada desain UI dan teknis.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
