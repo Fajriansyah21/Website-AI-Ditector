@@ -805,7 +805,7 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Peringatan sebelum kapasitas penuh memberi kesempatan kepada pengguna untuk meninjau dan mengelola entri riwayat tanpa menunggu sampai penyimpanan hasil baru terhenti.
 - **Alternatif yang dipertimbangkan:** Memberi peringatan pada 80% atau 95%, atau hanya memberi tahu ketika kapasitas benar-benar penuh.
 - **Dampak:** Sistem perlu memantau penggunaan kapasitas per akun dan memicu peringatan pada ambang 90%.
-- **Belum diputuskan:** Kanal dan frekuensi notifikasi, perilaku peringatan setelah kapasitas turun lalu kembali mencapai 90%, serta apakah indikator kapasitas ditampilkan terus-menerus pada dashboard.
+- **Klarifikasi melalui DEC-065:** Peringatan dipicu kembali hanya setelah penggunaan sempat turun di bawah 90% dan kemudian mencapai atau melewati ambang 90% lagi. Kanal notifikasi masih perlu dirancang.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
 
 
@@ -818,4 +818,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Hanya menampilkan peringatan saat ambang tercapai atau menempatkan indikator pada dashboard utama.
 - **Dampak:** Halaman riwayat Humanizer perlu menampilkan pemakaian dan kuota. Peringatan ambang 90% dari DEC-063 tetap berlaku.
 - **Belum diputuskan:** Format visual, satuan ukuran, dan detail tampilan indikator ditentukan pada desain UI dan teknis.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-065: Peringatan kapasitas berulang berdasarkan siklus ambang 90%
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Peringatan kapasitas riwayat Humanizer tidak dikirim berulang selama penggunaan tetap berada pada atau di atas 90%. Setelah penggunaan turun di bawah 90%, sistem mengaktifkan kembali pemicu peringatan. Jika penggunaan kemudian mencapai atau melewati 90% lagi, sistem mengirim peringatan baru.
+- **Alasan:** Pengguna tidak menerima peringatan berulang tanpa perubahan kondisi, tetapi tetap mendapat peringatan pada siklus kapasitas penuh berikutnya.
+- **Alternatif yang dipertimbangkan:** Peringatan hanya sekali per akun atau peringatan setiap kali halaman riwayat dibuka selama kapasitas minimal 90%.
+- **Dampak:** Sistem perlu melacak status ambang per akun dan mendeteksi transisi dari penggunaan di bawah 90% ke penggunaan mencapai atau melewati 90%.
+- **Belum diputuskan:** Kanal notifikasi dan detail teknis penyimpanan status ambang.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
