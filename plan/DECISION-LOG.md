@@ -986,3 +986,14 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Menonaktifkan Escape sehingga pengguna harus memilih tombol pada dialog.
 - **Dampak:** Dialog perlu menangani input Escape secara konsisten. Escape tidak boleh meneruskan navigasi atau menghapus hasil yang belum disimpan.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-079: Klik backdrop tidak menutup dialog konfirmasi navigasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Ketika dialog konfirmasi navigasi internal dari halaman hasil Humanizer yang belum disimpan sedang terbuka, klik pada area backdrop di luar modal tidak menutup dialog dan tidak mengubah status navigasi. Pengguna harus menggunakan tombol **X**, tombol **Escape**, atau pilihan **Tetap di halaman** untuk membatalkan; pilihan **Lanjutkan** digunakan untuk meneruskan navigasi.
+- **Alasan:** Mencegah dialog tertutup akibat salah klik ketika tindakan berikutnya dapat menghilangkan hasil yang belum disimpan.
+- **Alternatif yang dipertimbangkan:** Mengizinkan klik backdrop menutup dialog dan membatalkan navigasi.
+- **Dampak:** Modal harus mengabaikan klik backdrop sebagai tindakan penutupan. Aturan ini tidak mengubah perilaku tombol X, Escape, Tetap di halaman, atau Lanjutkan.
+- **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
