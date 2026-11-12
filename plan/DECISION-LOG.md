@@ -771,3 +771,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** UI harus meminta konfirmasi sebelum penghapusan. Setelah dikonfirmasi, entri tidak lagi tersedia dalam riwayat pengguna. Penghapusan dari riwayat aplikasi harus dibedakan dari penghapusan salinan pada backup, log, atau penyimpanan turunan.
 - **Belum diputuskan:** Cakupan dan jadwal penghapusan pada backup, log, cache, serta penyimpanan turunan; mekanisme teknis penghapusan menyeluruh.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-061: Batas riwayat Humanizer berdasarkan kapasitas penyimpanan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Riwayat Humanizer tidak dibatasi berdasarkan jumlah entri. Batas diberlakukan berdasarkan total ukuran data yang disimpan per akun.
+- **Alasan:** Ukuran setiap entri dapat berbeda jauh. Batas jumlah entri saja tidak cukup untuk mengendalikan konsumsi penyimpanan.
+- **Alternatif yang dipertimbangkan:** Tidak membatasi jumlah entri, batas tetap 50 entri, atau batas tetap 100 entri per akun.
+- **Dampak:** Sistem perlu menghitung total ukuran data riwayat Humanizer per akun dan menerapkan kuota penyimpanan. Nilai kuota dan perilaku saat kuota tercapai belum ditentukan dan harus dirancang sebelum implementasi.
+- **Belum diputuskan:** Besaran kuota, satuan dan metode penghitungan ukuran, apakah metadata ikut dihitung, perilaku simpan saat kuota penuh, serta mekanisme pemberitahuan dan pembebasan kapasitas.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
