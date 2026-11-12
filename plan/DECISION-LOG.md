@@ -759,3 +759,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Skema riwayat Humanizer perlu menyimpan dua konten teks yang saling terkait dalam satu entri. Persetujuan eksplisit tetap menjadi prasyarat penyimpanan.
 - **Belum diputuskan:** Retensi, penghapusan, keamanan penyimpanan, batas ukuran riwayat, serta apakah metadata proses tambahan ikut disimpan.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-060: Penghapusan permanen entri riwayat Humanizer setelah konfirmasi
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menghapus entri riwayat Humanizer yang telah disimpan. Setelah pengguna memilih tindakan hapus dan mengonfirmasi, entri dihapus permanen dari riwayat yang dapat diakses melalui aplikasi. Tidak ada tempat sampah atau masa pemulihan 30 hari untuk entri tersebut.
+- **Alasan:** Pengguna harus memiliki kendali langsung untuk menghapus teks asli dan hasil revisi yang sebelumnya dipilih untuk disimpan.
+- **Alternatif yang dipertimbangkan:** Memindahkan entri ke tempat sampah selama 30 hari atau memasukkannya ke antrean penghapusan dengan masa tunggu.
+- **Dampak:** UI harus meminta konfirmasi sebelum penghapusan. Setelah dikonfirmasi, entri tidak lagi tersedia dalam riwayat pengguna. Penghapusan dari riwayat aplikasi harus dibedakan dari penghapusan salinan pada backup, log, atau penyimpanan turunan.
+- **Belum diputuskan:** Cakupan dan jadwal penghapusan pada backup, log, cache, serta penyimpanan turunan; mekanisme teknis penghapusan menyeluruh.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
