@@ -711,3 +711,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Dampak:** Editor harus mendukung penyuntingan teks secara penuh. Sistem memproses isi editor terkini, bukan mengambil ulang isi dokumen sumber. Dokumen sumber tetap tidak diubah.
 - **Belum diputuskan:** Batas karakter, validasi konten, dan perilaku editor ketika format dokumen memiliki struktur seperti tabel atau daftar.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-056: Format keluaran Humanizer mengikuti dokumen unggahan
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Setelah pemrosesan Humanizer selesai, pengguna dapat melihat hasil di website, menyalin teks, dan mengunduh hasil. Jika proses menggunakan dokumen unggahan, format file hasil unduhan mengikuti format dokumen yang diunggah, yaitu TXT, DOCX, atau PDF. Dokumen sumber tidak boleh diubah atau ditimpa. Sistem tidak menjanjikan tata letak atau struktur hasil ekspor identik dengan dokumen sumber.
+- **Alasan:** Pengguna dapat melanjutkan pekerjaan dalam format yang sama dengan dokumen yang dimasukkan tanpa mengorbankan dokumen sumber.
+- **Alternatif yang dipertimbangkan:** Hasil hanya tersedia sebagai teks untuk disalin, atau pengguna harus memilih format unduhan secara terpisah dari format dokumen sumber.
+- **Dampak:** Fitur ekspor Humanizer perlu menghasilkan TXT, DOCX, atau PDF sesuai format dokumen unggahan. Hasil tetap ditampilkan di website dan dapat disalin. Struktur kompleks dan kesamaan tata letak tidak boleh dijanjikan identik.
+- **Belum diputuskan:** Format unduhan default ketika pengguna hanya mengetik atau menempelkan teks tanpa mengunggah dokumen.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
