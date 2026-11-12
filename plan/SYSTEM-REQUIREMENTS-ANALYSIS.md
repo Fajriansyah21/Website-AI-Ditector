@@ -156,12 +156,13 @@ Gaya bawaan seperti akademik, formal, profesional, santai, informatif, dan kreat
 | FR-ACC-06 | Menangani akun email/password dan Google dengan alamat sama secara aman. | Disepakati sebagai kebutuhan |
 | FR-ACC-07 | Menyediakan dashboard pengguna untuk profil, kredit, riwayat, profil gaya, dan pengaturan akun. | Disepakati |
 | FR-ACC-08 | Riwayat tidak disimpan otomatis. Pengguna login memilih apakah akan menyimpan riwayat. | Disepakati |
-| FR-ACC-09 | Guest tidak memiliki riwayat permanen. Teks input sementara dapat dipertahankan selama perpindahan ke proses autentikasi agar pengguna tidak perlu mengetik ulang; hal ini bukan penyimpanan riwayat. | Disepakati |
+| FR-ACC-09 | Guest tidak memiliki riwayat permanen. Teks input sementara dipertahankan selama perpindahan ke proses autentikasi. Jika autentikasi dibatalkan, teks tetap tersedia ketika pengguna kembali ke Detector selama sesi browser yang sama masih aktif. Hal ini bukan penyimpanan riwayat dan tidak menjanjikan pemulihan setelah sesi browser berakhir. | Disepakati |
 | FR-ACC-10 | Pengguna dapat menghapus riwayat yang disimpan. | Disepakati |
 | FR-ACC-11 | Profil gaya disimpan secara terpisah dari sampel dokumen sumber. | Disepakati sebagai prinsip pemisahan data |
 | FR-ACC-12 | Akses ke AI Humanizer dan pengelolaan profil gaya memerlukan autentikasi pengguna. | Disepakati |
 | FR-ACC-13 | Jika Guest memilih mendaftar/login dari alur AI Text Detector, teks input yang sedang dikerjakan dibawa ke sesi pengguna setelah autentikasi berhasil. | Disepakati; mekanisme teknis dan masa berlaku draft belum ditentukan |
 | FR-ACC-14 | Hasil analisis Guest tidak dibawa sebagai hasil final setelah registrasi/login. Pengguna menjalankan analisis ulang sebagai permintaan baru menggunakan akun terdaftar. | Disepakati |
+| FR-ACC-15 | Jika Guest membatalkan autentikasi dan kembali ke Detector, teks input tetap tersedia selama sesi browser yang sama masih aktif. Draft tidak dijanjikan dapat dipulihkan setelah sesi browser berakhir. | Disepakati; perilaku saat reload/refresh dan batas teknis sesi belum ditentukan |
 
 ### 4.6 Kredit, iklan, dan pembayaran
 
