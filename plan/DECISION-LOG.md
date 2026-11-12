@@ -805,7 +805,8 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Peringatan sebelum kapasitas penuh memberi kesempatan kepada pengguna untuk meninjau dan mengelola entri riwayat tanpa menunggu sampai penyimpanan hasil baru terhenti.
 - **Alternatif yang dipertimbangkan:** Memberi peringatan pada 80% atau 95%, atau hanya memberi tahu ketika kapasitas benar-benar penuh.
 - **Dampak:** Sistem perlu memantau penggunaan kapasitas per akun dan memicu peringatan pada ambang 90%.
-- **Klarifikasi melalui DEC-065:** Peringatan dipicu kembali hanya setelah penggunaan sempat turun di bawah 90% dan kemudian mencapai atau melewati ambang 90% lagi. Kanal notifikasi masih perlu dirancang.
+- **Klarifikasi melalui DEC-065:** Peringatan dipicu kembali hanya setelah penggunaan sempat turun di bawah 90% dan kemudian mencapai atau melewati ambang 90% lagi.
+- **Klarifikasi melalui DEC-066:** Peringatan kapasitas dikirim melalui notifikasi dalam aplikasi saja, bukan email.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
 
 
@@ -829,5 +830,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alasan:** Pengguna tidak menerima peringatan berulang tanpa perubahan kondisi, tetapi tetap mendapat peringatan pada siklus kapasitas penuh berikutnya.
 - **Alternatif yang dipertimbangkan:** Peringatan hanya sekali per akun atau peringatan setiap kali halaman riwayat dibuka selama kapasitas minimal 90%.
 - **Dampak:** Sistem perlu melacak status ambang per akun dan mendeteksi transisi dari penggunaan di bawah 90% ke penggunaan mencapai atau melewati 90%.
-- **Belum diputuskan:** Kanal notifikasi dan detail teknis penyimpanan status ambang.
+- **Belum diputuskan:** Detail teknis penyimpanan status ambang.
+- **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+
+## DEC-066: Kanal notifikasi peringatan kapasitas riwayat Humanizer
+
+- **Tanggal:** 2026-11-12
+- **Status:** Accepted
+- **Keputusan:** Peringatan saat penggunaan kapasitas riwayat Humanizer mencapai 90% disampaikan melalui notifikasi dalam aplikasi saja. Sistem tidak mengirim peringatan kapasitas tersebut melalui email.
+- **Alasan:** Peringatan ini berkaitan langsung dengan pengelolaan riwayat dan dapat ditampilkan saat pengguna menggunakan halaman riwayat Humanizer.
+- **Alternatif yang dipertimbangkan:** Mengirim notifikasi dalam aplikasi dan email, atau email saja.
+- **Dampak:** Sistem perlu menyediakan pemicu dan tampilan notifikasi dalam aplikasi untuk peringatan kapasitas. Keputusan ini merupakan ketentuan khusus untuk peringatan kapasitas riwayat Humanizer dan tidak mengubah kanal notifikasi untuk peristiwa lain.
+- **Belum diputuskan:** Detail teknis penyimpanan status ambang dan tampilan notifikasi.
 - **Sumber:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
