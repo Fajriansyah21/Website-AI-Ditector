@@ -1472,3 +1472,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Kedua tindakan memerlukan konfirmasi eksplisit.
   - Penghapusan riwayat tidak memengaruhi sampel, status pemulihan, atau audit log internal.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-115: Sinkronisasi penghapusan riwayat aktivitas lintas perangkat
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Penghapusan satu entri atau seluruh riwayat aktivitas penghapusan berlaku pada tingkat akun dan harus tersinkronisasi ke seluruh perangkat serta sesi akun. Jika halaman aktivitas masih terbuka di perangkat lain, sistem memperbarui tampilannya tanpa pengguna harus mengulangi penghapusan. Jika sinkronisasi real-time gagal sementara, sistem memperbarui tampilan ketika perangkat kembali terhubung atau saat data dimuat ulang.
+- **Alasan:** Riwayat aktivitas merupakan data tingkat akun, bukan data lokal perangkat. Sinkronisasi yang konsisten mencegah pengguna mengira riwayat telah terhapus sepenuhnya padahal masih terlihat pada perangkat lain.
+- **Alternatif yang dipertimbangkan:** Penghapusan hanya berlaku pada perangkat yang melakukan tindakan; perangkat lain hanya diperbarui setelah pengguna keluar dan masuk kembali.
+- **Dampak:**
+  - Penghapusan riwayat berlaku di seluruh perangkat dan sesi akun.
+  - Tampilan halaman aktivitas pada perangkat lain diperbarui tanpa tindakan penghapusan ulang.
+  - Jika pembaruan real-time gagal, sistem melakukan sinkronisasi saat koneksi pulih atau data dimuat ulang.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
