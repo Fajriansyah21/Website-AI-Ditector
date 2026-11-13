@@ -1402,3 +1402,19 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Sampel tersebut tidak lagi dapat dipulihkan.
   - Sampel aktif dan versi historis profil tetap mengikuti ketentuan penghapusan profil pada DEC-092.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-110: Penghapusan permanen sampel dari Recently Deleted
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menghapus satu sampel secara permanen melalui tindakan **Hapus Permanen**, atau menghapus seluruh sampel di Recently Deleted melalui tindakan **Kosongkan Recently Deleted**. Kedua tindakan wajib menampilkan dialog konfirmasi. Setelah dikonfirmasi, sampel tidak dapat dipulihkan melalui aplikasi dan tindakan tidak dapat dibatalkan. Penghapusan ini tidak memicu evaluasi ulang profil karena sampel yang berada di Recently Deleted sudah tidak termasuk dalam kumpulan sampel aktif. Penghapusan dari backup mengikuti kebijakan retensi teknis yang akan ditentukan pada tahap desain teknis.
+- **Alasan:** Pengguna perlu memiliki kendali untuk menghapus data yang tidak lagi ingin disimpan tanpa menunggu masa pemulihan 30 hari berakhir.
+- **Alternatif yang dipertimbangkan:** Mewajibkan pengguna menunggu 30 hari hingga penghapusan otomatis; hanya menyediakan penghapusan permanen satu per satu; hanya menyediakan pengosongan seluruh area.
+- **Dampak:**
+  - Tersedia tindakan Hapus Permanen untuk satu sampel.
+  - Tersedia tindakan Kosongkan Recently Deleted untuk seluruh sampel.
+  - Kedua tindakan memerlukan konfirmasi eksplisit.
+  - Sampel yang dihapus permanen tidak dapat dipulihkan melalui aplikasi dan tindakan tidak dapat dibatalkan.
+  - Tidak ada evaluasi ulang profil karena sampel tersebut sudah tidak aktif.
+  - Retensi/penghapusan salinan backup ditentukan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
