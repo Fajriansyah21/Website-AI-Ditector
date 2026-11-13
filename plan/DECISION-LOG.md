@@ -1431,3 +1431,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Audit log hanya menyimpan metadata yang ditetapkan, bukan isi teks sampel.
   - Retensi dan kontrol akses audit log mengikuti kebijakan audit dan keamanan yang akan dirinci pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-112: Riwayat aktivitas penghapusan sampel untuk pengguna
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat melihat riwayat aktivitas penghapusan sampelnya sendiri melalui halaman aktivitas akun. Riwayat ini terpisah dari audit log internal dan hanya menampilkan nama sampel, nama profil asal, waktu penghapusan, jenis tindakan (misalnya penghapusan biasa atau penghapusan permanen), serta status tindakan. Isi teks sampel, ID internal, dan informasi investigasi tidak ditampilkan kepada pengguna. Pengguna tidak memperoleh akses langsung ke audit log internal.
+- **Alasan:** Transparansi aktivitas akun diperlukan, tetapi audit log internal memuat informasi operasional dan investigasi yang tidak dibutuhkan pengguna.
+- **Alternatif yang dipertimbangkan:** Memberi pengguna akses langsung ke audit log; tidak menyediakan riwayat aktivitas penghapusan bagi pengguna.
+- **Dampak:**
+  - Tersedia riwayat aktivitas penghapusan sampel milik pengguna pada halaman aktivitas akun.
+  - Riwayat hanya menampilkan metadata yang telah ditentukan.
+  - Audit log internal tetap terpisah dan tidak dapat dilihat langsung oleh pengguna.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
