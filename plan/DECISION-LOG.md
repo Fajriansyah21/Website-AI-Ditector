@@ -1090,3 +1090,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Strategi chunking, estimasi token, dan pengendalian biaya harus tetap bekerja di dalam batas keseluruhan tersebut.
   - Kelayakan teknis angka ini perlu divalidasi setelah provider/model dan tokenizer dipilih. Persetujuan batas produk ini bukan klaim bahwa kapasitas provider telah dibuktikan.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-088: Batas minimal karakter input AI Humanizer
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Satu pekerjaan AI Humanizer mensyaratkan minimal **100 karakter** pada keseluruhan teks di editor sebelum dapat diproses. Penghitungan mencakup spasi dan baris baru. Ketentuan minimum ini berlaku untuk seluruh gaya penulisan pada MVP.
+- **Alasan:** Batas 100 karakter memberi konteks awal yang cukup untuk penyuntingan tanpa terlalu membatasi teks pendek, seperti deskripsi, kutipan, atau paragraf pembuka.
+- **Alternatif yang dipertimbangkan:** Tidak menerapkan batas minimum atau menggunakan ambang minimum yang lebih tinggi.
+- **Dampak:**
+  - Validasi minimum diterapkan pada keseluruhan isi editor, termasuk teks hasil ekstraksi dokumen serta tambahan/editan manual.
+  - Jika isi editor kurang dari 100 karakter, tombol pemrosesan dinonaktifkan dan antarmuka menampilkan jumlah karakter saat ini serta jumlah karakter yang masih dibutuhkan.
+  - Penghitungan karakter memasukkan spasi dan baris baru.
+  - Batas minimum 100 karakter ini berbeda dari batas minimum sampel tulisan untuk membentuk profil gaya personal; batas sampel gaya tetap belum ditentukan.
+  - Validasi minimum dan maksimum input Humanizer harus berjalan bersama sebelum pemrosesan.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
