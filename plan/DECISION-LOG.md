@@ -1074,3 +1074,19 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
 - **Alternatif yang dipertimbangkan:** Mengumumkan ulang pesan secara otomatis setiap kali fokus berpindah ke bagian isi modal.
 - **Dampak:** Implementasi harus membatasi pengumuman otomatis pada saat pembukaan modal dan tidak memasang perilaku pengumuman ulang yang terpicu oleh perpindahan fokus. Isi pesan tetap tersedia bagi navigasi screen reader. Pengujian aksesibilitas perlu memastikan pengumuman awal tidak terjadi dua kali.
 - **Sumber/bukti:** Konfirmasi eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-12.
+
+ 
+## DEC-087: Batas maksimal karakter input AI Humanizer
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Satu pekerjaan AI Humanizer menerima maksimal **50.000 karakter** untuk keseluruhan teks yang akan diproses. Batas ini berlaku pada satu input gabungan setelah ekstraksi dokumen dan pengeditan manual, bukan sebagai batas terpisah untuk setiap bagian atau chunk. Sistem tetap menerapkan batas token internal sesuai provider/model yang digunakan. Chunking tidak boleh digunakan untuk melewati batas karakter keseluruhan.
+- **Alasan:** Pemilik proyek memilih 50.000 karakter dengan pertimbangan keseimbangan kualitas hasil, biaya, dan waktu pemrosesan.
+- **Alternatif yang dipertimbangkan:** Batas 10.000, 20.000, 30.000, dan 100.000 karakter, serta angka khusus.
+- **Dampak:**
+  - Validasi batas karakter harus dilakukan terhadap keseluruhan input pekerjaan Humanizer, termasuk teks hasil ekstraksi dan tambahan/editan manual di editor.
+  - Backend wajib memvalidasi batas sebelum pemrosesan.
+  - Jika input melebihi 50.000 karakter, sistem menolak pemrosesan dan meminta pengguna mengurangi teks.
+  - Strategi chunking, estimasi token, dan pengendalian biaya harus tetap bekerja di dalam batas keseluruhan tersebut.
+  - Kelayakan teknis angka ini perlu divalidasi setelah provider/model dan tokenizer dipilih. Persetujuan batas produk ini bukan klaim bahwa kapasitas provider telah dibuktikan.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
