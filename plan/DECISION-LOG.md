@@ -1117,3 +1117,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Batas ini berlaku per entri sampel, bukan sebagai ketentuan kecukupan total kumpulan sampel. Kecukupan keseluruhan kumpulan tetap dinilai secara adaptif.
   - Batas minimum ini berbeda dari batas minimum 100 karakter untuk input pekerjaan Humanizer.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-090: Batas jumlah profil gaya personal per akun
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setiap akun dapat memiliki maksimal **6 profil gaya personal**, terdiri dari **1 profil utama** dan maksimal **5 profil tambahan**.
+- **Alasan:** Batas ini memberi ruang bagi pengguna untuk memisahkan gaya tulisan berdasarkan kebutuhan, sekaligus menjaga kompleksitas pengelolaan dan penyimpanan profil tetap terkendali.
+- **Alternatif yang dipertimbangkan:** Satu profil saja, jumlah profil tambahan tanpa batas, atau batas jumlah lain.
+- **Dampak:**
+  - Pengguna tidak dapat membuat profil tambahan jika total profil telah mencapai enam.
+  - Untuk membuat profil baru ketika batas tercapai, pengguna harus menghapus salah satu profil tambahan terlebih dahulu.
+  - Profil utama tidak dapat dihapus sebelum pengguna menetapkan profil utama pengganti.
+  - Aturan jumlah profil berlaku terpisah dari batas maksimal versi historis pada setiap profil.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
