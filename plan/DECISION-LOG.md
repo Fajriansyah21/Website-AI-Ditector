@@ -1327,3 +1327,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Jika terjadi duplikasi, penyimpanan atau perubahan nama ditolak dan pengguna diminta memilih nama lain.
   - Nama yang sama dapat digunakan pada profil lain.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-105: Karakter yang diperbolehkan dalam nama sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Nama sampel boleh menggunakan huruf, angka, spasi, tanda baca, dan karakter Unicode, termasuk karakter dari Bahasa Indonesia maupun bahasa lain. Nama tidak boleh kosong setelah spasi di awal dan akhir dipangkas. Nama tidak boleh mengandung karakter kontrol atau karakter yang tidak terlihat. Batas maksimal 60 karakter tetap berlaku. Emoji diperbolehkan selama memenuhi batas karakter dan bukan karakter kontrol. Nama disimpan sebagai teks biasa dan harus di-escape secara aman saat ditampilkan untuk mencegah XSS.
+- **Alasan:** Aturan karakter yang luas mendukung nama yang deskriptif dan multibahasa tanpa mengorbankan keamanan tampilan maupun validasi.
+- **Alternatif yang dipertimbangkan:** Membatasi nama hanya pada huruf dan angka; melarang tanda baca atau emoji; mengizinkan seluruh karakter tanpa validasi keamanan.
+- **Dampak:**
+  - Nama sampel mendukung karakter Unicode, tanda baca, spasi, dan emoji.
+  - Nama kosong setelah pemangkasan spasi serta nama yang mengandung karakter kontrol atau karakter tak terlihat ditolak.
+  - Batas panjang 60 karakter tetap berlaku.
+  - Nama harus diperlakukan sebagai teks biasa dan di-escape sesuai konteks saat ditampilkan untuk mencegah XSS.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
