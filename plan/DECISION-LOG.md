@@ -1485,3 +1485,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Tampilan halaman aktivitas pada perangkat lain diperbarui tanpa tindakan penghapusan ulang.
   - Jika pembaruan real-time gagal, sistem melakukan sinkronisasi saat koneksi pulih atau data dimuat ulang.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-116: Riwayat aktivitas saat akun pengguna dihapus
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Ketika penghapusan akun pengguna berhasil diselesaikan, seluruh riwayat aktivitas penghapusan milik akun tersebut ikut dihapus dari halaman aktivitas dan tidak dapat dipulihkan melalui aplikasi. Sampel, profil gaya, dan data pengguna lainnya mengikuti kebijakan penghapusan akun yang berlaku. Audit log internal tidak otomatis ikut terhapus; retensinya mengikuti kebijakan keamanan, audit, dan kewajiban yang berlaku.
+- **Alasan:** Riwayat aktivitas pengguna merupakan bagian dari data akun, sedangkan audit log internal memiliki tujuan keamanan dan investigasi yang berbeda sehingga kebijakan penghapusannya harus dipisahkan.
+- **Alternatif yang dipertimbangkan:** Mempertahankan riwayat aktivitas setelah akun dihapus; menghapus audit log internal bersamaan dengan riwayat aktivitas pengguna.
+- **Dampak:**
+  - Riwayat aktivitas penghapusan tidak lagi tersedia setelah penghapusan akun selesai.
+  - Riwayat tersebut tidak dapat dipulihkan melalui aplikasi.
+  - Sampel, profil gaya, dan data lain mengikuti kebijakan penghapusan akun.
+  - Audit log internal tetap mengikuti kebijakan retensi tersendiri.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
