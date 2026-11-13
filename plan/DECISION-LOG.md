@@ -1458,3 +1458,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Status sampel dan audit log internal tidak terpengaruh.
   - Retensi audit log internal tetap ditetapkan secara terpisah.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-114: Penghapusan riwayat aktivitas penghapusan oleh pengguna
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menghapus satu entri riwayat aktivitas penghapusan atau menghapus seluruh riwayat aktivitas penghapusan yang ditampilkan pada akunnya. Kedua tindakan wajib menampilkan dialog konfirmasi. Penghapusan hanya memengaruhi riwayat aktivitas yang terlihat oleh pengguna dan tidak menghapus atau mengubah sampel, status pemulihan, maupun audit log internal.
+- **Alasan:** Pengguna perlu dapat mengelola riwayat aktivitas yang ditampilkan di akunnya, sementara catatan audit internal harus tetap utuh untuk kebutuhan keamanan dan investigasi.
+- **Alternatif yang dipertimbangkan:** Tidak mengizinkan pengguna menghapus riwayat sebelum masa retensi berakhir; hanya menyediakan penghapusan satu entri; hanya menyediakan penghapusan seluruh riwayat.
+- **Dampak:**
+  - Tersedia tindakan untuk menghapus satu entri riwayat aktivitas.
+  - Tersedia tindakan untuk menghapus seluruh riwayat aktivitas penghapusan.
+  - Kedua tindakan memerlukan konfirmasi eksplisit.
+  - Penghapusan riwayat tidak memengaruhi sampel, status pemulihan, atau audit log internal.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
