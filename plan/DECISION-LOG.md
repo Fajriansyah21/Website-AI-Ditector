@@ -1312,3 +1312,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Nama harus unik dalam lingkup satu profil dan dibatasi maksimal 60 karakter.
   - Perubahan nama tidak mengubah teks sampel, tidak memicu evaluasi ulang, dan tidak memengaruhi hasil profiling.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-104: Validasi nama sampel duplikat
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Nama sampel harus unik dalam satu profil dengan validasi yang tidak membedakan huruf besar dan kecil. Spasi di awal dan akhir nama dihapus otomatis sebelum validasi. Jika nama duplikat, penyimpanan sampel atau perubahan nama ditolak dan sistem menampilkan pesan bahwa nama sudah digunakan. Nama yang sama tetap boleh digunakan pada profil yang berbeda.
+- **Alasan:** Validasi ini mencegah kebingungan saat pengguna mengelola banyak sampel dan menghindari duplikasi semu akibat perbedaan kapitalisasi atau spasi di tepi nama.
+- **Alternatif yang dipertimbangkan:** Mengizinkan nama duplikat; membedakan nama berdasarkan kapitalisasi; menambahkan angka secara otomatis pada nama duplikat.
+- **Dampak:**
+  - Keunikan nama diperiksa dalam lingkup satu profil.
+  - Pemeriksaan tidak peka terhadap kapitalisasi, sehingga "Esai Kampus" dan "esai kampus" dianggap sama.
+  - Spasi di awal dan akhir nama dipangkas sebelum validasi.
+  - Jika terjadi duplikasi, penyimpanan atau perubahan nama ditolak dan pengguna diminta memilih nama lain.
+  - Nama yang sama dapat digunakan pada profil lain.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
