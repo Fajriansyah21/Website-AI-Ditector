@@ -1268,3 +1268,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Validasi minimum 500 karakter dilakukan pada teks final yang akan disimpan.
   - Peringatan ketidaklengkapan ekstraksi ditampilkan sebelum konfirmasi penyimpanan jika kondisi tersebut terdeteksi.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-101: Batas jumlah total sampel per profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setiap profil gaya dapat menyimpan maksimal 20 entri sampel. Batas berlaku untuk seluruh sampel, baik yang dimasukkan melalui teks tempel maupun diunggah sebagai file. Setiap entri tetap harus memenuhi batas minimum 500 karakter. Jika profil telah mencapai 20 entri, pengguna harus menghapus sampel yang sudah ada sebelum menambahkan sampel baru. Pengguna tetap dapat mengedit sampel yang sudah tersimpan. Penghapusan dan pengeditan mengikuti mekanisme evaluasi ulang yang telah disepakati.
+- **Alasan:** Batas total sampel membantu mengendalikan biaya dan durasi evaluasi profil, sekaligus menyediakan ruang bagi variasi tulisan. Angka 20 merupakan batas awal dan perlu divalidasi melalui pengujian algoritma profiling.
+- **Alternatif yang dipertimbangkan:** Tidak membatasi jumlah sampel; menetapkan batas lebih rendah; menetapkan batas lebih tinggi.
+- **Dampak:**
+  - Maksimal 20 entri sampel tersimpan pada setiap profil gaya.
+  - Batas berlaku lintas metode input, bukan hanya jumlah file dalam satu batch.
+  - Pengguna yang mencapai batas harus menghapus sampel lama sebelum menambahkan entri baru.
+  - Pengeditan sampel yang sudah ada tetap diperbolehkan dan mengikuti evaluasi ulang.
+  - Pengujian teknis perlu memvalidasi dampak batas ini terhadap kualitas profiling, biaya, dan waktu evaluasi.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
