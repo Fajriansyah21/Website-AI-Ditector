@@ -1499,3 +1499,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Sampel, profil gaya, dan data lain mengikuti kebijakan penghapusan akun.
   - Audit log internal tetap mengikuti kebijakan retensi tersendiri.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-117: Pembatalan permintaan penghapusan akun
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat membatalkan permintaan penghapusan akun selama status penghapusan masih tertunda dan proses penghapusan permanen belum dimulai. Jika pembatalan berhasil, akun kembali aktif seperti sebelumnya dan sampel, profil gaya, riwayat aktivitas, serta data terkait tetap dipertahankan. Setelah proses penghapusan permanen dimulai, pembatalan tidak lagi diperbolehkan. Sistem harus menampilkan status penghapusan akun dan batas waktu pembatalan secara jelas.
+- **Alasan:** Penghapusan akun merupakan tindakan berdampak besar sehingga pengguna perlu memiliki kesempatan untuk berubah pikiran selama masa penundaan. Batas pembatalan yang tegas diperlukan agar status akun dan data tidak ambigu.
+- **Alternatif yang dipertimbangkan:** Tidak mengizinkan pembatalan setelah permintaan diajukan; mengizinkan pembatalan bahkan setelah penghapusan permanen dimulai.
+- **Dampak:**
+  - Permintaan penghapusan yang masih tertunda dapat dibatalkan pengguna.
+  - Pembatalan yang berhasil mengaktifkan kembali akun dan mempertahankan data terkait.
+  - Setelah penghapusan permanen dimulai, pembatalan tidak tersedia.
+  - Status dan batas waktu pembatalan harus terlihat jelas bagi pengguna.
+  - Durasi masa penundaan dan mekanisme teknis eksekusi penghapusan belum ditentukan oleh keputusan ini.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
