@@ -1197,3 +1197,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Pengguna dapat menambahkan sampel baru untuk membangun kembali profil; kumpulan baru harus memenuhi batas minimum per sampel dan kriteria kecukupan keseluruhan.
   - Versi historis yang telah terbentuk tidak otomatis dihapus oleh tindakan penghapusan sampel dan tetap tunduk pada kebijakan retensi/pemulihan versi.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-096: Unduh sampel tulisan profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat mengunduh setiap entri sampel tulisan secara individual dan mengunduh seluruh sampel dalam satu profil sekaligus sebagai satu file ZIP. Untuk sampel yang berasal dari dokumen, format unduhan individual mengikuti format sumber asli jika format tersebut tersedia. Untuk sampel yang berasal dari teks yang ditempel langsung, sistem menyediakan unduhan TXT. Pengunduhan tidak mengubah, menghapus, atau memicu evaluasi ulang sampel yang tersimpan.
+- **Alasan:** Sampel merupakan data tulisan milik pengguna. Fitur ekspor mendukung portabilitas data tanpa mengubah kondisi profil atau kumpulan sampel.
+- **Alternatif yang dipertimbangkan:** Tidak menyediakan ekspor; hanya menyediakan ekspor seluruh sampel; hanya menyediakan unduhan individual.
+- **Dampak:**
+  - Pengguna dapat mengunduh satu entri sampel tanpa harus mengekspor seluruh profil.
+  - Pengguna dapat mengekspor semua sampel dalam satu profil sebagai satu file ZIP.
+  - Format unduhan individual mengikuti format sumber asli jika tersedia; teks yang ditempel langsung dapat diunduh sebagai TXT.
+  - Proses unduh bersifat baca-saja dan tidak mengubah sampel, profil, versi aktif, atau versi historis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
