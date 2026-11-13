@@ -27,6 +27,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Jika pengguna mengganti dokumen yang sudah diunggah, sistem meminta konfirmasi. Jika dibatalkan, konten editor tetap dipertahankan. Jika dikonfirmasi, teks hasil ekstraksi dari dokumen sebelumnya beserta seluruh tambahan/editan manual di editor dihapus dan diganti dengan hasil ekstraksi dokumen baru. Dokumen sumber tidak diubah atau ditimpa.
 - Editor Humanizer bersifat bebas: pengguna dapat mengubah, menambah, atau menghapus bagian mana pun dari teks hasil ekstraksi maupun teks manual sebelum pemrosesan. Seluruh isi editor saat tombol proses dijalankan menjadi satu input yang diproses.
 - Batas maksimal input adalah 50.000 karakter untuk keseluruhan satu pekerjaan Humanizer, termasuk teks hasil ekstraksi dokumen dan tambahan/editan manual pada editor. Batas berlaku pada keseluruhan input, bukan per chunk. Backend memvalidasi batas sebelum pemrosesan dan menolak input yang melebihinya. Batas token internal tetap diterapkan sesuai provider/model; chunking tidak boleh melewati batas karakter keseluruhan. Kelayakan teknis angka ini divalidasi setelah provider/model dan tokenizer dipilih.
+- Batas minimal input adalah 100 karakter untuk keseluruhan isi editor pada satu pekerjaan Humanizer. Penghitungan mencakup spasi dan baris baru. Jika isi editor kurang dari 100 karakter, tombol pemrosesan dinonaktifkan dan antarmuka menampilkan jumlah karakter saat ini serta jumlah karakter yang masih dibutuhkan. Batas minimum berlaku untuk seluruh gaya penulisan pada MVP dan berbeda dari batas minimum sampel profil gaya.
 - Teks panjang dapat diproses secara bertahap dengan mekanisme penjagaan konteks.
 - Pengguna memilih gaya bawaan atau profil gaya personal. Kontrol intensitas perubahan tidak termasuk kebutuhan MVP yang dipilih.
 - Sampel gaya dapat ditempel atau diunggah sebagai TXT, DOCX, atau PDF.
@@ -131,7 +132,7 @@ Pengujian perlu mencakup teks akademik, formal, informal, teknis, teks dengan an
 - Daftar final gaya bawaan.
 - Algoritma profiling dan kriteria kecukupan sampel.
 - Bentuk penyimpanan profil dan retensi sampel mentah.
-- Batas karakter/token, ukuran file, dan strategi chunking.
+- Batas karakter AI Text Detector, batas minimum sampel profil gaya, batas token internal, ukuran file, dan strategi chunking.
 - Library ekstraksi, OCR, serta generator dokumen.
 - Target kualitas dan protokol evaluasi.
 - Penyimpanan hasil, autentikasi, kuota, dan monetisasi pada tingkat implementasi.
