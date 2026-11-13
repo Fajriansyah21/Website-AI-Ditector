@@ -1358,3 +1358,19 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Penghapusan seluruh sampel juga memindahkan semua sampel terkait ke area "Recently Deleted" dan menerapkan masa pemulihan yang sama.
   - Sistem harus memenuhi masa retensi 30 hari dan mengelola kebutuhan penyimpanan terkait.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-107: Penanganan konflik nama saat memulihkan sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Sebelum memulihkan sampel dari Recently Deleted, sistem memeriksa apakah nama sampel tersebut bertabrakan dengan nama sampel aktif dalam profil asal. Jika terjadi konflik, pemulihan ditolak dan sampel tetap berada di Recently Deleted. Sistem memberi tahu pengguna nama yang mengalami konflik. Pengguna harus mengganti nama sampel aktif yang konflik, kemudian mencoba pemulihan kembali. Sistem tidak mengubah nama secara otomatis. Validasi nama yang telah disepakati, termasuk keunikan tanpa membedakan kapitalisasi, pemangkasan spasi tepi, batas panjang, serta aturan karakter, tetap berlaku.
+- **Alasan:** Nama sampel merupakan identitas yang ditentukan pengguna. Penggantian nama otomatis dapat mengganggu konsistensi dan keterlacakan sampel.
+- **Alternatif yang dipertimbangkan:** Mengganti nama sampel yang dipulihkan secara otomatis; mengganti nama sampel aktif secara otomatis; mengizinkan nama duplikat.
+- **Dampak:**
+  - Pemeriksaan konflik nama dilakukan sebelum pemulihan.
+  - Jika konflik terjadi, sampel tidak dipulihkan dan tetap berada di Recently Deleted.
+  - Sistem menampilkan nama yang konflik kepada pengguna.
+  - Pengguna harus mengganti nama sampel aktif yang konflik sebelum mencoba pemulihan lagi.
+  - Sistem tidak melakukan perubahan nama otomatis.
+  - Seluruh aturan validasi nama sampel yang berlaku tetap diterapkan.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
