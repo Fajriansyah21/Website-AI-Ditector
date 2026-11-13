@@ -1542,3 +1542,25 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Fitur Humanizer, AI Text Detector, pengelolaan profil gaya, pembelian/penggunaan kredit, dan pengaturan akun lainnya diblokir.
   - Mekanisme dan cakupan teknis ekspor data pribadi perlu dirinci dalam kebutuhan berikutnya.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-120: Ekspor data pribadi pengguna dalam paket ZIP
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat mengunduh data pribadinya dalam satu paket ZIP, termasuk selama masa Pending Deletion. Paket memuat:
+  - `account-data.json`: informasi akun dan pengaturan.
+  - `humanizer-profiles.json`: data profil gaya dan metadata sampel.
+  - Direktori `samples/`: teks sampel yang masih tersedia dan dapat diakses pengguna.
+  - `humanizer-history.json`: riwayat penggunaan Humanizer.
+  - `detector-history.json`: riwayat penggunaan AI Text Detector.
+  - `credit-transactions.json`: riwayat kredit dan transaksi.
+  Ekspor tidak mencakup password, token autentikasi, audit log internal, atau data rahasia sistem. File sampel disertakan dalam format aslinya jika tersedia; jika tidak, teks diekspor sebagai TXT. Sistem memberi tahu pengguna jika ada data yang gagal dimasukkan ke paket ekspor.
+- **Alasan:** Satu paket ZIP memudahkan pengguna memperoleh salinan data relevan sebelum akun dihapus tanpa mengunduh setiap kategori secara terpisah.
+- **Alternatif yang dipertimbangkan:** Ekspor kategori satu per satu; hanya mengekspor informasi akun tanpa sampel dan riwayat penggunaan.
+- **Dampak:**
+  - Tersedia satu paket ZIP untuk ekspor data pribadi.
+  - Paket mencakup kategori dan nama file yang telah ditentukan.
+  - Password, token autentikasi, audit log internal, dan data rahasia sistem dikecualikan.
+  - Kegagalan memasukkan data tertentu harus diinformasikan kepada pengguna.
+  - Detail struktur data, validasi, dan pembuatan paket ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
