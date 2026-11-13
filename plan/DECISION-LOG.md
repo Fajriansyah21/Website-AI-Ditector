@@ -1297,3 +1297,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Sampel teks tempel tanpa nama file diberi label oleh sistem.
   - Perubahan pengurutan tidak mengubah data sampel, urutan evaluasi, isi profil, atau memicu evaluasi ulang.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-103: Penamaan entri sampel profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Sampel yang dibuat dari teks tempel mendapat nama default otomatis, misalnya "Sampel 1", "Sampel 2", dan seterusnya. Pengguna dapat mengganti nama sampel. Nama harus unik dalam satu profil dan maksimal 60 karakter. Nama sampel tidak memengaruhi isi teks, evaluasi, atau hasil profiling. Untuk sampel dari file, nama default mengikuti nama file tanpa ekstensi dan pengguna tetap dapat mengubahnya.
+- **Alasan:** Nama otomatis memberi identitas pada sampel tanpa nama file, sementara penamaan ulang membantu pengguna mengenali sumber atau jenis tulisan.
+- **Alternatif yang dipertimbangkan:** Menggunakan nama otomatis yang tidak dapat diubah; mewajibkan pengguna memberi nama setiap sampel; menggunakan nama file atau teks awal sebagai nama tetap.
+- **Dampak:**
+  - Sampel dari teks tempel memperoleh nama default berurutan yang dibuat sistem.
+  - Sampel dari file menggunakan nama file tanpa ekstensi sebagai nama default.
+  - Pengguna dapat mengganti nama sampel.
+  - Nama harus unik dalam lingkup satu profil dan dibatasi maksimal 60 karakter.
+  - Perubahan nama tidak mengubah teks sampel, tidak memicu evaluasi ulang, dan tidak memengaruhi hasil profiling.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
