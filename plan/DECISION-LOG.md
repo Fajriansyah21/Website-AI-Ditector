@@ -1156,3 +1156,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Riwayat pekerjaan Humanizer yang telah menggunakan profil tetap dipertahankan.
   - Cakupan penghapusan permanen pada sistem aktif harus dibedakan dari retensi backup. Mekanisme dan jangka waktu penghapusan dari backup perlu ditetapkan pada desain teknis dan kebijakan retensi; sistem tidak boleh menjanjikan penghapusan langsung dari seluruh backup sebelum mekanismenya ditentukan.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-093: Pergantian profil gaya utama
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menetapkan profil gaya personal mana pun yang tersedia sebagai profil utama kapan saja. Ketika profil tambahan ditetapkan sebagai profil utama, profil utama sebelumnya otomatis berubah menjadi profil tambahan. Pergantian berlaku untuk pekerjaan Humanizer berikutnya dan tidak mengubah pekerjaan yang sedang berjalan. Pergantian status profil utama tidak membuat versi historis baru karena isi profil tidak berubah.
+- **Alasan:** Status profil utama menentukan pilihan default, bukan perubahan isi profil. Memisahkan pergantian status dari versioning menghindari pembuatan versi yang tidak merepresentasikan perubahan profil.
+- **Alternatif yang dipertimbangkan:** Mengharuskan pengguna menghapus profil utama lama atau membuat versi historis setiap kali status utama berubah.
+- **Dampak:**
+  - Pengguna dapat mengganti profil utama tanpa menghapus profil yang sebelumnya menjadi utama.
+  - Jumlah profil tetap mengikuti batas satu profil utama dan maksimal lima profil tambahan.
+  - Pekerjaan Humanizer yang sudah berjalan mempertahankan profil yang telah dipilih saat pekerjaan dimulai.
+  - Pergantian status utama tidak memicu pembentukan atau pemulihan versi profil.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
