@@ -1283,3 +1283,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Pengeditan sampel yang sudah ada tetap diperbolehkan dan mengikuti evaluasi ulang.
   - Pengujian teknis perlu memvalidasi dampak batas ini terhadap kualitas profiling, biaya, dan waktu evaluasi.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-102: Urutan dan pengurutan daftar sampel profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Urutan default daftar sampel adalah berdasarkan waktu penambahan terbaru, sehingga sampel terbaru tampil paling atas. Pengguna dapat mengubah pengurutan berdasarkan tanggal ditambahkan atau nama file. Pengurutan hanya memengaruhi tampilan daftar, bukan urutan evaluasi atau isi profil, dan tidak memicu evaluasi ulang. Sampel dari teks tempel yang tidak memiliki nama file menggunakan label yang dibuat sistem. Urutan sampel tidak memengaruhi hasil profiling.
+- **Alasan:** Pengurutan membantu pengguna menemukan sampel terbaru atau mencari sampel berdasarkan nama, sementara pemisahan urutan tampilan dari proses profiling mencegah perubahan presentasi memengaruhi hasil evaluasi.
+- **Alternatif yang dipertimbangkan:** Hanya menyediakan satu urutan tetap; menjadikan urutan tampilan sebagai urutan evaluasi; mengurutkan berdasarkan nama file saja.
+- **Dampak:**
+  - Daftar sampel secara default menampilkan sampel terbaru di posisi paling atas.
+  - Pengguna dapat memilih pengurutan berdasarkan tanggal ditambahkan atau nama file.
+  - Sampel teks tempel tanpa nama file diberi label oleh sistem.
+  - Perubahan pengurutan tidak mengubah data sampel, urutan evaluasi, isi profil, atau memicu evaluasi ulang.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
