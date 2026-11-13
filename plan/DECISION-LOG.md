@@ -1593,3 +1593,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Unduhan yang sudah berjalan saat kedaluwarsa boleh diselesaikan.
   - Detail teknis penghapusan sementara dan penanganan unduhan aktif ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-123: Pembatalan proses pembuatan ekspor data pribadi
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat membatalkan proses pembuatan ekspor selama status masih `Processing`. Tombol **Batalkan Ekspor** tersedia selama proses tersebut. Setelah pengguna mengonfirmasi pembatalan, sistem menghentikan proses pembuatan paket. Permintaan yang berhasil dibatalkan tidak mengurangi kuota permintaan ekspor. Jika proses pembuatan paket telah selesai sebelum pembatalan diproses, pembatalan ditolak dan paket tetap tersedia sesuai masa berlaku pada DEC-122. Sistem menampilkan status akhir `Cancelled` atau `Completed` sesuai hasil proses.
+- **Alasan:** Pengguna perlu dapat menghentikan proses ekspor yang tidak lagi dibutuhkan, sementara hasil akhir harus jelas ketika pembatalan bersaing dengan penyelesaian proses.
+- **Alternatif yang dipertimbangkan:** Tidak menyediakan pembatalan; mengizinkan pembatalan setelah paket selesai dibuat.
+- **Dampak:**
+  - Pembatalan hanya tersedia selama status ekspor `Processing`.
+  - Pembatalan memerlukan konfirmasi pengguna dan menghentikan proses pembuatan paket.
+  - Pembatalan yang berhasil tidak mengurangi kuota ekspor.
+  - Jika ekspor selesai lebih dahulu, pembatalan ditolak dan paket tetap tersedia.
+  - Status akhir ditampilkan sebagai `Cancelled` atau `Completed`.
+  - Detail sinkronisasi status dan penghentian pekerjaan ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
