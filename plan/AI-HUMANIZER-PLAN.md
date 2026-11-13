@@ -157,3 +157,4 @@ Pengujian perlu mencakup teks akademik, formal, informal, teknis, teks dengan an
 - Target kualitas dan protokol evaluasi.
 - Penyimpanan hasil, autentikasi, kuota, dan monetisasi pada tingkat implementasi.
 - Ketika profil gaya dihapus, seluruh sampel dari profil tersebut yang masih berada di Recently Deleted ikut dihapus permanen dan tidak dapat dipulihkan. Sampel harus kembali ke profil asal sehingga tidak dipertahankan setelah profil asal dihapus.
+- Pengguna dapat menghapus satu sampel secara permanen dari Recently Deleted atau mengosongkan seluruh area tersebut. Kedua tindakan memerlukan dialog konfirmasi. Setelah dikonfirmasi, sampel tidak dapat dipulihkan melalui aplikasi dan penghapusan tidak memicu evaluasi ulang profil karena sampel sudah tidak aktif. Kebijakan penghapusan salinan backup ditentukan pada desain teknis.
