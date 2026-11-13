@@ -1529,3 +1529,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Setelah proses permanen dimulai, pembatalan tidak tersedia.
   - Kegagalan teknis harus ditangani tanpa mengklaim data telah terhapus sebelum penghapusan benar-benar berhasil.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-119: Pembatasan akses akun selama Pending Deletion
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Selama masa penundaan penghapusan akun 30 hari, akun berstatus **Pending Deletion** dengan akses terbatas. Pengguna tetap dapat login, melihat pemberitahuan penghapusan, membatalkan permintaan penghapusan, dan mengunduh data pribadinya. Pengguna tidak dapat menggunakan Humanizer atau AI Text Detector, membuat atau mengubah profil gaya, membeli atau menggunakan kredit, maupun mengubah pengaturan akun lainnya. Pengecualian pengaturan hanya berlaku untuk tindakan yang diperlukan guna membatalkan penghapusan akun.
+- **Alasan:** Masa penundaan ditujukan untuk memberi kesempatan membatalkan penghapusan atau mengambil data pribadi, bukan untuk melanjutkan penggunaan layanan secara normal atau membuat data baru yang kemudian harus dihapus.
+- **Alternatif yang dipertimbangkan:** Mempertahankan akses layanan sepenuhnya selama masa penundaan; memblokir seluruh akses termasuk login dan pengunduhan data.
+- **Dampak:**
+  - Login, pemberitahuan status, pembatalan penghapusan, dan pengunduhan data pribadi tetap tersedia.
+  - Fitur Humanizer, AI Text Detector, pengelolaan profil gaya, pembelian/penggunaan kredit, dan pengaturan akun lainnya diblokir.
+  - Mekanisme dan cakupan teknis ekspor data pribadi perlu dirinci dalam kebutuhan berikutnya.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
