@@ -33,7 +33,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Sampel gaya dapat ditempel atau diunggah sebagai TXT, DOCX, atau PDF.
 - Sistem menilai kecukupan sampel secara adaptif dan meminta tambahan jika perlu.
 - Jika sampel belum cukup beragam atau konsisten, sistem mempertahankan sampel sebelumnya dan meminta pengguna menambahkan tulisan sebagai entri sampel terpisah. Setiap sampel ditampilkan dan dikelola sebagai entri tersendiri, sedangkan sistem menilai seluruh sampel sebagai satu kumpulan untuk membentuk atau memperbarui profil gaya. Pengguna tidak perlu mengirim ulang seluruh sampel.
-- Sampel profil gaya harus memenuhi batas minimal karakter. Jika belum cukup, sistem mempertahankan sampel yang sudah diberikan, meminta tambahan, dan menampilkan jumlah minimum yang diwajibkan serta jumlah karakter sampel saat ini.
+- Setiap entri sampel profil gaya harus berisi minimal 500 karakter, termasuk spasi dan baris baru. Sampel di bawah batas tetap dipertahankan sebagai entri, tetapi belum memenuhi syarat minimum; sistem menampilkan jumlah karakter saat ini dan jumlah karakter yang masih dibutuhkan. Batas 500 karakter berlaku per entri dan berbeda dari penilaian adaptif kecukupan total kumpulan sampel.
 - Penghitungan panjang sampel mencakup seluruh karakter yang dimasukkan, termasuk spasi dan baris baru. Angka minimum belum ditentukan.
 - Profil gaya dapat disimpan secara opsional, digunakan kembali, diperbarui, dan dihapus.
 - Pengguna dapat mengedit atau menghapus setiap entri sampel secara individual tanpa mengganggu entri lainnya.
@@ -132,7 +132,7 @@ Pengujian perlu mencakup teks akademik, formal, informal, teknis, teks dengan an
 - Daftar final gaya bawaan.
 - Algoritma profiling dan kriteria kecukupan sampel.
 - Bentuk penyimpanan profil dan retensi sampel mentah.
-- Batas karakter AI Text Detector, batas minimum sampel profil gaya, batas token internal, ukuran file, dan strategi chunking.
+- Batas karakter AI Text Detector, batas kecukupan total kumpulan sampel profil gaya, batas token internal, ukuran file, dan strategi chunking.
 - Library ekstraksi, OCR, serta generator dokumen.
 - Target kualitas dan protokol evaluasi.
 - Penyimpanan hasil, autentikasi, kuota, dan monetisasi pada tingkat implementasi.
