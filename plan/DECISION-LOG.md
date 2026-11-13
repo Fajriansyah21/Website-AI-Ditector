@@ -1374,3 +1374,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Sistem tidak melakukan perubahan nama otomatis.
   - Seluruh aturan validasi nama sampel yang berlaku tetap diterapkan.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-108: Pemulihan massal seluruh sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat memilih tindakan **Pulihkan Semua** pada Recently Deleted untuk memulihkan seluruh sampel yang masih berada dalam masa pemulihan. Sistem memvalidasi seluruh sampel yang dipilih sebagai satu kesatuan sebelum melakukan perubahan. Validasi mencakup kapasitas maksimum 20 sampel per profil dan seluruh aturan validasi nama, termasuk konflik nama dengan sampel aktif. Jika seluruh sampel memenuhi syarat, semuanya dipulihkan dalam satu tindakan. Jika satu atau lebih sampel gagal validasi, tidak ada sampel yang dipulihkan; seluruh tindakan dibatalkan dan sistem menjelaskan alasan serta sampel yang bermasalah. Pengguna dapat menyelesaikan masalah lalu mencoba kembali. Setelah pemulihan massal berhasil, sistem menjalankan satu evaluasi ulang profil, bukan evaluasi terpisah untuk setiap sampel.
+- **Alasan:** Pemulihan massal harus memberikan hasil yang konsisten dan tidak membuat pengguna salah memahami status ketika hanya sebagian sampel berhasil dipulihkan.
+- **Alternatif yang dipertimbangkan:** Memulihkan hanya sampel yang lolos validasi sementara sampel lain gagal; meminta pengguna memulihkan setiap sampel satu per satu.
+- **Dampak:**
+  - Tersedia tindakan Pulihkan Semua pada Recently Deleted.
+  - Sistem memvalidasi kapasitas dan konflik nama untuk seluruh sampel sebelum pemulihan.
+  - Pemulihan bersifat atomik: semua berhasil atau tidak ada yang dipulihkan.
+  - Kegagalan validasi menampilkan alasan dan sampel yang bermasalah.
+  - Setelah berhasil, hanya satu evaluasi ulang profil dijalankan.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
