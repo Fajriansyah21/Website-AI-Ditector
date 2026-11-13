@@ -1253,3 +1253,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Pengguna dapat mengunggah ulang file yang gagal atau memilih file pengganti.
   - Sampel yang berhasil diekstrak tetap tersedia dan tidak dibatalkan oleh kegagalan file lain.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-100: Pratinjau dan konfirmasi teks hasil ekstraksi sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setelah ekstraksi file sampel berhasil, sistem menampilkan pratinjau teks hasil ekstraksi. Pengguna dapat mengedit teks tersebut sebelum menyimpannya atau membatalkan sampel jika hasil ekstraksi tidak sesuai. Sampel baru disimpan hanya setelah pengguna menekan tombol konfirmasi. Batas minimum 500 karakter diperiksa terhadap teks final setelah diedit. Jika hasil ekstraksi terdeteksi tidak lengkap, sistem memberikan peringatan sebelum pengguna menyimpan sampel.
+- **Alasan:** Hasil ekstraksi PDF dan DOCX dapat kehilangan atau mengubah struktur teks, sehingga pengguna perlu memeriksa dan memperbaiki hasil sebelum menjadikannya sumber profil gaya.
+- **Alternatif yang dipertimbangkan:** Menyimpan hasil ekstraksi otomatis; hanya menampilkan pratinjau tanpa kemampuan mengedit; mewajibkan pengguna mengunggah ulang jika hasil ekstraksi kurang tepat.
+- **Dampak:**
+  - Hasil ekstraksi yang berhasil tidak langsung menjadi sampel tersimpan.
+  - Pengguna harus mengonfirmasi penyimpanan setelah meninjau pratinjau.
+  - Pengguna dapat mengedit hasil ekstraksi atau membatalkan sampel.
+  - Validasi minimum 500 karakter dilakukan pada teks final yang akan disimpan.
+  - Peringatan ketidaklengkapan ekstraksi ditampilkan sebelum konfirmasi penyimpanan jika kondisi tersebut terdeteksi.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
