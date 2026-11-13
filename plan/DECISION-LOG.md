@@ -1389,3 +1389,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Kegagalan validasi menampilkan alasan dan sampel yang bermasalah.
   - Setelah berhasil, hanya satu evaluasi ulang profil dijalankan.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-109: Penghapusan sampel di Recently Deleted saat profil asal dihapus
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Ketika pengguna menghapus sebuah profil gaya, seluruh sampel yang berada di Recently Deleted dan berasal dari profil tersebut ikut dihapus permanen dari sistem yang dapat diakses pengguna. Sampel tersebut tidak dapat dipulihkan setelah profil asal dihapus. Ketentuan ini berlaku bersama penghapusan profil dan seluruh versi historisnya sebagaimana DEC-092.
+- **Alasan:** Sampel yang dipulihkan harus kembali ke profil asal. Setelah profil asal dihapus, tujuan pemulihan tidak lagi tersedia. Penghapusan ini juga menjaga konsistensi antara siklus hidup profil dan sampelnya.
+- **Alternatif yang dipertimbangkan:** Mempertahankan sampel di Recently Deleted selama sisa masa 30 hari; memindahkan sampel ke profil lain atau area pemulihan global.
+- **Dampak:**
+  - Penghapusan profil juga menghapus permanen sampel profil tersebut yang masih berada di Recently Deleted.
+  - Sampel tersebut tidak lagi dapat dipulihkan.
+  - Sampel aktif dan versi historis profil tetap mengikuti ketentuan penghapusan profil pada DEC-092.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
