@@ -456,3 +456,4 @@ Tahap berikutnya dapat dimulai setelah dokumen ini ditinjau pemilik proyek. Syst
 8. Acceptance criteria yang dapat diuji.
 
 **Tidak ada implementasi aplikasi yang disahkan oleh dokumen ini.** Status implementasi seluruh fitur tetap belum dimulai dan belum diverifikasi.
+| FR-HUM-89 | Ketika pengguna menghapus profil gaya, seluruh sampel yang berada di Recently Deleted dan berasal dari profil tersebut ikut dihapus permanen dari sistem yang dapat diakses pengguna. Sampel tersebut tidak dapat dipulihkan setelah profil asal dihapus. Ketentuan ini berlaku bersama penghapusan profil dan seluruh versi historisnya. | Disepakati |
