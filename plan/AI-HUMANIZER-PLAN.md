@@ -156,3 +156,4 @@ Pengujian perlu mencakup teks akademik, formal, informal, teknis, teks dengan an
 - Library ekstraksi, OCR, serta generator dokumen.
 - Target kualitas dan protokol evaluasi.
 - Penyimpanan hasil, autentikasi, kuota, dan monetisasi pada tingkat implementasi.
+- Ketika profil gaya dihapus, seluruh sampel dari profil tersebut yang masih berada di Recently Deleted ikut dihapus permanen dan tidak dapat dipulihkan. Sampel harus kembali ke profil asal sehingga tidak dipertahankan setelah profil asal dihapus.
