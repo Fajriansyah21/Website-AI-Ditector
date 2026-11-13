@@ -1578,3 +1578,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Pengguna melihat sisa kuota dan harus menunggu sampai jendela 24 jam bergulir jika batas tercapai.
   - Detail implementasi penghitung, masa ketersediaan paket, dan klasifikasi kegagalan ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-122: Masa berlaku paket ekspor data pribadi
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Paket ekspor data pribadi tersedia selama 24 jam sejak berhasil dibuat. Pengguna dapat mengunduh ulang paket berkali-kali selama masa berlaku tersebut. Setelah 24 jam, paket otomatis dihapus dari penyimpanan unduhan sementara. Paket yang kedaluwarsa harus dibuat ulang melalui permintaan ekspor baru dan menggunakan kuota sesuai DEC-121. Sistem menampilkan waktu kedaluwarsa paket. Jika unduhan sudah berjalan ketika paket mencapai waktu kedaluwarsa, unduhan yang sedang berlangsung tidak langsung diputus dan dapat diselesaikan.
+- **Alasan:** Paket dapat berisi data pribadi sehingga penyimpanan salinan unduhan dalam waktu terlalu lama meningkatkan risiko paparan dan beban penyimpanan. Masa berlaku 24 jam memberi waktu untuk mengunduh tanpa menyimpan salinan terlalu lama.
+- **Alternatif yang dipertimbangkan:** Masa berlaku lebih panjang; paket disimpan tanpa batas; paket dihapus segera setelah satu kali unduhan.
+- **Dampak:**
+  - Masa berlaku paket adalah 24 jam sejak berhasil dibuat.
+  - Unduhan ulang selama masa berlaku tidak memerlukan pembuatan paket baru.
+  - Paket kedaluwarsa dihapus dari penyimpanan unduhan sementara dan pembuatan ulang memakai kuota ekspor.
+  - UI menampilkan waktu kedaluwarsa.
+  - Unduhan yang sudah berjalan saat kedaluwarsa boleh diselesaikan.
+  - Detail teknis penghapusan sementara dan penanganan unduhan aktif ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
