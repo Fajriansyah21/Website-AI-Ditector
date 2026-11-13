@@ -1184,3 +1184,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Jika evaluasi menyatakan sampel tidak memadai, profil tetap terlihat dalam pengelolaan tetapi tidak dapat dipilih sampai kumpulan sampel kembali memenuhi kriteria, sesuai DEC-025.
   - Jika beberapa perubahan terjadi ketika proses pembaruan tertahan oleh pemulihan, sistem menggunakan kumpulan sampel terbaru dan mengevaluasinya satu kali setelah pemulihan selesai, sesuai DEC-034 sampai DEC-037.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13; konsisten dengan DEC-024 sampai DEC-039.
+## DEC-095: Penghapusan seluruh sampel profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menghapus seluruh entri sampel pada satu profil gaya dalam satu tindakan. Sebelum penghapusan, sistem menampilkan jumlah sampel yang akan dihapus dan meminta konfirmasi. Setelah dikonfirmasi, seluruh sampel dihapus. Profil yang tidak lagi memiliki sampel tidak dapat digunakan untuk pemrosesan AI Humanizer, tetapi tetap terlihat dalam daftar pengelolaan agar pengguna dapat membangunnya kembali dengan sampel baru. Versi historis profil yang telah terbentuk tetap mengikuti kebijakan retensi dan pemulihan versi yang berlaku.
+- **Alasan:** Pengguna perlu memiliki kendali untuk menghapus seluruh tulisan sumbernya. Namun, profil tanpa sampel tidak boleh terus dianggap valid untuk pemrosesan.
+- **Alternatif yang dipertimbangkan:** Melarang penghapusan seluruh sampel; menghapus profil secara otomatis; membiarkan profil tetap dapat digunakan tanpa sampel.
+- **Dampak:**
+  - Tindakan hapus seluruh sampel harus menampilkan jumlah entri yang akan dihapus dan memerlukan konfirmasi eksplisit.
+  - Setelah penghapusan, profil tetap tercatat dan terlihat dalam pengelolaan, tetapi tidak tersedia untuk pekerjaan Humanizer.
+  - Pengguna dapat menambahkan sampel baru untuk membangun kembali profil; kumpulan baru harus memenuhi batas minimum per sampel dan kriteria kecukupan keseluruhan.
+  - Versi historis yang telah terbentuk tidak otomatis dihapus oleh tindakan penghapusan sampel dan tetap tunduk pada kebijakan retensi/pemulihan versi.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
