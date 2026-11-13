@@ -1564,3 +1564,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Kegagalan memasukkan data tertentu harus diinformasikan kepada pengguna.
   - Detail struktur data, validasi, dan pembuatan paket ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-121: Batas frekuensi permintaan ekspor data pribadi
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setiap akun dibatasi maksimal 3 permintaan pembuatan ekspor data pribadi dalam jendela bergulir 24 jam. Batas dihitung berdasarkan permintaan pembuatan ekspor, bukan jumlah unduhan. Setelah paket berhasil dibuat, pengguna dapat mengunduh ulang paket yang sama selama paket masih tersedia tanpa menggunakan kuota permintaan baru. Permintaan yang gagal akibat gangguan sistem tidak mengurangi kuota. Setelah batas tercapai, pengguna harus menunggu hingga jendela 24 jam bergulir dan sistem menampilkan jumlah permintaan yang tersisa.
+- **Alasan:** Pembuatan paket ekspor dapat mengonsumsi sumber daya server, khususnya untuk akun dengan banyak sampel dan riwayat. Batas frekuensi mengurangi potensi penyalahgunaan tanpa membatasi unduhan ulang paket yang sudah tersedia.
+- **Alternatif yang dipertimbangkan:** Tidak membatasi permintaan; membatasi jumlah unduhan; menerapkan batas harian berbasis tanggal kalender.
+- **Dampak:**
+  - Maksimal 3 permintaan pembuatan ekspor per akun dalam jendela bergulir 24 jam.
+  - Unduhan ulang paket yang sama selama masih tersedia tidak memakai kuota baru.
+  - Kegagalan akibat gangguan sistem tidak mengurangi kuota.
+  - Pengguna melihat sisa kuota dan harus menunggu sampai jendela 24 jam bergulir jika batas tercapai.
+  - Detail implementasi penghitung, masa ketersediaan paket, dan klasifikasi kegagalan ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
