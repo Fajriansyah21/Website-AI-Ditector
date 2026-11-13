@@ -1341,3 +1341,20 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Batas panjang 60 karakter tetap berlaku.
   - Nama harus diperlakukan sebagai teks biasa dan di-escape sesuai konteks saat ditampilkan untuk mencegah XSS.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-106: Pemulihan sampel terhapus selama 30 hari
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Sampel yang dihapus dipindahkan ke area "Recently Deleted" dan dapat dipulihkan selama 30 hari sejak waktu penghapusan. Setelah masa 30 hari berakhir, sampel dihapus permanen. Sampel yang dipulihkan dikembalikan ke profil asal. Jika profil telah mencapai batas 20 sampel, pemulihan ditolak sampai pengguna menyediakan slot. Pemulihan sampel memicu evaluasi ulang profil sesuai mekanisme yang telah disepakati. Penghapusan seluruh sampel juga mengikuti kebijakan pemulihan 30 hari ini.
+- **Alasan:** Masa pemulihan melindungi pengguna dari penghapusan yang tidak disengaja, sekaligus menetapkan batas retensi yang jelas bagi sampel yang dihapus.
+- **Alternatif yang dipertimbangkan:** Penghapusan langsung permanen; masa pemulihan lebih singkat atau lebih panjang; pemulihan tanpa batas waktu.
+- **Dampak:**
+  - Sampel yang dihapus masuk ke area "Recently Deleted".
+  - Masa pemulihan dihitung selama 30 hari sejak sampel dihapus.
+  - Sampel yang melewati masa pemulihan dihapus permanen.
+  - Pemulihan mengembalikan sampel ke profil asal dan hanya dapat dilakukan jika tersedia slot dalam batas maksimal 20 sampel.
+  - Pemulihan memicu evaluasi ulang profil sesuai aturan evaluasi sampel.
+  - Penghapusan seluruh sampel juga memindahkan semua sampel terkait ke area "Recently Deleted" dan menerapkan masa pemulihan yang sama.
+  - Sistem harus memenuhi masa retensi 30 hari dan mengelola kebutuhan penyimpanan terkait.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
