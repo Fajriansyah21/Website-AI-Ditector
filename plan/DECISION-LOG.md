@@ -1444,3 +1444,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Riwayat hanya menampilkan metadata yang telah ditentukan.
   - Audit log internal tetap terpisah dan tidak dapat dilihat langsung oleh pengguna.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-113: Masa penyimpanan riwayat aktivitas penghapusan sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Riwayat aktivitas penghapusan sampel ditampilkan kepada pengguna selama 90 hari sejak tindakan dilakukan. Ketentuan ini berlaku untuk penghapusan biasa maupun penghapusan permanen. Setelah 90 hari, riwayat dihapus otomatis dari halaman aktivitas pengguna. Penghapusan riwayat aktivitas tidak mengubah status sampel dan tidak menghapus atau mengubah audit log internal. Retensi audit log internal mengikuti kebijakan tersendiri.
+- **Alasan:** Masa 90 hari memberi pengguna waktu yang memadai untuk meninjau aktivitas tanpa mempertahankan riwayat aktivitas pengguna terlalu lama.
+- **Alternatif yang dipertimbangkan:** Menyamakan masa retensi dengan masa pemulihan sampel 30 hari; menyimpan riwayat tanpa batas waktu; menggunakan masa retensi lain.
+- **Dampak:**
+  - Riwayat penghapusan biasa dan permanen tersedia selama 90 hari.
+  - Setelah 90 hari, riwayat dihapus otomatis dari tampilan/penyimpanan riwayat aktivitas pengguna.
+  - Status sampel dan audit log internal tidak terpengaruh.
+  - Retensi audit log internal tetap ditetapkan secara terpisah.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
