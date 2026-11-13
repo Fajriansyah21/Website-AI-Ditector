@@ -1514,3 +1514,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Status dan batas waktu pembatalan harus terlihat jelas bagi pengguna.
   - Durasi masa penundaan dan mekanisme teknis eksekusi penghapusan belum ditentukan oleh keputusan ini.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-118: Masa penundaan penghapusan akun selama 30 hari
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Masa penundaan penghapusan akun ditetapkan selama 30 hari sejak pengguna mengonfirmasi permintaan penghapusan akun. Selama periode tersebut, akun berstatus **Pending Deletion** dan pengguna dapat membatalkan permintaan kapan saja. Setelah 30 hari, sistem memulai proses penghapusan permanen secara otomatis. Setelah proses penghapusan permanen dimulai, pembatalan tidak lagi tersedia. Lewatnya masa 30 hari tidak boleh dianggap sebagai bukti bahwa data telah terhapus jika proses penghapusan mengalami kegagalan teknis.
+- **Alasan:** Masa 30 hari memberi pengguna waktu untuk mempertimbangkan kembali keputusan, sekaligus menyediakan batas waktu yang jelas. Kesamaan durasi dengan masa pemulihan sampel Humanizer merupakan konsistensi kebijakan, bukan ketergantungan proses.
+- **Alternatif yang dipertimbangkan:** Masa penundaan lebih singkat; masa penundaan lebih panjang; penghapusan permanen tanpa masa penundaan.
+- **Dampak:**
+  - Status akun menjadi Pending Deletion selama 30 hari sejak konfirmasi.
+  - Pengguna dapat membatalkan permintaan selama masa penundaan.
+  - Setelah 30 hari, proses penghapusan permanen dimulai secara otomatis.
+  - Setelah proses permanen dimulai, pembatalan tidak tersedia.
+  - Kegagalan teknis harus ditangani tanpa mengklaim data telah terhapus sebelum penghapusan benar-benar berhasil.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
