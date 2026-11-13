@@ -1608,3 +1608,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Status akhir ditampilkan sebagai `Cancelled` atau `Completed`.
   - Detail sinkronisasi status dan penghentian pekerjaan ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-124: Maksimal satu proses ekspor aktif per akun
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Satu akun hanya boleh memiliki satu permintaan ekspor data pribadi berstatus `Processing` pada satu waktu. Pengguna harus menunggu proses tersebut selesai atau membatalkannya sebelum membuat permintaan baru. Paket yang telah selesai dibuat tidak dihitung sebagai proses aktif; pengguna dapat membuat ekspor baru selama kuota pada DEC-121 masih tersedia. Jika pengguna mencoba membuat permintaan baru ketika proses ekspor lain masih `Processing`, sistem menolak permintaan tersebut dan menampilkan status ekspor yang sedang berjalan.
+- **Alasan:** Membatasi pekerjaan ekspor bersamaan untuk mengendalikan penggunaan sumber daya server serta menjaga status dan penggunaan kuota tetap mudah dipahami.
+- **Alternatif yang dipertimbangkan:** Mengizinkan beberapa proses ekspor berjalan bersamaan; membatasi jumlah proses aktif ke angka lebih dari satu.
+- **Dampak:**
+  - Maksimal satu proses ekspor berstatus `Processing` per akun.
+  - Pengguna harus menunggu atau membatalkan proses aktif sebelum mengajukan ekspor baru.
+  - Paket berstatus selesai tidak menghalangi permintaan ekspor baru selama kuota tersedia.
+  - Permintaan kedua saat masih ada proses aktif ditolak dan status proses aktif ditampilkan.
+  - Detail penguncian konkurensi dan konsistensi status ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
