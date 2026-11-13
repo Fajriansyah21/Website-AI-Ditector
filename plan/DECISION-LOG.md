@@ -1211,3 +1211,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Format unduhan individual mengikuti format sumber asli jika tersedia; teks yang ditempel langsung dapat diunduh sebagai TXT.
   - Proses unduh bersifat baca-saja dan tidak mengubah sampel, profil, versi aktif, atau versi historis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-097: Batas ukuran file sampel profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Ukuran maksimum setiap file sampel profil gaya adalah 10 MB. Batas berlaku per file, bukan akumulasi seluruh sampel. Format file yang diterima tetap TXT, DOCX, dan PDF. File yang melebihi batas ditolak sebelum proses ekstraksi dan sistem menampilkan pesan yang menyebutkan ukuran maksimum yang diizinkan. Ketentuan ini berlaku untuk MVP dan dapat dievaluasi kembali setelah pengujian teknis.
+- **Alasan:** Sampel digunakan untuk mengekstrak teks sebagai bahan pembentukan profil gaya. Batas 10 MB menjadi batas awal yang perlu divalidasi terhadap kebutuhan ekstraksi dokumen, terutama PDF dan DOCX.
+- **Alternatif yang dipertimbangkan:** Tidak membatasi ukuran file; menerapkan batas total untuk seluruh sampel; menetapkan batas lebih rendah atau lebih tinggi.
+- **Dampak:**
+  - Validasi ukuran dilakukan pada setiap file sebelum ekstraksi.
+  - File di atas 10 MB ditolak dan pengguna diberi tahu batas ukuran yang berlaku.
+  - Pengujian teknis perlu memvalidasi kelayakan batas ini terhadap file TXT, DOCX, dan PDF.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
