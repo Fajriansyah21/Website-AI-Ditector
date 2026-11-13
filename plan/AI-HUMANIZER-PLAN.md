@@ -31,6 +31,7 @@ Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahw
 - Teks panjang dapat diproses secara bertahap dengan mekanisme penjagaan konteks.
 - Pengguna memilih gaya bawaan atau profil gaya personal. Kontrol intensitas perubahan tidak termasuk kebutuhan MVP yang dipilih.
 - Sampel gaya dapat ditempel atau diunggah sebagai TXT, DOCX, atau PDF.
+- Ukuran maksimum setiap file sampel adalah 10 MB, berlaku per file dan bukan total seluruh sampel. File TXT, DOCX, atau PDF yang melebihi batas ditolak sebelum ekstraksi dan sistem menampilkan batas ukuran maksimum. Batas ini berlaku untuk MVP dan perlu divalidasi melalui pengujian teknis.
 - Sistem menilai kecukupan sampel secara adaptif dan meminta tambahan jika perlu.
 - Jika sampel belum cukup beragam atau konsisten, sistem mempertahankan sampel sebelumnya dan meminta pengguna menambahkan tulisan sebagai entri sampel terpisah. Setiap sampel ditampilkan dan dikelola sebagai entri tersendiri, sedangkan sistem menilai seluruh sampel sebagai satu kumpulan untuk membentuk atau memperbarui profil gaya. Pengguna tidak perlu mengirim ulang seluruh sampel.
 - Setiap entri sampel profil gaya harus berisi minimal 500 karakter, termasuk spasi dan baris baru. Sampel di bawah batas tetap dipertahankan sebagai entri, tetapi belum memenuhi syarat minimum; sistem menampilkan jumlah karakter saat ini dan jumlah karakter yang masih dibutuhkan. Batas 500 karakter berlaku per entri dan berbeda dari penilaian adaptif kecukupan total kumpulan sampel.
