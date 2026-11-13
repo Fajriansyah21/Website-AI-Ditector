@@ -1224,3 +1224,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - File di atas 10 MB ditolak dan pengguna diberi tahu batas ukuran yang berlaku.
   - Pengujian teknis perlu memvalidasi kelayakan batas ini terhadap file TXT, DOCX, dan PDF.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-098: Jumlah file sampel dalam satu tindakan unggah
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat mengunggah maksimal 5 file sampel dalam satu tindakan unggah. Batas ukuran 10 MB tetap berlaku untuk setiap file. Pengguna dapat melakukan tindakan unggah berikutnya untuk menambahkan file lain. Sistem memvalidasi format dan ukuran setiap file secara individual. File yang tidak valid ditolak, sedangkan file lain yang valid tetap dapat diproses.
+- **Alasan:** Batas lima file per tindakan unggah menjaga proses penambahan beberapa sampel tetap praktis tanpa menjadikan satu batch terlalu besar. Batas batch ini berbeda dari jumlah total sampel yang dapat tersimpan pada profil.
+- **Alternatif yang dipertimbangkan:** Hanya satu file per tindakan unggah; tanpa batas jumlah file per batch; membatasi jumlah total sampel pada profil dengan angka yang sama.
+- **Dampak:**
+  - Maksimal lima file dapat dipilih dalam satu tindakan unggah.
+  - Setiap file tetap harus memenuhi format yang didukung dan batas 10 MB per file.
+  - Validasi dilakukan per file; kegagalan satu file tidak otomatis menggagalkan file lain yang valid dalam batch yang sama.
+  - Pengguna dapat mengulangi tindakan unggah untuk menambahkan file lain; jumlah total sampel tersimpan merupakan batasan yang terpisah dan belum ditentukan oleh keputusan ini.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
