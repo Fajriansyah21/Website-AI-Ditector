@@ -1130,3 +1130,15 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Profil utama tidak dapat dihapus sebelum pengguna menetapkan profil utama pengganti.
   - Aturan jumlah profil berlaku terpisah dari batas maksimal versi historis pada setiap profil.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-091: Privasi dan penggunaan profil gaya personal
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Profil gaya personal bersifat privat dan hanya dapat dilihat, dikelola, serta digunakan oleh pemilik akun. Pengguna lain tidak dapat menggunakan profil tersebut. Fitur berbagi profil antar akun tidak termasuk MVP.
+- **Alasan:** Profil gaya merepresentasikan karakteristik tulisan pribadi. Membatasi akses pada pemilik akun menjaga privasi serta menghindari kompleksitas kepemilikan, izin akses, dan pembagian profil pada MVP.
+- **Alternatif yang dipertimbangkan:** Mengizinkan profil dibagikan atau digunakan oleh akun lain.
+- **Dampak:**
+  - Kontrol akses profil harus memastikan hanya pemilik akun yang dapat melihat, memilih, menggunakan, memperbarui, atau menghapus profilnya.
+  - Tidak tersedia fitur berbagi, publikasi, atau penggunaan lintas akun pada MVP.
+  - Pengguna yang menginginkan gaya serupa harus membentuk profil sendiri menggunakan sampel tulisan mereka.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
