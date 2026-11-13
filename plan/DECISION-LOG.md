@@ -1238,3 +1238,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Validasi dilakukan per file; kegagalan satu file tidak otomatis menggagalkan file lain yang valid dalam batch yang sama.
   - Pengguna dapat mengulangi tindakan unggah untuk menambahkan file lain; jumlah total sampel tersimpan merupakan batasan yang terpisah dan belum ditentukan oleh keputusan ini.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-099: Penanganan kegagalan ekstraksi file sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setiap file sampel diproses dan diekstrak secara independen. Jika ekstraksi berhasil, sampel dimasukkan ke daftar sampel profil. Jika ekstraksi gagal, file tersebut tidak dimasukkan sebagai sampel. Sistem menampilkan nama file dan alasan kegagalan. Pengguna dapat mencoba mengunggah ulang file yang gagal atau menggunakan file lain. Sampel yang berhasil diekstrak tetap tersimpan meskipun file lain dalam batch yang sama gagal.
+- **Alasan:** Kegagalan satu file tidak seharusnya menggagalkan file lain yang valid dalam batch. Penanganan independen membuat hasil unggahan lebih jelas dan menghindari hilangnya sampel yang berhasil diproses.
+- **Alternatif yang dipertimbangkan:** Menggagalkan seluruh batch jika satu file gagal; memasukkan file yang gagal diekstrak sebagai sampel kosong atau tidak lengkap.
+- **Dampak:**
+  - Status ekstraksi ditentukan per file.
+  - File yang gagal diekstrak tidak menjadi entri sampel.
+  - Antarmuka menampilkan nama file dan alasan kegagalan untuk setiap file yang gagal.
+  - Pengguna dapat mengunggah ulang file yang gagal atau memilih file pengganti.
+  - Sampel yang berhasil diekstrak tetap tersedia dan tidak dibatalkan oleh kegagalan file lain.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
