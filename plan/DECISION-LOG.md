@@ -1169,3 +1169,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Pekerjaan Humanizer yang sudah berjalan mempertahankan profil yang telah dipilih saat pekerjaan dimulai.
   - Pergantian status utama tidak memicu pembentukan atau pemulihan versi profil.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-094: Evaluasi ulang setelah setiap perubahan sampel profil gaya
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setiap penambahan, pengeditan, atau penghapusan entri sampel pada profil gaya yang sudah terbentuk memicu evaluasi ulang terhadap seluruh kumpulan sampel terkini, bukan hanya sampel yang berubah. Setiap evaluasi menggunakan snapshot kumpulan sampel yang konsisten. Jika sampel berubah selama evaluasi, hasil dari snapshot yang sudah usang tidak boleh digunakan untuk membangun atau mengaktifkan versi profil; sistem mengambil snapshot terbaru dan mengevaluasinya kembali.
+- **Alasan:** Profil harus merepresentasikan keseluruhan kumpulan sampel terbaru. Mengevaluasi hanya sampel yang berubah dapat mengabaikan interaksi, keragaman, atau konsistensi antarentri.
+- **Alternatif yang dipertimbangkan:** Mengevaluasi hanya entri yang berubah; mempertahankan hasil evaluasi lama setelah sampel berubah.
+- **Dampak:**
+  - Perubahan apa pun pada kumpulan sampel profil yang sudah terbentuk memicu evaluasi seluruh kumpulan.
+  - Evaluasi dan pembentukan versi profil harus mengikuti aturan snapshot konsisten pada DEC-038 dan batas pengulangan otomatis pada DEC-039.
+  - Versi profil aktif sebelumnya tetap dapat digunakan selama evaluasi belum menghasilkan keputusan valid bahwa sampel tidak memadai, termasuk ketika evaluasi gagal secara teknis, sesuai DEC-026 dan DEC-027.
+  - Jika evaluasi menyatakan sampel memadai, pembentukan dan aktivasi versi baru mengikuti DEC-028 serta aturan retensi dan pemulihan versi yang telah disepakati.
+  - Jika evaluasi menyatakan sampel tidak memadai, profil tetap terlihat dalam pengelolaan tetapi tidak dapat dipilih sampai kumpulan sampel kembali memenuhi kriteria, sesuai DEC-025.
+  - Jika beberapa perubahan terjadi ketika proses pembaruan tertahan oleh pemulihan, sistem menggunakan kumpulan sampel terbaru dan mengevaluasinya satu kali setelah pemulihan selesai, sesuai DEC-034 sampai DEC-037.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13; konsisten dengan DEC-024 sampai DEC-039.
