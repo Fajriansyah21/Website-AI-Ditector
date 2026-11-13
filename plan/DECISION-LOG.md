@@ -1418,3 +1418,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Tidak ada evaluasi ulang profil karena sampel tersebut sudah tidak aktif.
   - Retensi/penghapusan salinan backup ditentukan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+
+## DEC-111: Audit log untuk penghapusan permanen sampel
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Sistem mencatat metadata setiap tindakan penghapusan permanen sampel, baik penghapusan satu sampel maupun tindakan Kosongkan Recently Deleted. Catatan audit memuat ID sampel, ID profil asal, ID pengguna yang melakukan tindakan, waktu penghapusan, jenis tindakan, serta status keberhasilan atau kegagalan. Isi teks sampel tidak boleh disimpan di audit log.
+- **Alasan:** Metadata audit mendukung investigasi kesalahan dan sengketa tanpa menggandakan konten pribadi pengguna ke dalam sistem audit.
+- **Alternatif yang dipertimbangkan:** Tidak mencatat penghapusan permanen; mencatat isi sampel bersama metadata; mencatat hanya pengosongan massal.
+- **Dampak:**
+  - Penghapusan permanen satu sampel dan pengosongan massal menghasilkan catatan audit.
+  - Audit log hanya menyimpan metadata yang ditetapkan, bukan isi teks sampel.
+  - Retensi dan kontrol akses audit log mengikuti kebijakan audit dan keamanan yang akan dirinci pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
