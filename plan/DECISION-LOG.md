@@ -1104,3 +1104,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Batas minimum 100 karakter ini berbeda dari batas minimum sampel tulisan untuk membentuk profil gaya personal; batas sampel gaya tetap belum ditentukan.
   - Validasi minimum dan maksimum input Humanizer harus berjalan bersama sebelum pemrosesan.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-089: Batas minimal karakter setiap sampel profil gaya personal
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Setiap entri sampel tulisan yang digunakan untuk membentuk atau memperbarui profil gaya personal AI Humanizer harus berisi minimal **500 karakter**. Penghitungan mencakup spasi dan baris baru.
+- **Alasan:** Batas ini memberi bahan awal yang lebih memadai untuk mengenali pola kalimat, pilihan kata, dan karakteristik gaya tulisan, tanpa membuat pengumpulan setiap sampel terlalu membebani pengguna.
+- **Alternatif yang dipertimbangkan:** Tidak menetapkan batas minimum per sampel atau menetapkan ambang yang lebih tinggi.
+- **Dampak:**
+  - Sampel di bawah 500 karakter tetap dipertahankan sebagai entri, tetapi belum dapat digunakan sebagai sampel yang memenuhi batas minimum.
+  - Sistem menampilkan jumlah karakter sampel saat ini dan jumlah karakter yang masih dibutuhkan.
+  - Batas ini berlaku per entri sampel, bukan sebagai ketentuan kecukupan total kumpulan sampel. Kecukupan keseluruhan kumpulan tetap dinilai secara adaptif.
+  - Batas minimum ini berbeda dari batas minimum 100 karakter untuk input pekerjaan Humanizer.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
