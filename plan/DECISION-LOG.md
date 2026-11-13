@@ -1142,3 +1142,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Tidak tersedia fitur berbagi, publikasi, atau penggunaan lintas akun pada MVP.
   - Pengguna yang menginginkan gaya serupa harus membentuk profil sendiri menggunakan sampel tulisan mereka.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-092: Penghapusan profil gaya personal
+
+- **Tanggal:** 2026-11-13
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menghapus profil gaya tambahan kapan saja. Profil utama hanya dapat dihapus setelah pengguna menetapkan profil utama pengganti. Sebelum penghapusan, sistem wajib menampilkan dialog konfirmasi. Setelah dikonfirmasi, profil beserta seluruh versi historisnya dihapus secara permanen dari sistem yang dapat diakses pengguna. Penghapusan profil tidak menghapus riwayat pekerjaan Humanizer yang pernah menggunakan profil tersebut.
+- **Alasan:** Pengguna perlu memiliki kendali atas data profil personal, sementara dialog konfirmasi mengurangi risiko penghapusan yang tidak disengaja.
+- **Alternatif yang dipertimbangkan:** Menonaktifkan profil tanpa menghapusnya atau menghapus profil tanpa konfirmasi.
+- **Dampak:**
+  - Alur penghapusan harus membedakan profil utama dan profil tambahan.
+  - Penghapusan profil utama mensyaratkan penetapan profil utama pengganti terlebih dahulu.
+  - Konfirmasi harus dilakukan sebelum penghapusan dijalankan.
+  - Riwayat pekerjaan Humanizer yang telah menggunakan profil tetap dipertahankan.
+  - Cakupan penghapusan permanen pada sistem aktif harus dibedakan dari retensi backup. Mekanisme dan jangka waktu penghapusan dari backup perlu ditetapkan pada desain teknis dan kebijakan retensi; sistem tidak boleh menjanjikan penghapusan langsung dari seluruh backup sebelum mekanismenya ditentukan.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
