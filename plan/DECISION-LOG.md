@@ -1665,3 +1665,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Audit log internal mengikuti kebijakan retensi terpisah.
   - Detail mekanisme penghapusan otomatis ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-128: Penghapusan riwayat ekspor secara manual
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat menghapus satu entri riwayat ekspor atau seluruh riwayat ekspor secara manual. Kedua tindakan memerlukan konfirmasi. Penghapusan hanya memengaruhi riwayat yang terlihat oleh pengguna dan tidak membatalkan proses ekspor yang sedang berjalan maupun menghapus paket ZIP yang masih berlaku. Audit log internal tetap dipertahankan sesuai kebijakan retensi terpisah.
+- **Alasan:** Pengguna perlu memiliki kendali atas catatan aktivitas akunnya, sementara data riwayat harus tetap terpisah dari proses ekspor dan paket hasilnya agar penghapusan tidak menimbulkan efek samping.
+- **Alternatif yang dipertimbangkan:** Riwayat tidak dapat dihapus manual; hanya mengizinkan penghapusan satu entri; menghapus riwayat sekaligus paket ekspor terkait.
+- **Dampak:**
+  - Pengguna dapat menghapus satu entri atau seluruh riwayat ekspor.
+  - Kedua tindakan memerlukan konfirmasi.
+  - Penghapusan tidak membatalkan ekspor aktif dan tidak menghapus paket yang masih berlaku.
+  - Audit log internal tidak terpengaruh dan mengikuti kebijakan retensi tersendiri.
+  - Detail pencatatan audit atas tindakan penghapusan riwayat ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
