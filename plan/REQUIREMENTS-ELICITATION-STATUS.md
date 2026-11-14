@@ -10,11 +10,11 @@
 
 Berdasarkan pemeriksaan dokumen GitHub pada 2026-11-14:
 
-- **137** catatan keputusan, DEC-001 sampai DEC-137.
-- **135** keputusan berstatus `Accepted`.
+- **138** catatan keputusan, DEC-001 sampai DEC-138.
+- **136** keputusan berstatus `Accepted`.
 - **2** keputusan berstatus `Superseded`, yaitu DEC-018 dan DEC-019. Keduanya dipertahankan sebagai jejak historis, bukan aturan aktif.
-- **188** baris kebutuhan fungsional pada SRS.
-- **117** requirement Humanizer, FR-HUM-01 sampai FR-HUM-117.
+- **189** baris kebutuhan fungsional pada SRS.
+- **118** requirement Humanizer, FR-HUM-01 sampai FR-HUM-118.
 - **11** requirement Detector, FR-DET-01 sampai FR-DET-11.
 
 Rincian jumlah requirement lain dalam SRS:
@@ -24,13 +24,13 @@ Rincian jumlah requirement lain dalam SRS:
 | Umum (FR-GEN) | 9 |
 | File dan ekstraksi (FR-FILE) | 9 |
 | AI Text Detector (FR-DET) | 11 |
-| AI Humanizer (FR-HUM) | 117 |
+| AI Humanizer (FR-HUM) | 118 |
 | Akun (FR-ACC) | 15 |
 | Kredit (FR-CRED) | 16 |
 | Dukungan (FR-SUP) | 3 |
 | Notifikasi (FR-NOT) | 3 |
 | Operasional (FR-OPS) | 5 |
-| **Total** | **188** |
+| **Total** | **189** |
 
 Jumlah baris requirement bukan ukuran kelengkapan produk. Requirement masih perlu ditinjau, diuji konsistensinya, dan diberi acceptance criteria.
 
@@ -171,7 +171,7 @@ Pokok pembahasan:
 | Area | Status saat ini | Catatan |
 |---|---|---|
 | Fondasi produk | Sudah dibahas | Cakupan MVP dan aturan dasar sudah tercatat |
-| Humanizer | Elisitasi mendalam, belum ditutup | 117 FR; masih ada isu produk/teknis dan acceptance criteria |
+| Humanizer | Elisitasi mendalam, belum ditutup | 118 FR; masih ada isu produk/teknis dan acceptance criteria |
 | Detector | Baru sebagian | 11 FR; perlu sesi elisitasi lanjutan |
 | Akun dan dashboard | Fondasi tercatat | 15 FR; detail alur dan kondisi tepi perlu dilengkapi |
 | Kredit dan pembayaran | Fondasi tercatat | 16 FR; aturan ekonomi dan operasional belum final |
@@ -227,15 +227,20 @@ Rincian berada di [AI Text Detector Plan](AI-TEXT-DETECTOR-PLAN.md) dan bagian 8
 
 Daftar lengkap dan statusnya mengacu pada bagian 8 SRS.
 
-## 5. Pertanyaan terakhir yang belum diputuskan
+## 5. Pertanyaan terbuka dari sesi sebelumnya
 
-**Pertanyaan 138 belum dijawab dan belum menjadi keputusan.**
+**Pertanyaan terbuka terkait rate limiting ekspor masih belum dijawab dan belum menjadi keputusan.**
 
 Topik: titik awal penghitungan jeda minimal 30 detik untuk rate limiting percobaan ulang penghapusan seluruh riwayat ekspor.
 
 Jangan menambahkan aturan tentang sumber waktu atau titik awal hitung mundur ke SRS/Decision Log sebelum pengguna menyetujuinya.
 
-## 6. Urutan pekerjaan berikutnya
+## 6. Keputusan terbaru dari audit Humanizer
+
+- **DEC-138:** Penghapusan profil gaya membatalkan seluruh pekerjaan terkait yang masih tertunda atau berjalan. Hasil pekerjaan yang terlambat tidak boleh mengaktifkan kembali atau membuat ulang profil yang telah dihapus.
+- Requirement normatif: **FR-HUM-118** pada SRS bagian 4.4.
+
+## 7. Urutan pekerjaan berikutnya
 
 1. Audit kelengkapan dan konsistensi kebutuhan Humanizer; jangan memperpanjang cabang pertanyaan yang sudah cukup rinci sebelum memeriksa area yang belum dibahas.
 2. Lanjutkan elisitasi Humanizer pada gap yang benar-benar terbuka.
@@ -246,7 +251,7 @@ Jangan menambahkan aturan tentang sumber waktu atau titik awal hitung mundur ke 
 7. Konsolidasikan SRS dan Feature Plans.
 8. Minta review pemilik proyek sebelum user flow, wireframe, Google Stitch, atau System Design.
 
-## 7. Batas tahap
+## 8. Batas tahap
 
 Rekap ini tidak mengesahkan:
 - Pemilihan framework, database, provider AI, payment gateway, atau deployment.
