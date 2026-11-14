@@ -1,187 +1,114 @@
 # AI Humanizer Plan
 
-Status: **Draft rancangan produk; kebutuhan produk awal telah dielisitasi**  
-Modul: AI Humanizer  
-Bahasa: Bahasa Indonesia dan Bahasa Inggris; mempertahankan campuran bahasa jika memungkinkan  
-Terakhir ditinjau: 2026-11-12
+- **Status:** Rencana fitur tingkat tinggi; kebutuhan fungsional dirujuk ke SRS
+- **Modul:** AI Humanizer
+- **Bahasa:** Bahasa Indonesia dan Bahasa Inggris; teks campuran diproses dengan memperhatikan keterbatasan
+- **Terakhir diperbarui:** 2026-11-14
 
-Rincian kebutuhan produk yang disepakati berada di [System Requirements Analysis](SYSTEM-REQUIREMENTS-ANALYSIS.md), khususnya bagian AI Humanizer.
+## Peran dan sumber kebenaran
+
+Dokumen ini menjelaskan arah fitur, alur konseptual, risiko kualitas, dan pekerjaan yang masih terbuka. Dokumen ini **bukan salinan kedua dari requirement**.
+
+- Requirement normatif Humanizer berada di [System Requirements Analysis, bagian 4.4](SYSTEM-REQUIREMENTS-ANALYSIS.md#44-ai-humanizer), dengan ID FR-HUM-01 sampai FR-HUM-117.
+- Alasan dan riwayat keputusan berada di [Decision Log](DECISION-LOG.md).
+- Ringkasan kemajuan dan area elisitasi yang belum selesai berada di [Requirements Elicitation Status](REQUIREMENTS-ELICITATION-STATUS.md).
+
+Jika ringkasan dalam dokumen ini berbeda dengan requirement atau keputusan yang disahkan, SRS dan Decision Log menjadi acuan.
 
 ## 1. Tujuan
 
-Membantu pengguna menyunting teks agar lebih alami, jelas, dan sesuai gaya yang diinginkan tanpa mengubah makna, fakta, atau maksud utama.
+Membantu pengguna menyunting teks agar lebih alami, jelas, dan sesuai gaya yang dipilih tanpa sengaja mengubah makna, fakta, atau maksud utama.
 
-Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahwa hasilnya pasti lolos AI detector atau tidak dapat dikenali sebagai teks AI.
+Humanizer adalah alat bantu penyuntingan. Fitur ini tidak boleh menjanjikan bahwa hasilnya pasti lolos AI Detector atau tidak dapat dikenali sebagai teks AI.
 
-## 2. Kebutuhan produk yang telah disepakati
+## 2. Cakupan kemampuan
 
-- AI Humanizer hanya dapat digunakan oleh pengguna yang sudah login/terdaftar. Guest hanya memiliki akses ke AI Text Detector.
+Rincian perilaku dan batas setiap kemampuan tercatat satu kali di SRS. Peta berikut hanya membantu navigasi:
 
-- Target utama pengguna adalah mahasiswa dan pelajar; cakupan tulisan akademik dan umum.
-- Humanizer memiliki prioritas setara dengan Detector dan dapat digunakan mandiri.
-- Teks dari Detector hanya dikirim ke Humanizer setelah tindakan pengguna.
-- Bahasa yang didukung adalah Bahasa Indonesia dan Bahasa Inggris.
-- Teks campuran dapat diproses dengan upaya mempertahankan kedua bahasa dan peringatan keterbatasan.
-- Input dapat berupa teks atau file TXT, DOCX, PDF.
-- Dalam satu proses, pengguna dapat mengunggah maksimal satu dokumen TXT, DOCX, atau PDF, meninjau dan mengedit teks hasil ekstraksi, serta menambahkan teks manual melalui editor sebelum pemrosesan. Seluruh konten editor menjadi satu input Humanizer. Beberapa dokumen unggahan tidak dapat digabungkan dalam satu proses; dokumen sumber tidak diubah atau ditimpa.
-- Jika pengguna mengganti dokumen yang sudah diunggah, sistem meminta konfirmasi. Jika dibatalkan, konten editor tetap dipertahankan. Jika dikonfirmasi, teks hasil ekstraksi dari dokumen sebelumnya beserta seluruh tambahan/editan manual di editor dihapus dan diganti dengan hasil ekstraksi dokumen baru. Dokumen sumber tidak diubah atau ditimpa.
-- Editor Humanizer bersifat bebas: pengguna dapat mengubah, menambah, atau menghapus bagian mana pun dari teks hasil ekstraksi maupun teks manual sebelum pemrosesan. Seluruh isi editor saat tombol proses dijalankan menjadi satu input yang diproses.
-- Batas maksimal input adalah 50.000 karakter untuk keseluruhan satu pekerjaan Humanizer, termasuk teks hasil ekstraksi dokumen dan tambahan/editan manual pada editor. Batas berlaku pada keseluruhan input, bukan per chunk. Backend memvalidasi batas sebelum pemrosesan dan menolak input yang melebihinya. Batas token internal tetap diterapkan sesuai provider/model; chunking tidak boleh melewati batas karakter keseluruhan. Kelayakan teknis angka ini divalidasi setelah provider/model dan tokenizer dipilih.
-- Batas minimal input adalah 100 karakter untuk keseluruhan isi editor pada satu pekerjaan Humanizer. Penghitungan mencakup spasi dan baris baru. Jika isi editor kurang dari 100 karakter, tombol pemrosesan dinonaktifkan dan antarmuka menampilkan jumlah karakter saat ini serta jumlah karakter yang masih dibutuhkan. Batas minimum berlaku untuk seluruh gaya penulisan pada MVP dan berbeda dari batas minimum sampel profil gaya.
-- Teks panjang dapat diproses secara bertahap dengan mekanisme penjagaan konteks.
-- Pengguna memilih gaya bawaan atau profil gaya personal. Kontrol intensitas perubahan tidak termasuk kebutuhan MVP yang dipilih.
-- Sampel gaya dapat ditempel atau diunggah sebagai TXT, DOCX, atau PDF.
-- Ukuran maksimum setiap file sampel adalah 10 MB, berlaku per file dan bukan total seluruh sampel. File TXT, DOCX, atau PDF yang melebihi batas ditolak sebelum ekstraksi dan sistem menampilkan batas ukuran maksimum. Batas ini berlaku untuk MVP dan perlu divalidasi melalui pengujian teknis.
-- Pengguna dapat mengunggah maksimal 5 file sampel dalam satu tindakan unggah. Batas 10 MB berlaku untuk setiap file. Pengguna dapat melakukan unggahan berikutnya untuk menambahkan file lain. Sistem memvalidasi format dan ukuran per file; file tidak valid ditolak, sementara file valid lainnya tetap dapat diproses. Batas ini hanya mengatur jumlah file per batch, bukan jumlah total sampel pada profil.
-- Setiap file sampel diproses dan diekstrak secara independen. File yang berhasil diekstrak masuk ke daftar sampel profil. File yang gagal tidak dimasukkan; sistem menampilkan nama file dan alasan kegagalan. Pengguna dapat mengunggah ulang file tersebut atau menggunakan file lain. Sampel lain yang berhasil diekstrak tetap tersimpan meskipun ada file yang gagal.
-- Setelah ekstraksi berhasil, sistem menampilkan pratinjau teks. Pengguna dapat mengedit teks hasil ekstraksi atau membatalkan sampel jika hasilnya tidak sesuai. Sampel hanya disimpan setelah pengguna mengonfirmasi. Batas minimum 500 karakter diperiksa terhadap teks final setelah diedit. Jika ekstraksi terdeteksi tidak lengkap, sistem menampilkan peringatan sebelum penyimpanan.
-- Sistem menilai kecukupan sampel secara adaptif dan meminta tambahan jika perlu.
-- Jika sampel belum cukup beragam atau konsisten, sistem mempertahankan sampel sebelumnya dan meminta pengguna menambahkan tulisan sebagai entri sampel terpisah. Setiap sampel ditampilkan dan dikelola sebagai entri tersendiri, sedangkan sistem menilai seluruh sampel sebagai satu kumpulan untuk membentuk atau memperbarui profil gaya. Pengguna tidak perlu mengirim ulang seluruh sampel.
-- Setiap entri sampel profil gaya harus berisi minimal 500 karakter, termasuk spasi dan baris baru. Sampel di bawah batas tetap dipertahankan sebagai entri, tetapi belum memenuhi syarat minimum; sistem menampilkan jumlah karakter saat ini dan jumlah karakter yang masih dibutuhkan. Batas 500 karakter berlaku per entri dan berbeda dari penilaian adaptif kecukupan total kumpulan sampel.
-- Setiap profil gaya dapat menyimpan maksimal 20 entri sampel, baik dari teks tempel maupun unggahan file. Jika telah mencapai batas, pengguna harus menghapus sampel lama sebelum menambahkan sampel baru. Sampel yang sudah ada tetap dapat diedit; pengeditan dan penghapusan mengikuti mekanisme evaluasi ulang. Batas 20 entri merupakan ketentuan MVP yang perlu divalidasi melalui pengujian algoritma profiling.
-- Daftar sampel secara default diurutkan berdasarkan waktu penambahan terbaru. Pengguna dapat mengurutkan berdasarkan tanggal ditambahkan atau nama file. Sampel teks tempel tanpa nama file menggunakan label yang dibuat sistem. Pengurutan hanya mengubah tampilan, tidak mengubah urutan evaluasi atau isi profil, dan tidak memicu evaluasi ulang.
-- Sampel dari teks tempel mendapat nama default otomatis seperti "Sampel 1", "Sampel 2", dan seterusnya. Sampel dari file menggunakan nama file tanpa ekstensi sebagai nama default. Pengguna dapat mengganti nama sampel. Nama harus unik dalam satu profil dan maksimal 60 karakter. Perubahan nama tidak mengubah isi teks, tidak memicu evaluasi ulang, dan tidak memengaruhi hasil profiling.
-- Validasi nama sampel bersifat unik dalam satu profil dan tidak membedakan huruf besar/kecil. Spasi di awal dan akhir nama dipangkas sebelum validasi. Jika nama duplikat, penyimpanan atau perubahan nama ditolak dan sistem memberi tahu bahwa nama sudah digunakan. Nama yang sama tetap boleh digunakan pada profil berbeda.
-- Nama sampel mendukung huruf, angka, spasi, tanda baca, karakter Unicode, dan emoji. Nama tidak boleh kosong setelah spasi tepi dipangkas atau mengandung karakter kontrol maupun karakter tak terlihat. Batas 60 karakter tetap berlaku. Nama disimpan sebagai teks biasa dan di-escape secara aman saat ditampilkan untuk mencegah XSS.
-- Sampel yang dihapus dipindahkan ke area Recently Deleted dan dapat dipulihkan selama 30 hari sejak dihapus. Setelah 30 hari, sampel dihapus permanen. Pemulihan mengembalikan sampel ke profil asal, hanya dapat dilakukan jika tersedia slot dalam batas 20 sampel, dan memicu evaluasi ulang profil. Penghapusan seluruh sampel juga mengikuti masa pemulihan 30 hari.
-- Sebelum memulihkan sampel, sistem memeriksa konflik nama dengan sampel aktif pada profil asal. Jika terjadi konflik, pemulihan ditolak dan sampel tetap berada di Recently Deleted. Sistem memberi tahu nama yang konflik; pengguna harus mengganti nama sampel aktif tersebut sebelum mencoba kembali. Nama tidak diubah otomatis dan seluruh aturan validasi nama tetap berlaku.
-- Pengguna dapat memilih Pulihkan Semua untuk seluruh sampel di Recently Deleted. Sistem memvalidasi seluruh sampel sekaligus, termasuk kapasitas maksimum 20 sampel per profil dan konflik nama. Pemulihan bersifat atomik: jika semua sampel lolos, seluruhnya dipulihkan; jika satu saja gagal, tidak ada sampel yang dipulihkan. Sistem menjelaskan alasan dan sampel yang bermasalah. Setelah berhasil, hanya satu evaluasi ulang profil dijalankan.
-- Penghitungan panjang sampel mencakup seluruh karakter yang dimasukkan, termasuk spasi dan baris baru. Batas minimum setiap entri adalah 500 karakter.
-- Profil gaya dapat disimpan secara opsional, digunakan kembali, diperbarui, dan dihapus.
-- Pengguna dapat mengedit atau menghapus setiap entri sampel secara individual tanpa mengganggu entri lainnya.
-- Pengguna dapat menghapus seluruh sampel pada satu profil dalam satu tindakan. Sistem menampilkan jumlah sampel yang akan dihapus dan meminta konfirmasi. Setelah dikonfirmasi, seluruh sampel dihapus. Profil tanpa sampel tetap terlihat dalam daftar pengelolaan tetapi tidak dapat digunakan untuk pemrosesan Humanizer; pengguna dapat membangunnya kembali dengan sampel baru. Versi historis profil yang telah terbentuk tetap mengikuti kebijakan retensi dan pemulihan yang berlaku.
-- Pengguna dapat mengunduh setiap entri sampel secara individual. Pengguna juga dapat mengunduh seluruh sampel dalam satu profil sekaligus sebagai satu file ZIP. Format unduhan individual mengikuti format sumber asli jika tersedia; sampel yang berasal dari teks yang ditempel langsung dapat diunduh sebagai TXT. Pengunduhan tidak mengubah atau menghapus sampel yang tersimpan.
-- Jika evaluasi ulang menunjukkan kumpulan sampel tidak lagi memadai, profil tetap terlihat di daftar pengelolaan tetapi tidak dapat dipilih untuk pemrosesan Humanizer sampai sampel tambahan membuatnya memenuhi kriteria kembali.
-- Jika evaluasi ulang gagal karena gangguan teknis, sistem menandai evaluasi sebagai gagal dan meminta pengguna mencoba kembali. Kegagalan teknis tidak boleh dianggap sebagai bukti bahwa sampel tidak memadai atau otomatis menonaktifkan profil.
-- Selama evaluasi ulang belum menghasilkan keputusan bahwa sampel tidak memadai, versi profil sebelumnya tetap dapat digunakan untuk pemrosesan Humanizer, termasuk ketika evaluasi gagal secara teknis. Jika evaluasi berhasil dan menyatakan sampel tidak memadai, profil tidak lagi dapat dipilih.
-- Setiap kali sampel pada profil yang sudah terbentuk ditambah, diedit, atau dihapus, sistem mengevaluasi ulang seluruh kumpulan sampel terkini. Evaluasi menggunakan snapshot yang konsisten. Jika sampel berubah selama evaluasi, hasil snapshot lama tidak boleh digunakan untuk membangun atau mengaktifkan versi profil; sistem mengambil snapshot terbaru dan mengevaluasinya kembali sesuai batas pengulangan otomatis. Jika evaluasi menyatakan kumpulan tidak memadai, sistem memberi peringatan dan meminta sampel tambahan; profil tetap terlihat dalam pengelolaan tetapi tidak dapat dipilih untuk pemrosesan. Versi aktif sebelumnya tetap dapat digunakan selama evaluasi belum menghasilkan keputusan valid bahwa sampel tidak memadai, termasuk ketika evaluasi gagal secara teknis. Pembentukan versi baru, aktivasi, retensi, dan pemulihan mengikuti ketentuan versioning yang telah disepakati.
-- Pengguna dapat memiliki satu profil utama dan beberapa profil tambahan.
-- Hasil menampilkan teks asli, hasil revisi, dan bagian yang berubah.
-- Pengguna dapat melihat hasil di website, menyalin seluruh atau sebagian hasil, dan mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen sumber (TXT, DOCX, atau PDF). Kesamaan tata letak dan struktur dengan dokumen sumber tidak dijamin secara identik. Jika input hanya berupa teks manual tanpa dokumen unggahan, pengguna dapat memilih format unduhan TXT, DOCX, atau PDF. Hasil tidak disimpan otomatis ke riwayat akun; pengguna harus memilih secara eksplisit jika ingin menyimpannya. Jika pengguna memilih menyimpan, teks asli dan hasil revisi lengkap disimpan bersama sebagai satu entri riwayat. Jika tidak, kedua teks tidak dimasukkan ke riwayat.
+| Area | Cakupan | Requirement |
+|---|---|---|
+| Gaya dan profil personal | Gaya bawaan, sampel, kecukupan, versioning, pemulihan, privasi, dan akses audit | FR-HUM-01–36 |
+| Input dan hasil | Dokumen, editor, pemrosesan, hasil revisi, dan penyimpanan riwayat | FR-HUM-37–86 |
+| Batasan dan pemulihan sampel | Batas input, validasi sampel, Recently Deleted, dan pemulihan massal | FR-HUM-14, FR-HUM-87–88 |
+| Siklus hidup data | Penghapusan sampel, aktivitas akun, penghapusan akun, ekspor data, dan riwayat ekspor | FR-HUM-89–117 |
 
-## 3. Prinsip kualitas
+Catatan: FR-HUM-14 ditempatkan sesuai urutan ID di SRS dan menetapkan batas minimum setiap sampel. Peta ini tidak mengubah isi maupun status requirement.
 
-1. **Meaning preservation:** jangan mengubah klaim, angka, nama, kutipan, atau hubungan sebab-akibat tanpa izin.
-2. **Factual integrity:** jangan menambahkan fakta atau referensi yang tidak ada.
-3. **Traceability:** pengguna dapat membandingkan teks asli dan hasil revisi serta melihat perubahan.
-4. **User control:** pengguna memutuskan menerima, mengubah, menyalin, atau menolak hasil.
-5. **Transparency:** jelaskan bahwa hasil adalah saran penyuntingan, bukan jaminan hasil Detector tertentu.
-6. **Privacy by design:** minimalkan pengumpulan dan penyimpanan teks.
+## 3. Konsep profil gaya personal
 
-## 4. Profil gaya personal
+Secara konseptual, siklus profil gaya terdiri dari:
 
-Profil gaya merupakan data terpisah dari dokumen sampel sumber. Pengguna dapat:
-- Membuat profil dari sampel tulisan.
-- Memilih menyimpan profil.
-- Menetapkan satu profil utama.
-- Membuat profil tambahan.
-- Menggunakan kembali, memperbarui, dan menghapus profil.
+1. Pengguna menyediakan satu atau lebih sampel tulisan.
+2. Sistem memeriksa validitas sampel dan menilai kecukupan kumpulan sampel.
+3. Jika memadai, sistem membangun representasi profil gaya.
+4. Perubahan sampel pada profil yang telah terbentuk memicu evaluasi ulang sesuai aturan versioning.
+5. Profil yang tersedia dapat dipilih oleh pemilik akun untuk pekerjaan Humanizer.
 
-Profil bersifat privat dan hanya dapat dilihat, dikelola, serta digunakan oleh pemilik akun. Pengguna lain tidak dapat menggunakan profil tersebut dan fitur berbagi profil antar akun tidak termasuk MVP. Pengguna yang menginginkan gaya serupa perlu membentuk profil sendiri dari sampel tulisannya.
+Profil gaya merupakan data yang berbeda dari dokumen sumber. Profil bersifat privat dan dikelola pemilik akun. Algoritma profiling, bentuk representasi internal, serta kebijakan retensi sampel mentah belum ditentukan secara teknis.
 
-Pengguna dapat menghapus profil tambahan kapan saja. Profil utama hanya dapat dihapus setelah profil utama pengganti ditetapkan. Sistem meminta konfirmasi sebelum penghapusan. Setelah dikonfirmasi, profil beserta seluruh versi historisnya dihapus secara permanen dari sistem yang dapat diakses pengguna. Riwayat pekerjaan Humanizer yang pernah menggunakan profil tersebut tetap dipertahankan. Penghapusan dari backup mengikuti mekanisme dan jangka waktu retensi yang akan ditetapkan pada desain teknis; penghapusan langsung dari seluruh backup tidak dijanjikan.
+Aturan terperinci mengenai evaluasi, versi aktif/historis, pemulihan, konkurensi, dan audit berada di SRS serta Decision Log, bukan diulang di sini.
 
-Pengguna dapat menetapkan profil mana pun yang tersedia sebagai profil utama kapan saja. Profil utama sebelumnya otomatis menjadi profil tambahan. Pergantian berlaku untuk pekerjaan Humanizer berikutnya dan tidak mengubah pekerjaan yang sedang berjalan. Pergantian status utama tidak membuat versi historis baru karena isi profil tidak berubah.
+## 4. Dokumen dan ekstraksi
 
-Daftar gaya bawaan, bentuk representasi profil, dan mekanisme profiling belum diputuskan. Setiap akun dapat memiliki maksimal 6 profil gaya personal: 1 profil utama dan maksimal 5 profil tambahan. Jika batas tercapai, pengguna harus menghapus profil tambahan sebelum membuat profil baru. Profil utama tidak dapat dihapus sebelum profil utama pengganti ditetapkan.
+Format sumber yang direncanakan adalah TXT, DOCX, dan PDF. Sistem mengekstrak teks untuk ditinjau pengguna sebelum pemrosesan. Struktur dokumen yang kompleks tidak dijamin dipertahankan secara identik pada hasil keluaran. PDF berbasis gambar dapat memerlukan OCR.
 
-Setelah profil terbentuk, setiap perubahan atau penghapusan entri sampel memicu evaluasi ulang terhadap seluruh kumpulan sampel yang tersisa. Jika kumpulan tidak lagi memadai, pengguna diberi peringatan dan diminta menambahkan sampel. Kriteria kecukupan, status profil selama evaluasi, serta strategi versi atau pemulihan profil sebelumnya masih perlu dirancang. Profil yang tidak memadai tetap ditampilkan pada daftar pengelolaan, tetapi tidak tersedia sebagai pilihan untuk pemrosesan Humanizer sampai sampel tambahan membuatnya memadai kembali. Jika evaluasi ulang gagal karena gangguan teknis, sistem harus membedakan kegagalan evaluasi dari hasil penilaian kecukupan, meminta pengguna mencoba kembali, dan tidak otomatis menonaktifkan profil. Versi profil sebelumnya tetap dapat digunakan sampai evaluasi yang berhasil menyatakan sampel tidak memadai. Jika evaluasi berhasil dan menyatakan kumpulan sampel memadai, sistem membangun versi profil baru secara terpisah. Versi aktif sebelumnya tidak diganti selama pembangunan berlangsung. Versi baru diaktifkan hanya setelah pembangunan berhasil; jika pembangunan gagal, versi aktif sebelumnya tetap digunakan dan kegagalan pembaruan dicatat. Dengan demikian, aktivasi versi baru dilakukan secara atomik dari sudut pandang penggunaan profil. Setelah versi baru berhasil diaktifkan, versi sebelumnya disimpan selama 30 hari dan dapat dipulihkan pengguna dalam periode tersebut. Pemulihan hanya mengaktifkan kembali artefak profil versi lama dan tidak mengembalikan kumpulan sampel sumber ke kondisi sebelumnya. Versi lama yang melewati masa retensi dapat dihapus otomatis. Setiap pemulihan yang berhasil juga menonaktifkan versi yang sebelumnya aktif dan menyimpannya sebagai versi historis selama 30 hari sejak waktu pemulihan. Aturan masa retensi berlaku per versi yang baru dinonaktifkan; pemulihan satu versi tidak memperpanjang masa retensi versi historis lainnya. Setiap profil dibatasi maksimal 5 versi historis yang belum kedaluwarsa. Versi historis yang masih berada dalam masa retensi tidak boleh dihapus otomatis hanya untuk menyediakan slot. Jika seluruh slot terisi, aktivasi versi baru atau pemulihan versi historis ditunda sampai tersedia slot; versi aktif tetap digunakan selama penundaan. Jika permintaan pemulihan versi historis dan pembaruan profil sama-sama tertunda, pemulihan mendapat prioritas lebih tinggi dan pembaruan menunggu. Pengguna dapat membatalkan permintaan pergantian versi selama masih tertunda dan belum mulai dieksekusi. Untuk setiap profil, hanya satu permintaan pemulihan versi yang boleh aktif pada satu waktu, baik saat tertunda maupun sedang dieksekusi. Permintaan tambahan ditolak sementara sampai permintaan sebelumnya diselesaikan atau dibatalkan. Jika permintaan masih tertunda, pengguna dapat membatalkannya sebelum mengajukan pemulihan ke versi lain. Jika pemulihan gagal, versi aktif tetap tidak berubah dan pengguna dapat mengajukan percobaan baru setelah permintaan gagal diselesaikan. Ketika pemulihan mulai dieksekusi, pembaruan atau pembentukan ulang profil ditahan sampai pemulihan selesai. Baik pemulihan berhasil maupun gagal, pembaruan yang tertahan dilanjutkan menggunakan kumpulan sampel terbaru dan menjalani evaluasi ulang. Sistem tidak boleh memakai hasil evaluasi lama untuk membangun atau mengaktifkan versi baru. Jika pemulihan gagal, versi aktif tidak berubah dan kegagalan tersebut tidak menghalangi pembaruan profil. Pengguna tetap dapat menghapus sampel selama pembaruan tertahan. Ketika pembaruan dilanjutkan, sistem menggunakan kumpulan sampel yang tersisa setelah penghapusan dan mengevaluasi ulang seluruh kumpulan tersebut. Sampel yang sudah dihapus tidak boleh digunakan untuk membangun versi profil baru. Pengguna juga tetap dapat menambah dan mengedit sampel selama penahanan. Setelah pemulihan selesai, sistem mengambil kondisi terbaru seluruh sampel, termasuk semua penambahan, pengeditan, dan penghapusan, lalu menjalankan evaluasi ulang untuk proses pembaruan yang dilanjutkan. Sistem tidak perlu menjalankan evaluasi terpisah untuk setiap perubahan yang terjadi selama penahanan. Setiap evaluasi harus menggunakan snapshot kumpulan sampel yang tidak berubah selama proses evaluasi. Jika sampel berubah ketika evaluasi berlangsung, hasil dari snapshot lama tidak boleh digunakan untuk membangun atau mengaktifkan versi profil. Sistem harus mengambil snapshot terbaru dan mengevaluasinya kembali sebelum melanjutkan pembentukan versi profil. Pengulangan evaluasi otomatis harus dibatasi ketika perubahan sampel berulang membuat snapshot menjadi usang. Jika batas pengulangan tercapai, sistem menghentikan percobaan otomatis, mempertahankan seluruh perubahan sampel pengguna, dan menandai pembaruan profil sebagai tertunda karena perubahan berulang. Pengguna perlu memulai ulang evaluasi secara manual. Nilai batas ditentukan pada tahap desain teknis berdasarkan estimasi biaya dan durasi evaluasi. Saat pengguna memulai ulang evaluasi secara manual, seluruh proses evaluasi dimulai kembali dari awal menggunakan snapshot terbaru kumpulan sampel. Hasil antara dari evaluasi sebelumnya tidak digunakan kembali untuk melanjutkan proses baru. Untuk evaluasi yang dihentikan atau menjadi usang, sistem hanya menyimpan metadata riwayat yang diperlukan untuk audit, seperti waktu, status, alasan penghentian, dan identitas versi snapshot. Metadata ini hanya tersedia secara internal untuk audit sistem dan tidak ditampilkan sebagai riwayat kepada pengguna. Akses dibatasi berdasarkan peran: Super Admin dapat mengaksesnya sesuai kebutuhan audit; Admin hanya dapat mengaksesnya secara terbatas untuk operasional atau investigasi yang ditugaskan; Moderator tidak memiliki akses. Setiap akses wajib mencatat identitas petugas, alasan, waktu, dan tindakan. Izin metadata audit terpisah dari izin mengakses teks asli pengguna. Admin yang belum memiliki penugasan investigasi harus mengajukan permintaan akses metadata audit dengan alasan dan nomor tiket investigasi. Super Admin menyetujui atau menolak permintaan. Masa berlaku maksimal 24 jam dihitung sejak waktu Super Admin menyetujui permintaan, bukan sejak akses pertama digunakan. Persetujuan tidak diperpanjang otomatis dan dapat dicabut Super Admin kapan saja. Saat akses disetujui, Admin menerima notifikasi status aktif, cakupan izin, dan waktu kedaluwarsa. Admin menerima pengingat satu jam sebelum kedaluwarsa. Saat akses kedaluwarsa, sistem mencabut akses otomatis dan memberi tahu Admin. Jika akses dicabut lebih awal, Admin segera diberi tahu beserta alasan pencabutan. Super Admin menerima catatan bahwa akses telah kedaluwarsa atau dicabut. Notifikasi dikirim melalui notifikasi dalam aplikasi dan email. Jika salah satu kanal gagal, sistem tetap mencoba kanal lainnya. Kegagalan pengiriman notifikasi tidak boleh menghambat atau menunda pencabutan akses otomatis. Jika kedua kanal gagal, status kedaluwarsa atau pencabutan tetap berlaku. Kegagalan kedua kanal dicatat dalam audit log dan ditampilkan kepada Super Admin sebagai indikator kegagalan notifikasi. Sistem dapat melakukan retry terbatas, tetapi kegagalan pengiriman maupun retry tidak boleh mengaktifkan kembali izin atau menunda pencabutan. Untuk setiap kanal secara independen, sistem melakukan satu percobaan pengiriman awal dan maksimal tiga percobaan ulang otomatis jika kanal tersebut gagal, dengan jeda lima menit antarpercobaan ulang pada kanal yang sama. Dengan demikian, setiap kanal memiliki maksimal empat percobaan total. Jika satu kanal berhasil, kanal tersebut tidak dikirim ulang; retry hanya dilakukan pada kanal yang gagal. Jika seluruh percobaan pada suatu kanal gagal, status pengiriman kanal tersebut menjadi `Delivery Failed`. Jika seluruh percobaan gagal, status pengiriman menjadi `Delivery Failed`. Super Admin dapat melihat detail kegagalan dan memicu pengiriman ulang secara manual. Pengiriman ulang manual hanya mengirim notifikasi dan tidak mengubah status akses. Notifikasi tidak memperpanjang masa akses. Setelah kedaluwarsa atau dicabut, Admin harus mengajukan permintaan baru jika akses masih diperlukan. Akses hanya berlaku untuk cakupan investigasi yang disetujui. Metadata dihapus otomatis setelah 30 hari, kecuali masih diperlukan untuk investigasi insiden atau kewajiban keamanan. Hasil analisis antara yang tidak berlaku tidak disimpan sebagai hasil yang dapat digunakan kembali dan tidak boleh dipakai dalam evaluasi atau pembentukan profil berikutnya.
+Dokumen sumber tidak boleh ditimpa. Library ekstraksi, OCR, dan generator dokumen belum dipilih. Batas dan perilaku produk yang sudah disepakati tetap mengacu pada FR-HUM di SRS.
 
-Retensi sampel mentah setelah profiling juga belum diputuskan secara teknis. Jangan menganggap penyimpanan profil berarti penyimpanan dokumen sumber. Default minimisasi data perlu dipertahankan dan kebijakan retensi harus dinyatakan secara eksplisit.
+## 5. Alur pengguna konseptual
 
-## 5. Dokumen dan ekstraksi
+1. Pengguna login dan membuka Humanizer.
+2. Pengguna mengetik/menempel teks atau mengunggah satu dokumen sesuai batas yang ditetapkan di SRS.
+3. Jika dokumen diunggah, sistem mengekstrak teks dan menampilkannya di editor.
+4. Pengguna meninjau serta mengedit isi editor.
+5. Pengguna memilih gaya bawaan atau profil gaya personal yang tersedia.
+6. Sistem memvalidasi input, profil, dan kapasitas yang relevan.
+7. Sistem memproses teks, lalu menampilkan teks sumber, hasil revisi, dan perubahan.
+8. Pengguna meninjau hasil, menyalin atau mengunduhnya, dan dapat memilih secara eksplisit apakah hasil disimpan ke riwayat.
 
-TXT, DOCX, dan PDF diterima sebagai sumber teks maupun sampel gaya. Sistem mengekstrak teks dan mempertahankan struktur yang didukung. Tabel, header/footer, catatan kaki, kolom, dan teks di gambar tidak dijamin utuh. PDF hasil pemindaian memerlukan OCR. Sistem perlu memberi tahu pengguna jika ekstraksi tidak lengkap.
+Alur ini merupakan ringkasan. Validasi, batas, perilaku navigasi, penyimpanan, dan kondisi gagal yang wajib dipenuhi dijabarkan di SRS.
 
-Dokumen sumber tidak boleh ditimpa. Hasil ekspor dapat berupa TXT, DOCX, atau PDF, tetapi tidak dijanjikan identik dengan tata letak dokumen sumber.
+## 6. Siklus hidup sampel, akun, dan ekspor
 
-## 6. Alur pengguna konseptual
+Siklus penghapusan sampel, pemulihan, aktivitas akun, penghapusan akun, ekspor data pribadi, serta pengelolaan riwayat ekspor telah memiliki requirement tersendiri pada FR-HUM-89 sampai FR-HUM-117. Ketentuan ini mencakup pemisahan data yang terlihat oleh pengguna dari audit log internal, retensi, sinkronisasi lintas perangkat, autentikasi ulang, dan penanganan kegagalan.
 
-Prasyarat: pengguna harus login sebelum dapat memulai Humanizer atau mengelola profil gaya. Jika Guest mencoba membuka alur Humanizer, sistem meminta login/registrasi sebelum teks diproses.
+Dokumen ini sengaja tidak menyalin ulang aturan tersebut. Untuk perilaku yang mengikat, gunakan SRS dan telusuri keputusan terkait melalui Decision Log.
 
-1. Pengguna dapat mengetik/menempelkan teks langsung, atau mengunggah maksimal satu dokumen.
-   Jika dokumen sudah diunggah dan pengguna memilih dokumen pengganti, sistem meminta konfirmasi. Pembatalan mempertahankan isi editor; konfirmasi mengganti seluruh isi editor dengan hasil ekstraksi dokumen baru.
-2. Jika satu dokumen diunggah, sistem mengekstrak teks dan menempatkannya di editor. Pengguna dapat meninjau, mengedit teks hasil ekstraksi, dan menambahkan teks manual. Beberapa dokumen unggahan tidak dapat digabungkan dalam satu proses. Seluruh konten editor menjadi satu input untuk proses tersebut.
-   Pengguna bebas mengubah atau menghapus bagian mana pun di editor, termasuk teks hasil ekstraksi dan teks tambahan manual. Isi editor saat pemrosesan dimulai menjadi input final.
-3. Sistem menampilkan atau menjelaskan masalah ekstraksi jika ada.
-4. Pengguna memilih gaya bawaan atau profil gaya personal.
-5. Sistem memvalidasi kecukupan input dan kapasitas.
-6. Sistem memproses teks, langsung atau melalui antrean.
-7. Sistem menampilkan teks yang dikirim untuk diproses, hasil revisi, dan penyorotan perubahan.
-8. Pengguna meninjau hasil, menyalin seluruh atau sebagian teks, atau mengunduh hasil. Jika proses menggunakan dokumen unggahan, format unduhan mengikuti format dokumen tersebut (TXT, DOCX, atau PDF). Tata letak dan struktur kompleks tidak dijamin identik dengan dokumen sumber.
-   Jika input berasal dari teks manual tanpa dokumen unggahan, pengguna memilih format unduhan TXT, DOCX, atau PDF.
-   Hasil tidak masuk ke riwayat akun secara otomatis. Pengguna dapat memilih secara eksplisit untuk menyimpan hasil tertentu. Saat penyimpanan dipilih, sistem menyimpan teks asli yang diproses dan hasil revisi lengkap sebagai satu entri. Pengguna dapat menghapus entri riwayat yang tersimpan. Penghapusan dilakukan setelah konfirmasi dan menghapus entri secara permanen dari riwayat yang dapat diakses melalui aplikasi. Kapasitas riwayat dibatasi berdasarkan total ukuran data yang disimpan per akun, bukan jumlah entri. Nilai kuota, satuan ukuran, dan metode penghitungan ditentukan pada tahap desain teknis; perilaku produk ketika kapasitas penuh mengikuti ketentuan yang telah disepakati dalam SRS. Detail penanganan kuota penuh, indikator kapasitas, dan peringatan dijelaskan pada subbagian 6.1.
+## 7. Prinsip kualitas dan risiko
 
-### 6.1 Kapasitas dan peringatan riwayat
+Prinsip kualitas:
+- **Meaning preservation:** jangan mengubah klaim, angka, nama, kutipan, atau hubungan sebab-akibat tanpa dasar.
+- **Factual integrity:** jangan menambahkan fakta atau referensi yang tidak ada pada sumber.
+- **Traceability:** pengguna dapat membandingkan teks asli dan hasil revisi.
+- **User control:** pengguna memutuskan menerima, mengubah, menyalin, menyimpan, atau menolak hasil.
+- **Transparency:** hasil adalah saran penyuntingan, bukan jaminan hasil Detector tertentu.
+- **Privacy by design:** minimalkan pengumpulan dan penyimpanan teks.
 
-- Indikator pemakaian kapasitas ditampilkan pada halaman Riwayat Humanizer, bukan dashboard utama.
-- Ketika pemakaian mencapai 90% kuota akun, sistem menampilkan banner di bagian atas halaman Riwayat Humanizer. Banner tidak memblokir interaksi.
-- Peringatan dikirim melalui notifikasi dalam aplikasi saja, bukan email. Peringatan berikutnya hanya dipicu lagi setelah pemakaian turun di bawah 90% lalu mencapai atau melewati 90% kembali.
-- Pengguna dapat menutup banner. Jika kapasitas masih minimal 90%, banner tampil kembali ketika halaman Riwayat Humanizer dibuka lagi.
-- Jika kuota penuh, hasil Humanizer yang telah selesai tetap ditampilkan dan dapat disalin atau diunduh, tetapi tidak disimpan ke riwayat. Sistem tidak menghapus entri lama secara otomatis.
-- Setelah pengguna menghapus entri lama sehingga kapasitas mencukupi, pengguna dapat mencoba menyimpan hasil yang sama dari tampilan hasil yang masih tersedia tanpa memproses ulang.
-- Hasil yang belum tersimpan hanya tersedia selama tampilan hasil pada sesi aktif masih terbuka. Jika halaman/browser ditutup atau pengguna mengonfirmasi navigasi keluar, hasil yang belum tersimpan hilang. Sistem tidak menyimpan hasil tersebut sementara di server atau browser untuk pemulihan setelah sesi berakhir.
-
-### 6.2 Perlindungan hasil yang belum tersimpan saat navigasi
-
-- Jika hasil belum tersimpan, tindakan yang meninggalkan halaman hasil memerlukan konfirmasi sejauh tindakan tersebut dapat dikendalikan oleh aplikasi dan diizinkan browser. Cakupannya meliputi navigasi internal, Back, refresh, dan navigasi/penutupan halaman lainnya. Browser dapat membatasi dialog khusus untuk refresh, penutupan tab, atau navigasi eksternal; implementasi tidak boleh menjanjikan perilaku yang tidak didukung.
-- Untuk navigasi internal, tampilkan modal konfirmasi di tengah layar dengan dua tindakan: **Tetap di halaman** dan **Lanjutkan**. Modal hanya muncul jika hasil benar-benar belum tersimpan. Jika hasil telah tersimpan, navigasi berlangsung tanpa konfirmasi.
-- Memilih **Tetap di halaman**, tombol **X**, atau tombol **Escape** menutup modal dan membatalkan navigasi. Klik backdrop tidak menutup modal dan tidak mengubah status navigasi. Memilih **Lanjutkan** langsung meneruskan navigasi tanpa jeda atau konfirmasi kedua, lalu hasil yang belum tersimpan hilang.
-- Ketika navigasi dibatalkan, seluruh kondisi halaman harus dipertahankan tanpa perubahan, termasuk posisi scroll, teks, hasil pemrosesan, dan kondisi editor. Setelah modal ditutup karena pembatalan, fokus dikembalikan ke elemen pemicu; jika elemen tersebut tidak tersedia, gunakan fallback fokus yang aksesibel.
-- Modal menerapkan focus trap. Fokus awal diarahkan ke **Tetap di halaman**. Tombol Tab dan Shift+Tab bergerak melingkar hanya di antara elemen interaktif modal, dan elemen di belakang modal tidak menerima fokus keyboard selama modal aktif.
-- Modal mendukung screen reader dengan semantik **alert dialog**. Saat modal dibuka, screen reader mengumumkan judul dan seluruh pesan peringatan secara otomatis satu kali. Isi pesan tidak diumumkan ulang secara otomatis setiap kali fokus berpindah; pengguna tetap dapat membacanya kembali melalui navigasi screen reader manual.
-- Pengumuman awal harus dikoordinasikan dengan fokus awal pada **Tetap di halaman** agar tidak terjadi pengumuman ganda, terpotong, atau saling bertabrakan. Semantik, pengelolaan fokus, dan kombinasi browser/screen reader perlu diuji pada tahap implementasi dan pengujian aksesibilitas.
-
-## 7. Risiko dan pengujian
-
-- Perubahan makna atau fakta.
-- Hilangnya terminologi teknis.
-- Perubahan kutipan atau data numerik.
+Risiko utama yang perlu diuji:
+- Perubahan makna, fakta, angka, nama, kutipan, atau terminologi.
 - Hasil terlalu generik dan menghilangkan karakter penulis.
-- Hasil tidak alami atau tidak sesuai konteks bahasa.
-- Prompt injection yang tertanam di dalam teks input.
-- Kebocoran teks pengguna ke layanan pihak ketiga.
-- Profil gaya yang dibentuk dari sampel terlalu sedikit atau tidak konsisten.
-- Inkonsistensi gaya akibat chunking.
+- Bahasa campuran dan konteks yang tidak konsisten.
+- Prompt injection di dalam input.
+- Kebocoran teks ke layanan pihak ketiga.
+- Sampel profil tidak representatif.
+- Inkonsistensi akibat pemrosesan teks panjang/chunking.
+- Kegagalan ekstraksi atau hilangnya struktur dokumen.
 
-Pengujian perlu mencakup teks akademik, formal, informal, teknis, teks dengan angka/nama, Bahasa Indonesia, Bahasa Inggris, dan code-switching. Dataset evaluasi Humanizer harus dipisahkan dari data training/evaluasi Detector agar transformasi tidak merusak validitas pengukuran Detector.
+Pengujian kualitas perlu mencakup teks akademik, formal, informal, teknis, teks dengan angka/nama, Bahasa Indonesia, Bahasa Inggris, dan code-switching. Dataset evaluasi Humanizer harus dipisahkan dari data training/evaluasi Detector agar transformasi tidak merusak validitas pengukuran Detector.
 
 ## 8. Hal yang belum diputuskan
 
-- Provider/model dan biaya.
+Daftar berikut hanya memuat isu yang masih terbuka. Keputusan produk yang sudah disepakati tidak dicantumkan kembali sebagai pekerjaan terbuka.
+
+- Provider/model AI dan estimasi biaya operasional.
 - Daftar final gaya bawaan.
-- Algoritma profiling dan kriteria kecukupan sampel.
-- Bentuk penyimpanan profil dan retensi sampel mentah.
-- Batas karakter AI Text Detector, batas kecukupan total kumpulan sampel profil gaya, batas token internal, ukuran file, dan strategi chunking.
-- Library ekstraksi, OCR, serta generator dokumen.
-- Target kualitas dan protokol evaluasi.
-- Penyimpanan hasil, autentikasi, kuota, dan monetisasi pada tingkat implementasi.
-- Ketika profil gaya dihapus, seluruh sampel dari profil tersebut yang masih berada di Recently Deleted ikut dihapus permanen dan tidak dapat dipulihkan. Sampel harus kembali ke profil asal sehingga tidak dipertahankan setelah profil asal dihapus.
-- Pengguna dapat menghapus satu sampel secara permanen dari Recently Deleted atau mengosongkan seluruh area tersebut. Kedua tindakan memerlukan dialog konfirmasi. Setelah dikonfirmasi, sampel tidak dapat dipulihkan melalui aplikasi dan penghapusan tidak memicu evaluasi ulang profil karena sampel sudah tidak aktif. Kebijakan penghapusan salinan backup ditentukan pada desain teknis.
-- Setiap tindakan Hapus Permanen atau Kosongkan Recently Deleted dicatat dalam audit log. Catatan hanya memuat ID sampel, ID profil asal, ID pengguna pelaku, waktu penghapusan, jenis tindakan, dan status keberhasilan/kegagalan. Isi teks sampel tidak boleh disimpan di audit log. Retensi dan kontrol akses audit log ditetapkan pada desain teknis.
-- Pengguna dapat melihat riwayat aktivitas penghapusan sampelnya sendiri melalui halaman aktivitas akun. Riwayat menampilkan nama sampel, nama profil asal, waktu penghapusan, jenis tindakan, dan status tindakan. Isi teks sampel, ID internal, serta informasi investigasi tidak ditampilkan. Riwayat aktivitas pengguna terpisah dari audit log internal.
-- Riwayat aktivitas penghapusan sampel tersedia bagi pengguna selama 90 hari sejak tindakan, baik penghapusan biasa maupun permanen. Setelah 90 hari, riwayat dihapus otomatis dari halaman aktivitas pengguna. Penghapusan riwayat tidak memengaruhi status sampel atau audit log internal; retensi audit log internal ditetapkan terpisah.
-- Pengguna dapat menghapus satu entri riwayat aktivitas penghapusan atau seluruh riwayat aktivitas penghapusan yang ditampilkan pada akunnya. Kedua tindakan memerlukan dialog konfirmasi. Penghapusan hanya memengaruhi riwayat yang terlihat oleh pengguna; sampel, status pemulihan, dan audit log internal tidak berubah.
-- Penghapusan satu atau seluruh riwayat aktivitas berlaku pada tingkat akun dan tersinkronisasi ke seluruh perangkat serta sesi akun. Halaman aktivitas yang masih terbuka di perangkat lain diperbarui tanpa penghapusan ulang. Jika sinkronisasi real-time gagal sementara, tampilan diperbarui saat perangkat kembali terhubung atau data dimuat ulang.
-- Ketika penghapusan akun berhasil diselesaikan, seluruh riwayat aktivitas penghapusan milik akun ikut dihapus dari halaman aktivitas dan tidak dapat dipulihkan melalui aplikasi. Sampel, profil gaya, dan data lain mengikuti kebijakan penghapusan akun. Audit log internal tidak otomatis ikut terhapus dan mengikuti kebijakan retensi tersendiri.
-- Pengguna dapat membatalkan permintaan penghapusan akun selama statusnya masih tertunda dan penghapusan permanen belum dimulai. Jika pembatalan berhasil, akun kembali aktif seperti sebelumnya dan sampel, profil gaya, riwayat aktivitas, serta data terkait tetap dipertahankan. Setelah penghapusan permanen dimulai, pembatalan tidak diperbolehkan. Status penghapusan dan batas waktu pembatalan harus ditampilkan dengan jelas. Durasi masa penundaan belum ditentukan.
-- Masa penundaan penghapusan akun ditetapkan 30 hari sejak pengguna mengonfirmasi permintaan. Selama masa ini akun berstatus Pending Deletion dan pengguna dapat membatalkan permintaan. Setelah 30 hari, sistem memulai penghapusan permanen secara otomatis; pembatalan tidak tersedia setelah proses permanen dimulai. Kegagalan teknis tidak boleh dilaporkan sebagai penghapusan berhasil sebelum benar-benar selesai.
-- Selama status Pending Deletion, pengguna tetap dapat login, melihat pemberitahuan penghapusan, membatalkan permintaan, dan mengunduh data pribadi. Penggunaan Humanizer dan AI Text Detector, pembuatan/perubahan profil gaya, pembelian/penggunaan kredit, serta pengaturan akun lainnya diblokir. Hanya pengaturan yang diperlukan untuk membatalkan penghapusan yang dikecualikan. Mekanisme ekspor data pribadi perlu ditentukan lebih lanjut.
-- Pengguna dapat mengunduh data pribadi dalam satu paket ZIP, termasuk selama masa Pending Deletion. Paket mencakup account-data.json (informasi akun dan pengaturan), humanizer-profiles.json (profil gaya dan metadata sampel), direktori samples/ (teks sampel yang masih tersedia dan dapat diakses), humanizer-history.json, detector-history.json, serta credit-transactions.json. Password, token autentikasi, audit log internal, dan data rahasia sistem tidak disertakan. File sampel menggunakan format asli jika tersedia atau TXT jika tidak. Sistem memberi tahu pengguna jika ada data yang gagal dimasukkan ke paket ekspor.
-- Pembuatan ekspor data pribadi dibatasi maksimal 3 permintaan per akun dalam jendela bergulir 24 jam. Batas berlaku pada permintaan pembuatan paket, bukan jumlah unduhan. Pengguna dapat mengunduh ulang paket yang sama selama masih tersedia tanpa menghabiskan kuota baru. Kegagalan akibat gangguan sistem tidak mengurangi kuota. Sistem menampilkan sisa kuota; setelah batas tercapai, pengguna menunggu sampai jendela 24 jam bergulir.
-- Paket ekspor data pribadi tersedia selama 24 jam sejak berhasil dibuat dan dapat diunduh ulang berkali-kali selama masa berlaku. Setelah 24 jam, paket otomatis dihapus dari penyimpanan unduhan sementara. Paket kedaluwarsa harus dibuat ulang melalui permintaan ekspor baru dan menggunakan kuota ekspor. Sistem menampilkan waktu kedaluwarsa. Unduhan yang sudah berjalan ketika paket kedaluwarsa tidak langsung diputus dan dapat diselesaikan.
-- Pengguna dapat membatalkan pembuatan ekspor data pribadi selama status masih `Processing` melalui tombol **Batalkan Ekspor** dan konfirmasi. Jika pembatalan berhasil, sistem menghentikan pembuatan paket dan tidak mengurangi kuota permintaan ekspor. Jika proses telah selesai sebelum pembatalan diproses, pembatalan ditolak dan paket tetap tersedia sesuai masa berlakunya. Sistem menampilkan status akhir `Cancelled` atau `Completed` sesuai hasil proses.
-- Setiap akun hanya boleh memiliki satu proses ekspor data pribadi berstatus `Processing` pada satu waktu. Pengguna harus menunggu proses selesai atau membatalkannya sebelum mengajukan permintaan baru. Paket yang sudah selesai tidak dianggap sebagai proses aktif sehingga ekspor baru tetap dapat dibuat selama kuota tersedia. Jika pengguna mencoba membuat permintaan baru ketika proses lain masih berjalan, sistem menolak permintaan dan menampilkan status ekspor aktif tersebut.
-- Hasil proses ekspor diberitahukan melalui notifikasi dalam aplikasi dan email. Jika ekspor berhasil, pengguna diberi tahu bahwa paket siap diunduh. Jika ekspor gagal, notifikasi menyertakan alasan yang aman untuk ditampilkan. Jika pengguna membatalkan ekspor, sistem hanya menampilkan konfirmasi dalam aplikasi tanpa mengirim email. Kegagalan pengiriman salah satu kanal tidak mengubah status ekspor. Jika kedua kanal gagal, status ekspor tetap berlaku dan kegagalan notifikasi dicatat untuk pemantauan internal.
-- Sediakan halaman Riwayat Ekspor Data yang hanya dapat diakses pemilik akun dan tersinkron lintas perangkat. Setiap entri menampilkan tanggal/waktu permintaan, status `Processing`, `Completed`, `Failed`, atau `Cancelled`, waktu kedaluwarsa jika berhasil, tombol unduh selama paket masih tersedia, alasan kegagalan jika gagal, serta informasi pembatalan berhasil jika dibatalkan. Riwayat hanya memuat metadata permintaan, tidak menampilkan isi data yang diekspor, dan tetap tersedia setelah paket ZIP kedaluwarsa.
-- Riwayat permintaan ekspor data pribadi disimpan selama 90 hari sejak permintaan dibuat untuk semua status, termasuk `Completed`, `Failed`, dan `Cancelled`. Setelah 90 hari, riwayat dihapus otomatis dari halaman pengguna dan tidak dapat dipulihkan. Penghapusan riwayat tidak memengaruhi paket ekspor yang masih berlaku atau audit log internal.
-- Pengguna dapat menghapus satu entri atau seluruh riwayat ekspor secara manual, dan kedua tindakan memerlukan konfirmasi. Penghapusan hanya memengaruhi riwayat yang terlihat oleh pengguna. Tindakan ini tidak membatalkan ekspor yang sedang berjalan, tidak menghapus paket ZIP yang masih berlaku, dan tidak menghapus audit log internal yang mengikuti kebijakan retensi terpisah.
-- Penghapusan satu entri maupun seluruh riwayat ekspor berlaku untuk seluruh akun dan disinkronkan lintas perangkat serta sesi. Halaman yang sedang terbuka diperbarui otomatis. Jika sinkronisasi gagal sementara karena koneksi, tampilan diperbarui ketika koneksi pulih atau data dimuat ulang. Sinkronisasi tidak memengaruhi proses ekspor, paket ZIP, maupun audit log internal.
-- Setiap tindakan penghapusan riwayat ekspor dicatat dalam audit log internal dengan ID akun pelaku, waktu penghapusan, jenis tindakan (satu entri atau seluruh riwayat), jumlah entri yang dihapus, dan status berhasil/gagal. Audit log tidak menyimpan isi data pribadi yang diekspor dan tidak dapat dilihat atau diubah pengguna. Akses serta retensinya mengikuti kebijakan internal terpisah.
-- Setelah penghapusan satu entri atau seluruh riwayat ekspor berhasil, sistem menampilkan konfirmasi dalam aplikasi. Jika penghapusan gagal, sistem menampilkan pesan kegagalan dan opsi mencoba kembali. Notifikasi penghapusan hanya ditampilkan dalam aplikasi, tanpa email, dan tidak menampilkan isi audit log internal.
-- Penghapusan satu entri riwayat ekspor hanya memerlukan konfirmasi biasa. Penghapusan seluruh riwayat mewajibkan autentikasi ulang menggunakan password akun atau mekanisme yang sesuai dengan penyedia identitas untuk akun login Google/metode tanpa password. Jika autentikasi ulang gagal atau dibatalkan, penghapusan tidak dijalankan. Setelah autentikasi berhasil, pengguna tetap harus memberikan konfirmasi akhir.
-- Hasil autentikasi ulang untuk penghapusan seluruh riwayat ekspor berlaku selama 5 menit untuk memberikan konfirmasi akhir. Jika waktu habis, pengguna harus mengautentikasi ulang. Meninggalkan halaman atau membatalkan proses membuat hasil autentikasi tidak dapat digunakan kembali. Memuat ulang halaman tidak memperpanjang masa berlaku. Konfirmasi akhir dalam masa berlaku langsung memulai penghapusan seluruh riwayat.
-- Pengguna dapat membatalkan penghapusan seluruh riwayat ekspor sebelum konfirmasi akhir. Setelah konfirmasi akhir diberikan, penghapusan langsung dimulai dan tidak dapat dibatalkan pengguna. Jika penghapusan gagal sebagian atau seluruhnya, sistem mencatat hasil aktual dan menampilkan status yang sesuai. Entri yang berhasil dihapus tidak dapat dipulihkan melalui aplikasi.
-- Penghapusan seluruh riwayat ekspor harus atomik (all-or-nothing). Seluruh entri diproses sebagai satu transaksi. Jika satu atau lebih entri gagal dihapus, seluruh transaksi dibatalkan dan semua entri tetap tersedia. Sistem menampilkan pesan kegagalan dan opsi mencoba kembali. Audit log mencatat kegagalan transaksi tanpa menyimpan isi data pribadi.
-- Setiap percobaan ulang penghapusan seluruh riwayat ekspor setelah kegagalan wajib melalui autentikasi ulang dan konfirmasi akhir yang baru. Sistem memulai transaksi penghapusan baru hanya setelah kedua langkah berhasil. Jika percobaan ulang gagal, seluruh entri tetap tersedia dan pengguna dapat kembali mencoba melalui alur autentikasi ulang serta konfirmasi baru.
-- Jumlah percobaan ulang penghapusan seluruh riwayat ekspor tidak dibatasi secara tetap. Sistem menerapkan rate limiting dengan jeda minimal 30 detik antara percobaan penghapusan yang gagal, dihitung per akun dan berlaku lintas perangkat. Setiap percobaan tetap memerlukan autentikasi ulang dan konfirmasi akhir baru. Ketika pembatasan aktif, sistem menampilkan waktu pengguna dapat mencoba kembali.
+- Algoritma profiling serta kriteria adaptif untuk menilai kecukupan keseluruhan kumpulan sampel.
+- Bentuk representasi profil dan retensi sampel mentah setelah profiling.
+- Batas token internal, strategi chunking, penjagaan konteks, dan batas provider.
+- Library ekstraksi dokumen, OCR, serta generator TXT/DOCX/PDF.
+- Target kualitas, metrik, protokol evaluasi, dan dataset benchmark Humanizer.
+- Nilai kuota penyimpanan riwayat, satuan penghitungan, dan detail teknis penghitungan kapasitas.
+- Kebijakan teknis retensi cache, file sementara, backup, serta data yang diproses penyedia AI.
+- Detail teknis autentikasi, otorisasi, sinkronisasi, antrean, retry, dan observability.
+- Acceptance criteria terukur untuk setiap requirement Humanizer.
+
+Status keputusan produk dan requirement yang sudah disepakati tetap merujuk pada Decision Log dan SRS. Butir di atas belum menjadi keputusan teknis atau persetujuan implementasi.
