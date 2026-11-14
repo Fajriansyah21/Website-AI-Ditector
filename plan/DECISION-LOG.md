@@ -1679,3 +1679,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Audit log internal tidak terpengaruh dan mengikuti kebijakan retensi tersendiri.
   - Detail pencatatan audit atas tindakan penghapusan riwayat ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-129: Sinkronisasi penghapusan riwayat ekspor lintas perangkat
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Penghapusan satu entri riwayat ekspor pada satu perangkat berlaku untuk seluruh akun dan tercermin pada perangkat lain. Penghapusan seluruh riwayat juga berlaku untuk semua perangkat dan sesi akun. Halaman riwayat yang sedang terbuka diperbarui otomatis tanpa pengguna perlu mengulangi penghapusan. Jika sinkronisasi gagal sementara karena masalah koneksi, tampilan diperbarui ketika koneksi pulih atau data dimuat ulang. Sinkronisasi penghapusan riwayat tidak memengaruhi proses ekspor, paket ZIP, maupun audit log internal.
+- **Alasan:** Riwayat ekspor merupakan data tingkat akun, bukan data lokal perangkat. Sinkronisasi mencegah entri yang telah dihapus tetap terlihat pada perangkat atau sesi lain.
+- **Alternatif yang dipertimbangkan:** Penghapusan hanya berlaku pada perangkat tempat tindakan dilakukan; pengguna harus menyegarkan setiap perangkat secara manual.
+- **Dampak:**
+  - Penghapusan satu entri dan seluruh riwayat berlaku lintas perangkat dan sesi akun.
+  - Halaman terbuka diperbarui otomatis.
+  - Jika sinkronisasi sementara gagal, pembaruan dilakukan setelah koneksi pulih atau data dimuat ulang.
+  - Proses ekspor, paket ZIP, dan audit log internal tidak terpengaruh.
+  - Detail mekanisme sinkronisasi dan konsistensi data ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
