@@ -1863,4 +1863,17 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Pembatalan atau proses yang belum lengkap tidak mengubah profil utama maupun data profil.
   - Penghapusan profil utama terakhir tetap mengikuti DEC-139.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+## DEC-141: Penghapusan profil tidak membatalkan pekerjaan Humanizer yang sudah mulai diproses
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jika profil gaya dihapus ketika pekerjaan Humanizer untuk dokumen pengguna telah mulai diproses menggunakan profil tersebut, pekerjaan yang sudah dimulai tetap berjalan berdasarkan snapshot versi profil yang digunakan saat pemrosesan dimulai. Penghapusan profil tidak membatalkan pekerjaan pemrosesan dokumen tersebut. Setelah penghapusan berhasil, profil tidak dapat digunakan untuk memulai pekerjaan Humanizer baru. Keputusan ini memperjelas ruang lingkup DEC-138: pembatalan pada DEC-138 berlaku untuk pekerjaan pengelolaan profil (evaluasi sampel, pembentukan/pembaruan versi, dan pemulihan versi historis), bukan pekerjaan Humanizer untuk dokumen pengguna yang telah dimulai.
+- **Alasan:** Menghindari gangguan pada pekerjaan pengguna yang sudah berjalan, sekaligus menjaga agar penghapusan profil langsung mencegah penggunaan profil untuk pekerjaan baru dan tidak mengizinkan pekerjaan pengelolaan profil yang terlambat menghidupkan kembali profil.
+- **Alternatif yang dipertimbangkan:** Membatalkan seluruh pekerjaan Humanizer yang sedang memakai profil ketika profil dihapus; membiarkan pekerjaan berjalan tetapi mengambil versi profil terbaru saat proses selesai.
+- **Dampak:**
+  - Pekerjaan Humanizer yang sudah dimulai tetap berjalan dengan snapshot versi profil saat mulai.
+  - Pekerjaan baru tidak dapat menggunakan profil setelah penghapusan berhasil.
+  - Pekerjaan pengelolaan profil tetap dibatalkan atau hasilnya ditolak sesuai DEC-138.
+  - Titik teknis yang menandai pekerjaan sebagai sudah mulai dan cara mempertahankan snapshot ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
 
