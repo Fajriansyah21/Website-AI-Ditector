@@ -1788,3 +1788,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Transaksi baru hanya dimulai setelah kedua langkah tersebut berhasil.
   - Jika percobaan ulang gagal, semua entri tetap tersedia.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-137: Rate limiting percobaan ulang penghapusan seluruh riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jumlah percobaan ulang penghapusan seluruh riwayat ekspor tidak dibatasi secara tetap. Sistem wajib menerapkan jeda minimal 30 detik antara percobaan penghapusan yang gagal. Pembatasan diterapkan per akun, bukan per perangkat. Setiap percobaan tetap wajib melalui autentikasi ulang dan konfirmasi akhir yang baru. Jika batas sementara tercapai, sistem menampilkan waktu ketika pengguna dapat mencoba kembali.
+- **Alasan:** Batas jumlah percobaan permanen dapat menghambat pengguna yang mengalami kegagalan teknis berulang, sedangkan jeda percobaan membantu mencegah permintaan berulang yang membebani layanan.
+- **Alternatif yang dipertimbangkan:** Membatasi jumlah percobaan ulang secara tetap; tidak menerapkan pembatasan.
+- **Dampak:**
+  - Pengguna dapat mencoba kembali tanpa batas jumlah percobaan.
+  - Jeda minimal 30 detik berlaku setelah percobaan penghapusan gagal.
+  - Rate limiting dihitung per akun dan berlaku lintas perangkat.
+  - Autentikasi ulang serta konfirmasi akhir baru tetap diwajibkan untuk setiap percobaan.
+  - Sistem menampilkan waktu percobaan berikutnya ketika pembatasan aktif.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
