@@ -1825,3 +1825,16 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Autentikasi ulang serta konfirmasi akhir baru tetap diwajibkan untuk setiap percobaan.
   - Sistem menampilkan waktu percobaan berikutnya ketika pembatasan aktif.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-138: Penghapusan profil membatalkan pekerjaan profil yang masih berjalan
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Ketika pengguna menghapus profil gaya personal, seluruh pekerjaan terkait profil tersebut yang masih tertunda atau sedang berjalan wajib dibatalkan, termasuk evaluasi sampel, pembentukan/pembaruan versi, dan pemulihan versi historis. Jika pekerjaan yang sedang berjalan tidak dapat dihentikan seketika, hasilnya wajib ditolak dan tidak boleh mengaktifkan kembali, membuat ulang, atau memulihkan profil yang telah dihapus. Penghapusan profil tetap menjadi keadaan akhir bagi seluruh pekerjaan terkait.
+- **Alasan:** Mencegah pekerjaan asinkron yang selesai terlambat mengubah keadaan data setelah profil dihapus atau membuat profil muncul kembali tanpa tindakan pengguna.
+- **Alternatif yang dipertimbangkan:** Membiarkan pekerjaan selesai lalu menghapus hasilnya; hanya membatalkan pekerjaan yang belum mulai berjalan.
+- **Dampak:**
+  - Pekerjaan tertunda dan berjalan yang terkait profil harus dihentikan atau dibuat tidak berlaku.
+  - Hasil pekerjaan usang tidak boleh mengaktifkan atau membuat ulang profil.
+  - Mekanisme pembatalan, penanda penghapusan, dan pemeriksaan hasil usang ditentukan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+
