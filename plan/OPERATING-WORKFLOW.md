@@ -12,6 +12,8 @@ Berlaku untuk: riset dataset, eksperimen model, desain produk, dan implementasi 
 5. Hasil pengujian: fixture, log, laporan, dan artefak yang dapat diulang.
 6. Percakapan: konteks kerja, bukan pengganti dokumentasi yang sudah disahkan.
 
+[Requirements Elicitation Status](REQUIREMENTS-ELICITATION-STATUS.md) adalah ringkasan navigasi dan kemajuan, bukan sumber requirement atau keputusan. Gunakan SRS dan Decision Log untuk isi yang mengikat.
+
 Jika dua dokumen bertentangan, jangan memilih diam-diam. Catat konflik, tentukan dokumen yang lebih baru/berwenang, lalu minta keputusan jika dampaknya substantif.
 
 ## B. Siklus setiap task
