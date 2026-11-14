@@ -10,11 +10,11 @@
 
 Berdasarkan pemeriksaan dokumen GitHub pada 2026-11-14:
 
-- **143** catatan keputusan, DEC-001 sampai DEC-143.
-- **141** keputusan berstatus `Accepted`.
+- **144** catatan keputusan, DEC-001 sampai DEC-144.
+- **142** keputusan berstatus `Accepted`.
 - **2** keputusan berstatus `Superseded`, yaitu DEC-018 dan DEC-019. Keduanya dipertahankan sebagai jejak historis, bukan aturan aktif.
-- **194** baris kebutuhan fungsional pada SRS.
-- **123** requirement Humanizer, FR-HUM-01 sampai FR-HUM-123.
+- **195** baris kebutuhan fungsional pada SRS.
+- **124** requirement Humanizer, FR-HUM-01 sampai FR-HUM-124.
 - **11** requirement Detector, FR-DET-01 sampai FR-DET-11.
 
 Rincian jumlah requirement lain dalam SRS:
@@ -24,13 +24,13 @@ Rincian jumlah requirement lain dalam SRS:
 | Umum (FR-GEN) | 9 |
 | File dan ekstraksi (FR-FILE) | 9 |
 | AI Text Detector (FR-DET) | 11 |
-| AI Humanizer (FR-HUM) | 123 |
+| AI Humanizer (FR-HUM) | 124 |
 | Akun (FR-ACC) | 15 |
 | Kredit (FR-CRED) | 16 |
 | Dukungan (FR-SUP) | 3 |
 | Notifikasi (FR-NOT) | 3 |
 | Operasional (FR-OPS) | 5 |
-| **Total** | **194** |
+| **Total** | **195** |
 
 Jumlah baris requirement bukan ukuran kelengkapan produk. Requirement masih perlu ditinjau, diuji konsistensinya, dan diberi acceptance criteria.
 
@@ -236,6 +236,9 @@ Topik: titik awal penghitungan jeda minimal 30 detik untuk rate limiting percoba
 Jangan menambahkan aturan tentang sumber waktu atau titik awal hitung mundur ke SRS/Decision Log sebelum pengguna menyetujuinya.
 
 ## 6. Keputusan terbaru dari audit Humanizer
+
+- **DEC-144:** Pengguna dapat membatalkan permintaan penghapusan sebelum tahap eksekusi; data tetap utuh dan pekerjaan yang dibatalkan tidak dilanjutkan otomatis.
+- Requirement normatif: **FR-HUM-124**.
 
 - **DEC-143:** Kegagalan penghapusan harus dijelaskan kepada pengguna; percobaan berikutnya diajukan sebagai permintaan baru.
 - Requirement normatif: **FR-HUM-123**.
