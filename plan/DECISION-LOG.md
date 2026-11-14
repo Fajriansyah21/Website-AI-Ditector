@@ -1707,3 +1707,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Akses dan retensi mengikuti kebijakan internal terpisah.
   - Detail skema, kontrol akses, dan retensi ditetapkan pada desain teknis/kebijakan audit.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-131: Notifikasi setelah penghapusan riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Setelah penghapusan satu entri riwayat ekspor berhasil, sistem menampilkan konfirmasi dalam aplikasi bahwa entri berhasil dihapus. Setelah penghapusan seluruh riwayat berhasil, sistem menampilkan konfirmasi bahwa seluruh riwayat berhasil dihapus. Jika penghapusan gagal, sistem menampilkan pesan kegagalan dan menyediakan opsi untuk mencoba kembali. Notifikasi hanya ditampilkan dalam aplikasi; email tidak dikirim. Notifikasi tidak menampilkan isi audit log internal.
+- **Alasan:** Pengguna perlu memperoleh kepastian atas hasil tindakan penghapusan yang dilakukan langsung di aplikasi. Email tidak diperlukan untuk tindakan pengelolaan riwayat ini.
+- **Alternatif yang dipertimbangkan:** Tidak menampilkan konfirmasi; mengirim email untuk setiap tindakan penghapusan; menampilkan detail audit log kepada pengguna.
+- **Dampak:**
+  - Penghapusan satu entri dan seluruh riwayat menghasilkan konfirmasi dalam aplikasi jika berhasil.
+  - Kegagalan menghasilkan pesan dan opsi mencoba kembali.
+  - Tidak ada email untuk tindakan penghapusan riwayat.
+  - Notifikasi tidak membocorkan isi audit log internal.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
