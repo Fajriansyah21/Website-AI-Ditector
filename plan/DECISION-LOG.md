@@ -1720,3 +1720,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Tidak ada email untuk tindakan penghapusan riwayat.
   - Notifikasi tidak membocorkan isi audit log internal.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-132: Autentikasi ulang sebelum menghapus seluruh riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Penghapusan satu entri riwayat ekspor hanya memerlukan konfirmasi biasa. Sebelum menghapus seluruh riwayat ekspor, pengguna wajib melakukan autentikasi ulang dengan memasukkan password akun. Untuk akun yang menggunakan login Google atau metode autentikasi tanpa password, sistem menggunakan mekanisme autentikasi ulang yang sesuai dengan penyedia identitas. Jika autentikasi ulang gagal atau dibatalkan, penghapusan tidak dijalankan. Setelah autentikasi ulang berhasil, pengguna tetap harus memberikan konfirmasi akhir penghapusan.
+- **Alasan:** Penghapusan seluruh riwayat merupakan tindakan massal yang tidak dapat dipulihkan melalui aplikasi. Autentikasi ulang memberikan perlindungan tambahan ketika perangkat digunakan orang lain.
+- **Alternatif yang dipertimbangkan:** Hanya menggunakan konfirmasi biasa; mewajibkan autentikasi ulang untuk setiap penghapusan, termasuk satu entri.
+- **Dampak:**
+  - Penghapusan satu entri tetap menggunakan konfirmasi biasa.
+  - Penghapusan seluruh riwayat memerlukan autentikasi ulang sesuai metode login akun dan konfirmasi akhir.
+  - Kegagalan atau pembatalan autentikasi ulang menghentikan proses penghapusan.
+  - Detail integrasi autentikasi ulang ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
