@@ -70,7 +70,7 @@ Secara garis besar, area terbuka meliputi:
 - Framework, backend, database, storage, queue, hosting, dan deployment.
 - Provider/model AI serta biaya.
 - Payment gateway, produk iklan, harga kredit, formula biaya, dan aturan reward.
-- Batas input Detector, token internal, serta batas kapasitas dan file yang belum ditetapkan.
+- Batas maksimum input Detector, token internal, batas ukuran file non-sampel profil gaya, dan kapasitas sistem yang belum ditetapkan.
 - Daftar final gaya bawaan dan algoritma profiling.
 - Target kualitas, performa, retensi teknis, backup, dan SLA operasional.
 
