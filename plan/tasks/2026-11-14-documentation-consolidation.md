@@ -56,5 +56,6 @@
 - AI Humanizer Plan dipusatkan pada tujuan, alur konseptual, kualitas, risiko, dan isu terbuka; requirement normatif dirujuk ke SRS.
 - Product Overview, AI Text Detector Plan, Active Roadmap, dan Operating Workflow diperbarui untuk rujukan/status yang konsisten.
 - Placeholder `plan/contohPlan.md` dan `.skill/contohSkill.md` dihapus. Skill aktif tetap berada di `.agents/skills/`.
+- Pembelajaran workflow dicatat sebagai OBS-001 di `plan/OBSERVATION-LOG.md` agar sesi elisitasi memeriksa cakupan sebelum memperdalam satu subtopik terlalu jauh.
 - Verifikasi ulang GitHub: 188 baris FR pada SRS; 117 FR-HUM unik dan berurutan; semua FR-HUM berada di bagian 4.4; 137 DEC dengan 135 Accepted dan 2 Superseded; file indeks dan status tersedia.
 - Verifikasi ini memeriksa struktur dan isi dokumentasi, bukan menguji aplikasi atau menyatakan requirement siap diimplementasikan.
