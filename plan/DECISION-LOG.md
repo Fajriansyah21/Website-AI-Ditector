@@ -1637,3 +1637,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Kegagalan kedua kanal dicatat untuk pemantauan internal.
   - Detail retry, isi pesan, dan kebijakan pencatatan ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-126: Riwayat permintaan ekspor data pribadi
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Lexora menyediakan halaman Riwayat Ekspor Data yang dapat dilihat oleh pemilik akun dan tersinkron lintas perangkat melalui akun yang sama. Setiap entri menampilkan tanggal dan waktu permintaan, status (`Processing`, `Completed`, `Failed`, atau `Cancelled`), waktu kedaluwarsa paket jika ekspor berhasil, tombol unduh selama paket masih tersedia, alasan kegagalan jika ekspor gagal, serta informasi bahwa pembatalan berhasil jika ekspor dibatalkan. Riwayat tidak menampilkan isi data pribadi yang diekspor. Entri riwayat tetap tersedia setelah paket ZIP kedaluwarsa. Hanya pemilik akun yang dapat melihat riwayat ekspornya.
+- **Alasan:** Riwayat membantu pengguna mengetahui hasil dan status permintaan sebelumnya, serta mengurangi permintaan ekspor berulang akibat ketidakjelasan proses.
+- **Alternatif yang dipertimbangkan:** Tidak menyediakan riwayat; hanya menampilkan status ekspor aktif atau paket yang masih tersedia.
+- **Dampak:**
+  - Tersedia halaman Riwayat Ekspor Data.
+  - Riwayat menampilkan metadata permintaan dan status, bukan isi data yang diekspor.
+  - Riwayat tersinkron lintas perangkat dan hanya dapat diakses pemilik akun.
+  - Entri riwayat tetap tersedia setelah paket kedaluwarsa.
+  - Detail masa retensi riwayat dan pengelolaannya perlu ditentukan pada kebutuhan lanjutan atau desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
