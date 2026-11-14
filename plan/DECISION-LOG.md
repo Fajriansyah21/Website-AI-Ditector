@@ -1622,3 +1622,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Permintaan kedua saat masih ada proses aktif ditolak dan status proses aktif ditampilkan.
   - Detail penguncian konkurensi dan konsistensi status ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-13.
+## DEC-125: Notifikasi hasil proses ekspor data pribadi
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Ketika ekspor berhasil, sistem mengirim notifikasi dalam aplikasi dan email kepada pengguna bahwa paket siap diunduh. Ketika ekspor gagal, sistem mengirim notifikasi melalui kedua kanal tersebut beserta alasan kegagalan yang aman untuk ditampilkan. Jika ekspor dibatalkan oleh pengguna, sistem menampilkan konfirmasi pembatalan dalam aplikasi dan tidak mengirim email. Kegagalan pengiriman pada salah satu kanal tidak mengubah status ekspor. Jika kedua kanal gagal, status ekspor tetap berlaku dan kegagalan notifikasi dicatat untuk pemantauan internal.
+- **Alasan:** Pengguna mungkin tidak sedang membuka Lexora ketika proses ekspor selesai. Email melengkapi notifikasi dalam aplikasi agar pengguna mengetahui hasil proses, sementara status tetap dapat dilihat di aplikasi.
+- **Alternatif yang dipertimbangkan:** Hanya notifikasi dalam aplikasi; hanya email; mengirim email juga untuk pembatalan.
+- **Dampak:**
+  - Keberhasilan dan kegagalan ekspor diberitahukan melalui notifikasi dalam aplikasi dan email.
+  - Alasan kegagalan yang ditampilkan harus aman dan tidak membocorkan detail internal atau data sensitif.
+  - Pembatalan hanya menghasilkan konfirmasi dalam aplikasi tanpa email.
+  - Kegagalan pengiriman notifikasi tidak mengubah status ekspor.
+  - Kegagalan kedua kanal dicatat untuk pemantauan internal.
+  - Detail retry, isi pesan, dan kebijakan pencatatan ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
