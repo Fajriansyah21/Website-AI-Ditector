@@ -1,6 +1,6 @@
 # Lexora Active Roadmap
 
-Terakhir diperbarui: 2026-11-12
+Terakhir diperbarui: 2026-11-14
 
 ## Cakupan produk MVP
 
@@ -12,28 +12,22 @@ DOCX Metadata Cleaner ditunda ke fase setelah MVP. Arsitektur produk tetap modul
 
 ## Status analisis kebutuhan sistem
 
-Dokumen SYSTEM-REQUIREMENTS-ANALYSIS.md telah dibuat berdasarkan sesi elisitasi kebutuhan pemilik proyek tanggal 2026-11-12.
+SRS tetap berstatus **Draft** dan elisitasi kebutuhan masih berlangsung. Rekap terperinci berada di [Requirements Elicitation Status](REQUIREMENTS-ELICITATION-STATUS.md).
 
-**Status: Draft terdokumentasi, menunggu review pemilik proyek dan validasi teknis.**
+Posisi dokumentasi pada 2026-11-14:
+- 137 catatan keputusan: 135 Accepted dan 2 Superseded (DEC-018 dan DEC-019).
+- 188 baris kebutuhan fungsional dalam SRS, termasuk 117 requirement Humanizer dan 11 requirement Detector.
+- Humanizer telah dibahas mendalam, tetapi masih memiliki isu terbuka dan belum memiliki acceptance criteria lengkap.
+- Detector baru memiliki fondasi kebutuhan; elisitasi belum menyeluruh.
+- Akun, dashboard, kredit, pembayaran, dukungan, Admin, dan operasional sudah memiliki fondasi, tetapi detail kebutuhan belum lengkap.
 
-Dokumen tersebut mencatat kebutuhan untuk:
-- Target utama mahasiswa dan pelajar, dengan penggunaan akademik dan umum.
-- Detector dan Humanizer dengan prioritas setara, dapat digunakan mandiri atau terhubung dengan persetujuan pengguna.
-- Bahasa Indonesia dan Inggris, serta dukungan terbatas untuk teks campuran.
-- Input TXT, DOCX, PDF dan keluaran TXT, DOCX, PDF.
-- Kategori Detector HUMAN, AI, MIXED, UNCERTAIN dan batas klaim hasil.
-- Humanizer dengan gaya bawaan dan profil gaya personal.
-- Guest/login, dashboard, riwayat opsional, dan kebijakan retensi.
-- Sistem kredit, reward iklan, pembelian, dan refund.
-- Admin Panel, RBAC, audit, dukungan tiket, notifikasi, antrean, dan pemulihan.
-
-Dokumen ini belum mengesahkan pilihan framework, database, provider AI, payment gateway, produk iklan, deployment, target uptime, angka batas input, harga, atau rumus kredit final.
+SRS belum siap menjadi dasar System Design. Elisitasi seluruh modul, audit konflik/dependensi, dan acceptance criteria harus diselesaikan terlebih dahulu. Ringkasan status bukan pengganti SRS atau Decision Log.
 
 ## Tahap perencanaan sistem MVP
 
 | Urutan | Pekerjaan | Status | Kriteria keluaran |
 |---:|---|---|---|
-| 1 | Analisis kebutuhan sistem | Draft documented; review pending | SRS ditinjau, konflik/ketidakjelasan ditutup, requirement diberi acceptance criteria |
+| 1 | Elisitasi kebutuhan, audit konsistensi, dan acceptance criteria | In progress; Humanizer mendalam, Detector dan modul pendukung belum lengkap | Seluruh area kebutuhan ditinjau, konflik/ketidakjelasan ditutup, setiap requirement memiliki acceptance criteria |
 | 2 | User flow Detector dan Humanizer | Planned | Alur normal, validasi, persetujuan handoff, pembatalan, dan kegagalan |
 | 3 | Modular architecture | Planned | Batas modul, tanggung jawab, dependensi, dan kontrak komunikasi |
 | 4 | System flowchart | Planned | Diagram jalur sukses, gagal, retry, refund, dan antrean |
@@ -82,7 +76,9 @@ Tahap ini hanya dapat ditandai **Verified** jika:
 
 ## Langkah berikutnya
 
-1. Minta pemilik proyek meninjau SYSTEM-REQUIREMENTS-ANALYSIS.md.
-2. Catat koreksi atau keputusan tambahan tanpa menghapus keputusan sebelumnya.
-3. Setelah review kebutuhan, susun user flow Detector dan Humanizer.
-4. Pertahankan jalur uji prosedur sintetis dataset sesuai urutan dan gerbang yang sudah ditetapkan.
+1. Lanjutkan elisitasi pada gap Humanizer yang benar-benar belum dibahas; lihat Requirements Elicitation Status.
+2. Lengkapi elisitasi AI Text Detector.
+3. Lengkapi akun, dashboard, kredit, transaksi, pembayaran, Admin, dukungan, dan operasional.
+4. Audit konflik/dependensi dan susun acceptance criteria sebelum review akhir SRS.
+5. Setelah gerbang kebutuhan terpenuhi dan pemilik proyek meninjau SRS, susun user flow Detector dan Humanizer.
+6. Pertahankan jalur uji prosedur sintetis dataset sesuai urutan dan gerbang yang sudah ditetapkan.
