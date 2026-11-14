@@ -262,6 +262,8 @@ Gaya bawaan seperti akademik, formal, profesional, santai, informatif, dan kreat
 
 | FR-HUM-123 | Jika permintaan penghapusan profil gaya personal gagal secara teknis, sistem harus memberi tahu pengguna bahwa penghapusan gagal dan profil beserta versi historis serta sampelnya tetap utuh. Sistem harus menjelaskan bahwa pekerjaan pengelolaan profil yang telah dibatalkan tidak dilanjutkan otomatis dan perlu diajukan ulang. Sistem menyediakan tindakan untuk mencoba penghapusan kembali sebagai permintaan baru, bukan melanjutkan transaksi penghapusan yang gagal. | Disepakati; rincian pesan, status permintaan, dan mekanisme percobaan ulang ditetapkan pada desain UX/teknis |
 
+| FR-HUM-124 | Pengguna dapat membatalkan permintaan penghapusan profil gaya personal sebelum proses penghapusan memasuki tahap eksekusi. Jika dibatalkan, sistem tidak menghapus atau mengubah profil, versi historis, sampel, maupun penetapan profil utama. Pekerjaan pengelolaan profil yang telah dibatalkan ketika permintaan penghapusan diajukan tetap berstatus dibatalkan dan tidak dilanjutkan otomatis; pengguna harus mengajukannya kembali. Sistem harus memastikan tidak ada penghapusan yang tetap berjalan di latar belakang setelah pembatalan diterima. | Disepakati; definisi batas tahap eksekusi dan mekanisme pembatalan ditetapkan pada desain teknis |
+
 ### 4.5 Akun, autentikasi, dashboard, dan riwayat
 
 | ID | Kebutuhan | Status/catatan |
