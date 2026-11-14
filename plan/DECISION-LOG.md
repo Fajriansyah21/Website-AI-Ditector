@@ -1837,4 +1837,17 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Hasil pekerjaan usang tidak boleh mengaktifkan atau membuat ulang profil.
   - Mekanisme pembatalan, penanda penghapusan, dan pemeriksaan hasil usang ditentukan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+## DEC-139: Penghapusan profil gaya utama terakhir tanpa profil pengganti
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jika profil gaya utama merupakan satu-satunya profil gaya yang dimiliki akun, pengguna tetap dapat menghapusnya tanpa harus membuat atau menetapkan profil pengganti. Setelah penghapusan dikonfirmasi dan berhasil, akun tidak lagi memiliki profil gaya personal dan Humanizer kembali menggunakan gaya bawaan yang dipilih pengguna untuk pekerjaan berikutnya. Riwayat pekerjaan Humanizer yang pernah menggunakan profil tersebut tidak ikut dihapus.
+- **Alasan:** Pengguna harus tetap memiliki kendali untuk menghapus data profil personal terakhir. Keberadaan profil personal tidak boleh menjadi prasyarat untuk menggunakan Humanizer karena gaya bawaan tetap tersedia.
+- **Alternatif yang dipertimbangkan:** Mewajibkan pengguna membuat profil pengganti sebelum profil utama terakhir dapat dihapus.
+- **Dampak:**
+  - Profil utama terakhir dapat dihapus setelah konfirmasi.
+  - Akun dapat berada dalam keadaan tanpa profil gaya personal.
+  - Pekerjaan Humanizer berikutnya menggunakan gaya bawaan yang dipilih pengguna.
+  - Aturan penghapusan profil dan pembatalan pekerjaan terkait tetap mengikuti FR-HUM-73 dan FR-HUM-118.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
 
