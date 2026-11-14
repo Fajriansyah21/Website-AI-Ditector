@@ -1762,3 +1762,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Kegagalan sebagian atau seluruhnya harus tercermin dalam status berdasarkan hasil aktual.
   - Entri yang berhasil dihapus tidak dapat dipulihkan melalui aplikasi.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-135: Penghapusan seluruh riwayat ekspor menggunakan transaksi atomik
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Penghapusan seluruh riwayat ekspor harus diproses secara atomik (all-or-nothing). Seluruh entri dihapus sebagai satu kesatuan transaksi. Jika semua berhasil, penghapusan dinyatakan berhasil. Jika satu atau lebih entri gagal dihapus, seluruh transaksi dibatalkan sehingga semua entri tetap tersedia. Sistem menampilkan pesan kegagalan dan menyediakan opsi untuk mencoba kembali. Audit log mencatat kegagalan transaksi tanpa menyimpan isi data pribadi.
+- **Alasan:** Mencegah kondisi riwayat terhapus sebagian yang membingungkan, serta memudahkan kepastian status dan sinkronisasi lintas perangkat.
+- **Alternatif yang dipertimbangkan:** Mengizinkan penghapusan parsial dan melaporkan entri yang gagal.
+- **Dampak:**
+  - Penghapusan seluruh riwayat bersifat all-or-nothing.
+  - Kegagalan satu entri membatalkan seluruh transaksi.
+  - Setelah kegagalan, semua entri tetap tersedia dan pengguna dapat mencoba kembali.
+  - Audit log mencatat kegagalan tanpa menyimpan isi data pribadi.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
