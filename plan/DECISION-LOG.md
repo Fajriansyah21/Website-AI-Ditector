@@ -1693,3 +1693,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Proses ekspor, paket ZIP, dan audit log internal tidak terpengaruh.
   - Detail mekanisme sinkronisasi dan konsistensi data ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-130: Audit log internal untuk penghapusan riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Sistem mencatat metadata setiap tindakan penghapusan riwayat ekspor dalam audit log internal. Metadata mencakup ID akun yang melakukan tindakan, waktu penghapusan, jenis tindakan (menghapus satu entri atau seluruh riwayat), jumlah entri yang dihapus, dan status tindakan (berhasil atau gagal). Audit log tidak menyimpan isi data pribadi yang diekspor. Pengguna tidak dapat melihat atau mengubah audit log internal. Akses dan retensi audit log mengikuti kebijakan internal yang terpisah.
+- **Alasan:** Catatan metadata mendukung investigasi penyalahgunaan atau sengketa atas tindakan penghapusan tanpa menyimpan isi data pribadi pengguna.
+- **Alternatif yang dipertimbangkan:** Tidak mencatat penghapusan riwayat; mencatat hanya penghapusan yang berhasil; menampilkan audit log kepada pengguna.
+- **Dampak:**
+  - Setiap upaya penghapusan riwayat ekspor dicatat dengan metadata yang ditentukan.
+  - Isi data pribadi yang diekspor tidak boleh disimpan dalam audit log.
+  - Audit log internal tidak dapat dilihat atau diubah oleh pengguna.
+  - Akses dan retensi mengikuti kebijakan internal terpisah.
+  - Detail skema, kontrol akses, dan retensi ditetapkan pada desain teknis/kebijakan audit.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
