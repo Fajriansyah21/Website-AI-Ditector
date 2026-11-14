@@ -1877,3 +1877,16 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Titik teknis yang menandai pekerjaan sebagai sudah mulai dan cara mempertahankan snapshot ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
 
+## DEC-142: Kegagalan penghapusan profil harus mempertahankan data secara utuh
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jika penghapusan profil gaya personal gagal secara teknis, profil dan seluruh data terkaitnya harus tetap utuh serta tersedia seperti sebelum proses penghapusan dimulai. Sistem tidak boleh menghasilkan penghapusan parsial pada data profil, versi historis, atau sampel. Pekerjaan pengelolaan profil yang telah dibatalkan karena permintaan penghapusan tidak dilanjutkan otomatis setelah kegagalan; pengguna harus mengajukannya kembali setelah status profil dipastikan normal.
+- **Alasan:** Kegagalan penghapusan tidak boleh membuat keadaan data setengah terhapus atau memulihkan pekerjaan lama secara tidak terduga. Pengguna perlu mengetahui bahwa profil kembali berada pada kondisi normal sebelum mengajukan pekerjaan pengelolaan profil.
+- **Alternatif yang dipertimbangkan:** Melanjutkan penghapusan sebagian data; melanjutkan otomatis pekerjaan pengelolaan profil yang sebelumnya dibatalkan.
+- **Dampak:**
+  - Kegagalan penghapusan mempertahankan profil, versi historis, dan sampel tanpa perubahan parsial.
+  - Pekerjaan pengelolaan profil yang telah dibatalkan tetap berstatus batal dan harus diajukan ulang oleh pengguna.
+  - Mekanisme transaksi atomik dan pemulihan kegagalan ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+
