@@ -9,7 +9,8 @@
 
 Dokumen ini menjelaskan arah fitur, alur konseptual, risiko kualitas, dan pekerjaan yang masih terbuka. Dokumen ini **bukan salinan kedua dari requirement**.
 
-- Requirement normatif Humanizer berada di [System Requirements Analysis, bagian 4.4](SYSTEM-REQUIREMENTS-ANALYSIS.md#44-ai-humanizer), dengan ID FR-HUM-01 sampai FR-HUM-117.
+- Requirement normatif Humanizer berada di [System Requirements Analysis, bagian 4.4](SYSTEM-REQUIREMENTS-ANALYSIS.md#44-ai-humanizer), dengan ID FR-HUM-01 sampai FR-HUM-121.
+- Penghapusan profil membedakan pekerjaan pengelolaan profil dari pekerjaan pemrosesan dokumen: pekerjaan pengelolaan profil yang terkait dibatalkan/ditolak, sedangkan pekerjaan dokumen yang sudah mulai berjalan menyelesaikan proses memakai snapshot profil saat mulai. Rincian normatif berada pada FR-HUM-118 dan FR-HUM-121.
 - Alasan dan riwayat keputusan berada di [Decision Log](DECISION-LOG.md).
 - Ringkasan kemajuan dan area elisitasi yang belum selesai berada di [Requirements Elicitation Status](REQUIREMENTS-ELICITATION-STATUS.md).
 
