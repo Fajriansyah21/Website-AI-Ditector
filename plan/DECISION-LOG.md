@@ -1651,3 +1651,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Entri riwayat tetap tersedia setelah paket kedaluwarsa.
   - Detail masa retensi riwayat dan pengelolaannya perlu ditentukan pada kebutuhan lanjutan atau desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-127: Masa retensi riwayat ekspor data pribadi
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Riwayat permintaan ekspor data pribadi disimpan selama 90 hari sejak permintaan dibuat. Ketentuan ini berlaku untuk seluruh status ekspor, termasuk `Completed`, `Failed`, dan `Cancelled`. Setelah melewati 90 hari, riwayat dihapus otomatis dari halaman pengguna dan tidak dapat dipulihkan. Penghapusan riwayat tidak memengaruhi paket ekspor yang masih berlaku maupun audit log internal.
+- **Alasan:** Retensi 90 hari memberi pengguna waktu untuk memeriksa permintaan sebelumnya tanpa menyimpan metadata aktivitas terlalu lama.
+- **Alternatif yang dipertimbangkan:** Retensi lebih singkat atau lebih panjang; menyimpan riwayat tanpa batas waktu.
+- **Dampak:**
+  - Semua status riwayat ekspor mengikuti masa retensi 90 hari sejak permintaan dibuat.
+  - Riwayat yang kedaluwarsa dihapus otomatis dari halaman pengguna dan tidak dapat dipulihkan.
+  - Penghapusan riwayat tidak menghapus atau mengubah paket ekspor yang masih berlaku.
+  - Audit log internal mengikuti kebijakan retensi terpisah.
+  - Detail mekanisme penghapusan otomatis ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
