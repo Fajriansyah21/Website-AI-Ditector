@@ -10,11 +10,11 @@
 
 Berdasarkan pemeriksaan dokumen GitHub pada 2026-11-14:
 
-- **140** catatan keputusan, DEC-001 sampai DEC-140.
-- **138** keputusan berstatus `Accepted`.
+- **141** catatan keputusan, DEC-001 sampai DEC-141.
+- **139** keputusan berstatus `Accepted`.
 - **2** keputusan berstatus `Superseded`, yaitu DEC-018 dan DEC-019. Keduanya dipertahankan sebagai jejak historis, bukan aturan aktif.
-- **191** baris kebutuhan fungsional pada SRS.
-- **120** requirement Humanizer, FR-HUM-01 sampai FR-HUM-120.
+- **192** baris kebutuhan fungsional pada SRS.
+- **121** requirement Humanizer, FR-HUM-01 sampai FR-HUM-121.
 - **11** requirement Detector, FR-DET-01 sampai FR-DET-11.
 
 Rincian jumlah requirement lain dalam SRS:
@@ -24,13 +24,13 @@ Rincian jumlah requirement lain dalam SRS:
 | Umum (FR-GEN) | 9 |
 | File dan ekstraksi (FR-FILE) | 9 |
 | AI Text Detector (FR-DET) | 11 |
-| AI Humanizer (FR-HUM) | 120 |
+| AI Humanizer (FR-HUM) | 121 |
 | Akun (FR-ACC) | 15 |
 | Kredit (FR-CRED) | 16 |
 | Dukungan (FR-SUP) | 3 |
 | Notifikasi (FR-NOT) | 3 |
 | Operasional (FR-OPS) | 5 |
-| **Total** | **191** |
+| **Total** | **192** |
 
 Jumlah baris requirement bukan ukuran kelengkapan produk. Requirement masih perlu ditinjau, diuji konsistensinya, dan diberi acceptance criteria.
 
@@ -171,7 +171,7 @@ Pokok pembahasan:
 | Area | Status saat ini | Catatan |
 |---|---|---|
 | Fondasi produk | Sudah dibahas | Cakupan MVP dan aturan dasar sudah tercatat |
-| Humanizer | Elisitasi mendalam, belum ditutup | 120 FR; masih ada isu produk/teknis dan acceptance criteria |
+| Humanizer | Elisitasi mendalam, belum ditutup | 121 FR; masih ada isu produk/teknis dan acceptance criteria |
 | Detector | Baru sebagian | 11 FR; perlu sesi elisitasi lanjutan |
 | Akun dan dashboard | Fondasi tercatat | 15 FR; detail alur dan kondisi tepi perlu dilengkapi |
 | Kredit dan pembayaran | Fondasi tercatat | 16 FR; aturan ekonomi dan operasional belum final |
@@ -236,6 +236,9 @@ Topik: titik awal penghitungan jeda minimal 30 detik untuk rate limiting percoba
 Jangan menambahkan aturan tentang sumber waktu atau titik awal hitung mundur ke SRS/Decision Log sebelum pengguna menyetujuinya.
 
 ## 6. Keputusan terbaru dari audit Humanizer
+
+- **DEC-141:** Penghapusan profil tidak membatalkan pekerjaan Humanizer untuk dokumen yang sudah mulai diproses. Pekerjaan tersebut menyelesaikan proses dengan snapshot profil saat mulai; profil yang dihapus tidak dapat dipakai untuk pekerjaan baru.
+- Requirement normatif: **FR-HUM-121** dan klarifikasi ruang lingkup **FR-HUM-118**.
 
 - **DEC-140:** Jika profil utama dihapus sementara masih ada profil lain, pengguna wajib memilih profil pengganti sebelum konfirmasi. Profil pengganti menjadi profil utama setelah penghapusan berhasil.
 - Requirement normatif: **FR-HUM-120**; dibaca bersama **FR-HUM-73** dan pengecualian profil terakhir pada **FR-HUM-119**.
