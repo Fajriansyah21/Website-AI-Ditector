@@ -1890,3 +1890,17 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Mekanisme transaksi atomik dan pemulihan kegagalan ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
 
+## DEC-143: Pengguna diberi penjelasan dan percobaan penghapusan baru setelah kegagalan
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jika permintaan penghapusan profil gaya personal gagal secara teknis, sistem harus memberi tahu pengguna bahwa profil gagal dihapus dan tetap utuh, termasuk versi historis serta sampelnya. Sistem juga harus menjelaskan bahwa pekerjaan pengelolaan profil yang sebelumnya dibatalkan tidak dilanjutkan otomatis dan harus diajukan ulang. Sistem menyediakan tindakan untuk mencoba penghapusan kembali sebagai permintaan baru, bukan melanjutkan transaksi yang gagal.
+- **Alasan:** Pesan kegagalan harus menjelaskan kondisi data dan konsekuensi terhadap pekerjaan terkait. Percobaan baru menghindari ambiguitas tentang apakah transaksi lama masih berjalan.
+- **Alternatif yang dipertimbangkan:** Menampilkan pesan generik tanpa informasi status data; melanjutkan transaksi penghapusan yang gagal.
+- **Dampak:**
+  - Pengguna mendapat informasi eksplisit mengenai kegagalan dan keutuhan data profil.
+  - Pekerjaan pengelolaan profil yang telah dibatalkan tetap tidak dilanjutkan otomatis.
+  - Penghapusan ulang diajukan sebagai permintaan baru.
+  - Copywriting, status permintaan, dan perilaku teknis percobaan ulang dirinci pada tahap desain UX/teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+
