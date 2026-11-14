@@ -3,9 +3,9 @@
 Status: **Draft rancangan produk dan riset; kebutuhan produk awal telah dielisitasi**  
 Modul: AI Text Detector  
 Bahasa: Bahasa Indonesia dan Bahasa Inggris; code-switching dengan peringatan keterbatasan  
-Terakhir ditinjau: 2026-11-12
+Terakhir ditinjau: 2026-11-14
 
-Rincian kebutuhan produk yang disepakati berada di [System Requirements Analysis](SYSTEM-REQUIREMENTS-ANALYSIS.md), khususnya bagian AI Text Detector. Dokumen ini mempertahankan fokus riset dan metodologi model.
+Rincian kebutuhan produk yang disepakati berada di [System Requirements Analysis](SYSTEM-REQUIREMENTS-ANALYSIS.md), khususnya bagian 4.3 AI Text Detector. Dokumen ini mempertahankan fokus rencana produk tingkat tinggi dan riset metodologi model; ringkasan kemajuan elisitasi berada di [Requirements Elicitation Status](REQUIREMENTS-ELICITATION-STATUS.md).
 
 ## 1. Tujuan
 
