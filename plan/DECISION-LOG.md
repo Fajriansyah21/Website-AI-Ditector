@@ -2,6 +2,29 @@
 
 Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipotesis tidak boleh dicatat sebagai keputusan final.
 
+## Navigasi dan status keputusan
+
+Dokumen ini adalah satu-satunya sumber riwayat keputusan yang disahkan. Rincian kebutuhan normatif berada di [System Requirements Analysis](SYSTEM-REQUIREMENTS-ANALYSIS.md); ringkasan kemajuan elisitasi berada di [Requirements Elicitation Status](REQUIREMENTS-ELICITATION-STATUS.md).
+
+- **Jumlah catatan:** 137 keputusan, DEC-001 sampai DEC-137.
+- **Status:** 135 `Accepted`, 2 `Superseded`.
+- **Keputusan superseded:** DEC-018 dan DEC-019. Keduanya dipertahankan untuk jejak historis, tetapi bukan aturan aktif. Klarifikasi pada DEC-020 menetapkan bahwa batas minimum karakter tidak berlaku untuk input AI Text Detector; batas minimum berlaku pada sampel profil gaya Humanizer.
+
+### Indeks tematik
+
+| Rentang keputusan | Pokok pembahasan |
+|---|---|
+| DEC-001–014 | Fondasi produk, cakupan MVP, aktor, akses Guest, hubungan modul, kredit, Admin, dukungan, dan fitur di luar MVP |
+| DEC-003, DEC-015–019 | Output dan batas klaim Detector, validasi input, metode input, serta klarifikasi batas minimum Detector |
+| DEC-020–051 | Sampel dan profil gaya Humanizer, evaluasi kecukupan, versioning, pemulihan, metadata audit, akses investigasi Admin, dan notifikasi |
+| DEC-052–070 | Input dokumen dan teks manual, editor, keluaran, penyimpanan hasil, kapasitas dan peringatan riwayat Humanizer |
+| DEC-071–086 | Kehilangan hasil yang belum disimpan, konfirmasi navigasi, pengelolaan fokus, dan aksesibilitas modal |
+| DEC-087–105 | Batas input, profil dan sampel, validasi file, ekstraksi, penamaan, serta pengelolaan sampel |
+| DEC-106–118 | Recently Deleted, pemulihan dan penghapusan permanen sampel, audit/riwayat aktivitas, dan penghapusan akun |
+| DEC-119–137 | Akses Pending Deletion, ekspor data pribadi, paket dan riwayat ekspor, penghapusan riwayat, autentikasi ulang, retry, dan rate limiting |
+
+Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kali di bawah dengan urutan ID kronologis. DEC-003 muncul pada dua konteks karena keputusan tersebut juga menjadi fondasi kategori dan klaim Detector.
+
 ## DEC-001: Cakupan modul MVP
 
 - **Tanggal:** 2026-11-12
