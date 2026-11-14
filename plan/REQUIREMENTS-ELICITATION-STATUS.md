@@ -10,11 +10,11 @@
 
 Berdasarkan pemeriksaan dokumen GitHub pada 2026-11-14:
 
-- **141** catatan keputusan, DEC-001 sampai DEC-141.
-- **139** keputusan berstatus `Accepted`.
+- **142** catatan keputusan, DEC-001 sampai DEC-142.
+- **140** keputusan berstatus `Accepted`.
 - **2** keputusan berstatus `Superseded`, yaitu DEC-018 dan DEC-019. Keduanya dipertahankan sebagai jejak historis, bukan aturan aktif.
-- **192** baris kebutuhan fungsional pada SRS.
-- **121** requirement Humanizer, FR-HUM-01 sampai FR-HUM-121.
+- **193** baris kebutuhan fungsional pada SRS.
+- **122** requirement Humanizer, FR-HUM-01 sampai FR-HUM-122.
 - **11** requirement Detector, FR-DET-01 sampai FR-DET-11.
 
 Rincian jumlah requirement lain dalam SRS:
@@ -24,13 +24,13 @@ Rincian jumlah requirement lain dalam SRS:
 | Umum (FR-GEN) | 9 |
 | File dan ekstraksi (FR-FILE) | 9 |
 | AI Text Detector (FR-DET) | 11 |
-| AI Humanizer (FR-HUM) | 121 |
+| AI Humanizer (FR-HUM) | 122 |
 | Akun (FR-ACC) | 15 |
 | Kredit (FR-CRED) | 16 |
 | Dukungan (FR-SUP) | 3 |
 | Notifikasi (FR-NOT) | 3 |
 | Operasional (FR-OPS) | 5 |
-| **Total** | **192** |
+| **Total** | **193** |
 
 Jumlah baris requirement bukan ukuran kelengkapan produk. Requirement masih perlu ditinjau, diuji konsistensinya, dan diberi acceptance criteria.
 
