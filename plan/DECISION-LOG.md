@@ -1850,4 +1850,17 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Pekerjaan Humanizer berikutnya menggunakan gaya bawaan yang dipilih pengguna.
   - Aturan penghapusan profil dan pembatalan pekerjaan terkait tetap mengikuti FR-HUM-73 dan FR-HUM-118.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+## DEC-140: Penggantian profil utama wajib dipilih sebelum menghapus profil utama yang bukan satu-satunya
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jika akun memiliki lebih dari satu profil gaya dan pengguna menghapus profil yang sedang menjadi profil utama, pengguna wajib memilih salah satu profil lain yang tersedia sebagai pengganti sebelum penghapusan dapat dikonfirmasi. Setelah penghapusan berhasil, profil pengganti otomatis menjadi profil utama. Jika pengguna membatalkan proses atau belum memilih profil pengganti, profil utama dan seluruh data profil tetap tidak berubah.
+- **Alasan:** Menjaga agar akun yang masih memiliki profil gaya personal selalu mempunyai satu profil utama, tanpa menghalangi penghapusan profil utama terakhir yang diatur dalam DEC-139.
+- **Alternatif yang dipertimbangkan:** Mengizinkan akun memiliki beberapa profil tambahan tanpa profil utama; menghapus profil utama lalu meminta pengguna menetapkan profil utama pada waktu berikutnya.
+- **Dampak:**
+  - Penghapusan profil utama ketika masih ada profil lain mensyaratkan pemilihan profil pengganti.
+  - Profil pengganti otomatis menjadi profil utama setelah penghapusan berhasil.
+  - Pembatalan atau proses yang belum lengkap tidak mengubah profil utama maupun data profil.
+  - Penghapusan profil utama terakhir tetap mengikuti DEC-139.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
 
