@@ -1,9 +1,9 @@
 # Lexora Product Overview
 
-Status: **Draft berdasarkan elisitasi kebutuhan 2026-11-12**  
+Status: **Draft ringkasan produk**  
 Nama produk: **Lexora**  
 Nama historis: **TextLab**  
-Terakhir ditinjau: 2026-11-12
+Terakhir ditinjau: 2026-11-14
 
 ## 1. Tujuan dokumen
 
@@ -60,17 +60,18 @@ Kedua modul dapat digunakan secara mandiri atau dihubungkan melalui tindakan pen
 - **GitHub**: sumber kebenaran untuk keputusan, rencana, spesifikasi, hasil tes, dan status implementasi.
 - **Google Stitch**: eksplorasi dan rancangan UI/UX.
 - **Google Antigravity**: implementasi, debugging, pengujian, dan review perubahan.
-- **Folder .skill/**: tempat skill referensi yang dipilih dan dikelola pemilik proyek. Skill tidak menggantikan spesifikasi Lexora.
+- **Folder .agents/skills/**: lokasi skill workspace Antigravity. Skill tidak menggantikan spesifikasi Lexora; panduan adopsi berada di [Tooling and Skills](../docs/TOOLING-AND-SKILLS.md).
 
 ## 7. Hal yang belum diputuskan
 
-- Framework, backend, database, storage, queue, hosting, dan deployment.
-- Provider/model AI untuk masing-masing modul.
-- Payment gateway dan produk iklan Google yang sesuai untuk reward.
-- Angka batas karakter/token, ukuran file, dan kapasitas sistem.
-- Harga kredit, paket, formula biaya, batas reward, dan zona waktu bonus.
-- Daftar final gaya bawaan dan mekanisme teknis profil gaya.
-- Target uptime, response time, concurrency, dan SLA dukungan.
-- Kebijakan teknis retensi cache, backup, file sementara, dan penyedia AI.
+Daftar rinci dan status setiap isu dipelihara di [System Requirements Analysis, bagian 8](SYSTEM-REQUIREMENTS-ANALYSIS.md#8-hal-yang-belum-diputuskan), [AI Humanizer Plan](AI-HUMANIZER-PLAN.md#8-hal-yang-belum-diputuskan), dan [AI Text Detector Plan](AI-TEXT-DETECTOR-PLAN.md).
 
-Jangan mengisi hal-hal tersebut dengan asumsi. Gunakan dokumen analisis kebutuhan sebagai dasar tahap System Design dan evaluasi teknologi.
+Secara garis besar, area terbuka meliputi:
+- Framework, backend, database, storage, queue, hosting, dan deployment.
+- Provider/model AI serta biaya.
+- Payment gateway, produk iklan, harga kredit, formula biaya, dan aturan reward.
+- Batas input Detector, token internal, serta batas kapasitas dan file yang belum ditetapkan.
+- Daftar final gaya bawaan dan algoritma profiling.
+- Target kualitas, performa, retensi teknis, backup, dan SLA operasional.
+
+Batas Humanizer yang sudah disepakati, termasuk karakter input, ukuran file sampel, dan kapasitas profil/sampel, tercatat di SRS dan tidak dianggap sebagai isu terbuka lagi. Jangan mengisi isu yang belum diputuskan dengan asumsi.
