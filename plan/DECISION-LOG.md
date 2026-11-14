@@ -1748,3 +1748,17 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Konfirmasi akhir dalam masa berlaku langsung memulai penghapusan seluruh riwayat.
   - Detail pengelolaan token/status autentikasi ulang ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-134: Tidak ada pembatalan setelah konfirmasi akhir penghapusan seluruh riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Pengguna masih dapat membatalkan proses sebelum memberikan konfirmasi akhir. Setelah konfirmasi akhir diberikan, sistem langsung memulai penghapusan seluruh riwayat ekspor dan pengguna tidak dapat membatalkan proses yang sedang berlangsung. Jika penghapusan gagal sebagian atau seluruhnya, sistem mencatat hasil aktual dan menampilkan status yang sesuai. Entri yang berhasil dihapus tidak dapat dipulihkan melalui aplikasi.
+- **Alasan:** Pengguna telah melewati autentikasi ulang dan memberikan konfirmasi akhir secara eksplisit. Menyediakan pembatalan setelah titik tersebut dapat menimbulkan ketidakpastian terhadap konsistensi penghapusan lintas perangkat dan pencatatan audit.
+- **Alternatif yang dipertimbangkan:** Mengizinkan pembatalan selama proses penghapusan; menunda penghapusan sampai masa pembatalan berakhir.
+- **Dampak:**
+  - Pembatalan hanya tersedia sebelum konfirmasi akhir.
+  - Konfirmasi akhir langsung memulai penghapusan seluruh riwayat.
+  - Proses yang sudah dimulai tidak dapat dibatalkan pengguna.
+  - Kegagalan sebagian atau seluruhnya harus tercermin dalam status berdasarkan hasil aktual.
+  - Entri yang berhasil dihapus tidak dapat dipulihkan melalui aplikasi.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
