@@ -1733,3 +1733,18 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Kegagalan atau pembatalan autentikasi ulang menghentikan proses penghapusan.
   - Detail integrasi autentikasi ulang ditetapkan pada desain teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-133: Masa berlaku autentikasi ulang untuk penghapusan seluruh riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Setelah autentikasi ulang berhasil untuk penghapusan seluruh riwayat ekspor, hasil autentikasi berlaku selama 5 menit untuk memberikan konfirmasi akhir. Jika waktu 5 menit habis, pengguna harus melakukan autentikasi ulang. Jika pengguna meninggalkan halaman atau membatalkan proses, hasil autentikasi ulang tidak dapat digunakan kembali. Memuat ulang halaman tidak memperpanjang masa berlaku. Setelah konfirmasi akhir diberikan dalam masa berlaku, sistem langsung memproses penghapusan seluruh riwayat.
+- **Alasan:** Masa berlaku singkat membatasi risiko penyalahgunaan hasil autentikasi ulang oleh orang lain, sementara lima menit memberi waktu bagi pengguna untuk membaca dan memastikan konfirmasi akhir.
+- **Alternatif yang dipertimbangkan:** Masa berlaku lebih panjang; autentikasi ulang berlaku sampai sesi berakhir; autentikasi ulang tanpa batas waktu.
+- **Dampak:**
+  - Hasil autentikasi ulang berlaku 5 menit.
+  - Setelah kedaluwarsa, autentikasi ulang harus diulang.
+  - Meninggalkan halaman atau membatalkan proses membatalkan penggunaan hasil autentikasi ulang.
+  - Memuat ulang halaman tidak mengatur ulang atau memperpanjang masa berlaku.
+  - Konfirmasi akhir dalam masa berlaku langsung memulai penghapusan seluruh riwayat.
+  - Detail pengelolaan token/status autentikasi ulang ditetapkan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
