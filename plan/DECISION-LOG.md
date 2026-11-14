@@ -1775,3 +1775,16 @@ Dokumen ini mencatat keputusan produk dan teknis yang disahkan. Usulan dan hipot
   - Setelah kegagalan, semua entri tetap tersedia dan pengguna dapat mencoba kembali.
   - Audit log mencatat kegagalan tanpa menyimpan isi data pribadi.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
+## DEC-136: Autentikasi ulang dan konfirmasi baru untuk percobaan ulang penghapusan seluruh riwayat ekspor
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Jika transaksi penghapusan seluruh riwayat ekspor gagal dan pengguna memilih mencoba kembali, sistem wajib meminta autentikasi ulang dan konfirmasi akhir yang baru. Setelah keduanya berhasil, sistem memulai transaksi penghapusan baru. Jika percobaan ulang gagal, seluruh entri tetap tersedia dan pengguna dapat kembali mencoba melalui alur autentikasi ulang serta konfirmasi baru.
+- **Alasan:** Otorisasi dan konfirmasi sebelumnya hanya berlaku untuk satu percobaan penghapusan. Percobaan ulang merupakan tindakan penghapusan baru sehingga tidak boleh menggunakan otorisasi lama.
+- **Alternatif yang dipertimbangkan:** Mengizinkan percobaan ulang menggunakan hasil autentikasi dan konfirmasi sebelumnya.
+- **Dampak:**
+  - Setiap percobaan ulang memerlukan autentikasi ulang.
+  - Setiap percobaan ulang memerlukan konfirmasi akhir baru.
+  - Transaksi baru hanya dimulai setelah kedua langkah tersebut berhasil.
+  - Jika percobaan ulang gagal, semua entri tetap tersedia.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi elisitasi kebutuhan 2026-11-14.
