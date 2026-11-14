@@ -1904,3 +1904,17 @@ Rentang tematik ini hanya alat navigasi. Setiap keputusan tetap dicatat satu kal
   - Copywriting, status permintaan, dan perilaku teknis percobaan ulang dirinci pada tahap desain UX/teknis.
 - **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
 
+## DEC-144: Permintaan penghapusan profil dapat dibatalkan sebelum eksekusi
+
+- **Tanggal:** 2026-11-14
+- **Status:** Accepted
+- **Keputusan:** Pengguna dapat membatalkan permintaan penghapusan profil gaya personal sebelum proses penghapusan memasuki tahap eksekusi. Pembatalan mempertahankan profil, versi historis, sampel, dan penetapan profil utama tanpa perubahan. Pekerjaan pengelolaan profil yang telah dibatalkan ketika permintaan penghapusan diajukan tetap berstatus dibatalkan dan tidak dilanjutkan otomatis; pengguna harus mengajukannya kembali. Setelah pembatalan diterima, sistem tidak boleh tetap menjalankan penghapusan di latar belakang.
+- **Alasan:** Pembatalan harus benar-benar mencegah penghapusan, bukan sekadar menutup dialog atau mengubah tampilan.
+- **Alternatif yang dipertimbangkan:** Mengizinkan pembatalan hanya sebelum konfirmasi; melanjutkan penghapusan di latar belakang setelah pengguna membatalkan.
+- **Dampak:**
+  - Pembatalan hanya tersedia sebelum tahap eksekusi penghapusan.
+  - Seluruh data profil dan penetapan profil utama tetap utuh.
+  - Pekerjaan pengelolaan profil yang telah dibatalkan tidak dilanjutkan otomatis.
+  - Batas tahap eksekusi dan mekanisme pembatalan harus didefinisikan pada desain teknis.
+- **Sumber/bukti:** Persetujuan eksplisit pemilik proyek dalam sesi brainstorming audit Humanizer 2026-11-14.
+
